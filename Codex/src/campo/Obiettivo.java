@@ -1,6 +1,6 @@
-package Campo;
+package campo;
 
-public class Angolo {
+public class Obiettivo {
 	public static void main(String args[]) {
 		
 	}

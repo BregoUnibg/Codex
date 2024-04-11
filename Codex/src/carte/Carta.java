@@ -1,6 +1,6 @@
-package Campo;
+package carte;
 
-public class Centro_campo {
+public class Carta {
 	public static void main(String args[]) {
 		
 	}

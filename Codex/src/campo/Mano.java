@@ -1,7 +1,8 @@
-package Campo;
+package campo;
 
-public class Giocatore {
+public class Mano {
 	public static void main(String args[]) {
 		
 	}
+
 }

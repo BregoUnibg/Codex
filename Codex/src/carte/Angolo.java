@@ -1,6 +1,6 @@
-package Campo;
+package carte;
 
-public class Mazzo {
+public class Angolo {
 	public static void main(String args[]) {
 		
 	}

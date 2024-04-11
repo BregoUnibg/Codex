@@ -1,4 +1,4 @@
-package Campo;
+package campo;
 
 public class Tabellone {
 	public static void main(String args[]) {

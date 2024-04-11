@@ -1,4 +1,4 @@
-package Campo;
+package campo;
 
 
 public class Main {
