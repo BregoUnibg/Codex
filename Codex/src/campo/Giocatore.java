@@ -4,7 +4,7 @@ public class Giocatore {
 	
 		//Attributi
 		private String nome;
-		int punti;
+		int punti;				//da togliere
 
 		//Costrutto
 		public Giocatore(String nome) {
@@ -19,11 +19,7 @@ public class Giocatore {
 			return nome;
 		}
 		
-		public String getPunti() {
-			return nome;
-		}
-		
 		public int calolaPunti() {
-			return punti;	
+			return punti;				//La scriveremeo in modo tale che li clacoli sul momento	
 		}
 }

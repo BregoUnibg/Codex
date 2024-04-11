@@ -18,15 +18,15 @@ public class Gioco {
 	public void inserisciGiocatore(String nome) {
 		
 		//Chiedo all'utente quando sono i giocatori 
-		System.out.println("giocatore: "+this.giocatori[1]+ " creato correttamente ");
+		System.out.println("Giocatore: "+this.giocatori[1]+ " creato correttamente ");
 		Ngiocatori=sc.nextInt();
 	;
 		for(int i=1; i<=Ngiocatori; i++)
 		{
 			if(this.giocatori[i]==null)
 			{
-				this.giocatori[0]=new Giocatore(nome);
-				System.out.println("giocatore: "+this.giocatori[0]+ " creato correttamente ");
+				this.giocatori[i]=new Giocatore(nome);
+				System.out.println("Giocatore: "+this.giocatori[i].getNome()+ " creato correttamente ");
 			}
 					
 		}
