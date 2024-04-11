@@ -2,11 +2,12 @@ package carte;
 
 public abstract class Carta {
 	
-	public Angolo top_left_angle;
-	public Angolo top_right_angle;
-	public Angolo bottom_left_angle;
-	public Angolo bottom_right_angle;
+	private Angolo top_left_angle;
+	private Angolo top_right_angle;
+	private Angolo bottom_left_angle;
+	private Angolo bottom_right_angle;
 	
+	private Colore colore;
 	
 	
 	//Getters & Setters autogenerati	
