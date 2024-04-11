@@ -20,7 +20,7 @@ public class Gioco {
 		//Chiedo all'utente quando sono i giocatori 
 		System.out.println("giocatore: "+this.giocatori[1]+ " creato correttamente ");
 		Ngiocatori=sc.nextInt();
-		
+	;
 		for(int i=1; i<=Ngiocatori; i++)
 		{
 			if(this.giocatori[i]==null)
