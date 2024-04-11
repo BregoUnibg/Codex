@@ -7,8 +7,22 @@ public abstract class Carta {
 	private Angolo bottom_left_angle;
 	private Angolo bottom_right_angle;
 	
-	private Colore colore;
+	private final Colore colore; 			//Servirà nel caso verrà implementata l'iterfaccia grafica 
 	
+	public Carta(Colore colore){
+		
+		this.colore = colore;		
+		
+	}
+	
+	public Carta(Colore colore, Angolo top_left_angle, Angolo top_right_angle, Angolo bottom_left_angle, Angolo bottom_right_angle){
+		
+		this.colore = colore;		
+		this.top_left_angle = top_left_angle;
+		this.top_right_angle = top_right_angle;
+		this.bottom_left_angle = bottom_left_angle;
+		this.bottom_right_angle = bottom_right_angle;
+	}
 	
 	//Getters & Setters autogenerati	
 	
