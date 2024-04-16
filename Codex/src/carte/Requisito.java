@@ -14,4 +14,7 @@ public class Requisito {
 	//questa classe estenderà delle sottoclassi con requisiti in particolare, quindi con un metodo
 	//personalizzato, in questo modo risco a istanziare comunqe delle carte con delle classe std.
 	
+	
+	
+	//CONSIGLIO DEL PROF: IMPLEMENTA L'INTERFACCIA 
 }

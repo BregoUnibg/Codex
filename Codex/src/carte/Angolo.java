@@ -17,7 +17,7 @@ public class Angolo {
 	}
 	
 	public Angolo getAngolo_sopra() {
-		return angolo_sopra;
+		return this.angolo_sopra;
 	}
 	
 	public void setAngolo_sopra(Angolo angolo_sopra) {
