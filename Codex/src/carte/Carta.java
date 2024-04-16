@@ -8,8 +8,14 @@ public abstract class Carta {
 	private Angolo bottom_right_angle;
 	
 	private final Colore colore; 			//Servirà nel caso verrà implementata l'iterfaccia grafica 
+	private int punti;
 	
 	public Carta(Colore colore){
+		
+		this.top_left_angle = null;
+		this.top_right_angle = null;
+		this.bottom_left_angle = null;
+		this.bottom_right_angle = null;
 		
 		this.colore = colore;		
 		
