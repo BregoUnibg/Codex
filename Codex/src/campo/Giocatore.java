@@ -20,6 +20,6 @@ public class Giocatore {
 		}
 		
 		public int calolaPunti() {
-			return punti;				//La scriveremeo in modo tale che li clacoli sul momento	
+			return punti;		//La scriveremeo in modo tale che li clacoli sul momento	
 		}
 }

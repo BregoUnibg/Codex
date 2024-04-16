@@ -18,7 +18,7 @@ public class Gioco {
 	public void inserisciGiocatore(String nome) {
 		
 		//Chiedo all'utente quando sono i giocatori 
-		System.out.println("Giocatore: "+this.giocatori[1]+ " creato correttamente ");
+		System.out.println("Quanti sono i giocatori? ");
 		Ngiocatori=sc.nextInt();
 	;
 		for(int i=1; i<=Ngiocatori; i++)
