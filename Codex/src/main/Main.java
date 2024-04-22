@@ -23,19 +23,20 @@ public class Main {
 		System.out.println(cd.getId());
 		*/
 		
-		Carta mano [] = new Carta [95]; //vettore temp
+		Carta mano [] = new Carta [95]; //vettore temp //1(sup esquerda) , 2(sup direita) , 3(inf esquerda) , 4 (inf direita)
 
 		//40 CARTE RISORSA
 		mano[0] = new C_risorsa(Colore.ROSSO, new Angolo(Figura.FUNGO), new Angolo(), new Angolo(Figura.FUNGO), new Angolo(false));
-		mano[1] = new C_risorsa(Colore.ROSSO, null, null, null, null);
-		mano[2] = new C_risorsa(Colore.ROSSO, null, null, null, null);
-		mano[3] = new C_risorsa(Colore.ROSSO, null, null, null, null);
-		mano[4] = new C_risorsa(Colore.ROSSO, null, null, null, null);
+		mano[1] = new C_risorsa(Colore.ROSSO, new Angolo(Figura.FUNGO), new Angolo(Figura.FUNGO), new Angolo(false),  new Angolo());
+		mano[2] = new C_risorsa(Colore.ROSSO, new Angolo(), new Angolo(false), new Angolo(Figura.FUNGO), new Angolo(Figura.FUNGO));
+		mano[3] = new C_risorsa(Colore.ROSSO, new Angolo(false), new Angolo(Figura.FUNGO), new Angolo(), new Angolo(Figura.FUNGO));
+		mano[4] = new C_risorsa(Colore.ROSSO, new Angolo(false), new Angolo(Figura.PIUMA), new Angolo(Figura.FOGLIA), new Angolo(Figura.FUNGO));
 		mano[5] = new C_risorsa(Colore.ROSSO, null, null, null, null);
+		
 		mano[6] = new C_risorsa(Colore.ROSSO, null, null, null, null);
 		mano[7] = new C_risorsa(Colore.ROSSO, 1, null, null, null, null);
-		mano[8] = new C_risorsa(Colore.ROSSO, 1, null, null, null, null);
-		mano[9] = new C_risorsa(Colore.ROSSO, 1, null, null, null, null);		
+		mano[8] = new C_risorsa(Colore.ROSSO, 1, new Angolo(), new Angolo(Figura.FUNGO), new Angolo(), new Angolo(false));
+		mano[9] = new C_risorsa(Colore.ROSSO, 1, new Angolo(Figura.FUNGO), new Angolo(false), new Angolo(), null);		
 
 		mano[10] = new C_risorsa(Colore.VERDE, null, null, null, null);
 		mano[11] = new C_risorsa(Colore.VERDE, null, null, null, null);
