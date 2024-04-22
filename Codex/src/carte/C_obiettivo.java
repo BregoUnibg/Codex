@@ -13,4 +13,11 @@ public class C_obiettivo extends Carta{
 		return this.obiettivo.soddisfatto();
 	}
 	
+	public int getPunti() {
+		if(soddisfatto())
+			return super.getPunti();
+		else
+			return 0;
+	}
+	
 }

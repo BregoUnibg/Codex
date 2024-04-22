@@ -3,28 +3,53 @@ package carte;
 public class Angolo {
 	
 	private final Figura figura;		//Una volta istanziata la carta essa rimane permanente;
-	private Angolo angolo_sopra;		//Si rifersice all'angolo della carta attaccata sopra
-	
+	private Angolo associato;		//Si rifersice all'angolo della carta attaccata sopra
+	private boolean scoperto;
+	private boolean assente;
 
 	public Angolo(){
 		this.figura = null;
-		this.angolo_sopra = null;
+		this.associato= null;
+		this.scoperto = true;
+		this.assente= false;
 	}
 	
 	public Angolo(Figura figura){
 		this.figura = figura;
-		this.angolo_sopra = null;
+		this.associato= null;
+		this.scoperto = true;
+		this.assente= false;
 	}
 	
-	public Angolo getAngolo_sopra() {
-		return this.angolo_sopra;
+	public Angolo(boolean assente) {
+		this.associato= null;
+		this.scoperto = false;
+		this.figura = null;
+		this.assente= assente;
 	}
 	
-	public void setAngolo_sopra(Angolo angolo_sopra) {
-		if(this.angolo_sopra == null)
-			this.angolo_sopra = angolo_sopra;
+	public Angolo getAngolo_associato() {
+		return this.associato;
+	}
+	
+	private void setAngolo_associato(Angolo associato) {
+			this.associato = associato;
+	}
+	
+	public void piazzaAngolo(Angolo angolo_sopra){
+		
+		if(assente){
+			associato = angolo_sopra;
+			angolo_sopra.setAngolo_associato(this);
+			this.scoperto = false;
+		}
+	}
+	
+	public Figura getFigura() {
+		if(scoperto)
+			return this.figura;
 		else
-			System.out.println("L'angolo di questa carta è gia coperto");
+			return null;
 	}
 	
 }

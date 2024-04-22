@@ -128,5 +128,9 @@ public abstract class Carta {
 	public int getId(){
 		return this.id;
 	}
+	
+	public int getPunti(){
+		return this.punti;
+	}
 }
 	

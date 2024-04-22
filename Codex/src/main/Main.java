@@ -23,10 +23,10 @@ public class Main {
 		System.out.println(cd.getId());
 		*/
 		
-		Carta mano [] = new Carta [95];
+		Carta mano [] = new Carta [95]; //vettore temp
 
 		//40 CARTE RISORSA
-		mano[0] = new C_risorsa(Colore.ROSSO, null, null, null, null);
+		mano[0] = new C_risorsa(Colore.ROSSO, new Angolo(Figura.FUNGO), new Angolo(), new Angolo(Figura.FUNGO), new Angolo(false));
 		mano[1] = new C_risorsa(Colore.ROSSO, null, null, null, null);
 		mano[2] = new C_risorsa(Colore.ROSSO, null, null, null, null);
 		mano[3] = new C_risorsa(Colore.ROSSO, null, null, null, null);
