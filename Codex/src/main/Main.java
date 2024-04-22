@@ -48,27 +48,27 @@ public class Main {
 		mano[18] = new C_risorsa(Colore.VERDE, 1, new Angolo(), new Angolo(), new Angolo(false), new Angolo(Figura.FOGLIA));
 		mano[19] = new C_risorsa(Colore.VERDE, 1, new Angolo(false), new Angolo(Figura.FOGLIA), new Angolo(), new Angolo());	
 
-		mano[20] = new C_risorsa(Colore.BLU, null, null, null, null);
-		mano[21] = new C_risorsa(Colore.BLU, null, null, null, null);
-		mano[22] = new C_risorsa(Colore.BLU, null, null, null, null);
-		mano[23] = new C_risorsa(Colore.BLU, null, null, null, null);
-		mano[24] = new C_risorsa(Colore.BLU, null, null, null, null);
-		mano[25] = new C_risorsa(Colore.BLU, null, null, null, null);
-		mano[26] = new C_risorsa(Colore.BLU, null, null, null, null);
-		mano[27] = new C_risorsa(Colore.BLU, 1, null, null, null, null);
-		mano[28] = new C_risorsa(Colore.BLU, 1, null, null, null, null);
-		mano[29] = new C_risorsa(Colore.BLU, 1, null, null, null, null);	
+		mano[20] = new C_risorsa(Colore.BLU, new Angolo(Figura.LUPO), new Angolo(Figura.LUPO), new Angolo(), new Angolo(false));
+		mano[21] = new C_risorsa(Colore.BLU, new Angolo(false), new Angolo(), new Angolo(Figura.LUPO), new Angolo(Figura.LUPO));
+		mano[22] = new C_risorsa(Colore.BLU, new Angolo(Figura.LUPO), new Angolo(false), new Angolo(Figura.LUPO), new Angolo());
+		mano[23] = new C_risorsa(Colore.BLU, new Angolo(), new Angolo(Figura.LUPO), new Angolo(false), new Angolo(Figura.LUPO));
+		mano[24] = new C_risorsa(Colore.BLU, new Angolo(false), new Angolo(Figura.FARFALLA), new Angolo(Figura.CIOTOLA), new Angolo(Figura.LUPO));
+		mano[25] = new C_risorsa(Colore.BLU, new Angolo(Figura.FOGLIA), new Angolo(Figura.LUPO), new Angolo(false), new Angolo(Figura.PERGAMENA));
+		mano[26] = new C_risorsa(Colore.BLU, new Angolo(Figura.PIUMA), new Angolo(false), new Angolo(Figura.LUPO), new Angolo(Figura.FUNGO));
+		mano[27] = new C_risorsa(Colore.BLU, 1, new Angolo(false), new Angolo(), new Angolo(Figura.LUPO), new Angolo());
+		mano[28] = new C_risorsa(Colore.BLU, 1, new Angolo(), new Angolo(false), new Angolo(), new Angolo(Figura.LUPO));
+		mano[29] = new C_risorsa(Colore.BLU, 1, new Angolo(), new Angolo(Figura.LUPO), new Angolo(), new Angolo(false));	
 
-		mano[30] = new C_risorsa(Colore.VIOLA, null, null, null, null);
-		mano[31] = new C_risorsa(Colore.VIOLA, null, null, null, null);
-		mano[32] = new C_risorsa(Colore.VIOLA, null, null, null, null);
-		mano[33] = new C_risorsa(Colore.VIOLA, null, null, null, null);
-		mano[34] = new C_risorsa(Colore.VIOLA, null, null, null, null);
-		mano[35] = new C_risorsa(Colore.VIOLA, null, null, null, null);
-		mano[36] = new C_risorsa(Colore.VIOLA, null, null, null, null);
-		mano[37] = new C_risorsa(Colore.VIOLA, 1, null, null, null, null);
-		mano[38] = new C_risorsa(Colore.VIOLA, 1, null, null, null, null);
-		mano[39] = new C_risorsa(Colore.VIOLA, 1, null, null, null, null);	
+		mano[30] = new C_risorsa(Colore.VIOLA, new Angolo(Figura.FARFALLA), new Angolo(Figura.FARFALLA), new Angolo(), new Angolo(false));
+		mano[31] = new C_risorsa(Colore.VIOLA, new Angolo(false), new Angolo(), new Angolo(Figura.FARFALLA), new Angolo(Figura.FARFALLA));
+		mano[32] = new C_risorsa(Colore.VIOLA, new Angolo(Figura.FARFALLA), new Angolo(false), new Angolo(Figura.FARFALLA), new Angolo());
+		mano[33] = new C_risorsa(Colore.VIOLA, new Angolo(), new Angolo(Figura.FARFALLA), new Angolo(false), new Angolo(Figura.FARFALLA));
+		mano[34] = new C_risorsa(Colore.VIOLA, new Angolo(false), new Angolo(Figura.PIUMA), new Angolo(Figura.LUPO), new Angolo(Figura.FARFALLA));
+		mano[35] = new C_risorsa(Colore.VIOLA, new Angolo(Figura.PERGAMENA), new Angolo(Figura.FARFALLA), new Angolo(false), new Angolo(Figura.FUNGO));
+		mano[36] = new C_risorsa(Colore.VIOLA, new Angolo(Figura.FARFALLA), new Angolo(Figura.FOGLIA), new Angolo(Figura.CIOTOLA), new Angolo(false));
+		mano[37] = new C_risorsa(Colore.VIOLA, 1, new Angolo(Figura.FARFALLA), new Angolo(false), new Angolo(), new Angolo());
+		mano[38] = new C_risorsa(Colore.VIOLA, 1, new Angolo(), new Angolo(), new Angolo(false), new Angolo(Figura.FARFALLA));
+		mano[39] = new C_risorsa(Colore.VIOLA, 1, new Angolo(false), new Angolo(Figura.FARFALLA), new Angolo(), new Angolo());	
 
 
 		//40 CARTE ORO
