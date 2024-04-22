@@ -23,7 +23,7 @@ public class Main {
 		System.out.println(cd.getId());
 		*/
 		
-		Carta mano [] = new Carta [95]; //vettore temp //1(sup esquerda) , 2(sup direita) , 3(inf esquerda) , 4 (inf direita)
+		Carta mano [] = new Carta [95]; //vettore temp //1(sup sinistra) , 2(sup destra) , 3(inf sinistra) , 4 (inf destra)
 
 		//40 CARTE RISORSA
 		mano[0] = new C_risorsa(Colore.ROSSO, new Angolo(Figura.FUNGO), new Angolo(), new Angolo(Figura.FUNGO), new Angolo(false));
@@ -31,23 +31,22 @@ public class Main {
 		mano[2] = new C_risorsa(Colore.ROSSO, new Angolo(), new Angolo(false), new Angolo(Figura.FUNGO), new Angolo(Figura.FUNGO));
 		mano[3] = new C_risorsa(Colore.ROSSO, new Angolo(false), new Angolo(Figura.FUNGO), new Angolo(), new Angolo(Figura.FUNGO));
 		mano[4] = new C_risorsa(Colore.ROSSO, new Angolo(false), new Angolo(Figura.PIUMA), new Angolo(Figura.FOGLIA), new Angolo(Figura.FUNGO));
-		mano[5] = new C_risorsa(Colore.ROSSO, null, null, null, null);
-		
-		mano[6] = new C_risorsa(Colore.ROSSO, null, null, null, null);
-		mano[7] = new C_risorsa(Colore.ROSSO, 1, null, null, null, null);
-		mano[8] = new C_risorsa(Colore.ROSSO, 1, new Angolo(), new Angolo(Figura.FUNGO), new Angolo(), new Angolo(false));
-		mano[9] = new C_risorsa(Colore.ROSSO, 1, new Angolo(Figura.FUNGO), new Angolo(false), new Angolo(), null);		
+		mano[5] = new C_risorsa(Colore.ROSSO, new Angolo(Figura.CIOTOLA), new Angolo(Figura.FUNGO), new Angolo(false), new Angolo(Figura.LUPO));	
+		mano[6] = new C_risorsa(Colore.ROSSO, new Angolo(Figura.FUNGO), new Angolo(Figura.FARFALLA), new Angolo(Figura.PERGAMENA), new Angolo());
+		mano[7] = new C_risorsa(Colore.ROSSO, 1, new Angolo(), new Angolo(Figura.FUNGO), new Angolo(), new Angolo(false));
+		mano[8] = new C_risorsa(Colore.ROSSO, 1, new Angolo(Figura.FUNGO), new Angolo(false), new Angolo(), new Angolo());
+		mano[9] = new C_risorsa(Colore.ROSSO, 1, new Angolo(false), new Angolo(), new Angolo(Figura.FUNGO), new Angolo());		
 
-		mano[10] = new C_risorsa(Colore.VERDE, null, null, null, null);
-		mano[11] = new C_risorsa(Colore.VERDE, null, null, null, null);
-		mano[12] = new C_risorsa(Colore.VERDE, null, null, null, null);
-		mano[13] = new C_risorsa(Colore.VERDE, null, null, null, null);
-		mano[14] = new C_risorsa(Colore.VERDE, null, null, null, null);
-		mano[15] = new C_risorsa(Colore.VERDE, null, null, null, null);
-		mano[16] = new C_risorsa(Colore.VERDE, null, null, null, null);
-		mano[17] = new C_risorsa(Colore.VERDE, 1, null, null, null, null);
-		mano[18] = new C_risorsa(Colore.VERDE, 1, null, null, null, null);
-		mano[19] = new C_risorsa(Colore.VERDE, 1, null, null, null, null);	
+		mano[10] = new C_risorsa(Colore.VERDE, new Angolo(Figura.FOGLIA), new Angolo(), new Angolo(Figura.FOGLIA), new Angolo(false));
+		mano[11] = new C_risorsa(Colore.VERDE, new Angolo(Figura.FOGLIA), new Angolo(Figura.FOGLIA), new Angolo(false), new Angolo());
+		mano[12] = new C_risorsa(Colore.VERDE, new Angolo(), new Angolo(false), new Angolo(Figura.FOGLIA), new Angolo(Figura.FOGLIA));
+		mano[13] = new C_risorsa(Colore.VERDE, new Angolo(false), new Angolo(Figura.FOGLIA), new Angolo(), new Angolo(Figura.FOGLIA));
+		mano[14] = new C_risorsa(Colore.VERDE, new Angolo(false), new Angolo(Figura.FARFALLA), new Angolo(Figura.PIUMA), new Angolo(Figura.FOGLIA));
+		mano[15] = new C_risorsa(Colore.VERDE, new Angolo(Figura.FUNGO), new Angolo(Figura.FOGLIA), new Angolo(false), new Angolo(Figura.CIOTOLA));
+		mano[16] = new C_risorsa(Colore.VERDE, new Angolo(Figura.PERGAMENA), new Angolo(false), new Angolo(Figura.FOGLIA), new Angolo(Figura.LUPO));
+		mano[17] = new C_risorsa(Colore.VERDE, 1, new Angolo(), new Angolo(), new Angolo(Figura.FOGLIA), new Angolo(false));
+		mano[18] = new C_risorsa(Colore.VERDE, 1, new Angolo(), new Angolo(), new Angolo(false), new Angolo(Figura.FOGLIA));
+		mano[19] = new C_risorsa(Colore.VERDE, 1, new Angolo(false), new Angolo(Figura.FOGLIA), new Angolo(), new Angolo());	
 
 		mano[20] = new C_risorsa(Colore.BLU, null, null, null, null);
 		mano[21] = new C_risorsa(Colore.BLU, null, null, null, null);
