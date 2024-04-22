@@ -88,6 +88,10 @@ public abstract class Carta {
 		}
 	}
 	
+	public Figura getFigura(){
+		return figura_centrale;
+	}
+	
 	//Getters & Setters Di tutti gli angoli
 	
 	public Angolo getTop_left_angle() {
@@ -117,13 +121,18 @@ public abstract class Carta {
 		this.bottom_right_angle = bottom_right_angle;
 	}
 	
-	public void set_all_angles_empty(){
+	public void setAllAnglesEmpty(){
 	
 		this.top_left_angle = new Angolo();
 		this.top_right_angle = new Angolo();
 		this.bottom_left_angle = new Angolo();
 		this.bottom_right_angle = new Angolo();
 	}	
+	
+	public void setBack(){		//la carta viene giocata sul retro
+		setAllAnglesEmpty();
+		this.punti = 0;
+	}
 	
 	public int getId(){
 		return this.id;

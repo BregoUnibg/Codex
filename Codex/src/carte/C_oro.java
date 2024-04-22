@@ -39,7 +39,10 @@ public class C_oro extends Carta{
 	}
 	
 	public boolean getPiazzamento() {
-		return this.piazzamento.soddisfatto();
+		if(this.obiettivo != null)
+			return this.piazzamento.soddisfatto();
+		else
+			return true;
 	}
 	
 	public int getPunti(){
@@ -47,5 +50,11 @@ public class C_oro extends Carta{
 			return super.getPunti();
 		else
 			return 0;
+	}
+	
+	public void setBack() {
+		super.setBack();
+		this.obiettivo = null;
+		this.piazzamento = null;
 	}
 }
