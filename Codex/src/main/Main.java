@@ -2,8 +2,6 @@ package main;
 
 import carte.*;
 
-import javax.swing.JFrame;
-
 import campo.*;
 
 public class Main {
@@ -26,7 +24,7 @@ public class Main {
 		System.out.println(cd.getId());
 		*/
 		
-		Carta carte [] = new Carta [96]; //vettore temp //1(sup sinistra) , 2(sup destra) , 3(inf sinistra) , 4 (inf destra)
+		Carta carte [] = new Carta [102]; //vettore temp //1(sup sinistra) , 2(sup destra) , 3(inf sinistra) , 4 (inf destra)
 
 		//40 CARTE RISORSA
 		carte[0] = new C_risorsa(Colore.ROSSO, new Angolo(Figura.FUNGO), new Angolo(), new Angolo(Figura.FUNGO), new Angolo(false));
@@ -119,25 +117,31 @@ public class Main {
 		carte[78] = new C_oro(Colore.VIOLA, new Requisito(), new Angolo(false), new Angolo(false), new Angolo(Figura.PIUMA), new Angolo());
 		carte[79] = new C_oro(Colore.VIOLA, new Requisito(), new Angolo(), new Angolo(), new Angolo(false), new Angolo(false));
 
-		//Nella numerazione delle carte prima delle obiettivo ci sono quelle iniziali 
+		//6 CARTE INIZIALI 
+		carte[80] = new C_iniziale(Figura.FARFALLA, null, null, new Angolo(), new Angolo(Figura.FOGLIA), new Angolo(Figura.FARFALLA), new Angolo(), new Angolo(Figura.FUNGO), new Angolo(Figura.FOGLIA), new Angolo(Figura.FARFALLA), new Angolo(Figura.LUPO));
+		carte[81] = new C_iniziale(Figura.FUNGO, null, null, new Angolo(Figura.LUPO), new Angolo(), new Angolo(), new Angolo(Figura.FUNGO), new Angolo(Figura.FOGLIA), new Angolo(Figura.LUPO), new Angolo(Figura.FUNGO), new Angolo(Figura.FARFALLA));
+		carte[82] = new C_iniziale(Figura.FOGLIA, Figura.FUNGO, null, new Angolo(), new Angolo(), new Angolo(), new Angolo(), new Angolo(Figura.FARFALLA), new Angolo(Figura.LUPO), new Angolo(Figura.FUNGO), new Angolo(Figura.FOGLIA));
+		carte[83] = new C_iniziale(Figura.LUPO, Figura.FARFALLA, null, new Angolo(), new Angolo(), new Angolo(), new Angolo(), new Angolo(Figura.FOGLIA), new Angolo(Figura.FARFALLA), new Angolo(Figura.LUPO), new Angolo(Figura.FUNGO));
+		carte[84] = new C_iniziale(Figura.LUPO, Figura.FARFALLA, Figura.FOGLIA, new Angolo(), new Angolo(), new Angolo(false), new Angolo(false), new Angolo(Figura.FARFALLA), new Angolo(Figura.FUNGO), new Angolo(Figura.FOGLIA), new Angolo(Figura.LUPO));
+		carte[85] = new C_iniziale(Figura.FOGLIA, Figura.LUPO, Figura.FUNGO, new Angolo(), new Angolo(), new Angolo(false), new Angolo(false), new Angolo(Figura.FUNGO), new Angolo(Figura.LUPO), new Angolo(Figura.FOGLIA), new Angolo(Figura.FARFALLA));
 		
 		//16 CARTE OBIETTIVO 
-		carte[80] = new C_obiettivo(Colore.GRIGIO, 2, new Requisito());
-		carte[81] = new C_obiettivo(Colore.GRIGIO, 2, new Requisito());
-		carte[82] = new C_obiettivo(Colore.GRIGIO, 2, new Requisito());
-		carte[83] = new C_obiettivo(Colore.GRIGIO, 2, new Requisito());
-		carte[84] = new C_obiettivo(Colore.GRIGIO, 3, new Requisito());
-		carte[85] = new C_obiettivo(Colore.GRIGIO, 3, new Requisito());
-		carte[86] = new C_obiettivo(Colore.GRIGIO, 3, new Requisito());
-		carte[87] = new C_obiettivo(Colore.GRIGIO, 3, new Requisito());
+		carte[86] = new C_obiettivo(Colore.GRIGIO, 2, new Requisito());
+		carte[87] = new C_obiettivo(Colore.GRIGIO, 2, new Requisito());
 		carte[88] = new C_obiettivo(Colore.GRIGIO, 2, new Requisito());
 		carte[89] = new C_obiettivo(Colore.GRIGIO, 2, new Requisito());
-		carte[90] = new C_obiettivo(Colore.GRIGIO, 2, new Requisito());
-		carte[91] = new C_obiettivo(Colore.GRIGIO, 2, new Requisito());
+		carte[90] = new C_obiettivo(Colore.GRIGIO, 3, new Requisito());
+		carte[91] = new C_obiettivo(Colore.GRIGIO, 3, new Requisito());
 		carte[92] = new C_obiettivo(Colore.GRIGIO, 3, new Requisito());
-		carte[93] = new C_obiettivo(Colore.GRIGIO, 2, new Requisito());
+		carte[93] = new C_obiettivo(Colore.GRIGIO, 3, new Requisito());
 		carte[94] = new C_obiettivo(Colore.GRIGIO, 2, new Requisito());
 		carte[95] = new C_obiettivo(Colore.GRIGIO, 2, new Requisito());
+		carte[96] = new C_obiettivo(Colore.GRIGIO, 2, new Requisito());
+		carte[97] = new C_obiettivo(Colore.GRIGIO, 2, new Requisito());
+		carte[98] = new C_obiettivo(Colore.GRIGIO, 3, new Requisito());
+		carte[99] = new C_obiettivo(Colore.GRIGIO, 2, new Requisito());
+		carte[100] = new C_obiettivo(Colore.GRIGIO, 2, new Requisito());
+		carte[101] = new C_obiettivo(Colore.GRIGIO, 2, new Requisito());
 		
 		System.out.println(carte[0].getId());
 		System.out.println(carte[1].getId());
