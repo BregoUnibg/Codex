@@ -1,6 +1,9 @@
 package main;
 
 import carte.*;
+
+import javax.swing.JFrame;
+
 import campo.*;
 
 public class Main {
@@ -23,7 +26,7 @@ public class Main {
 		System.out.println(cd.getId());
 		*/
 		
-		Carta carte [] = new Carta [95]; //vettore temp //1(sup sinistra) , 2(sup destra) , 3(inf sinistra) , 4 (inf destra)
+		Carta carte [] = new Carta [96]; //vettore temp //1(sup sinistra) , 2(sup destra) , 3(inf sinistra) , 4 (inf destra)
 
 		//40 CARTE RISORSA
 		carte[0] = new C_risorsa(Colore.ROSSO, new Angolo(Figura.FUNGO), new Angolo(), new Angolo(Figura.FUNGO), new Angolo(false));

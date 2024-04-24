@@ -33,14 +33,12 @@ public class C_iniziale extends Carta{
 		return this.figure;
 	}
 	
-	public void setFront(){
-		this.figure.clear();
-	}
 	
 	public void setBack() {
 		super.setTop_left_angle(back_top_left_angle);
 		super.setTop_right_angle(back_top_right_angle);
 		super.setBottom_left_angle(back_bottom_left_angle);
 		super.setBottom_right_angle(back_bottom_right_angle);
+		this.figure.clear();
 	}
 }
