@@ -26,7 +26,7 @@ public class Main {
 		
 		Carta carte [] = new Carta [102]; //vettore temp //1(sup sinistra) , 2(sup destra) , 3(inf sinistra) , 4 (inf destra)
 
-		//40 CARTE RISORSA
+		//40 CARTE RISORSA 
 		carte[0] = new C_risorsa(Colore.ROSSO, new Angolo(Figura.FUNGO), new Angolo(), new Angolo(Figura.FUNGO), new Angolo(false));
 		carte[1] = new C_risorsa(Colore.ROSSO, new Angolo(Figura.FUNGO), new Angolo(Figura.FUNGO), new Angolo(false),  new Angolo());
 		carte[2] = new C_risorsa(Colore.ROSSO, new Angolo(), new Angolo(false), new Angolo(Figura.FUNGO), new Angolo(Figura.FUNGO));
