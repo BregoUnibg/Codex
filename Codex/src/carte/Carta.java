@@ -21,6 +21,7 @@ public abstract class Carta {
 		this.top_right_angle = null;
 		this.bottom_left_angle = null;
 		this.bottom_right_angle = null;
+		this.figura_centrale = null;
 		
 		this.id = Carta.id_iniziale;
 		Carta.id_iniziale ++;
@@ -28,7 +29,6 @@ public abstract class Carta {
 		this.punti = punti;
 		this.colore = colore;
 		
-		selezione_figura();
 		
 	}
 	
@@ -39,14 +39,13 @@ public abstract class Carta {
 		this.top_right_angle = top_right_angle;
 		this.bottom_left_angle = bottom_left_angle;
 		this.bottom_right_angle = bottom_right_angle;
-		
+		this.figura_centrale = null;
 
 		this.id = Carta.id_iniziale;
 		Carta.id_iniziale ++;
 		
 		this.punti = 0;
 		
-		selezione_figura();
 		
 	}
 
@@ -57,14 +56,14 @@ public abstract class Carta {
 		this.top_right_angle = top_right_angle;
 		this.bottom_left_angle = bottom_left_angle;
 		this.bottom_right_angle = bottom_right_angle;
-		
+		this.figura_centrale = null;
 
 		this.id = Carta.id_iniziale;
 		Carta.id_iniziale ++;
 		
 		this.punti = punti;
 		
-		selezione_figura();
+		
 		
 	}
 	
@@ -131,6 +130,7 @@ public abstract class Carta {
 	
 	public void setBack(){		//la carta viene giocata sul retro
 		setAllAnglesEmpty();
+		selezione_figura();
 		this.punti = 0;
 	}
 	

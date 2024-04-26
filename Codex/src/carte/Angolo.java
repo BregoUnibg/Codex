@@ -38,7 +38,7 @@ public class Angolo {
 	
 	public boolean piazzaAngolo(Angolo angolo_sopra){
 		
-		if((!assente)&&scoperto){
+		if(piazzabile()){
 			associato = angolo_sopra;
 			angolo_sopra.setAngolo_associato(this);
 			this.scoperto = false;
@@ -46,6 +46,10 @@ public class Angolo {
 		}
 		
 		return false;
+	}
+	
+	public boolean piazzabile(){
+		return (!assente)&&scoperto&&(associato==null);
 	}
 	
 	public Figura getFigura() {

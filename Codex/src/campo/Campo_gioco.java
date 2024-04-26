@@ -97,7 +97,7 @@ public class Campo_gioco {
 			Angolo sotto = getAngoloPosizione(cartaSotto, angoloSotto);
 			Angolo sopra = getAngoloPosizione(cartaSopra, angoloSopra);
 			
-			if(sotto.piazzaAngolo(sopra)){
+			if(sotto.piazzabile()){
 				
 				String coordSotto = getCoordinate(cartaSotto);
 				
@@ -107,30 +107,72 @@ public class Campo_gioco {
 				switch(angoloSotto){
 					
 					case "tl":
-						campo[x-1][y+1] = cartaSopra;
+						campo[--x][++y] = cartaSopra;
 						break;
 						
 					case "tr":
-						campo[x+1][y+1] = cartaSopra;
+						campo[++x][++y] = cartaSopra;
 						break;
 						
 					case "bl":
-						campo[x-1][y-1] = cartaSopra;
+						campo[--x][--y] = cartaSopra;
 						break;
 						
 					case "br":
-						campo[x+1][y-1] = cartaSopra;
+						campo[++x][--y] = cartaSopra;
 						break;	
 						
 				}
 				
-				decrementaFigura(sotto.getFigura());
 				
-				incrementaFigura(cartaSopra.getFigura());
-				incrementaFigura(cartaSopra.getTop_right_angle().getFigura());
-				incrementaFigura(cartaSopra.getTop_left_angle().getFigura());
-				incrementaFigura(cartaSopra.getBottom_right_angle().getFigura());
-				incrementaFigura(cartaSopra.getBottom_left_angle().getFigura());
+				
+				//Copro i possibili angoli coivolti nelle vicinanze
+				//In teoria, per come funziona il meccanismo di disposizione non dovreebbero esserci anomalie
+				//Il nome delle 4 variabili seguenti (Tr, Br, ecc..) si riferiscono all'angolo rispetto alla carta da piazzare, in contenuto è l'angolo della carta coinvolta
+									
+				Angolo angoloCoinvoltoTr = campo[x+1][y+1].getBottom_left_angle();
+				Angolo angoloCoinvoltoBr = campo[x+1][y-1].getTop_left_angle();
+				Angolo angoloCoinvoltoBl = campo[x-1][y-1].getTop_right_angle();
+				Angolo angoloCoinvoltoTl = campo[x-1][y+1].getBottom_right_angle();
+				
+				//Mi serve principallmente per sapere se ci sono angoli "assenti" piuttosto che coperti
+				
+				if(
+						angoloCoinvoltoTr.piazzabile() &&
+						angoloCoinvoltoBr.piazzabile() &&
+						angoloCoinvoltoBl.piazzabile() &&
+						angoloCoinvoltoTl.piazzabile()
+						
+						){
+					
+				
+							angoloCoinvoltoTr.piazzaAngolo(cartaSopra.getTop_right_angle());
+							decrementaFigura(angoloCoinvoltoTr.getFigura());
+							
+							angoloCoinvoltoBr.piazzaAngolo(cartaSopra.getBottom_right_angle());
+							decrementaFigura(angoloCoinvoltoBr.getFigura());
+							
+			
+							angoloCoinvoltoBl.piazzaAngolo(cartaSopra.getBottom_left_angle());
+							decrementaFigura(angoloCoinvoltoBl.getFigura());
+							
+			
+							angoloCoinvoltoBr.piazzaAngolo(cartaSopra.getTop_left_angle());
+							decrementaFigura(angoloCoinvoltoBr.getFigura());
+							
+							
+							
+							incrementaFigura(cartaSopra.getFigura());
+							incrementaFigura(cartaSopra.getTop_right_angle().getFigura());
+							incrementaFigura(cartaSopra.getTop_left_angle().getFigura());
+							incrementaFigura(cartaSopra.getBottom_right_angle().getFigura());
+							incrementaFigura(cartaSopra.getBottom_left_angle().getFigura());
+							
+				}
+				else {
+					campo[x][y] = null;
+					return false;
+				}
 				
 				return true;
 				
@@ -140,6 +182,7 @@ public class Campo_gioco {
 		return false;
 		
 	}
+	
 	
 	public void incrementaFigura(Figura f) {
 		
