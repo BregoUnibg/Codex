@@ -46,11 +46,25 @@ public class Campo_gioco {
 		
 	}
 	
+	/**
+	 * Posiziona la carta iniziale al centro del campo da gioco
+	 * @param c
+	 */
+	
 	public void piazzaCartaIniziale(C_iniziale c){
 		
 		int centro = (dimCampo-1)/2+1;
 		
 		campo[centro][centro] = c;
+		
+		for(Figura f: c.getFigure()){
+			incrementaFigura(f);
+		}
+		
+		incrementaFigura(c.getTop_right_angle().getFigura());
+		incrementaFigura(c.getTop_left_angle().getFigura());
+		incrementaFigura(c.getBottom_right_angle().getFigura());
+		incrementaFigura(c.getBottom_left_angle().getFigura());
 		
 	}
 	
