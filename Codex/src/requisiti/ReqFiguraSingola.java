@@ -19,48 +19,44 @@ public class ReqFiguraSingola implements Requisito{
 	@Override
 	public boolean soddisfatto(Campo_gioco c) {
 		
-		int conta;
-		
-		switch(figura){
-		
-		case FARFALLA:
-			conta = c.getContaFarfalla();
-			break;
-			
-		case FUNGO:
-			conta = c.getContaFungo();
-			break;
-		
-		case LUPO:
-			conta = c.getContaLupo();
-			break;
-		
-		case FOGLIA:
-			conta = c.getContaFoglia();
-			break;
-			
-		case PERGAMENA:
-			conta = c.getContaPergamena();
-			break;
-		
-		case PIUMA:
-			conta = c.getContaPiuma();
-			break;
-			
-		case CIOTOLA:
-			conta = c.getContaCiotola();
-			break;
-		
-		default:
-			return false;
-		}
-		
+		int conta = getContatoreFigura(figura, c);
+				
 		if(conta>=numFigure)
 			return true;
 		
 		return false;
 	}
 	
+	protected static int getContatoreFigura(Figura figura, Campo_gioco c) {
+		
+		switch(figura){
+		
+		case FARFALLA:
+			return c.getContaFarfalla();
+			
+		case FUNGO:
+			return c.getContaFungo();
+		
+		case LUPO:
+			return c.getContaLupo();
+		
+		case FOGLIA:
+			return c.getContaFoglia();
+			
+		case PERGAMENA:
+			return c.getContaPergamena();
+		
+		case PIUMA:
+			return c.getContaPiuma();
+			
+		case CIOTOLA:
+			return c.getContaCiotola();
+		
+		default:
+			return 0;
+		}
+		
+	}
 	
 
 }
