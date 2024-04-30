@@ -11,7 +11,7 @@ public class ReqFiguraDoppia implements Requisito{
 	private Figura figura2;
 	private int numFigure2;
 	
-	ReqFiguraDoppia(Figura figura1, int numFigure1, Figura figura2, int numFigure2){
+	public ReqFiguraDoppia(Figura figura1, int numFigure1, Figura figura2, int numFigure2){
 		
 		this.figura1 = figura1;
 		this.numFigure1 = numFigure1;

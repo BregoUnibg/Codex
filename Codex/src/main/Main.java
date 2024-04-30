@@ -1,6 +1,7 @@
 package main;
 
 import carte.*;
+import requisiti.*;
 import requisiti.Requisito;
 import campo.*;
 
@@ -73,49 +74,49 @@ public class Main {
 
 
 		//40 CARTE ORO
-		carte[40] = new C_oro(Colore.ROSSO, new Requisito(), new Angolo(false), new Angolo(), new Angolo(), new Angolo(Figura.PIUMA));
-		carte[41] = new C_oro(Colore.ROSSO, new Requisito(), new Angolo(), new Angolo(Figura.CIOTOLA), new Angolo(false), new Angolo());
-		carte[42] = new C_oro(Colore.ROSSO, new Requisito(), new Angolo(Figura.PERGAMENA), new Angolo(), new Angolo(), new Angolo(false));
-		carte[43] = new C_oro(Colore.ROSSO, new Requisito(), new Angolo(), new Angolo(), new Angolo(false), new Angolo());
-		carte[44] = new C_oro(Colore.ROSSO, new Requisito(), new Angolo(), new Angolo(), new Angolo(), new Angolo(false));
-		carte[45] = new C_oro(Colore.ROSSO, new Requisito(), new Angolo(), new Angolo(false), new Angolo(), new Angolo());
-		carte[46] = new C_oro(Colore.ROSSO, new Requisito(), new Angolo(), new Angolo(false), new Angolo(Figura.CIOTOLA), new Angolo(false));
-		carte[47] = new C_oro(Colore.ROSSO, new Requisito(), new Angolo(Figura.PIUMA), new Angolo(), new Angolo(false), new Angolo(false));
-		carte[48] = new C_oro(Colore.ROSSO, new Requisito(), new Angolo(false), new Angolo(Figura.PERGAMENA), new Angolo(false), new Angolo());
-		carte[49] = new C_oro(Colore.ROSSO, new Requisito(), new Angolo(), new Angolo(false), new Angolo(), new Angolo(false));		
+		carte[40] = new C_oro(Colore.ROSSO, new ReqFiguraDoppia(Figura.FUNGO,2,Figura.LUPO,1), new Angolo(false), new Angolo(), new Angolo(), new Angolo(Figura.PIUMA));
+		carte[41] = new C_oro(Colore.ROSSO, new ReqFiguraDoppia(Figura.FUNGO,2,Figura.FOGLIA,1), new Angolo(), new Angolo(Figura.CIOTOLA), new Angolo(false), new Angolo());
+		carte[42] = new C_oro(Colore.ROSSO, new ReqFiguraDoppia(Figura.FUNGO,2,Figura.FARFALLA,1), new Angolo(Figura.PERGAMENA), new Angolo(), new Angolo(), new Angolo(false));
+		carte[43] = new C_oro(Colore.ROSSO, new ReqFiguraDoppia(Figura.FUNGO,3,Figura.LUPO,1), new Angolo(), new Angolo(), new Angolo(false), new Angolo());
+		carte[44] = new C_oro(Colore.ROSSO, new ReqFiguraDoppia(Figura.FUNGO,3,Figura.FOGLIA,1), new Angolo(), new Angolo(), new Angolo(), new Angolo(false));
+		carte[45] = new C_oro(Colore.ROSSO, new ReqFiguraDoppia(Figura.FUNGO,3,Figura.FARFALLA,1), new Angolo(), new Angolo(false), new Angolo(), new Angolo());
+		carte[46] = new C_oro(Colore.ROSSO, new ReqFiguraSingola(Figura.FUNGO,3), new Angolo(), new Angolo(false), new Angolo(Figura.CIOTOLA), new Angolo(false));
+		carte[47] = new C_oro(Colore.ROSSO, new ReqFiguraSingola(Figura.FUNGO,3), new Angolo(Figura.PIUMA), new Angolo(), new Angolo(false), new Angolo(false));
+		carte[48] = new C_oro(Colore.ROSSO, new ReqFiguraSingola(Figura.FUNGO,3), new Angolo(false), new Angolo(Figura.PERGAMENA), new Angolo(false), new Angolo());
+		carte[49] = new C_oro(Colore.ROSSO, new ReqFiguraSingola(Figura.FUNGO,5), new Angolo(), new Angolo(false), new Angolo(), new Angolo(false));		
 
-		carte[50] = new C_oro(Colore.VERDE, new Requisito(), new Angolo(Figura.PIUMA), new Angolo(), new Angolo(), new Angolo(false));
-		carte[51] = new C_oro(Colore.VERDE, new Requisito(), new Angolo(), new Angolo(Figura.PERGAMENA), new Angolo(false), new Angolo());
-		carte[52] = new C_oro(Colore.VERDE, new Requisito(), new Angolo(), new Angolo(false), new Angolo(Figura.CIOTOLA), new Angolo());
-		carte[53] = new C_oro(Colore.VERDE, new Requisito(), new Angolo(false), new Angolo(), new Angolo(), new Angolo());
-		carte[54] = new C_oro(Colore.VERDE, new Requisito(), new Angolo(), new Angolo(), new Angolo(), new Angolo(false));
-		carte[55] = new C_oro(Colore.VERDE, new Requisito(), new Angolo(), new Angolo(false), new Angolo(), new Angolo());
-		carte[56] = new C_oro(Colore.VERDE, new Requisito(), new Angolo(), new Angolo(false), new Angolo(Figura.PIUMA), new Angolo(false));
-		carte[57] = new C_oro(Colore.VERDE, new Requisito(), new Angolo(Figura.PERGAMENA), new Angolo(), new Angolo(false), new Angolo(false));
-		carte[58] = new C_oro(Colore.VERDE, new Requisito(), new Angolo(false), new Angolo(Figura.CIOTOLA), new Angolo(false), new Angolo());
-		carte[59] = new C_oro(Colore.VERDE, new Requisito(), new Angolo(), new Angolo(), new Angolo(false), new Angolo(false));	
+		carte[50] = new C_oro(Colore.VERDE, new ReqFiguraDoppia(Figura.FOGLIA,2,Figura.FARFALLA,1), new Angolo(Figura.PIUMA), new Angolo(), new Angolo(), new Angolo(false));
+		carte[51] = new C_oro(Colore.VERDE, new ReqFiguraDoppia(Figura.FOGLIA,2,Figura.FUNGO,1), new Angolo(), new Angolo(Figura.PERGAMENA), new Angolo(false), new Angolo());
+		carte[52] = new C_oro(Colore.VERDE, new ReqFiguraDoppia(Figura.FOGLIA,2,Figura.LUPO,1), new Angolo(), new Angolo(false), new Angolo(Figura.CIOTOLA), new Angolo());
+		carte[53] = new C_oro(Colore.VERDE, new ReqFiguraDoppia(Figura.FOGLIA,3,Figura.FARFALLA,1), new Angolo(false), new Angolo(), new Angolo(), new Angolo());
+		carte[54] = new C_oro(Colore.VERDE, new ReqFiguraDoppia(Figura.FOGLIA,3,Figura.LUPO,1), new Angolo(), new Angolo(), new Angolo(), new Angolo(false));
+		carte[55] = new C_oro(Colore.VERDE, new ReqFiguraDoppia(Figura.FOGLIA,3,Figura.FUNGO,1), new Angolo(), new Angolo(false), new Angolo(), new Angolo());
+		carte[56] = new C_oro(Colore.VERDE, new ReqFiguraSingola(Figura.FOGLIA,3), new Angolo(), new Angolo(false), new Angolo(Figura.PIUMA), new Angolo(false));
+		carte[57] = new C_oro(Colore.VERDE, new ReqFiguraSingola(Figura.FOGLIA,3), new Angolo(Figura.PERGAMENA), new Angolo(), new Angolo(false), new Angolo(false));
+		carte[58] = new C_oro(Colore.VERDE, new ReqFiguraSingola(Figura.FOGLIA,3), new Angolo(false), new Angolo(Figura.CIOTOLA), new Angolo(false), new Angolo());
+		carte[59] = new C_oro(Colore.VERDE, new ReqFiguraSingola(Figura.FOGLIA,5), new Angolo(), new Angolo(), new Angolo(false), new Angolo(false));	
 
-		carte[60] = new C_oro(Colore.BLU, new Requisito(), new Angolo(Figura.CIOTOLA), new Angolo(), new Angolo(), new Angolo(false));
-		carte[61] = new C_oro(Colore.BLU, new Requisito(), new Angolo(false), new Angolo(), new Angolo(), new Angolo(Figura.PERGAMENA));
-		carte[62] = new C_oro(Colore.BLU, new Requisito(), new Angolo(), new Angolo(false), new Angolo(Figura.PIUMA), new Angolo());
-		carte[63] = new C_oro(Colore.BLU, new Requisito(), new Angolo(), new Angolo(), new Angolo(false), new Angolo());
-		carte[64] = new C_oro(Colore.BLU, new Requisito(), new Angolo(), new Angolo(false), new Angolo(), new Angolo());
-		carte[65] = new C_oro(Colore.BLU, new Requisito(), new Angolo(false), new Angolo(), new Angolo(), new Angolo());
-		carte[66] = new C_oro(Colore.BLU, new Requisito(), new Angolo(), new Angolo(false), new Angolo(Figura.PERGAMENA), new Angolo(false));
-		carte[67] = new C_oro(Colore.BLU, new Requisito(), new Angolo(), new Angolo(Figura.CIOTOLA), new Angolo(false), new Angolo(false));
-		carte[68] = new C_oro(Colore.BLU, new Requisito(), new Angolo(false), new Angolo(), new Angolo(false), new Angolo(Figura.PIUMA));
-		carte[69] = new C_oro(Colore.BLU, new Requisito(), new Angolo(false), new Angolo(), new Angolo(false), new Angolo());
+		carte[60] = new C_oro(Colore.BLU, new ReqFiguraDoppia(Figura.LUPO,2,Figura.FARFALLA,1), new Angolo(Figura.CIOTOLA), new Angolo(), new Angolo(), new Angolo(false));
+		carte[61] = new C_oro(Colore.BLU, new ReqFiguraDoppia(Figura.LUPO,2,Figura.FOGLIA,1), new Angolo(false), new Angolo(), new Angolo(), new Angolo(Figura.PERGAMENA));
+		carte[62] = new C_oro(Colore.BLU, new ReqFiguraDoppia(Figura.LUPO,2,Figura.FUNGO,1), new Angolo(), new Angolo(false), new Angolo(Figura.PIUMA), new Angolo());
+		carte[63] = new C_oro(Colore.BLU, new ReqFiguraDoppia(Figura.LUPO,3,Figura.FARFALLA,1), new Angolo(), new Angolo(), new Angolo(false), new Angolo());
+		carte[64] = new C_oro(Colore.BLU, new ReqFiguraDoppia(Figura.LUPO,3,Figura.FUNGO,1), new Angolo(), new Angolo(false), new Angolo(), new Angolo());
+		carte[65] = new C_oro(Colore.BLU, new ReqFiguraDoppia(Figura.LUPO,3,Figura.FOGLIA,1), new Angolo(false), new Angolo(), new Angolo(), new Angolo());
+		carte[66] = new C_oro(Colore.BLU, new ReqFiguraSingola(Figura.LUPO,3), new Angolo(), new Angolo(false), new Angolo(Figura.PERGAMENA), new Angolo(false));
+		carte[67] = new C_oro(Colore.BLU, new ReqFiguraSingola(Figura.LUPO,3), new Angolo(), new Angolo(Figura.CIOTOLA), new Angolo(false), new Angolo(false));
+		carte[68] = new C_oro(Colore.BLU, new ReqFiguraSingola(Figura.LUPO,3), new Angolo(false), new Angolo(), new Angolo(false), new Angolo(Figura.PIUMA));
+		carte[69] = new C_oro(Colore.BLU, new ReqFiguraSingola(Figura.LUPO,5), new Angolo(false), new Angolo(), new Angolo(false), new Angolo());
 
-		carte[70] = new C_oro(Colore.VIOLA, new Requisito(), new Angolo(), new Angolo(Figura.PIUMA), new Angolo(false), new Angolo());
-		carte[71] = new C_oro(Colore.VIOLA, new Requisito(), new Angolo(), new Angolo(false), new Angolo(Figura.PERGAMENA), new Angolo());
-		carte[72] = new C_oro(Colore.VIOLA, new Requisito(), new Angolo(false), new Angolo(), new Angolo(), new Angolo(Figura.CIOTOLA));
-		carte[73] = new C_oro(Colore.VIOLA, new Requisito(), new Angolo(), new Angolo(), new Angolo(false), new Angolo());
-		carte[74] = new C_oro(Colore.VIOLA, new Requisito(), new Angolo(), new Angolo(), new Angolo(), new Angolo(false));
-		carte[75] = new C_oro(Colore.VIOLA, new Requisito(), new Angolo(), new Angolo(false), new Angolo(), new Angolo());
-		carte[76] = new C_oro(Colore.VIOLA, new Requisito(), new Angolo(Figura.CIOTOLA), new Angolo(false), new Angolo(), new Angolo(false));
-		carte[77] = new C_oro(Colore.VIOLA, new Requisito(), new Angolo(), new Angolo(Figura.PERGAMENA), new Angolo(false), new Angolo(false));
-		carte[78] = new C_oro(Colore.VIOLA, new Requisito(), new Angolo(false), new Angolo(false), new Angolo(Figura.PIUMA), new Angolo());
-		carte[79] = new C_oro(Colore.VIOLA, new Requisito(), new Angolo(), new Angolo(), new Angolo(false), new Angolo(false));
+		carte[70] = new C_oro(Colore.VIOLA, new ReqFiguraDoppia(Figura.FARFALLA,2,Figura.FOGLIA,1), new Angolo(), new Angolo(Figura.PIUMA), new Angolo(false), new Angolo());
+		carte[71] = new C_oro(Colore.VIOLA, new ReqFiguraDoppia(Figura.FARFALLA,2,Figura.LUPO,1), new Angolo(), new Angolo(false), new Angolo(Figura.PERGAMENA), new Angolo());
+		carte[72] = new C_oro(Colore.VIOLA, new ReqFiguraDoppia(Figura.FARFALLA,2,Figura.FUNGO,1), new Angolo(false), new Angolo(), new Angolo(), new Angolo(Figura.CIOTOLA));
+		carte[73] = new C_oro(Colore.VIOLA, new ReqFiguraDoppia(Figura.FARFALLA,3,Figura.LUPO,1), new Angolo(), new Angolo(), new Angolo(false), new Angolo());
+		carte[74] = new C_oro(Colore.VIOLA, new ReqFiguraDoppia(Figura.FARFALLA,3,Figura.FOGLIA,1), new Angolo(), new Angolo(), new Angolo(), new Angolo(false));
+		carte[75] = new C_oro(Colore.VIOLA, new ReqFiguraDoppia(Figura.FARFALLA,3,Figura.FUNGO,1), new Angolo(), new Angolo(false), new Angolo(), new Angolo());
+		carte[76] = new C_oro(Colore.VIOLA, new ReqFiguraSingola(Figura.FARFALLA,3), new Angolo(Figura.CIOTOLA), new Angolo(false), new Angolo(), new Angolo(false));
+		carte[77] = new C_oro(Colore.VIOLA, new ReqFiguraSingola(Figura.FARFALLA,3), new Angolo(), new Angolo(Figura.PERGAMENA), new Angolo(false), new Angolo(false));
+		carte[78] = new C_oro(Colore.VIOLA, new ReqFiguraSingola(Figura.FARFALLA,3), new Angolo(false), new Angolo(false), new Angolo(Figura.PIUMA), new Angolo());
+		carte[79] = new C_oro(Colore.VIOLA, new ReqFiguraSingola(Figura.FARFALLA,5), new Angolo(), new Angolo(), new Angolo(false), new Angolo(false));
 
 		//6 CARTE INIZIALI 
 		carte[80] = new C_iniziale(Figura.FARFALLA, null, null, new Angolo(), new Angolo(Figura.FOGLIA), new Angolo(Figura.FARFALLA), new Angolo(), new Angolo(Figura.FUNGO), new Angolo(Figura.FOGLIA), new Angolo(Figura.FARFALLA), new Angolo(Figura.LUPO));
