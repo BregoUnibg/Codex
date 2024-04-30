@@ -129,37 +129,80 @@ public class Campo_gioco {
 				//Copro i possibili angoli coivolti nelle vicinanze
 				//In teoria, per come funziona il meccanismo di disposizione non dovreebbero esserci anomalie
 				//Il nome delle 4 variabili seguenti (Tr, Br, ecc..) si riferiscono all'angolo rispetto alla carta da piazzare, in contenuto è l'angolo della carta coinvolta
-									
-				Angolo angoloCoinvoltoTr = campo[x+1][y+1].getBottom_left_angle();
-				Angolo angoloCoinvoltoBr = campo[x+1][y-1].getTop_left_angle();
-				Angolo angoloCoinvoltoBl = campo[x-1][y-1].getTop_right_angle();
-				Angolo angoloCoinvoltoTl = campo[x-1][y+1].getBottom_right_angle();
 				
+				
+				//Per ogni ipotetica carta devo controllare la sua esistenza efettiva, 
+				//Utilizzo otto variabili booleane 
+				//le quattro iniziali indicano solamente l'eistenza della carta nella posizione calcolata
+				//successivamente le altre quattro andranno ad indicara la piazzabilità della carta nella determinata posizione
+				
+				Boolean esisteCartaCoinvoltaTr = (campo[x+1][y+1] != null);
+				Boolean esisteCartaCoinvoltaBr = (campo[x+1][y-1] != null);
+				Boolean esisteCartaCoinvoltaBl = (campo[x-1][y-1] != null);
+				Boolean esisteCartaCoinvoltaTl = (campo[x-1][y+1] != null);
+				
+				//Controllo che posso effetivamente sovrapporre su eventuali angoli
+				Boolean piazzabileCartaCoinvoltaTr = true;
+				Boolean piazzabileCartaCoinvoltaBr = true;
+				Boolean piazzabileCartaCoinvoltaBl = true;
+				Boolean piazzabileCartaCoinvoltaTl = true;
+				
+				Angolo angoloCoinvoltoTr = null;
+				Angolo angoloCoinvoltoBr = null;
+				Angolo angoloCoinvoltoBl = null;
+				Angolo angoloCoinvoltoTl = null;
+				
+				if(esisteCartaCoinvoltaTr) {
+					angoloCoinvoltoTr = campo[x+1][y+1].getBottom_left_angle();
+					if(!angoloCoinvoltoTr.piazzabile())
+						piazzabileCartaCoinvoltaTr = false;
+				}
+				
+				if(esisteCartaCoinvoltaBr) {
+					angoloCoinvoltoBr = campo[x+1][y-1].getTop_left_angle();
+					if(!angoloCoinvoltoBr.piazzabile())
+						piazzabileCartaCoinvoltaBr = false;
+				}
+				
+				if(esisteCartaCoinvoltaBl) {
+					angoloCoinvoltoBl = campo[x-1][y-1].getTop_right_angle();
+					if(!angoloCoinvoltoBl.piazzabile())
+						piazzabileCartaCoinvoltaBl = false;
+				}
+				
+				if(esisteCartaCoinvoltaTl) {
+					angoloCoinvoltoTl = campo[x-1][y+1].getBottom_right_angle();
+					if(!angoloCoinvoltoTl.piazzabile())
+						piazzabileCartaCoinvoltaTl = false;
+				}
 				//Mi serve principallmente per sapere se ci sono angoli "assenti" piuttosto che coperti
 				
 				if(
-						angoloCoinvoltoTr.piazzabile() &&
-						angoloCoinvoltoBr.piazzabile() &&
-						angoloCoinvoltoBl.piazzabile() &&
-						angoloCoinvoltoTl.piazzabile()
+						piazzabileCartaCoinvoltaTr &&
+						piazzabileCartaCoinvoltaBr &&
+						piazzabileCartaCoinvoltaBl &&
+						piazzabileCartaCoinvoltaTl
 						
 						){
 					
-				
-							angoloCoinvoltoTr.piazzaAngolo(cartaSopra.getTop_right_angle());
-							decrementaFigura(angoloCoinvoltoTr.getFigura());
+							if(esisteCartaCoinvoltaTr){
+								angoloCoinvoltoTr.piazzaAngolo(cartaSopra.getTop_right_angle());
+								decrementaFigura(angoloCoinvoltoTr.getFigura());
+							}
 							
-							angoloCoinvoltoBr.piazzaAngolo(cartaSopra.getBottom_right_angle());
-							decrementaFigura(angoloCoinvoltoBr.getFigura());
-							
+							if(esisteCartaCoinvoltaBr){
+								angoloCoinvoltoBr.piazzaAngolo(cartaSopra.getBottom_right_angle());
+								decrementaFigura(angoloCoinvoltoBr.getFigura());
+							}
+							if(esisteCartaCoinvoltaBl){
+								angoloCoinvoltoBl.piazzaAngolo(cartaSopra.getBottom_left_angle());
+								decrementaFigura(angoloCoinvoltoBl.getFigura());
+							}
 			
-							angoloCoinvoltoBl.piazzaAngolo(cartaSopra.getBottom_left_angle());
-							decrementaFigura(angoloCoinvoltoBl.getFigura());
-							
-			
-							angoloCoinvoltoBr.piazzaAngolo(cartaSopra.getTop_left_angle());
-							decrementaFigura(angoloCoinvoltoBr.getFigura());
-							
+							if(esisteCartaCoinvoltaTl){
+								angoloCoinvoltoBr.piazzaAngolo(cartaSopra.getTop_left_angle());
+								decrementaFigura(angoloCoinvoltoBr.getFigura());
+							}
 							
 							
 							incrementaFigura(cartaSopra.getFigura());
