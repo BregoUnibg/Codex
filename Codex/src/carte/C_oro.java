@@ -1,6 +1,7 @@
 package carte;
 
-import carte.*; 
+import carte.*;
+import requisiti.Requisito; 
 
 public class C_oro extends Carta{
 	

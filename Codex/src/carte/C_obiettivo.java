@@ -1,5 +1,7 @@
 package carte;
 
+import requisiti.Requisito;
+
 public class C_obiettivo extends Carta{
 	
 	private Requisito obiettivo;

@@ -1,10 +1,23 @@
-package carte;
+package requisiti;
 
-public class Requisito {
+import campo.Campo_gioco;
+
+public interface Requisito {
 	
-	public boolean soddisfatto() {
-		return false;
-	} //se il requisito è soddisfatto restituisce true
+	public boolean soddisfatto(Campo_gioco c);	//Gli passo il campo sul quale controlla che il requisito sia verificato
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//se il requisito è soddisfatto restituisce true
 	
 	//Non può essere astratto perchè uso la superclasse generalizzata per istanziare a nome delle sotoclassi.
 	

@@ -1,7 +1,7 @@
 package main;
 
 import carte.*;
-
+import requisiti.Requisito;
 import campo.*;
 
 public class Main {
