@@ -351,10 +351,33 @@ public void decrementaFigura(Figura f) {
 		return null;
 		
 	}
-	
-	
-	
-	
-	
+
+	public int getContaFarfalla() {
+		return contaFarfalla;
+	}
+
+	public int getContaFungo() {
+		return contaFungo;
+	}
+
+	public int getContaLupo() {
+		return contaLupo;
+	}
+
+	public int getContaFoglia() {
+		return contaFoglia;
+	}
+
+	public int getContaPergamena() {
+		return contaPergamena;
+	}
+
+	public int getContaPiuma() {
+		return contaPiuma;
+	}
+
+	public int getContaCiotola() {
+		return contaCiotola;
+	}
 	
 }
