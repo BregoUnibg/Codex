@@ -139,14 +139,10 @@ public class Main {
 		carte[95] = new C_obiettivo(Colore.GRIGIO, 2, new ReqFiguraSingola(Figura.FOGLIA,3));
 		carte[96] = new C_obiettivo(Colore.GRIGIO, 2, new ReqFiguraSingola(Figura.LUPO,3));
 		carte[97] = new C_obiettivo(Colore.GRIGIO, 2, new ReqFiguraSingola(Figura.FARFALLA,3));
-		carte[98] = new C_obiettivo(Colore.GRIGIO, 3, new Requisito());
+		carte[98] = new C_obiettivo(Colore.GRIGIO, 3, new ReqFiguraTripla(Figura.CIOTOLA,1, Figura.PERGAMENA,1, Figura.PIUMA,1));
 		carte[99] = new C_obiettivo(Colore.GRIGIO, 2, new ReqFiguraSingola(Figura.PERGAMENA,2));
 		carte[100] = new C_obiettivo(Colore.GRIGIO, 2, new ReqFiguraSingola(Figura.CIOTOLA,2));
 		carte[101] = new C_obiettivo(Colore.GRIGIO, 2, new ReqFiguraSingola(Figura.PIUMA,2));
-		
-		System.out.println(carte[0].getId());
-		System.out.println(carte[1].getId());
-		
 
 	}
 
