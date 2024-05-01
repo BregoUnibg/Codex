@@ -1,3 +1,4 @@
+//Non capisco l'utilità di questo requisito
 package requisiti;
 
 import campo.Campo_gioco;

@@ -91,6 +91,11 @@ public abstract class Carta {
 		return figura_centrale;
 	}
 	
+	/*
+	public Colore getColore() {
+		return colore;
+	}
+	*/
 	//Getters & Setters Di tutti gli angoli
 	
 	public Angolo getTop_left_angle() {

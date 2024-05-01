@@ -1,10 +1,11 @@
+//Non capisco l'utilità di questo requisito
 package requisiti;
 
 import campo.Campo_gioco;
 import carte.*;
 
 public class ReqCartaDoppia implements Requisito{
-
+	
 	private Colore colore1;
 	private int num1;
 	private Colore colore2;

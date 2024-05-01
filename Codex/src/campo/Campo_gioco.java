@@ -21,6 +21,7 @@ public class Campo_gioco {
 	
 	private Carta campo [][];
 	
+	//Contatori Figura piazate
 	private int contaFarfalla;
 	private int contaFungo;
 	private int contaLupo;
@@ -29,7 +30,17 @@ public class Campo_gioco {
 	private int contaPiuma;
 	private int contaCiotola;
 	
-	
+	/*
+	//Contatori colore delle carte
+	private int contaRosse;
+	private int contaBlu;
+	private int contaVerdi;
+	private int contaViola;
+
+
+	//private int ContaBianco; Non ci sono obiettivi riguardo queste carte
+	//private int ContaGrigio;
+	*/
 	
 	public Campo_gioco() {
 		
@@ -42,6 +53,12 @@ public class Campo_gioco {
 		contaPiuma = 0;
 		contaCiotola = 0;
 		
+		/*
+		contaRosse = 0;
+		contaBlu = 0;
+		contaVerdi = 0;
+		contaViola = 0;
+		*/
 		
 		
 	}
@@ -204,7 +221,7 @@ public class Campo_gioco {
 								decrementaFigura(angoloCoinvoltoBr.getFigura());
 							}
 							
-							
+							//incrementaColore(cartaSopra.getColore());
 							incrementaFigura(cartaSopra.getFigura());
 							incrementaFigura(cartaSopra.getTop_right_angle().getFigura());
 							incrementaFigura(cartaSopra.getTop_left_angle().getFigura());
@@ -227,7 +244,7 @@ public class Campo_gioco {
 	}
 	
 	
-	public void incrementaFigura(Figura f) {
+	private void incrementaFigura(Figura f) {
 		
 		switch(f) {
 		case FARFALLA:
@@ -263,7 +280,7 @@ public class Campo_gioco {
 		
 	}
 	
-public void decrementaFigura(Figura f) {
+	private void decrementaFigura(Figura f) {
 		
 		switch(f) {
 		case FARFALLA:
@@ -298,8 +315,30 @@ public void decrementaFigura(Figura f) {
 		}
 		
 	}
-		
 	
+	/*
+	//Incrementa il contatore del rispettivo colore
+	private void incrementaColore(Colore c) {
+		switch(c) {
+		
+		case ROSSO:
+			this.contaRosse++;
+			break;
+		case BLU:
+			this.contaBlu++;
+			break;
+		case VERDE:
+			this.contaVerdi++;
+			break;
+		case VIOLA:
+			this.contaViola++;
+			break;
+		default:
+			break;
+			
+		}
+	}
+	*/
 	/**
 	 * 
 	 * Restituisce la posizione nella matrice di una carta
@@ -308,7 +347,26 @@ public void decrementaFigura(Figura f) {
 	 * @return
 	 */
 	
+	/*
 	
+	public int getContaRosse() {
+		return contaRosse;
+	}
+
+	public int getContaBlu() {
+		return contaBlu;
+	}
+
+	public int getContaVerdi() {
+		return contaVerdi;
+	}
+
+	public int getContaViola() {
+		return contaViola;
+	}
+	
+	*/
+
 	/**
 	 * Ritorna l'angolo in basee alla posizione: tl, tr, bl, br
 	 * @param c
