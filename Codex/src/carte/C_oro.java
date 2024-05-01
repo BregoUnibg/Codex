@@ -1,5 +1,6 @@
 package carte;
 
+import campo.Campo_gioco;
 import carte.*;
 import requisiti.Requisito; 
 
@@ -32,22 +33,28 @@ public class C_oro extends Carta{
 		this.obiettivo = obiettivo;
 	}
 	
-	public boolean getObiettivo() {
+	public boolean getObiettivo(Campo_gioco c) {
 		if(this.obiettivo != null)
-			return this.obiettivo.soddisfatto();
+			return this.obiettivo.soddisfatto(c);
 		else
 			return true;
 	}
 	
-	public boolean getPiazzamento() {
+	public boolean getPiazzamento(Campo_gioco c) {
 		if(this.obiettivo != null)
-			return this.piazzamento.soddisfatto();
+			return this.piazzamento.soddisfatto(c);
 		else
 			return true;
 	}
 	
-	public int getPunti(){
-		if(this.getObiettivo()) 
+
+	/**
+	 * Ritorna i punti dati dalla carta, 
+	 * @param c (Viene passato il campo di gioco afinchè i requisiti vengano verificati)
+	 * @return
+	 */
+	public int getPunti(Campo_gioco c){
+		if(this.getObiettivo(c)) 
 			return super.getPunti();
 		else
 			return 0;
