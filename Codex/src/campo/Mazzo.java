@@ -14,7 +14,10 @@ public class Mazzo {
 		
 	}
 	
-	//*Aggiungi una carta al mazzo;
+	/**
+	 * Aggiungi una carta al mazzo 
+	 * @param c carta passata
+	 */
 	public void add(Carta c) {
 		mazzo.add(c);
 	}
@@ -23,10 +26,19 @@ public class Mazzo {
 		Collections.shuffle(mazzo);
 	}
 	
+	
+	
+	/**
+	 * Pesca una carta dal mazzo, rimovendola quindi da quest'utlimo
+	 * @return
+	 */
+	
 	public Carta pesca(){
 		
 		Carta cartaPescata = mazzo.get(0);
 		mazzo.remove(0);
+		//In teoria dopo aver rimosso dalla collezione l'elemnto di primo indice tutti gli altri vengono spostati in avanti di uno
+		//Il mazzo si comporta automaticamente quindi come un mazzo vero
 		return cartaPescata;
 		
 	}
