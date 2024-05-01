@@ -16,6 +16,7 @@ public class ReqFiguraSingola implements Requisito{
 		this.numFigure = numFigure;	
 		
 	}
+	
 	@Override
 	public boolean soddisfatto(Campo_gioco c) {
 		

@@ -127,22 +127,22 @@ public class Main {
 		carte[85] = new C_iniziale(Figura.FOGLIA, Figura.LUPO, Figura.FUNGO, new Angolo(), new Angolo(), new Angolo(false), new Angolo(false), new Angolo(Figura.FUNGO), new Angolo(Figura.LUPO), new Angolo(Figura.FOGLIA), new Angolo(Figura.FARFALLA));
 		
 		//16 CARTE OBIETTIVO 
-		carte[86] = new C_obiettivo(Colore.GRIGIO, 2, new Requisito());
-		carte[87] = new C_obiettivo(Colore.GRIGIO, 2, new Requisito());
-		carte[88] = new C_obiettivo(Colore.GRIGIO, 2, new Requisito());
-		carte[89] = new C_obiettivo(Colore.GRIGIO, 2, new Requisito());
-		carte[90] = new C_obiettivo(Colore.GRIGIO, 3, new Requisito());
-		carte[91] = new C_obiettivo(Colore.GRIGIO, 3, new Requisito());
-		carte[92] = new C_obiettivo(Colore.GRIGIO, 3, new Requisito());
-		carte[93] = new C_obiettivo(Colore.GRIGIO, 3, new Requisito());
-		carte[94] = new C_obiettivo(Colore.GRIGIO, 2, new Requisito());
-		carte[95] = new C_obiettivo(Colore.GRIGIO, 2, new Requisito());
-		carte[96] = new C_obiettivo(Colore.GRIGIO, 2, new Requisito());
-		carte[97] = new C_obiettivo(Colore.GRIGIO, 2, new Requisito());
+		carte[86] = new C_obiettivo(Colore.GRIGIO, 2, new ReqCartaSingola(Colore.ROSSO, 3));
+		carte[87] = new C_obiettivo(Colore.GRIGIO, 2, new ReqCartaSingola(Colore.VERDE, 3));
+		carte[88] = new C_obiettivo(Colore.GRIGIO, 2, new ReqCartaSingola(Colore.BLU, 3));
+		carte[89] = new C_obiettivo(Colore.GRIGIO, 2, new ReqCartaSingola(Colore.VIOLA, 3));
+		carte[90] = new C_obiettivo(Colore.GRIGIO, 3, new ReqCartaDoppia(Colore.ROSSO, 2, Colore.VERDE, 1));
+		carte[91] = new C_obiettivo(Colore.GRIGIO, 3, new ReqCartaDoppia(Colore.VERDE, 2, Colore.VIOLA, 1));
+		carte[92] = new C_obiettivo(Colore.GRIGIO, 3, new ReqCartaDoppia(Colore.ROSSO, 1, Colore.BLU, 2));
+		carte[93] = new C_obiettivo(Colore.GRIGIO, 3, new ReqCartaDoppia(Colore.BLU, 1, Colore.VIOLA, 2));
+		carte[94] = new C_obiettivo(Colore.GRIGIO, 2, new ReqFiguraSingola(Figura.FUNGO,3));
+		carte[95] = new C_obiettivo(Colore.GRIGIO, 2, new ReqFiguraSingola(Figura.FOGLIA,3));
+		carte[96] = new C_obiettivo(Colore.GRIGIO, 2, new ReqFiguraSingola(Figura.LUPO,3));
+		carte[97] = new C_obiettivo(Colore.GRIGIO, 2, new ReqFiguraSingola(Figura.FARFALLA,3));
 		carte[98] = new C_obiettivo(Colore.GRIGIO, 3, new Requisito());
-		carte[99] = new C_obiettivo(Colore.GRIGIO, 2, new Requisito());
-		carte[100] = new C_obiettivo(Colore.GRIGIO, 2, new Requisito());
-		carte[101] = new C_obiettivo(Colore.GRIGIO, 2, new Requisito());
+		carte[99] = new C_obiettivo(Colore.GRIGIO, 2, new ReqFiguraSingola(Figura.PERGAMENA,2));
+		carte[100] = new C_obiettivo(Colore.GRIGIO, 2, new ReqFiguraSingola(Figura.CIOTOLA,2));
+		carte[101] = new C_obiettivo(Colore.GRIGIO, 2, new ReqFiguraSingola(Figura.PIUMA,2));
 		
 		System.out.println(carte[0].getId());
 		System.out.println(carte[1].getId());
