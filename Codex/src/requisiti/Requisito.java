@@ -1,10 +1,10 @@
 package requisiti;
 
-import campo.Campo_gioco;
+import campo.CampoGioco;
 
 public interface Requisito {
 	
-	public boolean soddisfatto(Campo_gioco c);	//Gli passo il campo sul quale controlla che il requisito sia verificato
+	public boolean soddisfatto(CampoGioco c);	//Gli passo il campo sul quale controlla che il requisito sia verificato
 	
 	
 	

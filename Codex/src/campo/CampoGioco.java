@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import carte.*;
 
-public class Campo_gioco {
+public class CampoGioco {
 	
 	/*
 	 * Necessità di utilizzare una matrice di profondità 2 e larghezza e amieppza grande al fine di tracciare non solo gli obiettivi ma le possibili sovrapposizioni tra carte
@@ -42,7 +42,7 @@ public class Campo_gioco {
 	//private int ContaGrigio;
 	*/
 	
-	public Campo_gioco() {
+	public CampoGioco() {
 		
 		campo = new Carta[dimCampo][dimCampo];
 		contaFarfalla = 0;
@@ -68,7 +68,7 @@ public class Campo_gioco {
 	 * @param c
 	 */
 	
-	public void piazzaCartaIniziale(C_iniziale c){
+	public void piazzaCartaIniziale(CartaIniziale c){
 		
 		int centro = (dimCampo-1)/2+1;
 		

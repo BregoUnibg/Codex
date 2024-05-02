@@ -1,7 +1,7 @@
 package carte;
 import java.util.ArrayList;
 
-public class C_iniziale extends Carta{
+public class CartaIniziale extends Carta{
 	
 	private Angolo back_top_left_angle;
 	private Angolo back_top_right_angle;
@@ -11,7 +11,7 @@ public class C_iniziale extends Carta{
 	private ArrayList<Figura> figure;
 	
 	
-	public C_iniziale(Figura figura1, Figura figura2, Figura figura3, Angolo top_left_angle, Angolo top_right_angle, Angolo bottom_left_angle, Angolo bottom_right_angle,
+	public CartaIniziale(Figura figura1, Figura figura2, Figura figura3, Angolo top_left_angle, Angolo top_right_angle, Angolo bottom_left_angle, Angolo bottom_right_angle,
 			Angolo back_top_left_angle, Angolo back_top_right_angle, Angolo back_bottom_left_angle, Angolo back_bottom_right_angle
 			){
 		

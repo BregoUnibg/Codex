@@ -1,18 +1,18 @@
 package carte;
 
-import campo.Campo_gioco;
+import campo.CampoGioco;
 import requisiti.Requisito;
 
-public class C_obiettivo extends Carta{
+public class CartaObiettivo extends Carta{
 	
 	private Requisito obiettivo;
 	
-	public C_obiettivo(Colore colore, int punti, Requisito obiettivo){
+	public CartaObiettivo(Colore colore, int punti, Requisito obiettivo){
 		super(colore, punti);		//La carta obiettivo non ha angoli
 		this.obiettivo= obiettivo;
 	}
 	
-	public boolean soddisfatto(Campo_gioco c) {
+	public boolean soddisfatto(CampoGioco c) {
 		return this.obiettivo.soddisfatto(c);
 	}
 	
@@ -22,7 +22,7 @@ public class C_obiettivo extends Carta{
 	 * @return
 	 */
 	
-	public int getPunti(Campo_gioco c) {
+	public int getPunti(CampoGioco c) {
 		if(soddisfatto(c))
 			return super.getPunti();
 		else

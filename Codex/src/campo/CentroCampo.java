@@ -1,13 +1,13 @@
 package campo;
 
-public class Centro_campo {
+public class CentroCampo {
 
 	private Mazzo mazzoCartaOro; 
 	private Mazzo mazzoCartaRiserva; 
 	private Mazzo mazzoCartaObiettivo; 
 	private Mazzo mazzoCartaIniziale; 
 	
-	public Centro_campo() {
+	public CentroCampo() {
 		
 		mazzoCartaOro = new Mazzo();
 		mazzoCartaRiserva = new Mazzo();

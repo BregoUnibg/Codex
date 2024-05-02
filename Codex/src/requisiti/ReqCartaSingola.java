@@ -1,7 +1,7 @@
 //Non capisco l'utilità di questo requisito
 package requisiti;
 
-import campo.Campo_gioco;
+import campo.CampoGioco;
 import carte.*;
 
 public class ReqCartaSingola implements Requisito{
@@ -16,7 +16,7 @@ public class ReqCartaSingola implements Requisito{
 	
 	
 	@Override
-	public boolean soddisfatto(Campo_gioco c) {
+	public boolean soddisfatto(CampoGioco c) {
 		return false;
 	}
 

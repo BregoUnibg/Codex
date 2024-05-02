@@ -1,6 +1,6 @@
 package requisiti;
 
-import campo.Campo_gioco;
+import campo.CampoGioco;
 import carte.Figura;
 
 public class ReqFiguraTripla implements Requisito{
@@ -24,7 +24,7 @@ public class ReqFiguraTripla implements Requisito{
 	}
 
 	@Override
-	public boolean soddisfatto(Campo_gioco c) {
+	public boolean soddisfatto(CampoGioco c) {
 		int conta1 = ReqFiguraSingola.getContatoreFigura(figura1, c);
 		int conta2 = ReqFiguraSingola.getContatoreFigura(figura2, c);
 		int conta3 = ReqFiguraSingola.getContatoreFigura(figura3, c);
