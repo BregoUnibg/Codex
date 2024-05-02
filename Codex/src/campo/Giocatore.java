@@ -4,6 +4,9 @@ public class Giocatore {
 	
 		//Attributi
 		private String nome;
+		private Mano mano;
+		private CampoGioco campoGioco;
+		
 		int punti;				//da togliere
 
 		//Costrutto
@@ -11,11 +14,16 @@ public class Giocatore {
 			this.nome=nome;
 		}
 		
-		public String getNome() {
-			return nome;
+		
+		public Mano getMano() {
+			return mano;
 		}
-	
-		public String setNome() {
+		
+		public CampoGioco getCampoGioco() {
+			return campoGioco;
+		}
+		
+		public String getNome() {
 			return nome;
 		}
 		
