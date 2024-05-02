@@ -6,12 +6,14 @@ public class Giocatore {
 		private String nome;
 		private Mano mano;
 		private CampoGioco campoGioco;
+		private Pedina pedina;
 		
 		int punti;				//da togliere
 
 		//Costrutto
-		public Giocatore(String nome) {
+		public Giocatore(String nome, Pedina pedina) {
 			this.nome=nome;
+			this.pedina = pedina;
 		}
 		
 		

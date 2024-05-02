@@ -1,34 +1,51 @@
 package campo;
 
-import java.util.Scanner;
+import java.util.ArrayList;
+
+import interfaccia.Cli;
 
 public class Gioco {
-
-	//Creo scanner
-	Scanner sc = new Scanner(System.in);
-
-	private Giocatore[] giocatori;
-	private int Ngiocatori=0;
+	
+	//La classe gioco è ciò che gestirà tutti i turni
+	//La callsse gioco è ciò che farà andare effettivamente il gioco e chiamerà  le interfacce quando sarà richiesta una scelta dall'utente
+	
+	
+	private ArrayList <Giocatore> giocatori;
+	private CentroCampo centro;
+	private Tabellone tabella;
+	private Cli cli;
+	private ArrayList <Pedina> pedine; //Avrei voluto farlo con un set ma il mio IDE non lo importa per quallche ragione (Forse è obsoleto?)
 	
 	//Costrutto
 	public Gioco() {
-		this.giocatori=new Giocatore[4];
+		
+		giocatori = new ArrayList <Giocatore>();
+		centro = new CentroCampo();
+		tabella = new Tabellone();
+		cli = new Cli();
+		pedine = new ArrayList <Pedina>();
+		 	pedine.add(Pedina.VERDE);
+	        pedine.add(Pedina.ROSSA);
+	        pedine.add(Pedina.NERA);
+	        pedine.add(Pedina.GIALLA);
+	        pedine.add(Pedina.AZZURRA);
 	}	
 	
-	public void inserisciGiocatore(String nome) {
+	
+	//Questa in liena di massima sarà il metodo principale
+	public void gioca(){
 		
-		//Chiedo all'utente quando sono i giocatori 
-		System.out.println("Quanti sono i giocatori? ");
-		Ngiocatori=sc.nextInt();
-	;
-		for(int i=1; i<=Ngiocatori; i++)
-		{
-			if(this.giocatori[i]==null)
-			{
-				this.giocatori[i]=new Giocatore(nome);
-				System.out.println("Giocatore: "+this.giocatori[i].getNome()+ " creato correttamente ");
-			}
-					
+		//C'è da implementare il selettore di interfaccia
+		
+		int ngiocatori = 2; //Provvvisorio ovviamente
+		
+		for(int i=0;i<ngiocatori;i++) {
+			Giocatore giocatore = cli.creaGiocatore(pedine);
+			giocatori.add(giocatore);
 		}
+		
+		
+		
+		
 	}
 }
