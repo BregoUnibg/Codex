@@ -61,5 +61,18 @@ public class Cli implements Interfaccia{
 		return new Giocatore(nome, pedine.get(scelta));
 		
 	}
+
+	@Override
+	public int numeroGiocatori() {
+		
+		int scelta;
+		
+		do {
+			System.out.println("Inserire il nuemro di giocatori (2-4)");
+			scelta = Integer.parseInt(sc.nextLine());
+		}while(scelta<2||scelta>4);
+		
+		return scelta;
+	}
 	
 }

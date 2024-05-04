@@ -9,24 +9,15 @@ public class Main {
 	public static void main(String args[]) {
 		
 		
+		
+		
+		
 		/*
-		Carta ca= new C_risorsa(Colore.ROSSO, 2, null, null, null, null);
-		Carta cb= new C_risorsa(Colore.ROSSO,2);
-		Carta cc= new CartaOro(Colore.ROSSO, null, null, null, null);
-		Carta cd= new CartaOro(Colore.ROSSO, null, null, null, null);
-		
-		Carta mano [] = new Carta [2];
-		
-		mano[0] = new C_risorsa(Colore.BLU, 2);
-		mano[1] = cc;
-		
-		System.out.println(ca.getId());
-		System.out.println(cb.getId());
-		System.out.println(cd.getId());
-		*/
-		
+		 * 
+		 * LA CREAZIONE DELLE CARTE NON DOVRA' ESSERE NEL MAIN, PER ORA E' STATA PASSATA ALLA CLASSE CentroCampo
+		 * 
 		Carta carte [] = new Carta [102]; //vettore temp //1(sup sinistra) , 2(sup destra) , 3(inf sinistra) , 4 (inf destra)
-
+		
 		//40 CARTE RISORSA 
 		carte[0] = new CartaRisorsa(Colore.ROSSO, new Angolo(Figura.FUNGO), new Angolo(), new Angolo(Figura.FUNGO), new Angolo(false));
 		carte[1] = new CartaRisorsa(Colore.ROSSO, new Angolo(Figura.FUNGO), new Angolo(Figura.FUNGO), new Angolo(false),  new Angolo());
@@ -143,6 +134,8 @@ public class Main {
 		carte[99] = new CartaObiettivo(Colore.GRIGIO, 2, new ReqFiguraSingola(Figura.PERGAMENA,2));
 		carte[100] = new CartaObiettivo(Colore.GRIGIO, 2, new ReqFiguraSingola(Figura.CIOTOLA,2));
 		carte[101] = new CartaObiettivo(Colore.GRIGIO, 2, new ReqFiguraSingola(Figura.PIUMA,2));
+		
+		*/
 
 	}
 
