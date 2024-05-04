@@ -107,6 +107,12 @@ public class CampoGioco {
 		//Gli angolo possono essere attaccati solo ad angoli opposti di un'altra carta, esempii: topRight->bottomLeft, topLeft->bottomRight
 		
 		
+		//Prima di tutto controllo se si tratta di una carta Oro e in tal caso controllo che il requisito di paizzamento sia soddisfatto
+		if(cartaSopra instanceof CartaOro) {
+			if(((CartaOro) cartaSopra).getPiazzamento(this)==false)	//Faccio un cast sulla Carta che deve essere della sottoclasse CartaOro
+				return false;
+		}
+		
 		//Controllo quindi che siano angoli opposti
 		
 		if((angoloSotto.substring(0, 1)!=angoloSopra.substring(0,1)) && (angoloSotto.substring(1, 2)!=angoloSopra.substring(1,2))){

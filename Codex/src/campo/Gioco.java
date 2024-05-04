@@ -71,10 +71,27 @@ public class Gioco {
 		
 		int ngiocatori = interfaccia.numeroGiocatori(); 
 		
+		//Creazione dei giocatori
+		
 		for(int i=0;i<ngiocatori;i++) {
 			Giocatore giocatore = interfaccia.creaGiocatore(pedine);
 			giocatori.add(giocatore);
 		}
+		
+		//Generazione del campo di gioco 
+		 
+		//Il giocatore riceve la carta iniziale e decide se piazzarla sul fronte o sul retro
+		
+		
+		//Il giocatore pesca 2 carte risorsa e 1 carta oro
+		
+		//Il giocatore sceglie tra una due carte obiettivo pescate
+		
+		
+		
+		//Gestione dei turni
+		//I turni finiscono quando almeno uno dei giocatori realizza 20 punti senza extra delle carte obiettivo
+		//Quindi probabilmente ci sarà un for che gestisce il turno perogni singolo giocatore, dentro un while che cicla i turni finchè la i 20 p sono ragggiunto o i mazzi ris e oro finiscono
 		
 		
 		

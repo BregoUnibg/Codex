@@ -1,6 +1,7 @@
 package campo;
 
 import carte.Angolo;
+import carte.Carta;
 import carte.CartaIniziale;
 import carte.CartaObiettivo;
 import carte.CartaOro;
@@ -14,11 +15,22 @@ import requisiti.ReqFiguraSingola;
 import requisiti.ReqFiguraTripla;
 
 public class CentroCampo {
-
+	
+	//Il centro campo contiene I mazzi e le 2 carte risorsa, oro e obiettivo scoperte
+	
 	private Mazzo mazzoCartaOro; 
 	private Mazzo mazzoCartaRisorsa; 
 	private Mazzo mazzoCartaObiettivo; 
 	private Mazzo mazzoCartaIniziale; 
+	
+	private Carta cartaOro1;
+	private Carta cartaOro2;
+	
+	private Carta cartaRisorsa1;
+	private Carta cartaRisorsa2;
+	
+	private Carta cartaObiettivo1;
+	private Carta cartaObiettivo2;
 	
 	public CentroCampo() {
 		
@@ -26,26 +38,114 @@ public class CentroCampo {
 		mazzoCartaRisorsa = new Mazzo();
 		mazzoCartaObiettivo = new Mazzo();
 		mazzoCartaIniziale = new Mazzo();
+	
+		preparaCentroCampo();
+		
+		cartaOro1 = mazzoCartaOro.pesca();
+		cartaOro2 = mazzoCartaOro.pesca();
+		
+		cartaRisorsa1 = mazzoCartaRisorsa.pesca();
+		cartaRisorsa2 = mazzoCartaRisorsa.pesca();
+		
+		cartaObiettivo1 = mazzoCartaObiettivo.pesca();
+		cartaObiettivo2 = mazzoCartaObiettivo.pesca();
 		
 	}
-
-	public Mazzo getMazzoCartaOro() {
-		return mazzoCartaOro;
-	}
-
-	public Mazzo getMazzoCartaRisorsa() {
-		return mazzoCartaRisorsa;
-	}
-
-	public Mazzo getMazzoCartaObiettivo() {
-		return mazzoCartaObiettivo;
-	}
-
-	public Mazzo getMazzoCartaIniziale() {
-		return mazzoCartaIniziale;
+	
+		
+	
+	public Carta prendiCartaOro1() {
+		
+		Carta cartapresa = cartaOro1;
+		cartaOro1 = mazzoCartaOro.pesca();
+		return cartapresa;
+		
 	}
 	
-	public void preparaCentroCampo() {
+	public Carta prendiCartaOro2() {
+		
+		Carta cartapresa = cartaOro2;
+		cartaOro2 = mazzoCartaOro.pesca();
+		return cartapresa;
+		
+	}
+	
+	public Carta pescaDalMazzoOro() {
+		
+		return mazzoCartaOro.pesca();
+		
+	}
+	
+	
+	public Carta prendiCartaRisorsa1() {
+		
+		Carta cartapresa = cartaRisorsa1;
+		cartaRisorsa1 = mazzoCartaRisorsa.pesca();
+		return cartapresa;
+		
+	}
+	
+	public Carta prendiCartaRisorsa2() {
+		
+		Carta cartapresa = cartaRisorsa2;
+		cartaRisorsa2 = mazzoCartaRisorsa.pesca();
+		return cartapresa;
+		
+	}
+	
+	public Carta pescaDalMazzoRisorsa() {
+		
+		return mazzoCartaRisorsa.pesca();
+		
+	}
+	
+	
+	//Getter carte nel campo
+	
+	public Carta getCartaOro1() {
+		return cartaOro1;
+	}
+	
+	
+	
+	public Carta getCartaOro2() {
+		return cartaOro2;
+	}
+	
+	
+	
+	public Carta getCartaRisorsa1() {
+		return cartaRisorsa1;
+	}
+	
+	
+	
+	public Carta getCartaRisorsa2() {
+		return cartaRisorsa2;
+	}
+	
+	
+	
+	public Carta getCartaObiettivo1() {
+		return cartaObiettivo1;
+	}
+	
+	
+	
+	public Carta getCartaObiettivo2() {
+		return cartaObiettivo2;
+	}
+	
+	
+	
+	
+	
+	//Istanziamento dei mazzi
+	
+
+
+
+	private void preparaCentroCampo() {
 		
 		creaMazzoRisorsa();
 		creaMazzoOro();

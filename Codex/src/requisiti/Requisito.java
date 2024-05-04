@@ -2,7 +2,7 @@ package requisiti;
 
 import campo.CampoGioco;
 
-public interface Requisito {
+public abstract interface Requisito {
 	
 	
 	/**
@@ -13,7 +13,12 @@ public interface Requisito {
 	 * @return n di volte per cui l'obiettivo è stato soddisfatto
 	 */
 	
-	public int soddisfatto(CampoGioco c);	//Gli passo il campo sul quale controlla che il requisito sia verificato
+	public abstract int soddisfatto(CampoGioco c);	//Gli passo il campo sul quale controlla che il requisito sia verificato
+	
+	
+	
+	//Devo calcolare quante volete individualmente (quindi non sovrapponendo gli stessi elementi che soddisfano l'obiettivo una singola volta) 
+	//Quante volte l'obiettivo è soddisfatto
 	
 	
 	
@@ -21,14 +26,8 @@ public interface Requisito {
 	
 	
 	
-	
-	
-	
-	
-	
-	//se il requisito è soddisfatto restituisce true
-	
-	//Non può essere astratto perchè uso la superclasse generalizzata per istanziare a nome delle sotoclassi.
+	//Se il requisito è soddisfatto restituisce il numero di volte che è stato soddisfatto individualmente 
+	//Ciò è necessario per calcolare i punti che genera
 	
 	//Da quel che mi icordo posso creare un oggetto a nome di una superclasse nel quale mettere oggetti delle 
 	//sotoclassi che estendono appunto la superclasse

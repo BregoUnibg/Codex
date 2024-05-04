@@ -14,6 +14,7 @@ public class Giocatore {
 			this.nome=nome;
 			this.pedina = pedina;
 			this.punti = 0;
+			this.campoGioco = new CampoGioco();
 		}
 		
 		
