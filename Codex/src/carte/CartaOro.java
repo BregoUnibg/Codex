@@ -33,18 +33,12 @@ public class CartaOro extends Carta{
 		this.obiettivo = obiettivo;
 	}
 	
-	public boolean getObiettivo(CampoGioco c) {
-		if(this.obiettivo != null)
-			return this.obiettivo.soddisfatto(c);
-		else
-			return true;
-	}
-	
 	public boolean getPiazzamento(CampoGioco c) {
-		if(this.obiettivo != null)
-			return this.piazzamento.soddisfatto(c);
-		else
-			return true;
+		if(this.piazzamento!= null) {
+			if(this.piazzamento.soddisfatto(c)==0)
+				return false;
+		}
+		return true;
 	}
 	
 
@@ -53,11 +47,9 @@ public class CartaOro extends Carta{
 	 * @param c (Viene passato il campo di gioco afinchè i requisiti vengano verificati)
 	 * @return
 	 */
+	
 	public int getPunti(CampoGioco c){
-		if(this.getObiettivo(c)) 
-			return super.getPunti();
-		else
-			return 0;
+		return obiettivo.soddisfatto(c)*super.getPunti();
 	}
 	
 	public void setBack() {

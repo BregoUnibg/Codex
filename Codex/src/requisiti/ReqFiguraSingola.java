@@ -18,14 +18,12 @@ public class ReqFiguraSingola implements Requisito{
 	}
 	
 	@Override
-	public boolean soddisfatto(CampoGioco c) {
+	public int soddisfatto(CampoGioco c) {
 		
 		int conta = getContatoreFigura(figura, c);
-				
-		if(conta>=numFigure)
-			return true;
 		
-		return false;
+		return (int) conta/numFigure;
+		
 	}
 	
 	protected static int getContatoreFigura(Figura figura, CampoGioco c) {

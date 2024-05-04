@@ -22,15 +22,18 @@ public class ReqFiguraDoppia implements Requisito{
 	}
 	
 	@Override
-	public boolean soddisfatto(CampoGioco c) {
+	public int soddisfatto(CampoGioco c) {
 		
 		int conta1 = ReqFiguraSingola.getContatoreFigura(figura1, c);
 		int conta2 = ReqFiguraSingola.getContatoreFigura(figura2, c);
 		
-		if((conta1>= numFigure1)&&(conta2>=numFigure2))
-			return true;
+		//Trovo quante volte è stato soddisfatto il req per figura e restituisco il minore dei risultati
 		
-		return false;
+		conta1 = (int)conta1/numFigure1;
+		conta2 = (int)conta2/numFigure1;
+		
+		return Math.min(conta1, conta2);
+		
 	}
 	
 	

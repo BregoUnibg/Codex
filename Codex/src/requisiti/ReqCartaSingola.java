@@ -16,8 +16,8 @@ public class ReqCartaSingola implements Requisito{
 	
 	
 	@Override
-	public boolean soddisfatto(CampoGioco c) {
-		return false;
+	public int soddisfatto(CampoGioco c) {
+		return 0;
 	}
 
 }

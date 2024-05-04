@@ -4,7 +4,16 @@ import campo.CampoGioco;
 
 public interface Requisito {
 	
-	public boolean soddisfatto(CampoGioco c);	//Gli passo il campo sul quale controlla che il requisito sia verificato
+	
+	/**
+	 * Restituisce il numero di volte per qui è soddisfatto singolaremnte il requisito
+	 * utile gestirlo in quesot modo in quanto gliobiettivi sono influenzati da moltiplicatori
+	 * Nel caso sia in requisito di pizzamento può anche semplicemente restituire un valore diverso da 0
+	 * @param c campo da gioco 
+	 * @return n di volte per cui l'obiettivo è stato soddisfatto
+	 */
+	
+	public int soddisfatto(CampoGioco c);	//Gli passo il campo sul quale controlla che il requisito sia verificato
 	
 	
 	

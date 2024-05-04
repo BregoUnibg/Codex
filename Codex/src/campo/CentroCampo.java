@@ -45,7 +45,16 @@ public class CentroCampo {
 		return mazzoCartaIniziale;
 	}
 	
-public void creaMazzoRisorsa() {
+	public void preparaCentroCampo() {
+		
+		creaMazzoRisorsa();
+		creaMazzoOro();
+		creaMazzoObiettivo();
+		creaMazzoIniziale();
+		
+	}
+	
+	public void creaMazzoRisorsa() {
 		
 		//40 CARTE RISORSA 
 		
@@ -167,7 +176,7 @@ public void creaMazzoRisorsa() {
 		
 	}
 	
-	public void creaMazzoIniziale(Mazzo m) {
+	public void creaMazzoIniziale() {
 		
 		mazzoCartaIniziale.add(new CartaIniziale(Figura.FARFALLA, null, null, new Angolo(), new Angolo(Figura.FOGLIA), new Angolo(Figura.FARFALLA), new Angolo(), new Angolo(Figura.FUNGO), new Angolo(Figura.FOGLIA), new Angolo(Figura.FARFALLA), new Angolo(Figura.LUPO)));
 		mazzoCartaIniziale.add(new CartaIniziale(Figura.FUNGO, null, null, new Angolo(Figura.LUPO), new Angolo(), new Angolo(), new Angolo(Figura.FUNGO), new Angolo(Figura.FOGLIA), new Angolo(Figura.LUPO), new Angolo(Figura.FUNGO), new Angolo(Figura.FARFALLA)));

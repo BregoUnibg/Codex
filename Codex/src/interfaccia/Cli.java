@@ -46,19 +46,23 @@ public class Cli implements Interfaccia{
 		int i=0;
 		
 		for(Pedina pedina: pedine) {
-			System.out.print(i+"-"+pedina+"\t");
+			System.out.println(i+"-"+pedina);
+			i++;
 		}
 		
 		System.out.println();
-		System.out.println("Scegliere la pedina (0-"+pedine.size()+")");
+		System.out.println("Scegliere la pedina (0-"+(pedine.size()-1)+")");
 		
 		int scelta;
 		
 		do {
 			scelta= Integer.parseInt(sc.nextLine());	//Mi ricordo che il prof consigliava di fare così proabilmente per l'acapo
-		}while(scelta<0 || scelta >= pedine.size());
+		}while(scelta<0 || scelta >= (pedine.size()));
 		
-		return new Giocatore(nome, pedine.get(scelta));
+		Pedina pedScelta = pedine.get(scelta);
+		pedine.remove(scelta);
+		
+		return new Giocatore(nome, pedScelta);
 		
 	}
 

@@ -7,13 +7,13 @@ public class Giocatore {
 		private Mano mano;
 		private CampoGioco campoGioco;
 		private Pedina pedina;
-		
-		int punti;				//da togliere
+		int punti;
 
 		//Costrutto
 		public Giocatore(String nome, Pedina pedina) {
 			this.nome=nome;
 			this.pedina = pedina;
+			this.punti = 0;
 		}
 		
 		
@@ -29,7 +29,15 @@ public class Giocatore {
 			return nome;
 		}
 		
-		public int calolaPunti() {
-			return punti;		//La scriveremeo in modo tale che li clacoli sul momento	
+		/**
+		 * Dopo aver soddisfatto un obiettivo si aggiungono dati al "saldo punti" del giocatore
+		 */
+		
+		public void addPunti(int punti) {
+			this.punti += punti;
+		}
+		
+		public int getPunti() {
+			return punti;	
 		}
 }

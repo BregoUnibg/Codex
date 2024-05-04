@@ -12,21 +12,14 @@ public class CartaObiettivo extends Carta{
 		this.obiettivo= obiettivo;
 	}
 	
-	public boolean soddisfatto(CampoGioco c) {
-		return this.obiettivo.soddisfatto(c);
-	}
-	
 	/**
-	 * Ritorna i punti dati dalla carta, 
+	 * Ritorna i punti dati dalla carta (0 se l'obiettivo non è soddisfatto ovvimanete), 
 	 * @param c (Viene passato il campo di gioco afinchè i requisiti vengano verificati)
 	 * @return
 	 */
 	
-	public int getPunti(CampoGioco c) {
-		if(soddisfatto(c))
-			return super.getPunti();
-		else
-			return 0;
+	public int getPunti(CampoGioco c){
+		return obiettivo.soddisfatto(c)*super.getPunti();
 	}
 	
 }

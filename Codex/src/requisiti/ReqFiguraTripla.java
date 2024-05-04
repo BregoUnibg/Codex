@@ -24,14 +24,18 @@ public class ReqFiguraTripla implements Requisito{
 	}
 
 	@Override
-	public boolean soddisfatto(CampoGioco c) {
+	public int soddisfatto(CampoGioco c) {
+		
 		int conta1 = ReqFiguraSingola.getContatoreFigura(figura1, c);
 		int conta2 = ReqFiguraSingola.getContatoreFigura(figura2, c);
 		int conta3 = ReqFiguraSingola.getContatoreFigura(figura3, c);
 		
-		if((conta1>= numFigure1)&&(conta2>=numFigure2)&&(conta3>=numFigure3))
-			return true;
+		conta1 = (int) conta1/numFigure1;
+		conta2 = (int) conta2/numFigure1;
+		conta3 = (int) conta3/numFigure1;
 		
-		return false;
+		return Math.min(Math.min(conta1, conta2), conta3);
 	}
+		
+		
 }
