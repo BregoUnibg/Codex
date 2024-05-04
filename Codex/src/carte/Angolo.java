@@ -32,6 +32,10 @@ public class Angolo {
 		return this.associato;
 	}
 	
+	public boolean getScoperto() {
+		return this.scoperto;
+	}
+	
 	private void setAngolo_associato(Angolo associato) {
 			this.associato = associato;
 	}

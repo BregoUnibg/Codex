@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import campo.Giocatore;
 import campo.Pedina;
+import carte.Carta;
 
 public class Cli implements Interfaccia{
 	
@@ -79,4 +80,63 @@ public class Cli implements Interfaccia{
 		return scelta;
 	}
 	
+	
+
+	@Override
+	public int giocaCartaIniziale(Carta cartaIniziale) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	private void visualizzaCarta(Carta carta) {
+		
+		int stdp = 10; //Padding standard delle stringhe
+		
+		
+		
+		System.out.println("/-------------------------------------------------------------------------------------------------|");
+		System.out.println("|");
+		System.out.print("|Scoperto: "+paddingStringa( String.valueOf(carta.getTop_left_angle().getScoperto()), stdp)+"|"); //Scoperto angolo top left
+		System.out.print("\t\t\t");
+		System.out.println("|Scoperto: "+paddingStringa( String.valueOf(carta.getTop_right_angle().getScoperto()), stdp)+"|"); //Scoperto angolo top right
+		System.out.print("|Figura:   "+paddingStringa( String.valueOf(carta.getTop_left_angle().getFigura()), stdp)+"|");
+		System.out.print("\t\t\t");
+		System.out.println("|Figura: "+paddingStringa( String.valueOf(carta.getTop_right_angle().getFigura()), stdp)+"|");
+		System.out.println("|");
+		System.out.println("|-------------------------------------------------------------------------------------------------|");
+		System.out.println("|                                                                                                 |");
+		System.out.println("|                                                                                                 |");
+		System.out.println("/-------------------------------------------------------------------------------------------------|");
+		System.out.println("|");
+		System.out.print("|Scoperto: "+paddingStringa( String.valueOf(carta.getBottom_left_angle().getScoperto()), stdp)+"|"); //Scoperto angolo top left
+		System.out.print("\t\t\t");
+		System.out.println("|Scoperto: "+paddingStringa( String.valueOf(carta.getBottom_right_angle().getScoperto()), stdp)+"|"); //Scoperto angolo top right
+		System.out.print("|Figura:   "+paddingStringa( String.valueOf(carta.getBottom_left_angle().getFigura()), stdp)+"|");
+		System.out.print("\t\t\t");
+		System.out.println("|Figura: "+paddingStringa( String.valueOf(carta.getBottom_right_angle().getFigura()), stdp)+"|");
+		System.out.println("|");
+		System.out.println("|-------------------------------------------------------------------------------------------------|");
+		
+	}
+	
+	/**
+	 * Conferisce un certo padding a uni stringa
+	 */
+	
+	private String paddingStringa(String s, int len){
+		
+		String modificata = new String(s);
+		
+		
+		if(len<s.length()){
+			int surpluss= len-s.length();
+			for(int i=0;i<surpluss;i++) {
+				modificata+=" ";
+			}			
+		}
+		
+		return modificata;
+		
+	}
+
 }

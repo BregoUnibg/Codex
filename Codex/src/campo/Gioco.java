@@ -78,9 +78,10 @@ public class Gioco {
 			giocatori.add(giocatore);
 		}
 		
-		//Generazione del campo di gioco 
-		 
+		
+		
 		//Il giocatore riceve la carta iniziale e decide se piazzarla sul fronte o sul retro
+		
 		
 		
 		//Il giocatore pesca 2 carte risorsa e 1 carta oro
