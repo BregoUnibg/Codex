@@ -1,5 +1,7 @@
 package carte;
 
+import campo.CampoGioco;
+
 public abstract class Carta {
 	
 	private Angolo top_left_angle;
@@ -143,7 +145,7 @@ public abstract class Carta {
 		return this.id;
 	}
 	
-	public int getPunti(){
+	public int getPunti(CampoGioco c){
 		return this.punti;
 	}
 }

@@ -56,7 +56,7 @@ public class CartaOro extends Carta{
 	 */
 	
 	public int getPunti(CampoGioco c){
-		return obiettivo.soddisfatto(c)*super.getPunti();
+		return obiettivo.soddisfatto(c)*super.getPunti(c);
 	}
 	
 	public void setBack() {

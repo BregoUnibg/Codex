@@ -244,7 +244,7 @@ public class CampoGioco {
 					return -1;
 				}
 				
-				return cartaSopra.getPunti();
+				return cartaSopra.getPunti(this);
 				
 			}
 		}
