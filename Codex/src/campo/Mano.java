@@ -24,6 +24,12 @@ public class Mano {
 		
 	}
 	
+	public Mano() {
+
+		carteMano = new ArrayList <Carta>();
+
+	}
+	
 	/**
 	 * Restituisce la carta in mano di indice i
 	 * @param i

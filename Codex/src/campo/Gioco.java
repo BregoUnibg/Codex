@@ -110,7 +110,7 @@ public class Gioco {
 		//I turni finiscono quando almeno uno dei giocatori realizza 20 punti senza extra delle carte obiettivo
 		//Quindi probabilmente ci sarà un for che gestisce il turno perogni singolo giocatore, dentro un while che cicla i turni finchè la i 20 p sono ragggiunto o i mazzi ris e oro finiscono
 		
-		while(!fineGioco()){
+		while(fineGioco()==false){
 			
 			for(Giocatore g: giocatori){
 				interfaccia.giocaTurno(g, centro);

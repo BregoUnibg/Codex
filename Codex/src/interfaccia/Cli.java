@@ -230,8 +230,10 @@ public class Cli implements Interfaccia{
 		
 		int stdp = 10; //Padding standard delle stringhe
 		
-		if(carta == null)
+		if(carta == null) {
 				System.out.println("Carta non reperibile");
+				return;
+		}
 
 		if(carta instanceof CartaIniziale) {
 			
@@ -275,10 +277,10 @@ public class Cli implements Interfaccia{
 		System.out.println("|------------------------------------------------------------------------------|");
 		System.out.println("|                                                                              |");
 		System.out.print("|Scoperto: "+paddingStringa( String.valueOf(carta.getTop_left_angle().getScoperto()), stdp)+"|"); //Scoperto angolo top left
-		System.out.print("			                                             ");
+		System.out.print("	                                  ");
 		System.out.println("|Scoperto: "+paddingStringa( String.valueOf(carta.getTop_right_angle().getScoperto()), stdp)+"|"); //Scoperto angolo top right
 		System.out.print("|Figura:   "+paddingStringa( String.valueOf(carta.getTop_left_angle().getFigura()), stdp)+"|");
-		System.out.print("			                                             ");
+		System.out.print("	                                  ");
 		System.out.println("|Figura:   "+paddingStringa( String.valueOf(carta.getTop_right_angle().getFigura()), stdp)+"|");
 		System.out.println("|                                                                              |");
 		System.out.println("|------------------------------------------------------------------------------|");
@@ -288,10 +290,10 @@ public class Cli implements Interfaccia{
 		System.out.println("|------------------------------------------------------------------------------|");
 		System.out.println("|                                                                              |");
 		System.out.print("|Scoperto: "+paddingStringa( String.valueOf(carta.getBottom_left_angle().getScoperto()), stdp)+"|"); //Scoperto angolo top left
-		System.out.print("			                                             ");
+		System.out.print("	                                  ");
 		System.out.println("|Scoperto: "+paddingStringa( String.valueOf(carta.getBottom_right_angle().getScoperto()), stdp)+"|"); //Scoperto angolo top right
 		System.out.print("|Figura:   "+paddingStringa( String.valueOf(carta.getBottom_left_angle().getFigura()), stdp)+"|");
-		System.out.print("			                                             ");
+		System.out.print("	                                  ");
 		System.out.println("|Figura:   "+paddingStringa( String.valueOf(carta.getBottom_right_angle().getFigura()), stdp)+"|");
 		System.out.println("|                                                                              |");
 		System.out.println("|------------------------------------------------------------------------------|");

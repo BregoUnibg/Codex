@@ -18,6 +18,7 @@ public class Giocatore {
 			this.pedina = pedina;
 			this.punti = 0;
 			this.campoGioco = new CampoGioco();
+			this.mano = new Mano();
 		}
 		
 		
