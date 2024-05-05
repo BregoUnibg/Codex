@@ -3,6 +3,7 @@ package interfaccia;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import campo.CentroCampo;
 import campo.Giocatore;
 import campo.Pedina;
 import carte.Carta;
@@ -113,7 +114,9 @@ public class Cli implements Interfaccia{
 	
 	
 	
-	
+	/**
+	 * Scelgi tra una di due carte obiettivo pesscate
+	 */
 	
 	
 	public void scegliCartaObiettivo(Giocatore g, Carta cartaObiettivo1, Carta cartaObiettivo2) {
@@ -146,11 +149,77 @@ public class Cli implements Interfaccia{
 	}
 	
 	
+	public void giocaTurno(Giocatore g, CentroCampo centro){
+		
+		int scelta;
+		boolean cartapiazzata = false;
+		
+		System.out.println("E' il tuo turno "+g.getNome());
+		
+		do {
+			
+			do{
+				
+				System.out.println();
+				System.out.println("Scegliere un Azione");
+				System.out.println();
+				System.out.println("1 - Visualizzare le carte in mano");
+				System.out.println("2 - Visualizzare le carte sul proprio campo di gioco");
+				System.out.println("3 - Giocare una carta");
+				
+				scelta = Integer.parseInt(sc.nextLine());
+				
+			}while(scelta<1 || scelta>3);
+		
+			switch(scelta) {
+			
+			case 1:
+				
+				visualizzaCarta(g.getMano().getCartaIndice(0));
+				visualizzaCarta(g.getMano().getCartaIndice(1));
+				visualizzaCarta(g.getMano().getCartaIndice(2));
+				break;
+				
+			case 2:
+				visualizzaCampoGioco(g);
+				break;
+				
+			case 3:
+				
+				break;
+			
+			}
+			
+		}while(!cartapiazzata);
+			
+		
+	}
 	
 	
+	private void visualizzaCampoGioco(Giocatore g) {
+		
+		ArrayList <Carta> carte = g.getCampoGioco().getCarteSulCampo();
+		
+		System.out.println("Carte sul campo");
+		
+		for(Carta c: carte) {
+			System.out.println("Id: "+c.getId());
+		}
+		
+		int scelta;
+		
+		do {
+		
+			System.out.println("Inserire l'id della carta da visualizzare (0 per uscire)");
+			scelta = Integer.parseInt(sc.nextLine());
+			
+			visualizzaCarta(g.getCampoGioco().getCartaPiazzataById(scelta));
+			
+		}while(scelta != 0);
 	
-	
-	
+		
+		
+	}
 	
 	/**
 	 * Visualizza la faccia di una carta 	
@@ -161,7 +230,8 @@ public class Cli implements Interfaccia{
 		
 		int stdp = 10; //Padding standard delle stringhe
 		
-		
+		if(carta == null)
+				System.out.println("Carta non reperibile");
 
 		if(carta instanceof CartaIniziale) {
 			

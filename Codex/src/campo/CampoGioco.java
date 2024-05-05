@@ -20,6 +20,7 @@ public class CampoGioco {
 	private final int dimCampo = 81;
 	
 	private Carta campo [][];
+	private ArrayList <Carta> carteSulCampo;
 	
 	//Contatori Figura piazate
 	private int contaFarfalla;
@@ -45,6 +46,8 @@ public class CampoGioco {
 	public CampoGioco() {
 		
 		campo = new Carta[dimCampo][dimCampo];
+		carteSulCampo = new ArrayList <Carta>();
+		
 		contaFarfalla = 0;
 		contaFungo = 0;
 		contaLupo = 0;
@@ -82,6 +85,8 @@ public class CampoGioco {
 		incrementaFigura(c.getTop_left_angle().getFigura());
 		incrementaFigura(c.getBottom_right_angle().getFigura());
 		incrementaFigura(c.getBottom_left_angle().getFigura());
+		
+		carteSulCampo.add(c);
 		
 	}
 	
@@ -244,6 +249,7 @@ public class CampoGioco {
 					return -1;
 				}
 				
+				carteSulCampo.add(cartaSopra);
 				return cartaSopra.getPunti(this);
 				
 			}
@@ -421,6 +427,18 @@ public class CampoGioco {
 		
 		return null;
 		
+	}
+	
+	public ArrayList <Carta> getCarteSulCampo(){
+		return carteSulCampo;
+	}
+	
+	public Carta getCartaPiazzataById(int id){
+		for(Carta c: carteSulCampo) {
+			if(c.getId()==id)
+				return c;
+		}
+		return null;
 	}
 
 	public int getContaFarfalla() {

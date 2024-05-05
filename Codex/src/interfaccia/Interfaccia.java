@@ -1,6 +1,7 @@
 package interfaccia;
 import java.util.ArrayList;
 
+import campo.CentroCampo;
 import campo.Giocatore;
 import campo.Pedina;
 import carte.Carta;
@@ -38,6 +39,7 @@ public interface Interfaccia {
 	
 	public void scegliCartaObiettivo(Giocatore g, Carta cartaObiettivo1, Carta cartaObiettivo2);
 	
+	public void giocaTurno(Giocatore g, CentroCampo centroCampo);
 
 	
 }

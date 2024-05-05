@@ -111,6 +111,11 @@ public class CentroCampo {
 		
 	}
 	
+	public boolean mazziVuoti(){
+		
+		return (this.mazzoCartaOro.vuoto() && this.mazzoCartaRisorsa.vuoto());
+		
+	}
 	
 	//Getter carte nel campo
 	

@@ -42,5 +42,9 @@ public class Mazzo {
 		return cartaPescata;
 		
 	}
+	
+	public boolean vuoto() {
+		return mazzo.isEmpty();
+	}
 
 }

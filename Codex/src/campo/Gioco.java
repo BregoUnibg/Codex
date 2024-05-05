@@ -106,17 +106,46 @@ public class Gioco {
 			
 		}
 		
-		
-		
-		
-		
-			
 		//Gestione dei turni
 		//I turni finiscono quando almeno uno dei giocatori realizza 20 punti senza extra delle carte obiettivo
 		//Quindi probabilmente ci sarà un for che gestisce il turno perogni singolo giocatore, dentro un while che cicla i turni finchè la i 20 p sono ragggiunto o i mazzi ris e oro finiscono
 		
+		while(!fineGioco()){
+			
+			for(Giocatore g: giocatori){
+				interfaccia.giocaTurno(g, centro);
+			}
+			
+		}
 		
+		//Una volta finita la fase di gioco si calcolano i punti considerando le carte obiettivo e
 		
+	}
+	
+	/**
+	 * Rileva quando i venti punti sono stati raggiunti o si sino svuotati i mazzi, ed è quindi giunta la fase 
+	 * del calcolo del punteggio definitivo
+	 * @return
+	 */
+	
+	private boolean fineGioco(){
+		
+				return ((maxPunti()>=20) && centro.mazziVuoti());
+				
+	}
+	
+	private int maxPunti(){
+		
+		int puntig, max = 0;
+		
+		for(Giocatore g: giocatori){
+			puntig = g.getPunti();
+			if(puntig>max) {
+				max = puntig;
+			}
+		}
+		
+		return max;
 		
 	}
 	
