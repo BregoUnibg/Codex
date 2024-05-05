@@ -41,4 +41,20 @@ public class CartaIniziale extends Carta{
 		super.setBottom_right_angle(back_bottom_right_angle);
 		this.figure.clear();
 	}
+
+	public Angolo getBack_top_left_angle() {
+		return back_top_left_angle;
+	}
+
+	public Angolo getBack_top_right_angle() {
+		return back_top_right_angle;
+	}
+
+	public Angolo getBack_bottom_left_angle() {
+		return back_bottom_left_angle;
+	}
+
+	public Angolo getBack_bottom_right_angle() {
+		return back_bottom_right_angle;
+	}
 }

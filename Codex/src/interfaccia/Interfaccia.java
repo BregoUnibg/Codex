@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import campo.Giocatore;
 import campo.Pedina;
 import carte.Carta;
+import carte.CartaIniziale;
 
 public interface Interfaccia {
 	
@@ -24,6 +25,8 @@ public interface Interfaccia {
 	 * @return
 	 */
 	
+	public void benvenuto();
+	
 	public Giocatore creaGiocatore(ArrayList <Pedina> pedine);
 	
 	/**
@@ -31,6 +34,7 @@ public interface Interfaccia {
 	 * @param cartaIniziale
 	 * @return
 	 */
-	public int giocaCartaIniziale(Carta cartaIniziale);
+	public void  giocaCartaIniziale(Giocatore g, Carta cartaIniziale);
+
 	
 }

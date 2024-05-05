@@ -82,6 +82,15 @@ public class Gioco {
 		
 		//Il giocatore riceve la carta iniziale e decide se piazzarla sul fronte o sul retro
 		
+		interfaccia.benvenuto();
+		
+		
+		for(Giocatore g: giocatori) {
+			
+			interfaccia.giocaCartaIniziale(g, centro.pescaDalMazzoIniziale());
+			
+			
+		}
 		
 		
 		//Il giocatore pesca 2 carte risorsa e 1 carta oro

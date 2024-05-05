@@ -252,6 +252,9 @@ public class CampoGioco {
 	
 	private void incrementaFigura(Figura f) {
 		
+		if(f == null)
+			return;
+		
 		switch(f) {
 		case FARFALLA:
 			contaFarfalla++;

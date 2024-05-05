@@ -99,6 +99,18 @@ public class CentroCampo {
 		
 	}
 	
+	public Carta pescaDalMazzoObiettivo() {
+		
+		return mazzoCartaObiettivo.pesca();
+		
+	}
+	
+	public Carta pescaDalMazzoIniziale() {
+		
+		return mazzoCartaIniziale.pesca();
+		
+	}
+	
 	
 	//Getter carte nel campo
 	
@@ -151,6 +163,14 @@ public class CentroCampo {
 		creaMazzoOro();
 		creaMazzoObiettivo();
 		creaMazzoIniziale();
+		
+		//Per mescolare le carte
+		
+		mazzoCartaRisorsa.mischia();
+		mazzoCartaOro.mischia();
+		mazzoCartaObiettivo.mischia();
+		mazzoCartaIniziale.mischia();
+		
 		
 	}
 	

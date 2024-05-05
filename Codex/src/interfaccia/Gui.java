@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import campo.Giocatore;
 import campo.Pedina;
 import carte.Carta;
+import carte.CartaIniziale;
 
 public class Gui implements Interfaccia{
 
@@ -25,9 +26,14 @@ public class Gui implements Interfaccia{
 	}
 
 	@Override
-	public int giocaCartaIniziale(Carta cartaIniziale) {
+	public void  giocaCartaIniziale(Giocatore g, Carta cartaIniziale) {
 		// TODO Auto-generated method stub
-		return 0;
+	}
+
+	@Override
+	public void benvenuto() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
