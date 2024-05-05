@@ -8,6 +8,7 @@ public class CartaOro extends Carta{
 	
 	private Requisito obiettivo;	//Posso risquotere i punti?
 	private Requisito piazzamento;	//Posso piazzare la carta?
+	private String descrizione;
 	
 	/*
 	 * teoricamento Questi costruttori sono inutili
@@ -21,6 +22,8 @@ public class CartaOro extends Carta{
 	}
 	
 	*/
+	
+	//AGGIUNGERE AI COSTRUTTORI LA DESCRIZIONE
 	
 	public CartaOro(Colore colore, Requisito piazzamento,Angolo top_left_angle, Angolo top_right_angle, Angolo bottom_left_angle, Angolo bottom_right_angle){
 		super(colore, top_left_angle, top_right_angle, bottom_left_angle, bottom_right_angle);
@@ -42,6 +45,10 @@ public class CartaOro extends Carta{
 	}
 	
 
+	public String getDescrizione() {
+		return descrizione;
+	}
+	
 	/**
 	 * Ritorna i punti dati dalla carta, 
 	 * @param c (Viene passato il campo di gioco afinchè i requisiti vengano verificati)

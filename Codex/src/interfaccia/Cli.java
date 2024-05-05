@@ -7,6 +7,7 @@ import campo.Giocatore;
 import campo.Pedina;
 import carte.Carta;
 import carte.CartaIniziale;
+import carte.CartaObiettivo;
 
 public class Cli implements Interfaccia{
 	
@@ -110,6 +111,47 @@ public class Cli implements Interfaccia{
 		
 	}
 	
+	
+	
+	
+	
+	
+	public void scegliCartaObiettivo(Giocatore g, Carta cartaObiettivo1, Carta cartaObiettivo2) {
+		
+		System.out.println("Scegli tra una delle carte obiettivo proposte");
+		
+		System.out.println("Opzione 1:");
+		System.out.println();
+		
+		visualizzaCarta(cartaObiettivo1);
+		
+		System.out.println("Opzione 2:");
+		System.out.println();
+		
+		visualizzaCarta(cartaObiettivo2);
+		
+		int scelta;		
+		
+		do {
+			System.out.println("Scegliere una tra le carte porposte (1-2)");
+			scelta = Integer.parseInt(sc.nextLine());
+		}while(scelta<1 || scelta>2);
+		
+		if(scelta==1)
+			g.setCartaObiettivoNascosta((CartaObiettivo) cartaObiettivo1);
+		else
+			g.setCartaObiettivoNascosta((CartaObiettivo) cartaObiettivo2);
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	/**
 	 * Visualizza la faccia di una carta 	
 	 * @param carta
@@ -150,6 +192,12 @@ public class Cli implements Interfaccia{
 			
 			return;
 			
+		}
+		
+		if(carta instanceof CartaObiettivo) {
+			
+			System.out.println(((CartaObiettivo) carta).getDescrizione());
+			return;
 		}
 			
 		
@@ -300,5 +348,6 @@ public class Cli implements Interfaccia{
 		return modificata;
 		
 	}
+
 
 }

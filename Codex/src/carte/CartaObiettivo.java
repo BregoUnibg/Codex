@@ -6,6 +6,9 @@ import requisiti.Requisito;
 public class CartaObiettivo extends Carta{
 	
 	private Requisito obiettivo;
+	private String descrizione;
+	
+	//AGGIUNGERE AL COSTRUZIONE LA DESCRIZIONE
 	
 	public CartaObiettivo(Colore colore, int punti, Requisito obiettivo){
 		super(colore, punti);		//La carta obiettivo non ha angoli
@@ -20,6 +23,10 @@ public class CartaObiettivo extends Carta{
 	
 	public int getPunti(CampoGioco c){
 		return obiettivo.soddisfatto(c)*super.getPunti();
+	}
+	
+	public String getDescrizione() {
+		return descrizione;
 	}
 	
 }

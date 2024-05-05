@@ -1,5 +1,7 @@
 package campo;
 
+import carte.CartaObiettivo;
+
 public class Giocatore {
 	
 		//Attributi
@@ -7,7 +9,8 @@ public class Giocatore {
 		private Mano mano;
 		private CampoGioco campoGioco;
 		private Pedina pedina;
-		int punti;
+		private CartaObiettivo cartaObiettivoNascosta;
+		private int punti;
 
 		//Costrutto
 		public Giocatore(String nome, Pedina pedina) {
@@ -41,4 +44,18 @@ public class Giocatore {
 		public int getPunti() {
 			return punti;	
 		}
+
+
+		public CartaObiettivo getCartaObiettivoNascosta() {
+			return cartaObiettivoNascosta;
+		}
+
+
+		public void setCartaObiettivoNascosta(CartaObiettivo cartaObiettivoNascosta) {
+			this.cartaObiettivoNascosta = cartaObiettivoNascosta;
+		}
+		
+		
+		
+		
 }

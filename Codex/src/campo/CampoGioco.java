@@ -88,7 +88,8 @@ public class CampoGioco {
 	
 	/**
 	 * 
-	 * piazza una carta nella matrice se il piazzamento è valido
+	 * Piazza una carta nella matrice: se il piazzamento è valido restituisce i punti generati dalla carta
+	 * Se non è possibile piazzare la carte restituisce -1
 	 * 
 	 * @param cartaSotto
 	 * @param angoloSotto
@@ -97,8 +98,11 @@ public class CampoGioco {
 	 * @return
 	 */
 	
+	//Dato che le che danno punti prima di raggiungere i 20, li danno in maniera immediata quando vengono piazzate
+	//Sarebbe idale se la funzione restituisse direttamente i punti generati dalle carte
+	//-1 se la carta non è paizzabile, 0 se viene piazzata e non restituisce punti, altrimenti i punti che restituisce
 	
-	public boolean piazzaCarta(Carta cartaSotto, String angoloSotto, Carta cartaSopra, String angoloSopra) {
+	public int piazzaCarta(Carta cartaSotto, String angoloSotto, Carta cartaSopra, String angoloSopra) {
 		
 		//Passo le carte da collegare con la posizione del relativo angolo da collegare
 		
@@ -110,7 +114,7 @@ public class CampoGioco {
 		//Prima di tutto controllo se si tratta di una carta Oro e in tal caso controllo che il requisito di paizzamento sia soddisfatto
 		if(cartaSopra instanceof CartaOro) {
 			if(((CartaOro) cartaSopra).getPiazzamento(this)==false)	//Faccio un cast sulla Carta che deve essere della sottoclasse CartaOro
-				return false;
+				return -1;
 		}
 		
 		//Controllo quindi che siano angoli opposti
@@ -237,15 +241,15 @@ public class CampoGioco {
 				}
 				else {
 					campo[x][y] = null;
-					return false;
+					return -1;
 				}
 				
-				return true;
+				return cartaSopra.getPunti();
 				
 			}
 		}
 		
-		return false;
+		return -1;
 		
 	}
 	

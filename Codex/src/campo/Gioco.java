@@ -3,7 +3,6 @@ package campo;
 import java.util.ArrayList;
 import java.util.Scanner;
 import interfaccia.Cli;
-import interfaccia.Gui;
 import interfaccia.Interfaccia;
 
 
@@ -49,9 +48,10 @@ public class Gioco {
 		
 		String scelta = sc.nextLine();
 		
-		if(scelta.equals("gui") || scelta.equals("GUI"))
-			interfaccia = new Gui();
-		else
+		if(scelta.equals("gui") || scelta.equals("GUI")){
+			//interfaccia = new Gui();
+			//Per ora lo lascio commentato perchè non è ancora stata creata l'interfaccia GUI
+		}else
 			interfaccia = new Cli();
 		
 		
@@ -80,25 +80,37 @@ public class Gioco {
 		
 		
 		
-		//Il giocatore riceve la carta iniziale e decide se piazzarla sul fronte o sul retro
 		
 		interfaccia.benvenuto();
 		
 		
 		for(Giocatore g: giocatori) {
 			
+			
+			//Per far si che anche la futura interfaccia grafica sia in grado di comunicare in maniera efficace con gioco, passo il più possibile
+			
+			//Il giocatore riceve la carta iniziale e decide se piazzarla sul fronte o sul retro
+			
 			interfaccia.giocaCartaIniziale(g, centro.pescaDalMazzoIniziale());
+			
+			//Il giocatore pesca 2 carte risorsa e 1 carta oro
+			
+			g.getMano().pescaCarta(centro.pescaDalMazzoRisorsa());		
+			g.getMano().pescaCarta(centro.pescaDalMazzoRisorsa());		
+			g.getMano().pescaCarta(centro.pescaDalMazzoOro());		
+			
+			//Il giocatore sceglie tra una due carte obiettivo pescate
+			
+			interfaccia.scegliCartaObiettivo(g, centro.pescaDalMazzoObiettivo(), centro.pescaDalMazzoObiettivo());
 			
 			
 		}
 		
 		
-		//Il giocatore pesca 2 carte risorsa e 1 carta oro
-		
-		//Il giocatore sceglie tra una due carte obiettivo pescate
 		
 		
 		
+			
 		//Gestione dei turni
 		//I turni finiscono quando almeno uno dei giocatori realizza 20 punti senza extra delle carte obiettivo
 		//Quindi probabilmente ci sarà un for che gestisce il turno perogni singolo giocatore, dentro un while che cicla i turni finchè la i 20 p sono ragggiunto o i mazzi ris e oro finiscono
