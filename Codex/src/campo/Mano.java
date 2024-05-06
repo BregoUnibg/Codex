@@ -66,9 +66,9 @@ public class Mano {
 	
 	public Carta giocaCartaIndice(int i) {
 		
-		Carta cartaPescata = carteMano.get(i); 
+		Carta cartaGiocata= carteMano.get(i); 
 		carteMano.remove(i);
-		return cartaPescata;
+		return cartaGiocata;
 		
 	}
 	
@@ -79,12 +79,12 @@ public class Mano {
 	 * @return
 	 */
 	
-	public Carta giocaCartaid(int id) {
+	public Carta giocaCartaId(int id) {
 		
-		Carta cartaPescata = getCartaId(id); 
-		if(cartaPescata != null) {
-			carteMano.remove(cartaPescata);
-			return cartaPescata;
+		Carta cartaGiocata = getCartaId(id); 
+		if(cartaGiocata != null) {
+			carteMano.remove(cartaGiocata);
+			return cartaGiocata;
 		}
 		return null;
 		

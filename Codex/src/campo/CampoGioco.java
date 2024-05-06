@@ -238,8 +238,8 @@ public class CampoGioco {
 							}
 			
 							if(esisteCartaCoinvoltaTl){
-								angoloCoinvoltoBr.piazzaAngolo(cartaSopra.getTop_left_angle());
-								decrementaFigura(angoloCoinvoltoBr.getFigura());
+								angoloCoinvoltoTl.piazzaAngolo(cartaSopra.getTop_left_angle());
+								decrementaFigura(angoloCoinvoltoTl.getFigura());
 							}
 							
 							//incrementaColore(cartaSopra.getColore());
@@ -306,6 +306,9 @@ public class CampoGioco {
 	}
 	
 	private void decrementaFigura(Figura f) {
+		
+		if(f == null)
+			return;
 		
 		switch(f) {
 		case FARFALLA:
@@ -424,10 +427,13 @@ public class CampoGioco {
 	
 	private  String getCoordinate(Carta c){
 		
-		for(int x=0;x<dimCampo;x++) {
-			for(int y=0;y<dimCampo;y++) {
-				if(campo[x][y] == c)
+		int x,y;
+		
+		for(x=0;x<dimCampo;x++) {
+			for(y=0;y<dimCampo;y++) {
+				if(campo[x][y] == c) {
 					return x+","+y;
+				}
 			}
 		}
 		

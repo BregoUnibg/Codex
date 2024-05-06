@@ -199,10 +199,10 @@ public class Cli implements Interfaccia{
 					System.out.println();
 					System.out.println("Inserire l'id della carta in mano che si vuole giocare: ");
 					id = Integer.parseInt(sc.nextLine());
-					cartasotto = g.getMano().getCartaId(id);
-					visualizzaCarta(cartasotto);
+					cartasopra = g.getMano().giocaCartaId(id);
+					visualizzaCarta(cartasopra);
 					
-				}while(cartasotto==null);
+				}while(cartasopra==null);
 				
 				
 				do {
@@ -210,10 +210,10 @@ public class Cli implements Interfaccia{
 					System.out.println();
 					System.out.println("Inserire l'id della carta sul campo sul quale si vuole piazzare la carte precedentemenre selezionata: ");
 					id = Integer.parseInt(sc.nextLine());
-					cartasopra = g.getCampoGioco().getCartaPiazzataById(id);
-					visualizzaCarta(cartasopra);
+					cartasotto= g.getCampoGioco().getCartaPiazzataById(id);
+					visualizzaCarta(cartasotto);
 					
-				}while(cartasopra==null);
+				}while(cartasotto==null);
 					
 				System.out.println("Scegli sul quale angolo piazzare la carta:");
 				System.out.println("tl = Top Left (angolo in alto a sinistra)");

@@ -39,7 +39,9 @@ public class CartaIniziale extends Carta{
 		super.setTop_right_angle(back_top_right_angle);
 		super.setBottom_left_angle(back_bottom_left_angle);
 		super.setBottom_right_angle(back_bottom_right_angle);
-		this.figure.clear();
+		this.figure.set(0, null);
+		this.figure.set(1, null);
+		this.figure.set(2, null);
 	}
 
 	public Angolo getBack_top_left_angle() {
