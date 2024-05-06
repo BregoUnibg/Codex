@@ -25,13 +25,13 @@ public class CartaOro extends Carta{
 	
 	//AGGIUNGERE AI COSTRUTTORI LA DESCRIZIONE
 	
-	public CartaOro(Colore colore, Requisito piazzamento,Angolo top_left_angle, Angolo top_right_angle, Angolo bottom_left_angle, Angolo bottom_right_angle){
-		super(colore, top_left_angle, top_right_angle, bottom_left_angle, bottom_right_angle);
+	public CartaOro(Colore colore, int punti, Requisito piazzamento,Angolo top_left_angle, Angolo top_right_angle, Angolo bottom_left_angle, Angolo bottom_right_angle){
+		super(colore, punti, top_left_angle, top_right_angle, bottom_left_angle, bottom_right_angle);
 		this.piazzamento = piazzamento;
 	}
 	
-	public CartaOro(Colore colore, Requisito piazzamento, Requisito obiettivo,Angolo top_left_angle, Angolo top_right_angle, Angolo bottom_left_angle, Angolo bottom_right_angle){
-		super(colore, top_left_angle, top_right_angle, bottom_left_angle, bottom_right_angle);
+	public CartaOro(Colore colore, int punti, Requisito piazzamento, Requisito obiettivo,Angolo top_left_angle, Angolo top_right_angle, Angolo bottom_left_angle, Angolo bottom_right_angle){
+		super(colore, punti, top_left_angle, top_right_angle, bottom_left_angle, bottom_right_angle);
 		this.piazzamento = piazzamento;
 		this.obiettivo = obiettivo;
 	}
@@ -57,6 +57,14 @@ public class CartaOro extends Carta{
 	
 	public int getPunti(CampoGioco c){
 		return obiettivo.soddisfatto(c)*super.getPunti(c);
+	}
+	
+	/**
+	 * Usata esclusivamente per mostrare quanti punti concede la carta
+	 * @return
+	 */
+	public int getPuntistd() {
+		return super.getPunti(null);
 	}
 	
 	public void setBack() {

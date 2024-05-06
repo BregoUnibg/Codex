@@ -107,7 +107,7 @@ public class CampoGioco {
 	//Sarebbe idale se la funzione restituisse direttamente i punti generati dalle carte
 	//-1 se la carta non è paizzabile, 0 se viene piazzata e non restituisce punti, altrimenti i punti che restituisce
 	
-	public int piazzaCarta(Carta cartaSotto, String angoloSotto, Carta cartaSopra, String angoloSopra) {
+	public int piazzaCarta(Carta cartaSotto, String angoloSotto, Carta cartaSopra) {
 		
 		//Passo le carte da collegare con la posizione del relativo angolo da collegare
 		
@@ -124,10 +124,13 @@ public class CampoGioco {
 		
 		//Controllo quindi che siano angoli opposti
 		
-		if((angoloSotto.substring(0, 1)!=angoloSopra.substring(0,1)) && (angoloSotto.substring(1, 2)!=angoloSopra.substring(1,2))){
+		
+		//Dato che l'angolo di piazzamento della carta superiore viene calcolato dal metodo non è necessario passarlo e fare controlli inutili
+		
+		//if((angoloSotto.substring(0, 1)!=angoloSopra.substring(0,1)) && (angoloSotto.substring(1, 2)!=angoloSopra.substring(1,2))){
 			
 			Angolo sotto = getAngoloPosizione(cartaSotto, angoloSotto);
-			Angolo sopra = getAngoloPosizione(cartaSopra, angoloSopra);
+			//Angolo sopra = getAngoloPosizione(cartaSopra, angoloSopra);
 			
 			if(sotto.piazzabile()){
 				
@@ -152,7 +155,10 @@ public class CampoGioco {
 						
 					case "br":
 						campo[++x][--y] = cartaSopra;
-						break;	
+						break;
+					
+					default:
+						return -1; //Nel caso venga inserito un input non valido
 						
 				}
 				
@@ -253,7 +259,7 @@ public class CampoGioco {
 				return cartaSopra.getPunti(this);
 				
 			}
-		}
+		//}
 		
 		return -1;
 		

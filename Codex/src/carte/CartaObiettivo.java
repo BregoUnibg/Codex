@@ -25,6 +25,14 @@ public class CartaObiettivo extends Carta{
 		return obiettivo.soddisfatto(c)*super.getPunti(c);
 	}
 	
+	/**
+	 * Usata esclusivamente per mostrare quanti punti concede la carta
+	 * @return
+	 */
+	public int getPuntistd() {
+		return super.getPunti(null);
+	}
+	
 	public String getDescrizione() {
 		return descrizione;
 	}
