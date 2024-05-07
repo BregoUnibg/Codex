@@ -243,12 +243,13 @@ public class Cli implements Interfaccia{
 				
 				angolo = sc.nextLine();
 					
-				int punti = g.getCampoGioco().piazzaCarta(cartasotto, angolo, cartagiocata);
 				
-				if(punti == -1)
+				//Se la carta viene giocata correttamente
+				
+				if(g.getCampoGioco().piazzaCarta(cartasotto, angolo, cartagiocata))
 					System.out.println("Non è stato scelto un angolo consono al piazzamento");
 				else {
-					g.addPunti(punti); //Aggiunge al giocatori i punti ottenuti piazzando la carta
+					g.addPunti(cartagiocata.getPunti(g.getCampoGioco())); //Aggiunge al giocatori i punti ottenuti piazzando la carta
 					g.getMano().giocaCartaId(idcartagiocata);	//La carta clonata in teroia sarà uguale a quella iniziale per eccezione 
 					//Però dell'identificativo, in quanto è stato invocato un nuovo costruttore che calcola un nuovo id, questo non influisce però in alcun modo sulle funzionalità del gioco in se
 					cartapiazzata = true;

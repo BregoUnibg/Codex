@@ -104,10 +104,16 @@ public class CampoGioco {
 	 */
 	
 	//Dato che le che danno punti prima di raggiungere i 20, li danno in maniera immediata quando vengono piazzate
+	
+	//OBSOLETO
 	//Sarebbe idale se la funzione restituisse direttamente i punti generati dalle carte
 	//-1 se la carta non è paizzabile, 0 se viene piazzata e non restituisce punti, altrimenti i punti che restituisce
 	
-	public int piazzaCarta(Carta cartaSotto, String angoloSotto, Carta cartaSopra) {
+	//ESISTENDO L'OBIETTIVO CHE DA PUNTI PER OGNI ANGOLO DA CALCOLARE POST CARTA PIAZZATA NON E' POSSIBILE CALCOLARI 
+	//I PUNTI DELLE CARTE ORO CON QUESTO METODO, ANCHE PERCHE' LE FIGURE SULLA CARTA NON VERREBBERO CONTEGGIATE
+	//RITORNA BOOLEAN
+	
+	public boolean piazzaCarta(Carta cartaSotto, String angoloSotto, Carta cartaSopra) {
 		
 		//Passo le carte da collegare con la posizione del relativo angolo da collegare
 		
@@ -119,7 +125,7 @@ public class CampoGioco {
 		//Prima di tutto controllo se si tratta di una carta Oro e in tal caso controllo che il requisito di paizzamento sia soddisfatto
 		if(cartaSopra instanceof CartaOro) {
 			if(((CartaOro) cartaSopra).getPiazzamento(this)==false)	//Faccio un cast sulla Carta che deve essere della sottoclasse CartaOro
-				return -1;
+				return false;
 		}
 		
 		//Controllo quindi che siano angoli opposti
@@ -158,7 +164,7 @@ public class CampoGioco {
 						break;
 					
 					default:
-						return -1; //Nel caso venga inserito un input non valido
+						return false; //Nel caso venga inserito un input non valido
 						
 				}
 				
@@ -252,16 +258,16 @@ public class CampoGioco {
 				}
 				else {
 					campo[x][y] = null;
-					return -1;
+					return false;
 				}
 				
 				carteSulCampo.add(cartaSopra);
-				return cartaSopra.getPunti(this);
+				return true;
 				
 			}
 		//}
 		
-		return -1;
+		return false;
 		
 	}
 	
