@@ -191,7 +191,7 @@ public class Cli implements Interfaccia{
 			case 3:
 				
 				Carta cartasotto, cartasopra;
-				int id;
+				int id, idcartagiocata;
 				String angolo;
 				
 				do {
@@ -199,12 +199,31 @@ public class Cli implements Interfaccia{
 					System.out.println();
 					System.out.println("Inserire l'id della carta in mano che si vuole giocare: ");
 					id = Integer.parseInt(sc.nextLine());
-					cartasopra = g.getMano().giocaCartaId(id);
+					cartasopra = g.getMano().getCartaId(id); //devo ancora giocarla (toglierla dalla mano)
 					visualizzaCarta(cartasopra);
+					
+					idcartagiocata = id;
 					
 				}while(cartasopra==null);
 				
 				
+				String fr;	//Scelta fronte/retro
+				
+				System.out.println();
+				
+				do {
+					
+					System.out.println("Desideri piazzarla sul fronte o sul retro (fronte/retro):" );
+					fr = sc.nextLine();
+					
+				}while((!fr.equals("fronte"))&&(!fr.equals("retro")));
+				
+				Carta cartagiocata = cartasopra.clona();
+				
+				if(fr.equals("retro"))
+					cartagiocata.setBack();
+					
+		
 				do {
 					
 					System.out.println();
@@ -214,7 +233,8 @@ public class Cli implements Interfaccia{
 					visualizzaCarta(cartasotto);
 					
 				}while(cartasotto==null);
-					
+				
+				
 				System.out.println("Scegli sul quale angolo piazzare la carta:");
 				System.out.println("tl = Top Left (angolo in alto a sinistra)");
 				System.out.println("tr = Top Right (angolo in alto a destra)");
@@ -223,12 +243,14 @@ public class Cli implements Interfaccia{
 				
 				angolo = sc.nextLine();
 					
-				int punti = g.getCampoGioco().piazzaCarta(cartasotto, angolo, cartasopra);
+				int punti = g.getCampoGioco().piazzaCarta(cartasotto, angolo, cartagiocata);
 				
 				if(punti == -1)
 					System.out.println("Non è stato scelto un angolo consono al piazzamento");
 				else {
 					g.addPunti(punti); //Aggiunge al giocatori i punti ottenuti piazzando la carta
+					g.getMano().giocaCartaId(idcartagiocata);	//La carta clonata in teroia sarà uguale a quella iniziale per eccezione 
+					//Però dell'identificativo, in quanto è stato invocato un nuovo costruttore che calcola un nuovo id, questo non influisce però in alcun modo sulle funzionalità del gioco in se
 					cartapiazzata = true;
 				}
 				break;

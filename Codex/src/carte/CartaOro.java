@@ -1,7 +1,6 @@
 package carte;
 
 import campo.CampoGioco;
-import carte.*;
 import requisiti.Requisito; 
 
 public class CartaOro extends Carta{
@@ -73,5 +72,13 @@ public class CartaOro extends Carta{
 		super.setBack();
 		this.obiettivo = null;
 		this.piazzamento = null;
+	}
+	
+	/**
+	 * Clona un oggetto cartaoro
+	 * @return
+	 */
+	public Carta clona() {		
+		return new CartaOro(super.getColore(), super.getPunti(null), this.piazzamento,this.obiettivo,super.getTop_left_angle(), super.getTop_right_angle(), super.getBottom_left_angle(), super.getBottom_right_angle());
 	}
 }
