@@ -24,8 +24,10 @@ public class CartaOro extends Carta{
 	*/
 	
 	//AGGIUNGERE AI COSTRUTTORI LA DESCRIZIONE
+	//requisito piazzamento: 3 figure farfalla
+	//requisito obiettivo: 1 punto per ciotola
 	
-	public CartaOro(Colore colore, int punti, Requisito piazzamento,Angolo top_left_angle, Angolo top_right_angle, Angolo bottom_left_angle, Angolo bottom_right_angle){
+	public CartaOro(Colore colore, int punti, Requisito piazzamento,Angolo top_left_angle, Angolo top_right_angle, Angolo bottom_left_angle, Angolo bottom_right_angle, String descrizione){
 		super(colore, punti, top_left_angle, top_right_angle, bottom_left_angle, bottom_right_angle);
 		this.piazzamento = piazzamento;
 	}

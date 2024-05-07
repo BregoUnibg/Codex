@@ -9,8 +9,10 @@ public class CartaObiettivo extends Carta{
 	private String descrizione;
 	
 	//AGGIUNGERE AL COSTRUZIONE LA DESCRIZIONE
+	//requisito obiettivo: 1 punto per ciotola
+	//\n a capo \t tab
 	
-	public CartaObiettivo(Colore colore, int punti, Requisito obiettivo){
+	public CartaObiettivo(Colore colore, int punti, Requisito obiettivo, String descrizione){
 		super(colore, punti);		//La carta obiettivo non ha angoli
 		this.obiettivo= obiettivo;
 	}
