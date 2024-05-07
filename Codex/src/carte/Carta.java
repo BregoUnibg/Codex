@@ -127,6 +127,10 @@ public abstract class Carta {
 		this.bottom_right_angle = bottom_right_angle;
 	}
 	
+	public Colore getColore(){
+		return colore;
+	}
+	
 	public void setAllAnglesEmpty(){
 	
 		this.top_left_angle = new Angolo();
@@ -147,6 +151,10 @@ public abstract class Carta {
 	
 	public int getPunti(CampoGioco c){
 		return this.punti;
+	}
+	
+	public Carta clona(){
+		return null;
 	}
 }
 	
