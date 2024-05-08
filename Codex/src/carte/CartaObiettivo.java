@@ -14,7 +14,8 @@ public class CartaObiettivo extends Carta{
 	
 	public CartaObiettivo(Colore colore, int punti, Requisito obiettivo, String descrizione){
 		super(colore, punti);		//La carta obiettivo non ha angoli
-		this.obiettivo= obiettivo;
+		this.obiettivo = obiettivo;
+		this.descrizione = descrizione;
 	}
 	
 	/**

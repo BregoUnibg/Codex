@@ -29,6 +29,7 @@ public class CartaOro extends Carta{
 	public CartaOro(Colore colore, int punti, Requisito piazzamento,Angolo top_left_angle, Angolo top_right_angle, Angolo bottom_left_angle, Angolo bottom_right_angle, String descrizione){
 		super(colore, punti, top_left_angle, top_right_angle, bottom_left_angle, bottom_right_angle);
 		this.piazzamento = piazzamento;
+		this.descrizione=descrizione;
 	}
 	
 	public CartaOro(Colore colore, int punti, Requisito piazzamento, Requisito obiettivo,Angolo top_left_angle, Angolo top_right_angle, Angolo bottom_left_angle, Angolo bottom_right_angle){
