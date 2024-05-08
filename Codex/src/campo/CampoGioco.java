@@ -458,7 +458,21 @@ public class CampoGioco {
 		}
 		return null;
 	}
-
+	
+	/**
+	 * Restituisce il reference della matrice che costituisce il campo da gioco
+	 * @return
+	 */
+	
+	public Carta[][] getMatriceCampo(){
+		return campo;
+	}
+	
+	
+	public int getDimCampo() {
+		return dimCampo;
+	}
+	
 	public int getContaFarfalla() {
 		return contaFarfalla;
 	}
