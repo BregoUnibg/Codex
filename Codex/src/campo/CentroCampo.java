@@ -10,8 +10,10 @@ import carte.CartaOro;
 import carte.CartaRisorsa;
 import carte.Colore;
 import carte.Figura;
+import requisiti.ReqAngoliCoperti;
 import requisiti.ReqCartaDoppia;
 import requisiti.ReqCartaSingola;
+import requisiti.ReqCarteObliqueCrescenti;
 import requisiti.ReqFiguraDoppia;
 import requisiti.ReqFiguraSingola;
 import requisiti.ReqFiguraTripla;
@@ -291,10 +293,10 @@ public class CentroCampo {
 		
 		//40 CARTE ORO
 		//ATTENZIONE BISOGNA METTERE TUTTI I PUNTI DELLE RELATIVE CARTE
-		mazzoCartaOro.add(new CartaOro(Colore.ROSSO, 1, new ReqFiguraDoppia(Figura.FUNGO,2,Figura.LUPO,1), new Angolo(false), new Angolo(), new Angolo(), new Angolo(Figura.PIUMA), "Piazzamento:\t 2 figure fungo e 1 figura lupo\nObiettivo:\t 1 punto per ogni figura piuma nel campo nel momento in cui viene piazzata la carta"));
-		mazzoCartaOro.add(new CartaOro(Colore.ROSSO, 1, new ReqFiguraDoppia(Figura.FUNGO,2,Figura.FOGLIA,1), new Angolo(), new Angolo(Figura.CIOTOLA), new Angolo(false), new Angolo(), "Piazzamento:\t 2 figure fungo e 1 figura foglia\nObiettivo:\t 1 punto per ogni figura ciotola nel campo nel momento in cui viene piazzata la carta "));
-		mazzoCartaOro.add(new CartaOro(Colore.ROSSO, 1, new ReqFiguraDoppia(Figura.FUNGO,2,Figura.FARFALLA,1), new Angolo(Figura.PERGAMENA), new Angolo(), new Angolo(), new Angolo(false), "Piazzamento:\t 2 figure fungo e 1 figura farfalla\nObiettivo:\t 1 punto per ogni figura pergamena nel campo nel momento in cui viene piazzata la carta "));
-		mazzoCartaOro.add(new CartaOro(Colore.ROSSO, 1, new ReqFiguraDoppia(Figura.FUNGO,3,Figura.LUPO,1), new Angolo(), new Angolo(), new Angolo(false), new Angolo(), "Piazzamento:\t 3 figure fungo e 1 figura lupo\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata "));
+		mazzoCartaOro.add(new CartaOro(Colore.ROSSO, 1, new ReqFiguraDoppia(Figura.FUNGO,2,Figura.LUPO,1), new ReqFiguraSingola(Figura.PIUMA, 1), new Angolo(false), new Angolo(), new Angolo(), new Angolo(Figura.PIUMA), "Piazzamento:\t 2 figure fungo e 1 figura lupo\nObiettivo:\t 1 punto per ogni figura piuma nel campo nel momento in cui viene piazzata la carta"));
+		mazzoCartaOro.add(new CartaOro(Colore.ROSSO, 1, new ReqFiguraDoppia(Figura.FUNGO,2,Figura.FOGLIA,1), new ReqFiguraSingola(Figura.CIOTOLA, 1), new Angolo(), new Angolo(Figura.CIOTOLA), new Angolo(false), new Angolo(), "Piazzamento:\t 2 figure fungo e 1 figura foglia\nObiettivo:\t 1 punto per ogni figura ciotola nel campo nel momento in cui viene piazzata la carta "));
+		mazzoCartaOro.add(new CartaOro(Colore.ROSSO, 1, new ReqFiguraDoppia(Figura.FUNGO,2,Figura.FARFALLA,1), new ReqFiguraSingola(Figura.PERGAMENA, 1), new Angolo(Figura.PERGAMENA), new Angolo(), new Angolo(), new Angolo(false), "Piazzamento:\t 2 figure fungo e 1 figura farfalla\nObiettivo:\t 1 punto per ogni figura pergamena nel campo nel momento in cui viene piazzata la carta "));
+		mazzoCartaOro.add(new CartaOro(Colore.ROSSO, 1, new ReqFiguraDoppia(Figura.FUNGO,3,Figura.LUPO,1), new ReqAngoliCoperti(), new Angolo(), new Angolo(), new Angolo(false), new Angolo(), "Piazzamento:\t 3 figure fungo e 1 figura lupo\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata "));
 		mazzoCartaOro.add(new CartaOro(Colore.ROSSO, 1, new ReqFiguraDoppia(Figura.FUNGO,3,Figura.FOGLIA,1), new Angolo(), new Angolo(), new Angolo(), new Angolo(false), "Piazzamento:\t 3 figure fungo e 1 figura foglia\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata "));
 		mazzoCartaOro.add(new CartaOro(Colore.ROSSO, 1, new ReqFiguraDoppia(Figura.FUNGO,3,Figura.FARFALLA,1), new Angolo(), new Angolo(false), new Angolo(), new Angolo(), "Piazzamento:\t 3 figure fungo e 1 figura farfalla\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata "));
 		mazzoCartaOro.add(new CartaOro(Colore.ROSSO, 1, new ReqFiguraSingola(Figura.FUNGO,3), new Angolo(), new Angolo(false), new Angolo(Figura.CIOTOLA), new Angolo(false), "Piazzamento:\t 3 figure fungo\nObiettivo:\t 3 punti immediati "));
@@ -340,7 +342,7 @@ public class CentroCampo {
 	public void creaMazzoObiettivo() {
 		
 		//16 CARTE OBIETTIVO 
-		mazzoCartaObiettivo.add(new CartaObiettivo(Colore.GRIGIO, 2, new ReqCartaSingola(Colore.ROSSO, 3), "2 punti se nel campo ci sono 3 carte rosse in diagonale (da sinistra a destra e dal basso verso l'alto), la carta centrale deve avere l'angolo in basso a sinistra e in alto a destra occupati dalle altre 2 carte rosse" ));
+		mazzoCartaObiettivo.add(new CartaObiettivo(Colore.GRIGIO, 2, new ReqCarteObliqueCrescenti(Colore.ROSSO, true), "2 punti se nel campo ci sono 3 carte rosse in diagonale (da sinistra a destra e dal basso verso l'alto), la carta centrale deve avere l'angolo in basso a sinistra e in alto a destra occupati dalle altre 2 carte rosse" ));
 		mazzoCartaObiettivo.add(new CartaObiettivo(Colore.GRIGIO, 2, new ReqCartaSingola(Colore.VERDE, 3), "2 punti se nel campo ci sono 3 carte verdi in diagonale (da sinistra a destra e dall'alto verso il basso), la carta centrale deve avere l'angolo in alto a sinistra e in basso a destra occupati dalle altre 2 carte verdi"));
 		mazzoCartaObiettivo.add(new CartaObiettivo(Colore.GRIGIO, 2, new ReqCartaSingola(Colore.BLU, 3), "2 punti se nel campo ci sono 3 carte blu in diagonale (da sinistra a destra e dal basso verso l'alto), la carta centrale deve avere l'angolo in basso a sinistra e in alto a destra occupati dalle altre 2 carte blu "));
 		mazzoCartaObiettivo.add(new CartaObiettivo(Colore.GRIGIO, 2, new ReqCartaSingola(Colore.VIOLA, 3), "2 punti se nel campo ci sono 3 carte viola in diagonale (da sinistra a destra e dall'alto verso il basso), la carta centrale deve avere l'angolo in basso a destra e in alto a sinistra occupati dalle altre 2 carte viola "));

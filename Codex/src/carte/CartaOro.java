@@ -33,10 +33,11 @@ public class CartaOro extends Carta{
 		this.descrizione=descrizione;
 	}
 	
-	public CartaOro(Colore colore, int punti, Requisito piazzamento, Requisito obiettivo,Angolo top_left_angle, Angolo top_right_angle, Angolo bottom_left_angle, Angolo bottom_right_angle){
+	public CartaOro(Colore colore, int punti, Requisito piazzamento, Requisito obiettivo,Angolo top_left_angle, Angolo top_right_angle, Angolo bottom_left_angle, Angolo bottom_right_angle, String descrizione){
 		super(colore, punti, top_left_angle, top_right_angle, bottom_left_angle, bottom_right_angle);
 		this.piazzamento = piazzamento;
 		this.obiettivo = obiettivo;
+		this.descrizione=descrizione;
 	}
 	
 	public boolean getPiazzamento(CampoGioco c) {
@@ -81,6 +82,6 @@ public class CartaOro extends Carta{
 	 * @return
 	 */
 	public Carta clona() {		
-		return new CartaOro(super.getColore(), super.getPunti(null), this.piazzamento,this.obiettivo,super.getTop_left_angle(), super.getTop_right_angle(), super.getBottom_left_angle(), super.getBottom_right_angle());
+		return new CartaOro(super.getColore(), super.getPunti(null), this.piazzamento,this.obiettivo,super.getTop_left_angle(), super.getTop_right_angle(), super.getBottom_left_angle(), super.getBottom_right_angle(), this.descrizione);
 	}
 }

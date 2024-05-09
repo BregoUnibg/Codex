@@ -5,6 +5,10 @@ import carte.Carta;
 
 public class ReqAngoliCoperti implements Requisito{
 
+	public ReqAngoliCoperti(){
+		
+	}
+	
 	@Override
 	public int soddisfatto(CampoGioco c, Carta carta) {
 		
