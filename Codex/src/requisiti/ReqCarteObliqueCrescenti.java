@@ -58,9 +58,9 @@ public class ReqCarteObliqueCrescenti implements Requisito{
 							(campo[x-crescente][y-1].getColore() == colore)
 					){
 						if(
-								(!presente(campo[x+crescente][y+1]))&&
-								(!presente(campo[x][y]))&&
-								(!presente(campo[x-crescente][y-1]))
+								(!Requisito.presente(campo[x+crescente][y+1], carteContate))&&
+								(!Requisito.presente(campo[x][y], carteContate))&&
+								(!Requisito.presente(campo[x-crescente][y-1], carteContate))
 						){
 							conta++;
 							carteContate.add(campo[x+crescente][y+1]);
@@ -88,13 +88,4 @@ public class ReqCarteObliqueCrescenti implements Requisito{
 	/**
 	 * Controlla se la carta sia presente in carte contate
 	 */
-	
-	private boolean presente(Carta cartaCercata){
-		for(Carta c: carteContate) {
-			if(c==cartaCercata)
-				return true;
-		}
-		return false;
-	}
-
 }

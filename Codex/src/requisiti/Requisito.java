@@ -1,6 +1,9 @@
 package requisiti;
 
+import java.util.ArrayList;
+
 import campo.CampoGioco;
+import carte.Carta;
 
 public abstract interface Requisito {
 	
@@ -21,7 +24,13 @@ public abstract interface Requisito {
 	//Quante volte l'obiettivo è soddisfatto
 	
 	
-	
+	public static boolean presente(Carta cartaCercata, ArrayList <Carta> carteContate){
+		for(Carta c: carteContate) {
+			if(c==cartaCercata)
+				return true;
+		}
+		return false;
+	}
 	
 	
 	
