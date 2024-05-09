@@ -260,6 +260,13 @@ public class Cli implements Interfaccia{
 			
 		}while(!cartapiazzata);
 		
+		//Voglio far vedere i punti del giocatore dopo che è stata piazzata la carta
+		
+		System.out.println();
+		System.out.println("Punti attuali del giocatore: "+g.getPunti());
+		System.out.println("Premere INVIO per continuare...");
+		sc.nextLine();
+		
 		//Ciclo per la selezione della nuova carta (Seconda parte del turno)
 		
 		System.out.println("Ecco le carte prenesti nel centro campo: ");
@@ -311,10 +318,18 @@ public class Cli implements Interfaccia{
 			g.getMano().pescaCarta(centro.pescaDalMazzoOro());
 			break;
 			
-		}	
+		}
+		
 		
 	}
 	
+	public void visualizzaVincitore(Giocatore g) {
+		
+		System.out.println("ABBIAMO UN VINCITORE!!!");
+		System.out.println();
+		System.out.println(g.getNome()+" ha vinto totalizzando: "+g.getPunti()+" punti");
+		
+	}
 	
 	private void visualizzaCampoGioco(Giocatore g) {
 		

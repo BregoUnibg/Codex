@@ -35,6 +35,8 @@ public interface Interfaccia {
 	 * @param cartaIniziale
 	 * @return
 	 */
+	public void visualizzaVincitore(Giocatore g);
+	
 	public void  giocaCartaIniziale(Giocatore g, Carta cartaIniziale);
 	
 	public void scegliCartaObiettivo(Giocatore g, Carta cartaObiettivo1, Carta cartaObiettivo2);

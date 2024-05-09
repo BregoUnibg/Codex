@@ -3,7 +3,7 @@ package requisiti;
 import campo.CampoGioco;
 import carte.Carta;
 
-public class ReqCartaSulRetro implements Requisito{
+public class ReqCartaTrue implements Requisito{
 
 	@Override
 	public int soddisfatto(CampoGioco c, Carta carta) {

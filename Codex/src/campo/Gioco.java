@@ -114,11 +114,38 @@ public class Gioco {
 			
 			for(Giocatore g: giocatori){
 				interfaccia.giocaTurno(g, centro);
+				if(centro.mazziVuoti())				//Se finiscono le carte nei mazzi il gioco finisce direttamente
+					break;
 			}
 			
 		}
 		
-		//Una volta finita la fase di gioco si calcolano i punti considerando le carte obiettivo e
+		
+		//Una volta finita la fase di gioco si calcolano i punti considerando le carte obiettivo
+		
+		Giocatore vincitore = null;
+		
+		int puntiGiocatoreVincente=0;
+		
+		
+		for(Giocatore g: giocatori) {
+			
+			g.addPunti(g.getCartaObiettivoNascosta().getPunti(g.getCampoGioco()));
+			g.addPunti(centro.getCartaObiettivo1().getPunti(g.getCampoGioco()));
+			g.addPunti(centro.getCartaObiettivo2().getPunti(g.getCampoGioco()));
+		
+			if(g.getPunti()>puntiGiocatoreVincente) {
+				puntiGiocatoreVincente = g.getPunti();
+				vincitore = g;
+			}
+			
+		}
+		
+		interfaccia.visualizzaVincitore(vincitore);
+		
+		//Ora i punteggi sono aggiornati 
+		
+		
 		
 	}
 	
@@ -130,7 +157,7 @@ public class Gioco {
 	
 	private boolean fineGioco(){
 		
-				return ((maxPunti()>=20) && centro.mazziVuoti());
+				return ((maxPunti()>=20) || centro.mazziVuoti());
 				
 	}
 	
