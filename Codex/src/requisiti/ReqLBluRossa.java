@@ -33,27 +33,27 @@ public class ReqLBluRossa implements Requisito{
 		//Stesso ragionamento delle eccezioni usato per ReqCarteObliqueCrescenti
 		
 		for(x=0;x<dim-1;x++) {
-			for(y=1;y<dim-1;y++){
+			for(y=1;y<dim-2;y++){
 				
 				try {
 					
 					if(
 							(campo[x+1][y+1].getColore() == Colore.ROSSO)&&
 							(campo[x][y].getColore() == Colore.BLU)&&
-							(campo[x][y-1].getColore() == Colore.BLU)
+							(campo[x][y-2].getColore() == Colore.BLU)
 							
 							) {
 						
 						if(
 								(!Requisito.presente(campo[x+1][y+1], carteContate))&&
 								(!Requisito.presente(campo[x][y], carteContate))&&
-								(!Requisito.presente(campo[x][y-1], carteContate))
+								(!Requisito.presente(campo[x][y-2], carteContate))
 								
 								){
 							
 							carteContate.add(campo[x+1][y+1]);
 							carteContate.add(campo[x][y]);
-							carteContate.add(campo[x][y-1]);
+							carteContate.add(campo[x][y-2]);
 									
 							conta++;
 							

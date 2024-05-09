@@ -33,25 +33,25 @@ public class ReqLVerdeViola implements Requisito{
 		//Stesso ragionamento delle eccezioni usato per ReqCarteObliqueCrescenti
 		
 		for(x=1;x<dim;x++) {
-			for(y=1;y<dim-1;y++){
+			for(y=2;y<dim-1;y++){
 				
 				try {
 					
 					if(
-							(campo[x][y+1].getColore() == Colore.VERDE)&&
+							(campo[x][y+2].getColore() == Colore.VERDE)&&
 							(campo[x][y].getColore() == Colore.VERDE)&&
 							(campo[x-1][y-1].getColore() == Colore.VIOLA)
 							
 							) {
 						
 						if(
-								(!Requisito.presente(campo[x][y+1], carteContate))&&
+								(!Requisito.presente(campo[x][y+2], carteContate))&&
 								(!Requisito.presente(campo[x][y], carteContate))&&
 								(!Requisito.presente(campo[x-1][y-1], carteContate))
 								
 								){
 							
-							carteContate.add(campo[x][y+1]);
+							carteContate.add(campo[x][y+2]);
 							carteContate.add(campo[x][y]);
 							carteContate.add(campo[x-1][y-1]);
 									
