@@ -265,7 +265,6 @@ public class CampoGioco {
 				return true;
 				
 			}
-		//}
 		
 		return false;
 		
