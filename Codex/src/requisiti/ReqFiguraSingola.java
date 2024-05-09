@@ -1,6 +1,7 @@
 package requisiti;
 
 import campo.CampoGioco;
+import carte.Carta;
 import carte.Figura;
 
 //Requisito relativo al controllare che ci siano tot figure di un certo tipo visibili sul campo di gioco
@@ -18,7 +19,7 @@ public class ReqFiguraSingola implements Requisito{
 	}
 	
 	@Override
-	public int soddisfatto(CampoGioco c) {
+	public int soddisfatto(CampoGioco c, Carta carta) {
 		
 		int conta = getContatoreFigura(figura, c);
 		

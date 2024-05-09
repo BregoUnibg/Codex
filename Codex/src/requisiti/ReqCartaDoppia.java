@@ -20,7 +20,7 @@ public class ReqCartaDoppia implements Requisito{
 	
 	
 	@Override
-	public int soddisfatto(CampoGioco c) {
+	public int soddisfatto(CampoGioco c, Carta carta) {
 		return 0;
 	}
 

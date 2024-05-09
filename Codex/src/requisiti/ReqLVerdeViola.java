@@ -21,7 +21,7 @@ public class ReqLVerdeViola implements Requisito{
 	 * Conta il numero di L sul campo uniche, formate da due carte verdi parallele una sotto l'altra e 
 	 * Una carta viola collegata con l'angolo in alto a destra alla carta verde inferiore
 	 */
-	public int soddisfatto(CampoGioco c) {
+	public int soddisfatto(CampoGioco c, Carta carta) {
 		
 		int conta = 0;
 		

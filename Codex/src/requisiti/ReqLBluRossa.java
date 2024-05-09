@@ -21,7 +21,7 @@ public class ReqLBluRossa implements Requisito{
 	 * Conta il numero di L sul campo uniche, formate da due carte blu parallele una sotto l'altra e 
 	 * Una carta rossa collegata con l'angolo in basso a sinistra alla carta blu superiore
 	 */
-	public int soddisfatto(CampoGioco c) {
+	public int soddisfatto(CampoGioco c, Carta carta) {
 		
 		int conta = 0;
 		

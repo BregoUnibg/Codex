@@ -35,7 +35,7 @@ public class ReqCarteObliqueCrescenti implements Requisito{
 	}
 	
 	@Override
-	public int soddisfatto(CampoGioco c) {
+	public int soddisfatto(CampoGioco c, Carta carta) {
 		
 		
 		Carta campo[][] = c.getMatriceCampo();

@@ -25,7 +25,7 @@ public class CartaObiettivo extends Carta{
 	 */
 	
 	public int getPunti(CampoGioco c){
-		return obiettivo.soddisfatto(c)*super.getPunti(c);
+		return obiettivo.soddisfatto(c, this)*super.getPunti(c);
 	}
 	
 	/**

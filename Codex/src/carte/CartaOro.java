@@ -41,7 +41,7 @@ public class CartaOro extends Carta{
 	
 	public boolean getPiazzamento(CampoGioco c) {
 		if(this.piazzamento!= null) {
-			if(this.piazzamento.soddisfatto(c)==0)
+			if(this.piazzamento.soddisfatto(c, this)==0)
 				return false;
 		}
 		return true;
@@ -59,7 +59,7 @@ public class CartaOro extends Carta{
 	 */
 	
 	public int getPunti(CampoGioco c){
-		return obiettivo.soddisfatto(c)*super.getPunti(c);
+		return obiettivo.soddisfatto(c, this)*super.getPunti(c);
 	}
 	
 	/**

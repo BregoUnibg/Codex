@@ -16,7 +16,7 @@ public abstract interface Requisito {
 	 * @return n di volte per cui l'obiettivo è stato soddisfatto
 	 */
 	
-	public abstract int soddisfatto(CampoGioco c);	//Gli passo il campo sul quale controlla che il requisito sia verificato
+	public abstract int soddisfatto(CampoGioco campo, Carta carta);	//Gli passo il campo sul quale controlla che il requisito sia verificato
 	
 	
 	

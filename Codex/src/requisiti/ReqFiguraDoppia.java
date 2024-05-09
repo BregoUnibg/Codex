@@ -1,6 +1,7 @@
 package requisiti;
 
 import campo.CampoGioco;
+import carte.Carta;
 import carte.Figura;
 
 public class ReqFiguraDoppia implements Requisito{
@@ -22,7 +23,7 @@ public class ReqFiguraDoppia implements Requisito{
 	}
 	
 	@Override
-	public int soddisfatto(CampoGioco c) {
+	public int soddisfatto(CampoGioco c, Carta carta) {
 		
 		int conta1 = ReqFiguraSingola.getContatoreFigura(figura1, c);
 		int conta2 = ReqFiguraSingola.getContatoreFigura(figura2, c);
