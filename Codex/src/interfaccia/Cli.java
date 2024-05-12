@@ -47,7 +47,7 @@ public class Cli implements Interfaccia{
 
 		System.out.println("Inserire il nome del giocatore: ");
 		String nome = sc.nextLine();
-		System.out.println("Pedinte disponibili");
+		System.out.println("Pedine disponibili");
 		
 		int i=0;
 		
@@ -78,7 +78,7 @@ public class Cli implements Interfaccia{
 		int scelta;
 		
 		do {
-			System.out.println("Inserire il nuemro di giocatori (2-4)");
+			System.out.println("Inserire il numero di giocatori (2-4)");
 			scelta = Integer.parseInt(sc.nextLine());
 		}while(scelta<2||scelta>4);
 		
@@ -92,7 +92,7 @@ public class Cli implements Interfaccia{
 		
 		System.out.println("Ciao "+g.getNome());
 		
-		System.out.println("Ecco la tua carta inizale, essa verrà piazzata in centro al tuo campo di gioco e sarà la radice del tuo campo");
+		System.out.println("Ecco la tua carta iniziale, essa verrà piazzata in centro al tuo campo di gioco e sarà la radice del tuo campo");
 		
 		visualizzaCartaFronteRetro(cartaIniziale);
 		
@@ -240,7 +240,7 @@ public class Cli implements Interfaccia{
 				}while(cartasotto==null);
 				
 				
-				System.out.println("Scegli sul quale angolo piazzare la carta:");
+				System.out.println("Scegli su quale angolo piazzare la carta:");
 				System.out.println("tl = Top Left (angolo in alto a sinistra)");
 				System.out.println("tr = Top Right (angolo in alto a destra)");
 				System.out.println("bl = Bottom Left (angolo in basso a sinistra)");
@@ -274,7 +274,7 @@ public class Cli implements Interfaccia{
 		
 		//Ciclo per la selezione della nuova carta (Seconda parte del turno)
 		
-		System.out.println("Ecco le carte prenesti nel centro campo: ");
+		System.out.println("Ecco le carte presenti nel centro campo: ");
 
 		visualizzaCarta(centro.getCartaRisorsa1());
 		visualizzaCarta(centro.getCartaRisorsa2());
@@ -290,8 +290,8 @@ public class Cli implements Interfaccia{
 			System.out.println("2 - Prendere la seconda carta risorsa");
 			System.out.println("3 - Prendere la prima carta oro");
 			System.out.println("4 - Prendere la seconda carta oro");
-			System.out.println("5 - Pesca dall mazzo delle carte risorsa");
-			System.out.println("6 - Pesca dall mazzo delle carte oro");
+			System.out.println("5 - Pesca dal mazzo delle carte risorsa");
+			System.out.println("6 - Pesca dal mazzo delle carte oro");
 			
 			scelta = Integer.parseInt(sc.nextLine());
 			
