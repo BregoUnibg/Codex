@@ -1,6 +1,7 @@
 package carte;
 
 import campo.CampoGioco;
+import requisiti.ReqCartaFalse;
 import requisiti.ReqCartaTrue;
 import requisiti.Requisito; 
 
@@ -74,7 +75,7 @@ public class CartaOro extends Carta{
 	
 	public void setBack() {
 		super.setBack();
-		this.obiettivo = null;
+		this.obiettivo = new ReqCartaFalse();
 		this.piazzamento = new ReqCartaTrue();
 	}
 	
