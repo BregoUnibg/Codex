@@ -57,13 +57,17 @@ public class Cli implements Interfaccia{
 		}
 		
 		System.out.println();
-		System.out.println("Scegliere la pedina (0-"+(pedine.size()-1)+")");
 		
 		int scelta;
 		
 		do {
-			scelta= Integer.parseInt(sc.nextLine());	//Mi ricordo che il prof consigliava di fare così proabilmente per l'acapo
-		}while(scelta<0 || scelta >= (pedine.size()));
+			try{
+				System.out.println("Scegliere la pedina (0-"+(pedine.size()-1)+")");
+				scelta= Integer.parseInt(sc.nextLine());	//Mi ricordo che il prof consigliava di fare così proabilmente per l'acapo
+			}catch(NumberFormatException e) {
+				scelta = -1;
+			}
+			}while(scelta<0 || scelta >= (pedine.size()));
 		
 		Pedina pedScelta = pedine.get(scelta);
 		pedine.remove(scelta);
@@ -79,7 +83,11 @@ public class Cli implements Interfaccia{
 		
 		do {
 			System.out.println("Inserire il numero di giocatori (2-4)");
-			scelta = Integer.parseInt(sc.nextLine());
+			try {
+				scelta = Integer.parseInt(sc.nextLine());
+			}catch(NumberFormatException e) {
+				scelta = 0; //Metto apposta un valore non accettabile per rifare il loop
+			}
 		}while(scelta<2||scelta>4);
 		
 		return scelta;
@@ -176,7 +184,11 @@ public class Cli implements Interfaccia{
 				System.out.println("2 - Visualizzare le carte sul proprio campo di gioco");
 				System.out.println("3 - Giocare una carta");
 				
-				scelta = Integer.parseInt(sc.nextLine());
+				try {
+					scelta = Integer.parseInt(sc.nextLine());
+				}catch(NumberFormatException e) {
+					scelta = 0;
+				}
 				
 			}while(scelta<1 || scelta>3);
 		
@@ -203,7 +215,14 @@ public class Cli implements Interfaccia{
 					
 					System.out.println();
 					System.out.println("Inserire l'id della carta in mano che si vuole giocare: ");
-					id = Integer.parseInt(sc.nextLine());
+					
+					try {
+						id = Integer.parseInt(sc.nextLine());
+					}catch(NumberFormatException e) {
+						System.out.println("Inserire un id coerente");
+						id = -1;
+					}
+					
 					cartasopra = g.getMano().getCartaId(id); //devo ancora giocarla (toglierla dalla mano)
 					visualizzaCarta(cartasopra);
 					
@@ -233,7 +252,14 @@ public class Cli implements Interfaccia{
 					
 					System.out.println();
 					System.out.println("Inserire l'id della carta sul campo sul quale si vuole piazzare la carte precedentemenre selezionata: ");
-					id = Integer.parseInt(sc.nextLine());
+					
+					try {
+						id = Integer.parseInt(sc.nextLine());
+					}catch(NumberFormatException e) {
+						System.out.println("Inserire un id coerente");
+						id = -1;
+					}
+					
 					cartasotto= g.getCampoGioco().getCartaPiazzataById(id);
 					visualizzaCarta(cartasotto);
 					

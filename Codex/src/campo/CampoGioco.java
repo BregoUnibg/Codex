@@ -138,7 +138,15 @@ public class CampoGioco {
 			Angolo sotto = getAngoloPosizione(cartaSotto, angoloSotto);
 			//Angolo sopra = getAngoloPosizione(cartaSopra, angoloSopra);
 			
-			if(sotto.piazzabile()){
+			boolean sottoPiazzabile;
+			
+			try {
+				sottoPiazzabile = sotto.piazzabile();
+			}catch(NullPointerException e) {
+				return false;
+			}
+			
+			if(sottoPiazzabile){
 				
 				String coordSotto = getCoordinate(cartaSotto);
 				
