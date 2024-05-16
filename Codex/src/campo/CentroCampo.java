@@ -1,5 +1,8 @@
 package campo;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import carte.Angolo;
@@ -44,6 +47,10 @@ public class CentroCampo {
 	
 	private Carta cartaObiettivo1;
 	private Carta cartaObiettivo2;
+	
+	//Attributi per inserimento da file 
+	private String carteRisorsa="CarteRisorsa.txt";
+	private String carta;
 	
 	//private ArrayList <Carta> carteSelezionabili;
 	
@@ -288,9 +295,26 @@ public class CentroCampo {
 		 mazzoCartaRisorsa.add(new CartaRisorsa(Colore.VIOLA, new Angolo(Figura.FARFALLA), new Angolo(Figura.FOGLIA), new Angolo(Figura.CIOTOLA), new Angolo(false)));
 		 mazzoCartaRisorsa.add(new CartaRisorsa(Colore.VIOLA, 1, new Angolo(Figura.FARFALLA), new Angolo(false), new Angolo(), new Angolo()));
 		 mazzoCartaRisorsa.add(new CartaRisorsa(Colore.VIOLA, 1, new Angolo(), new Angolo(), new Angolo(false), new Angolo(Figura.FARFALLA)));
-		 mazzoCartaRisorsa.add(new CartaRisorsa(Colore.VIOLA, 1, new Angolo(false), new Angolo(Figura.FARFALLA), new Angolo(), new Angolo()));	
-				 
-		
+		 mazzoCartaRisorsa.add(new CartaRisorsa(Colore.VIOLA, 1, new Angolo(false), new Angolo(Figura.FARFALLA), new Angolo(), new Angolo()));
+		 
+		 /*
+		 try {
+		       // Apre il file
+		       BufferedReader reader = new BufferedReader(new FileReader(carteRisorsa));
+		        
+		       // Leggo ogni riga del file fino alla fine
+		       while ((carta = reader.readLine()) != null) {
+		           // Aggiunge ogni riga nell'ArrayList
+		    	   mazzoCartaRisorsa.add(new CartaRisorsa(carta));
+		       }
+		        
+		       // Chiude il BufferedReader dopo aver finito di leggere i dati da file
+		       reader.close();
+
+		   } catch (IOException e) {
+		       // Gestisce eventuali eccezioni di IO, ad esempio se il file non esiste o non può essere letto
+		       System.err.println("Errore durante la lettura del file: ");
+		   } */
 	}
 	
 	public void creaMazzoOro() {
