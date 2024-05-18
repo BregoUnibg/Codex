@@ -119,23 +119,30 @@ public class Gui extends JFrame implements Interfaccia{
 	
 	
 	
+	//I METODI PROVVISORI SONO SOLO PER TESTARE, DEVONO ESSERE CREATI DA PEDRO
 	
 	@Override
 	public int numeroGiocatori() {
-		// TODO Auto-generated method stub
-		return 0;
+
+		//PROVVISIORIO
+		
+		return 3;
 	}
 
 	@Override
 	public void benvenuto() {
-		// TODO Auto-generated method stub
+		
+		//PROVVISIORIO
 		
 	}
 
 	@Override
 	public Giocatore creaGiocatore(ArrayList<Pedina> pedine) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		//PROVVISIORIO
+		
+		return new Giocatore("Marco", pedine.get(0));
+		
 	}
 
 	@Override

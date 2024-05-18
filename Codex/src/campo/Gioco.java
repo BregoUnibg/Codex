@@ -3,6 +3,7 @@ package campo;
 import java.util.ArrayList;
 import java.util.Scanner;
 import interfaccia.Cli;
+import interfaccia.Gui;
 import interfaccia.Interfaccia;
 
 
@@ -49,8 +50,7 @@ public class Gioco {
 		String scelta = sc.nextLine();
 		
 		if(scelta.equals("gui") || scelta.equals("GUI")){
-			//interfaccia = new Gui();
-			//Per ora lo lascio commentato perchè non è ancora stata creata l'interfaccia GUI
+			interfaccia = new Gui();
 		}else
 			interfaccia = new Cli();
 		
