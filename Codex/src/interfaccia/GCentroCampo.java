@@ -114,7 +114,7 @@ public class GCentroCampo extends JPanel{
 		
 		
 		JLabel croce = new JLabel();		
-		ImageIcon icon = new ImageIcon("croce.png");
+		ImageIcon icon = new ImageIcon("Immagini/croce.png");
 		Image img = icon.getImage();
 		img = img.getScaledInstance(50, 50, 0);
 		icon = new ImageIcon(img);
