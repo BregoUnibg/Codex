@@ -42,7 +42,7 @@ public class GVisualeGioco extends JPanel{
 		
 		
 		mano = new GMano();
-		barra = new GBarraStatistiche();
+		barra = new GBarraStatistiche(giocatore.getNome());
 		campo = new GCampoGioco();
 		
 		
