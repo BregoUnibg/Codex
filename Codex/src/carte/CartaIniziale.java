@@ -7,20 +7,22 @@ public class CartaIniziale extends Carta{
 	private Angolo back_top_right_angle;
 	private Angolo back_bottom_left_angle;
 	private Angolo back_bottom_right_angle;
+	private String urlImmagineRetro;
 	
 	private ArrayList<Figura> figure;
 	
 	
 	public CartaIniziale(Figura figura1, Figura figura2, Figura figura3, Angolo top_left_angle, Angolo top_right_angle, Angolo bottom_left_angle, Angolo bottom_right_angle,
-			Angolo back_top_left_angle, Angolo back_top_right_angle, Angolo back_bottom_left_angle, Angolo back_bottom_right_angle
+			Angolo back_top_left_angle, Angolo back_top_right_angle, Angolo back_bottom_left_angle, Angolo back_bottom_right_angle, String urlImmagineFronte, String urlImmagineRetro
 			){
 		
-		super(Colore.BIANCO, top_left_angle, top_right_angle, bottom_left_angle, bottom_right_angle);
+		super(Colore.BIANCO, top_left_angle, top_right_angle, bottom_left_angle, bottom_right_angle, urlImmagineFronte);
 		
 		this.back_top_left_angle = back_top_left_angle; 
 		this.back_top_right_angle = back_top_right_angle;
 		this.back_bottom_left_angle = back_bottom_left_angle;
 		this.back_bottom_right_angle = back_bottom_right_angle;
+		this.urlImmagineRetro = urlImmagineRetro;
 		
 		figure = new ArrayList<Figura>();
 		figure.add(figura1);
@@ -58,5 +60,9 @@ public class CartaIniziale extends Carta{
 
 	public Angolo getBack_bottom_right_angle() {
 		return back_bottom_right_angle;
+	}
+	
+	public String getUrlImmagineRetro() {
+		return urlImmagineRetro;
 	}
 }

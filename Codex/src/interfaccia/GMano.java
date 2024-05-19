@@ -13,7 +13,7 @@ public class GMano extends JPanel{
 	
 	private JPanel mano;
 	private JPanel selettoresx;
-	private JPanel selettoredx;
+	private JPanel obiettivo;
 	
 	public GMano() {
 		
@@ -27,9 +27,9 @@ public class GMano extends JPanel{
 		selettoresx.setBackground(Color.BLACK);
 		selettoresx.setPreferredSize(new Dimension(300,300));
 
-		selettoredx = new JPanel();
-		selettoredx.setBackground(Color.BLACK);
-		selettoredx.setPreferredSize(new Dimension(300,300));
+		obiettivo = new JPanel(new FlowLayout(FlowLayout.CENTER, 25,25));
+		obiettivo.setBackground(Color.BLACK);
+		obiettivo.setPreferredSize(new Dimension(300,300));
 
 		
 		//Spazio dove vengono effettivamente visualizzate le carte
@@ -46,40 +46,17 @@ public class GMano extends JPanel{
 		
 		this.add(selettoresx, BorderLayout.WEST);
 		this.add(mano, BorderLayout.CENTER);
-		this.add(selettoredx, BorderLayout.EAST);
+		this.add(obiettivo, BorderLayout.EAST);
 		 
 		this.setVisible(true);
 	}
 	
-	
-	/**
-	 * Fa apparire un popup su shcermo che visualizza sia il fronte che il retro della carta
-	 * La faccia premuta dall'utente sarà quella che verrà giocata
-	 * 
-	 * @param carta
-	 * @return
-	 */
-	
-	private GCarta scegliFronteRetro(GCarta c){
-		
-		JFrame scegliFaccia = new JFrame();
-		scegliFaccia.setSize(430,200);
-		scegliFaccia.setLocationRelativeTo(null);
-		
-		scegliFaccia.setLayout(new GridLayout(2,1));
-		
-		JPanel pFronte = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		JPanel pRetro = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		
-		scegliFaccia.add(pFronte);
-		scegliFaccia.add(pRetro);
-		
-		scegliFaccia.setVisible(true);
-		return c;
-	}
-	
 	public void addCarta(GCarta c){
 		mano.add(c);
+	}
+	
+	public void setGCartaObiettivoCoperto(GCarta c){
+		obiettivo.add(c);
 	}
 	
 	public void removeCarta(GCarta c){

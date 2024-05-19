@@ -36,4 +36,17 @@ public class GCampoGioco extends JScrollPane{
 		this.setViewportView(campogioco);//Per mettere l'elemento desiderato nello scrollpane
 	}
 	
+	/**
+	 * Piazza l'immagine della carta iniziale nella visualizzazione del campod i gioco
+	 * @param cartaIniziale
+	 */
+	
+	public void piazzaGCarta(GCarta cartaIniziale){
+		
+		cartaIniziale.setBounds(dim/2, dim/2, cartaIniziale.getPreferredSize().width, cartaIniziale.getPreferredSize().height);
+		campogioco.add(cartaIniziale);
+		
+		
+	}
+	
 }

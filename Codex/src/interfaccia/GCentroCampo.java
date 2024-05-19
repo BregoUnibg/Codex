@@ -133,7 +133,7 @@ public class GCentroCampo extends JPanel{
 			public void mouseClicked(MouseEvent e) {
 				if(!sceltaCartaAttiva) {
 					System.out.println("Stai chiudendo il cantrocampo");
-					gui.chiudiEvento(); 
+					gui.apriVisualeGiocatore(); 
 				}
 			}
 			

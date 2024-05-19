@@ -9,6 +9,7 @@ public abstract class Carta {
 	private Angolo bottom_left_angle;
 	private Angolo bottom_right_angle;
 	private Figura figura_centrale;
+	private String urlImmagine;
 	
 	
 	private final Colore colore; 			//Servirà nel caso verrà implementata l'iterfaccia grafica 
@@ -17,13 +18,14 @@ public abstract class Carta {
 	private int id;							//identificativo univoco della carta
 	
 	
-	public Carta(Colore colore, int punti){
+	public Carta(Colore colore, int punti, String urlImmagine){
 		
 		this.top_left_angle = null;
 		this.top_right_angle = null;
 		this.bottom_left_angle = null;
 		this.bottom_right_angle = null;
 		this.figura_centrale = null;
+		this.urlImmagine = urlImmagine;
 		
 		this.id = Carta.id_iniziale;
 		Carta.id_iniziale ++;
@@ -34,7 +36,7 @@ public abstract class Carta {
 		
 	}
 	
-	public Carta(Colore colore, Angolo top_left_angle, Angolo top_right_angle, Angolo bottom_left_angle, Angolo bottom_right_angle){
+	public Carta(Colore colore, Angolo top_left_angle, Angolo top_right_angle, Angolo bottom_left_angle, Angolo bottom_right_angle, String urlImmagine){
 		
 		this.colore = colore;		
 		this.top_left_angle = top_left_angle;
@@ -42,6 +44,7 @@ public abstract class Carta {
 		this.bottom_left_angle = bottom_left_angle;
 		this.bottom_right_angle = bottom_right_angle;
 		this.figura_centrale = null;
+		this.urlImmagine = urlImmagine;
 
 		this.id = Carta.id_iniziale;
 		Carta.id_iniziale ++;
@@ -51,7 +54,7 @@ public abstract class Carta {
 		
 	}
 
-	public Carta(Colore colore, int punti, Angolo top_left_angle, Angolo top_right_angle, Angolo bottom_left_angle, Angolo bottom_right_angle){
+	public Carta(Colore colore, int punti, Angolo top_left_angle, Angolo top_right_angle, Angolo bottom_left_angle, Angolo bottom_right_angle, String urlImmagine){
 		
 		this.colore = colore;		
 		this.top_left_angle = top_left_angle;
@@ -59,6 +62,7 @@ public abstract class Carta {
 		this.bottom_left_angle = bottom_left_angle;
 		this.bottom_right_angle = bottom_right_angle;
 		this.figura_centrale = null;
+		this.urlImmagine = urlImmagine;
 
 		this.id = Carta.id_iniziale;
 		Carta.id_iniziale ++;
@@ -116,6 +120,9 @@ public abstract class Carta {
 		return bottom_left_angle;
 	}
 	
+	public String getUrlImamgine() {
+		return this.urlImmagine;
+	}
 		
 	public void setBottom_left_angle(Angolo bottom_left_angle) {
 		this.bottom_left_angle = bottom_left_angle;
@@ -138,6 +145,11 @@ public abstract class Carta {
 		this.bottom_left_angle = new Angolo();
 		this.bottom_right_angle = new Angolo();
 	}	
+	
+	/**
+	 * La carta viene impostata in modo tale da essere giocata sul retro
+	 * ATTENZIONE: NON REVERSIBILE
+	 */
 	
 	public void setBack(){		//la carta viene giocata sul retro
 		setAllAnglesEmpty();

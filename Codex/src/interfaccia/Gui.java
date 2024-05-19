@@ -20,6 +20,7 @@ public class Gui extends JFrame implements Interfaccia{
 	private JPanel tabellone;
 	private JPanel centroCampo;
 	private JPanel livelloVisualizzato;
+	private ArrayList <GVisualeGioco> visualiGioco;
 	
 	private final int nGiocatori;
 	
@@ -55,35 +56,15 @@ public class Gui extends JFrame implements Interfaccia{
 		//(Posso gestire questi livelli in un arraylist
 		//Sarà quindi possibile gestire i turni in un semplice ciclo che appunto cicla l'arraylist)
 		
-		ArrayList <GVisualeGioco> visualiGioco = new ArrayList <GVisualeGioco>();
-	
-		for(int i=0;i<nGiocatori;i++) {
-			visualiGioco.add(new GVisualeGioco());
-		}
-		
-		
-		
-		visualeGiocatore = visualiGioco.get(1);
-		
-		
+		visualiGioco = new ArrayList <GVisualeGioco>();
 		selettoreLato = new GSelettoreLato();
 		tabellone = new JPanel();
 		centroCampo = new GCentroCampo(this);
-		
-		visualeGiocatore.setVisible(true);
-		
-		
-		
 		
 		//JPANEL PRINCIPALE  : ciò che metto in questo JPanel è ciò che viene visualizzato
 		
 		livelloVisualizzato = new JPanel();
 		livelloVisualizzato.setLayout(new BorderLayout());
-		
-		livelloVisualizzato.add(centroCampo, BorderLayout.CENTER);
-		
-
-		
 		
 		this.add(livelloVisualizzato);
 		this.setVisible(true);
@@ -97,36 +78,44 @@ public class Gui extends JFrame implements Interfaccia{
 	public void apriCentroCampo(){
 		livelloVisualizzato.removeAll();
 		livelloVisualizzato.add(centroCampo, BorderLayout.CENTER);
-		
-		//Questi due metodi mi servono per aggioranre il pannello
-		livelloVisualizzato.revalidate(); 
-	    livelloVisualizzato.repaint();    
+		aggiornaPannello();
 	}
 	
 	
 	/**
-	 * Chiudo qualunque evento stia venendo utilizzato e torno a visualizzare il cantrocampo
+	 * Visualizzo la visuale giocatore
 	 */
 	
-	public void chiudiEvento(){
+	public void apriVisualeGiocatore(){
 		livelloVisualizzato.removeAll();
 		livelloVisualizzato.add(visualeGiocatore, BorderLayout.CENTER);
-		
-		//Questi due metodi mi servono per aggioranre il pannello
-		livelloVisualizzato.revalidate(); 
-	    livelloVisualizzato.repaint();    
+		aggiornaPannello();    
 	}
 	
+	/**
+	 * Cambia la visuale di gioco da quella di un giocatore all'altro
+	 */
 	
+	public void selezionaVisualeGiocatore(GVisualeGioco v){
+		this.visualeGiocatore = v;
+		aggiornaPannello();
+	}
+	
+	private void aggiornaPannello(){
+		//Questi due metodi mi servono per aggioranre il pannello
+		livelloVisualizzato.revalidate(); 
+		livelloVisualizzato.repaint();
+	}
 	
 	//I METODI PROVVISORI SONO SOLO PER TESTARE, DEVONO ESSERE CREATI DA PEDRO
+	
 	
 	@Override
 	public int numeroGiocatori() {
 
 		//PROVVISIORIO
 		
-		return 3;
+		return nGiocatori;
 	}
 
 	@Override
@@ -141,7 +130,9 @@ public class Gui extends JFrame implements Interfaccia{
 		
 		//PROVVISIORIO
 		
-		return new Giocatore("Marco", pedine.get(0));
+		Giocatore giocatore = new Giocatore("Marco", pedine.get(0));
+		visualiGioco.add(new GVisualeGioco(giocatore));
+		return giocatore;
 		
 	}
 
@@ -153,13 +144,50 @@ public class Gui extends JFrame implements Interfaccia{
 
 	@Override
 	public void giocaCartaIniziale(Giocatore g, Carta cartaIniziale) {
-		// TODO Auto-generated method stub
+		
+		GVisualeGioco visualeGiocatore = null;
+		
+		for(GVisualeGioco v: visualiGioco) {
+			if(v.getGiocatore() == g){
+				visualeGiocatore = v;
+			}
+		}
+		
+		//QUI POTREI METTERE UN ECCEZZIONE CONTROLLATA (se un giocatore non è stato traovato lancio giocaotrenotfuondexception)
+		
+		selezionaVisualeGiocatore(visualeGiocatore);
+		
+		GCarta gCartaIniziale = new GCarta(cartaIniziale);
+		
+		visualeGiocatore.selezioneCartaIniziale(gCartaIniziale);
+		
+		apriVisualeGiocatore();
+		
+		
 		
 	}
 
 	@Override
 	public void scegliCartaObiettivo(Giocatore g, Carta cartaObiettivo1, Carta cartaObiettivo2) {
-		// TODO Auto-generated method stub
+		
+		GVisualeGioco visualeGiocatore = null;
+		
+		for(GVisualeGioco v: visualiGioco) {
+			if(v.getGiocatore() == g){
+				visualeGiocatore = v;
+			}
+		}
+		
+		//QUI POTREI METTERE UN ECCEZZIONE CONTROLLATA (se un giocatore non è stato traovato lancio giocaotrenotfuondexception)
+		
+		selezionaVisualeGiocatore(visualeGiocatore);
+		
+		GCarta gCartaobiettivo1 = new GCarta(cartaObiettivo1);
+		GCarta gCartaobiettivo2 = new GCarta(cartaObiettivo2);
+		
+		visualeGiocatore.scegliCartaObiettivo(gCartaobiettivo1, gCartaobiettivo2);
+		
+		apriVisualeGiocatore();
 		
 	}
 
