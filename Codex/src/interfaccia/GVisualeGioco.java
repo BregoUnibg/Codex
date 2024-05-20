@@ -10,6 +10,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
 import java.util.concurrent.CountDownLatch;
 
 import javax.swing.ButtonGroup;
@@ -20,7 +21,9 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 
+import campo.CentroCampo;
 import campo.Giocatore;
+import carte.Carta;
 
 public class GVisualeGioco extends JPanel{
 	
@@ -28,20 +31,27 @@ public class GVisualeGioco extends JPanel{
 	private GBarraStatistiche barra;
 	private GCampoGioco campo;
 	private Giocatore giocatore;		//Ogni visualegioco è collegara a un giocatore
+	private Gui gui;
+	
+	//Variabili per piazzamento carta
+	
+	private Dimension posizione;
+	private String angolo;
 	
 	//Variabili per actionlisteners
 	private boolean piazzaFronte;
 	private GCarta cartaSelezionata;
 	
-	public  GVisualeGioco(Giocatore giocatore) {
+	public  GVisualeGioco(Giocatore giocatore, Gui gui) {
 		
 		this.giocatore = giocatore;
+		this.gui = gui;
 		
 		this.setPreferredSize(new Dimension(1920,1080));
 		this.setLayout(new BorderLayout());
 		
 		
-		mano = new GMano();
+		mano = new GMano(gui);
 		barra = new GBarraStatistiche(giocatore.getNome());
 		campo = new GCampoGioco();
 		
@@ -50,18 +60,6 @@ public class GVisualeGioco extends JPanel{
 		this.add(barra, BorderLayout.NORTH);
 		this.add(campo, BorderLayout.CENTER);
 		//this.add(tabellone, BorderLayout.EAST);	
-		
-		
-		GCarta c1 = new GCarta();
-		GCarta c2 = new GCarta();
-		GCarta c3 = new GCarta();
-		
-		
-		mano.addCarta(c1);
-		mano.addCarta(c2);
-		mano.addCarta(c3);
-
-		
 		
 		this.setVisible( true);
 		
@@ -72,18 +70,20 @@ public class GVisualeGioco extends JPanel{
 	}
 	
 	/**
-	 * Fa apparire un popup su shcermo che visualizza sia il fronte che il retro della carta
-	 * La faccia premuta dall'utente sarà quella che verrà giocata
+	 * Fa apparire un popup su shcermo che visualizza sia il fronte che il retro della carta Iniziale
+	 * La faccia premuta dall'utente sarà quella che verrà giocata direttamente nel campo grafico e logico
 	 * 
 	 * @param carta
 	 * @return
 	 */
 	
-	public void selezioneCartaIniziale(GCarta c) {
+	public GCarta selezioneCartaIniziale(GCarta c) {
+		
+		this.barra.azioneCartaIniziale();
 		
 		GCarta cartaIniziale = scegliFronteRetro(c);
-		campo.piazzaGCarta(cartaIniziale);
-		
+		campo.piazzaGCartaIniziale(cartaIniziale);
+		return cartaIniziale;
 	}
 	
 	/**
@@ -204,6 +204,8 @@ public class GVisualeGioco extends JPanel{
 	
 	public GCarta scegliCartaObiettivo(GCarta obiettivo1, GCarta obiettivo2){
 		
+		this.barra.azioneCartaObiettivo();
+		
 		CountDownLatch latch = new CountDownLatch(1);
 		
 		JFrame scegliObiettivo = new JFrame();
@@ -283,6 +285,136 @@ public class GVisualeGioco extends JPanel{
 		
 		mano.setGCartaObiettivoCoperto(cartaSelezionata);
 		return cartaSelezionata;
+	}
+	
+	/**
+	 * Sostituisce la carte presenti nella mano con qualle passate ogni turno (aggiornando quindi la mano)
+	 * In quesot modo mi sto limitando a prendere ciò chee c'è a livello logico e non sto creando uno nuova logica di gioco
+	 * @param gCarte
+	 */
+	
+	public void aggiornaMano(Giocatore g){
+		
+		ArrayList <GCarta> carteInMano = new ArrayList <GCarta>();
+		
+		for(int i=0;i<3;i++){
+			try {
+				GCarta cartaInMano = new GCarta(g.getMano().getCartaIndice(i));
+				carteInMano.add(cartaInMano);
+			}catch(IndexOutOfBoundsException e ) {
+				
+			}
+		}
+		
+		mano.aggiornaMano(carteInMano);
+		
+	}
+	
+	/**
+	 * Fa giocare una carta sul campo al giocatore
+	 * @param g
+	 */
+	
+	public void giocaCarta(Giocatore g){
+		
+		
+		boolean cartaPiazzata = false;
+		
+		do {
+			
+			this.barra.azioneScegliCartaDaGiocare();
+			
+			GCarta cartaGiocata = mano.scegliCartaDaGiocare();
+			
+			//Clono la carta in modo tale da non corrompere l'originale se la giro e gioco in un punto
+			
+			int idCartaGiocataOriginale = cartaGiocata.getCarta().getId();
+			
+			cartaGiocata = cartaGiocata.clona();
+			
+			//Scegli se giocare la carta sul fronte o sul retro
+			
+			scegliFronteRetro(cartaGiocata);
+			
+			
+			this.barra.azionePosizionaCartaInCampo();
+			
+			
+			//Riceve la carta e il realativo angolo sul quale si vuole piazzare la carta
+			campo.getPiazzamento(this);
+			
+			
+			Carta cartaLogicaSotto = cartaSelezionata.getCarta();
+			
+			if(!g.getCampoGioco().piazzaCarta(cartaLogicaSotto, angolo, cartaGiocata.getCarta()))
+				System.out.println("Non è stato scelto un angolo consono al piazzamento");
+			else{
+				
+				int x = (int) posizione.getWidth();
+				int y = (int) posizione.getHeight();
+				
+				switch(angolo) {
+				
+				case "tl":
+					x-=155;
+					y-=85;
+					break;
+				
+				case "tr":
+					x+=155;
+					y-=85;
+					break;
+				
+				case "bl":
+					x-=155;
+					y+=85;
+					break;
+				
+				case "br":
+					x+=155;
+					y+=85;
+					break;
+				
+				}
+				
+				//Se il piazzamento va a buon fine aggiorno la parte logica del gioco
+				
+				g.addPunti(cartaGiocata.getCarta().getPunti(g.getCampoGioco()));
+				g.getMano().giocaCartaId(idCartaGiocataOriginale);
+				
+				campo.piazzaCarta(cartaGiocata, new Dimension(x,y));
+				
+				cartaPiazzata = true;
+				
+			}
+			
+		}while(!cartaPiazzata);
+		
+	}
+	
+	/**
+	 * Pesca una carta dal centrocampo 
+	 * @param g
+	 * @param c
+	 */
+	
+	public void pescaCarta(Giocatore g, CentroCampo c) {
+		
+		
+		
+	}
+	
+	
+	public void setPosizione(Dimension posizione) {
+		this.posizione = posizione;
+	}
+	
+	public void setAngolo(String angolo) {
+		this.angolo = angolo;
+	}
+	
+	public void setCartaSelezionata(GCarta cartaSelezionata) {
+		this.cartaSelezionata = cartaSelezionata;
 	}
 
 }

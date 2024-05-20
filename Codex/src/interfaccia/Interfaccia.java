@@ -28,18 +28,45 @@ public interface Interfaccia {
 	
 	public void benvenuto();
 	
+	/**
+	 * Creazione dei giocatori che affronteranno la partita
+	 * @param pedine pedine rimanenti (non ancora scelte dagli altri giocatori)
+	 * @return
+	 */
+	
 	public Giocatore creaGiocatore(ArrayList <Pedina> pedine);
 	
 	/**
-	 * Visualizza il fronte e il retro della carta iniziale, se viene giocata sul fronte restituisce 1, se viene giocata sul retro 0
-	 * @param cartaIniziale
-	 * @return
+	 * Mostra a schermo quale giocatore ha vinto la partita
+	 * @param g: giocatore vincente
 	 */
+	
 	public void visualizzaVincitore(Giocatore g);
+	
+	/**
+	 * Fa scegliere al giocatore su quale lato (fronte/retro) vuole giocare la carta inizale nel prorio campo di gioco
+	 * @param g: giocatore sul cui campo viene giocata la carta
+	 * @param cartaIniziale: carta izniale da piazzare sul campo
+	 */
 	
 	public void  giocaCartaIniziale(Giocatore g, Carta cartaIniziale);
 	
+	/**
+	 * Fa scegliere al giocatore una carta obiettivo tra due, qualla scelta sarà la sua carta obiettivo pesonale coperta per il resto della partita
+	 * @param g: giocatore che deve scewgliere l'obiettivo
+	 * @param cartaObiettivo1: prima scelta
+	 * @param cartaObiettivo2: seconda scelta
+	 */
+	
 	public void scegliCartaObiettivo(Giocatore g, Carta cartaObiettivo1, Carta cartaObiettivo2);
+	
+	/**
+	 * Permette al giocatore di giocare il pririo turno composto da due fasi:
+	 * 1 : giocare una carta sul campo daa gioco
+	 * 2 : pescare una carta
+	 * @param g: giocatore che deve affrontare il turno
+	 * @param centroCampo: centro campo da cui si pesca una carta
+	 */
 	
 	public void giocaTurno(Giocatore g, CentroCampo centroCampo);
 

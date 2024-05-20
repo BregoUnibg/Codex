@@ -10,6 +10,8 @@ import campo.CentroCampo;
 import campo.Giocatore;
 import campo.Pedina;
 import carte.Carta;
+import carte.CartaIniziale;
+import carte.CartaObiettivo;
 
 public class Gui extends JFrame implements Interfaccia{
 
@@ -18,7 +20,7 @@ public class Gui extends JFrame implements Interfaccia{
 	private JPanel visualeGiocatore;
 	private JPanel selettoreLato;
 	private JPanel tabellone;
-	private JPanel centroCampo;
+	private GCentroCampo gCentroCampo;
 	private JPanel livelloVisualizzato;
 	private ArrayList <GVisualeGioco> visualiGioco;
 	
@@ -59,7 +61,7 @@ public class Gui extends JFrame implements Interfaccia{
 		visualiGioco = new ArrayList <GVisualeGioco>();
 		selettoreLato = new GSelettoreLato();
 		tabellone = new JPanel();
-		centroCampo = new GCentroCampo(this);
+		gCentroCampo = new GCentroCampo(this);
 		
 		//JPANEL PRINCIPALE  : ciò che metto in questo JPanel è ciò che viene visualizzato
 		
@@ -77,7 +79,7 @@ public class Gui extends JFrame implements Interfaccia{
 	
 	public void apriCentroCampo(){
 		livelloVisualizzato.removeAll();
-		livelloVisualizzato.add(centroCampo, BorderLayout.CENTER);
+		livelloVisualizzato.add(gCentroCampo, BorderLayout.CENTER);
 		aggiornaPannello();
 	}
 	
@@ -131,7 +133,7 @@ public class Gui extends JFrame implements Interfaccia{
 		//PROVVISIORIO
 		
 		Giocatore giocatore = new Giocatore("Marco", pedine.get(0));
-		visualiGioco.add(new GVisualeGioco(giocatore));
+		visualiGioco.add(new GVisualeGioco(giocatore, this));
 		return giocatore;
 		
 	}
@@ -152,18 +154,18 @@ public class Gui extends JFrame implements Interfaccia{
 				visualeGiocatore = v;
 			}
 		}
-		
 		//QUI POTREI METTERE UN ECCEZZIONE CONTROLLATA (se un giocatore non è stato traovato lancio giocaotrenotfuondexception)
 		
 		selezionaVisualeGiocatore(visualeGiocatore);
-		
-		GCarta gCartaIniziale = new GCarta(cartaIniziale);
-		
-		visualeGiocatore.selezioneCartaIniziale(gCartaIniziale);
-		
 		apriVisualeGiocatore();
 		
 		
+		GCarta gCartaIniziale = new GCarta(cartaIniziale);
+		
+		GCarta gCartaRestituita = visualeGiocatore.selezioneCartaIniziale(gCartaIniziale);
+		
+		
+		g.getCampoGioco().piazzaCartaIniziale((CartaIniziale) gCartaRestituita.getCarta());
 		
 	}
 
@@ -181,19 +183,61 @@ public class Gui extends JFrame implements Interfaccia{
 		//QUI POTREI METTERE UN ECCEZZIONE CONTROLLATA (se un giocatore non è stato traovato lancio giocaotrenotfuondexception)
 		
 		selezionaVisualeGiocatore(visualeGiocatore);
+		apriVisualeGiocatore();
 		
 		GCarta gCartaobiettivo1 = new GCarta(cartaObiettivo1);
 		GCarta gCartaobiettivo2 = new GCarta(cartaObiettivo2);
 		
-		visualeGiocatore.scegliCartaObiettivo(gCartaobiettivo1, gCartaobiettivo2);
+		GCarta gCartaRestituita = visualeGiocatore.scegliCartaObiettivo(gCartaobiettivo1, gCartaobiettivo2);
 		
-		apriVisualeGiocatore();
+		
+		g.setCartaObiettivoNascosto((CartaObiettivo) gCartaRestituita.getCarta());
+		
+		aggiornaPannello();
 		
 	}
 
 	@Override
 	public void giocaTurno(Giocatore g, CentroCampo centroCampo) {
-		// TODO Auto-generated method stub
+		
+		
+		GVisualeGioco visualeGiocatore = null;
+		
+		for(GVisualeGioco v: visualiGioco) {
+			if(v.getGiocatore() == g){
+				visualeGiocatore = v;
+			}
+		}
+		
+		//QUI POTREI METTERE UN ECCEZZIONE CONTROLLATA (se un giocatore non è stato traovato lancio giocatoreNotFuondException)
+		
+		selezionaVisualeGiocatore(visualeGiocatore);
+		apriVisualeGiocatore();
+		
+		
+		
+		
+		//Primaa di tutto devco aggiornare la mano caricando (o aggiornando) le carte che ho in mano
+		
+		
+		visualeGiocatore.aggiornaMano(g);
+		
+		//Gioco una carta
+		
+		visualeGiocatore.giocaCarta(g);
+		
+		visualeGiocatore.aggiornaMano(g);
+		aggiornaPannello();
+		
+		
+		//Aggiorno il centrocampo
+		
+		//this.gCentroCampo.setCartaObiettivo1(centroCampo.getCartaObiettivo1());
+		
+		//Pesco una carta dal centrocampo
+		
+		visualeGiocatore.pescaCarta(g, centroCampo);
+		
 		
 	}
 

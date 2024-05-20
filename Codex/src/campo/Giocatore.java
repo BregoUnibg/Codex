@@ -51,8 +51,12 @@ public class Giocatore {
 			return cartaObiettivoNascosta;
 		}
 
-
-		public void setCartaObiettivoNascosta(CartaObiettivo cartaObiettivoNascosta) {
+		/**
+		 * Da al giocatore la sua carta obiettivo personale
+		 * @param cartaObiettivoNascosta
+		 */
+		
+		public void setCartaObiettivoNascosto(CartaObiettivo cartaObiettivoNascosta) {
 			this.cartaObiettivoNascosta = cartaObiettivoNascosta;
 		}
 		

@@ -124,11 +124,6 @@ public class Cli implements Interfaccia{
 	
 	
 	
-	/**
-	 * Scelgi tra una di due carte obiettivo pesscate
-	 */
-	
-	
 	public void scegliCartaObiettivo(Giocatore g, Carta cartaObiettivo1, Carta cartaObiettivo2) {
 		
 		System.out.println("Scegli tra una delle carte obiettivo proposte");
@@ -156,9 +151,9 @@ public class Cli implements Interfaccia{
 		}while(scelta<1 || scelta>2);
 		
 		if(scelta==1)
-			g.setCartaObiettivoNascosta((CartaObiettivo) cartaObiettivo1);
+			g.setCartaObiettivoNascosto((CartaObiettivo) cartaObiettivo1);
 		else
-			g.setCartaObiettivoNascosta((CartaObiettivo) cartaObiettivo2);
+			g.setCartaObiettivoNascosto((CartaObiettivo) cartaObiettivo2);
 		
 		
 	}
@@ -239,7 +234,7 @@ public class Cli implements Interfaccia{
 					
 					System.out.println("Desideri piazzarla sul fronte o sul retro (fronte/retro):" );
 					fr = sc.nextLine();
-					
+						
 				}while((!fr.equals("fronte"))&&(!fr.equals("retro")));
 				
 				Carta cartagiocata = cartasopra.clona();

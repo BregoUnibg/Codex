@@ -93,8 +93,9 @@ public class CampoGioco {
 	
 	/**
 	 * 
-	 * Piazza una carta nella matrice: se il piazzamento è valido restituisce i punti generati dalla carta
-	 * Se non è possibile piazzare la carte restituisce -1
+	 * Piazza una carta nella matrice: se il piazzamento è valido restituisce true in caso si successo
+	 * Se non è possibile piazzare la carte restituisce false
+	 * L'angolo da passare è quello della carta sottostante
 	 * 
 	 * @param cartaSotto
 	 * @param angoloSotto

@@ -3,8 +3,11 @@ package interfaccia;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -15,6 +18,12 @@ public class GCarta extends JPanel{
 	
 	private JLabel immagine;
 	private Carta cartaLogica;	//Carta logica associata alla maschera grafica
+	private Dimension posizione; //Posizione della carta nel campo una volta che è stata giocata
+	
+	private JButton bTopLeft;
+	private JButton bTopRight;
+	private JButton bBottomLeft;
+	private JButton bBottomRight;
 	
 	public GCarta() {
 		
@@ -48,11 +57,38 @@ public class GCarta extends JPanel{
 		
 		this.add(immagine);
 		
+		
+		bTopLeft = new JButton();
+		bTopLeft.setBounds(0, 0, 45, 55);
+		bTopLeft.setOpaque(false);
+		
+		bTopRight = new JButton();
+		bTopRight.setBounds(155, 0, 45, 55);
+		bTopRight.setOpaque(false);
+		
+		bBottomLeft = new JButton();
+		bBottomLeft.setBounds(0, 85, 45, 55);
+		bBottomLeft.setOpaque(false);
+		
+		bBottomRight= new JButton();
+		bBottomRight.setBounds(155, 85, 45, 55);
+		bBottomRight.setOpaque(false);
+		
+		this.add(bTopLeft);
+		this.add(bTopRight);
+		this.add(bBottomLeft);
+		this.add(bBottomRight);
+		
 		this.setVisible(true);
 		
 		
 	}
 	
+	
+	/**
+	 * Imposta forzatamente l'immagine della carta
+	 * @param urlImmagine
+	 */
 	
 	private void setImmagineCarta(String urlImmagine) {
 
@@ -61,6 +97,11 @@ public class GCarta extends JPanel{
 		img = img.getScaledInstance(200, 140, 0);
 		icon = new ImageIcon(img);
 		immagine.setIcon(icon);
+	}
+	
+	private void setJLabelImmagineCarta(JLabel immagine) {
+
+		this.immagine = immagine;
 	}
 	
 	/**
@@ -130,5 +171,46 @@ public class GCarta extends JPanel{
 		}
 		
 	}
+	
+	public Carta getCarta() {
+		return cartaLogica;
+	}
+	
+	/**
+	 * Crea un clone della carta, (por non sporcare l'originale nel caso in cui venga girata)
+	 * @return
+	 */
+	
+	public GCarta clona(){
+		
+		GCarta cartaClonata =  new GCarta(cartaLogica.clona());
+		cartaClonata.setJLabelImmagineCarta(immagine);
+		return cartaClonata;
+		
+	}
+	
+	public JButton getbTopLeft() {
+		return bTopLeft;
+	}
 
+	public JButton getbTopRight() {
+		return bTopRight;
+	}
+
+	public JButton getbBottomLeft() {
+		return bBottomLeft;
+	}
+
+	public JButton getbBottomRight() {
+		return bBottomRight;
+	}
+
+	public Dimension getPosizione() {
+		return posizione;
+	}
+
+	public void setPosizione(Dimension posizione) {
+		this.posizione = posizione;
+	}
+	
 }
