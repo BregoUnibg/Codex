@@ -31,7 +31,7 @@ public class ReqFiguraDoppia implements Requisito{
 		//Trovo quante volte è stato soddisfatto il req per figura e restituisco il minore dei risultati
 		
 		conta1 = (int)conta1/numFigure1;
-		conta2 = (int)conta2/numFigure1;
+		conta2 = (int)conta2/numFigure2;
 		
 		return Math.min(conta1, conta2);
 		

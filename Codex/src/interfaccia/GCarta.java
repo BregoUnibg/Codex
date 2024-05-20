@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 
 import carte.Carta;
 import carte.CartaIniziale;
+import carte.CartaRisorsa;
 
 public class GCarta extends JPanel{
 	
@@ -122,23 +123,43 @@ public class GCarta extends JPanel{
 			switch(cartaLogica.getColore()) {
 			
 			case ROSSO:
-				setImmagineCarta("Immagini/Carte/xretrocartarossa.png");
+				
+				if(cartaLogica instanceof CartaRisorsa) {
+					setImmagineCarta("Immagini/Carte/xRetroRossaRisorsa.png");
+				}else
+					setImmagineCarta("Immagini/Carte/xRetroRossaOro.png");
+				
 				break;
 
 			case VERDE:
-				setImmagineCarta("Immagini/Carte/xretrocartaverde.png");
+				
+				if(cartaLogica instanceof CartaRisorsa) {
+					setImmagineCarta("Immagini/Carte/xRetroVerdeRisorsa.png");
+				}else
+					setImmagineCarta("Immagini/Carte/xRetroVerdeOro.png");
+				
 				break;
 
 			case BLU:
-				setImmagineCarta("Immagini/Carte/xretrocartablu.png");
+				
+				if(cartaLogica instanceof CartaRisorsa) {
+					setImmagineCarta("Immagini/Carte/xRetroBluRisorsa.png");
+				}else
+					setImmagineCarta("Immagini/Carte/xRetroBluOro.png");
+				
 				break;
 
 			case VIOLA:
-				setImmagineCarta("Immagini/Carte/xretrocartaviola.png");
+				
+				if(cartaLogica instanceof CartaRisorsa) {
+					setImmagineCarta("Immagini/Carte/xRetroViolaRisorsa.png");
+				}else
+					setImmagineCarta("Immagini/Carte/xRetroViolaOro.png");
+				
 				break;
 
 			case GRIGIO:
-				setImmagineCarta("Immagini/Carte/xretrocartagrigia.png");
+				setImmagineCarta("Immagini/Carte/xRetroObiettivo.png");
 				break;
 				
 			}

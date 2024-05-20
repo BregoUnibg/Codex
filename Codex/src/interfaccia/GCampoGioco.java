@@ -84,6 +84,8 @@ public class GCampoGioco extends JScrollPane{
 			    gCarta.getPreferredSize().height
 			);
 		
+		
+		
 		gCarta.setPosizione(posizione);
 		campogioco.add(gCarta);
 		

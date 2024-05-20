@@ -17,6 +17,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import campo.CentroCampo;
+import carte.Carta;
+import carte.CartaRisorsa;
+import carte.Colore;
 
 public class GCentroCampo extends JPanel{
 	
@@ -34,7 +37,6 @@ public class GCentroCampo extends JPanel{
 	
 	private GCarta cartaSelezionata;	//Mi serve per il metodo selezionaCarta che simula il pescaggio della carta
 	private CountDownLatch latch;			//latch che mi permette di gestire i thread quando aspetto che una carta venga cliccata
-	private boolean sceltaCartaAttiva;
 	
 	
 	public GCentroCampo(Gui gui) {
@@ -42,7 +44,6 @@ public class GCentroCampo extends JPanel{
 		this.setBackground(Color.WHITE);
 		
 		this.gui = gui;
-		this.sceltaCartaAttiva = false;
 		
 		this.setPreferredSize(gui.getPreferredSize());
 		this.setLayout(new BorderLayout());
@@ -91,11 +92,11 @@ public class GCentroCampo extends JPanel{
 		carte.add(cella7);	
 		carte.add(cella8);	
 		
-		cella1.add(new GCarta());
+		cella1.add(new GCarta(new CartaRisorsa(Colore.ROSSO, 0, "Immagini/Carte/xRetroVerdeRisorsa.png")));
 		cella2.add(new GCarta());
 		cella3.add(new GCarta());
 		cella4.add(new GCarta());
-		cella5.add(new GCarta());
+		cella5.add(new GCarta(new CartaRisorsa(Colore.ROSSO, 0, "Immagini/Carte/xRetroRossaOro.png")));
 		cella6.add(new GCarta());
 		cella7.add(new GCarta());
 		cella8.add(new GCarta());
@@ -134,10 +135,8 @@ public class GCentroCampo extends JPanel{
 		croce.addMouseListener(new MouseAdapter() {
 			
 			public void mouseClicked(MouseEvent e) {
-				if(!sceltaCartaAttiva) {
 					System.out.println("Stai chiudendo il cantrocampo");
 					gui.apriVisualeGiocatore(); 
-				}
 			}
 			
 		});
@@ -173,6 +172,8 @@ public class GCentroCampo extends JPanel{
 				
 				cartaSelezionata = ((GCarta) cella.getComponent(0));
 				boolean cartaPescata = false;
+				
+				try {
 				
 				switch(tipoCella) {
 				
@@ -212,6 +213,10 @@ public class GCentroCampo extends JPanel{
 				}
 				
 				
+				}catch(NullPointerException ex) {
+					System.out.println("Non è il momento di pescare la carta");
+				}
+				
 				System.out.println("Ho selezionato la carta");
 				
 				try {
@@ -237,7 +242,6 @@ public class GCentroCampo extends JPanel{
 		
 		this.centroCampoLogico = centroCampoLogico;
 		
-		this.sceltaCartaAttiva = true;
 		latch = new CountDownLatch(1);
 		
 		try {
@@ -248,7 +252,6 @@ public class GCentroCampo extends JPanel{
 			e.printStackTrace();
 		}
 		
-		this.sceltaCartaAttiva = false;
 		return cartaSelezionata;
 	}
 	
