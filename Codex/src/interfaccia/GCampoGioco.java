@@ -2,6 +2,7 @@ package interfaccia;
 
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.concurrent.CountDownLatch;
@@ -13,6 +14,7 @@ public class GCampoGioco extends JScrollPane{
 
 	private JPanel campogioco;
 	private final int dim = 5000; //dimensioni del campo (è un quadrato)
+	private int strato;
 	
 
 	//Variabili per actionlisteners
@@ -24,12 +26,12 @@ public class GCampoGioco extends JScrollPane{
 	public GCampoGioco() {
 		
 		campogioco = new JPanel();
-		
 		campogioco.setPreferredSize(new Dimension(dim,dim));
-		
 		campogioco.setLayout(null);
 		
 		latch = new CountDownLatch(0);
+		
+		this.strato = 100;
 		
 		GCarta c = new GCarta();
 		
@@ -44,6 +46,9 @@ public class GCampoGioco extends JScrollPane{
 		
 		campogioco.setVisible(true);
 		this.setViewportView(campogioco);//Per mettere l'elemento desiderato nello scrollpane
+		
+		getViewport().setViewPosition(new Point(dim/3, (int) (dim/2.2)));
+		
 	}
 	
 	/**
@@ -57,7 +62,6 @@ public class GCampoGioco extends JScrollPane{
 		cartaIniziale.setPosizione(new Dimension(dim/2, dim/2)); //Imposta la posizione della carta nel centro del campo
 		aggiungiListenerCarta(cartaIniziale);
 		campogioco.add(cartaIniziale);
-		
 		
 	}
 	
@@ -82,6 +86,8 @@ public class GCampoGioco extends JScrollPane{
 		
 		gCarta.setPosizione(posizione);
 		campogioco.add(gCarta);
+		
+		campogioco.setComponentZOrder(gCarta, 0);
 		
 	}
 	

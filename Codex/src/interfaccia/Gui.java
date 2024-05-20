@@ -220,23 +220,36 @@ public class Gui extends JFrame implements Interfaccia{
 		//Primaa di tutto devco aggiornare la mano caricando (o aggiornando) le carte che ho in mano
 		
 		
-		visualeGiocatore.aggiornaMano(g);
-		
-		//Gioco una carta
-		
-		visualeGiocatore.giocaCarta(g);
-		
-		visualeGiocatore.aggiornaMano(g);
-		aggiornaPannello();
-		
+		visualeGiocatore.aggiornaMano();
 		
 		//Aggiorno il centrocampo
 		
-		//this.gCentroCampo.setCartaObiettivo1(centroCampo.getCartaObiettivo1());
+		
+		this.gCentroCampo.setCartaRisorsa1(new GCarta(centroCampo.getCartaRisorsa1()));
+		this.gCentroCampo.setCartaRisorsa2(new GCarta(centroCampo.getCartaRisorsa2()));
+		this.gCentroCampo.setCartaOro1(new GCarta(centroCampo.getCartaOro1()));
+		this.gCentroCampo.setCartaOro2(new GCarta(centroCampo.getCartaOro2()));
+		
+		//In Realtà le carte obiettivo sono fisse quindi andrebbero caricate una singola volta, per ora sono comodo così
+		this.gCentroCampo.setCartaObiettivo1(new GCarta(centroCampo.getCartaObiettivo1()));
+		this.gCentroCampo.setCartaObiettivo2(new GCarta(centroCampo.getCartaObiettivo2()));
+		
+		
+		
+		//Gioco una carta
+		
+		visualeGiocatore.giocaCarta();
+		
+		visualeGiocatore.aggiornaMano();
+		aggiornaPannello();
 		
 		//Pesco una carta dal centrocampo
 		
-		visualeGiocatore.pescaCarta(g, centroCampo);
+		visualeGiocatore.pescaCarta();
+
+		GCarta gCartaPescata = gCentroCampo.pescaCarta(centroCampo);
+		
+		g.getMano().pescaCarta(gCartaPescata.getCarta());
 		
 		
 	}

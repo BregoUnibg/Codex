@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -13,6 +14,9 @@ import java.util.concurrent.CountDownLatch;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JProgressBar;
+
+import campo.Giocatore;
 
 public class GMano extends JPanel{
 	
@@ -20,6 +24,7 @@ public class GMano extends JPanel{
 	private JPanel selettoresx;
 	private JPanel obiettivo;
 	private Gui gui;
+	private JProgressBar barraPunti;
 	
 	//attributi per gli action listener
 	private GCarta cartaScelta;
@@ -31,7 +36,6 @@ public class GMano extends JPanel{
 		
 		this.setPreferredSize(new Dimension(1920,200));
 		this.setBackground(Color.RED);
-		
 		this.setLayout(new BorderLayout());
 		
 		//Bottoni delle azioni consentite
@@ -77,8 +81,16 @@ public class GMano extends JPanel{
 			
 		});
 		
-		selettoresx.add(apriCentro);
+		this.barraPunti = new JProgressBar(0,20);
+		this.barraPunti.setPreferredSize(new Dimension(250,50));
+		this.barraPunti.setForeground(Color.GREEN);
+		this.barraPunti.setBackground(Color.BLACK);
+		this.barraPunti.setFont(new Font("Arial", Font.BOLD, 25));
+		this.barraPunti.setStringPainted(true);
 		
+		
+		selettoresx.add(apriCentro);
+		selettoresx.add(barraPunti);
 		
 		
 		
@@ -90,7 +102,11 @@ public class GMano extends JPanel{
 	 * @param gCarte
 	 */
 	
-	public void aggiornaMano(ArrayList <GCarta> gCarte){
+	public void aggiornaMano(ArrayList <GCarta> gCarte, Giocatore g){
+		
+		//Aggiorno anche la barra dei punti
+		this.barraPunti.setValue(g.getPunti());
+		this.barraPunti.setString(String.valueOf(barraPunti.getValue()));
 		
 		mano.removeAll();
 		//Non posso usare addAll in quanto è un JFrame e non una collezione

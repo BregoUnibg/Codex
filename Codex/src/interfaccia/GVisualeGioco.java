@@ -287,35 +287,40 @@ public class GVisualeGioco extends JPanel{
 		return cartaSelezionata;
 	}
 	
+	
+	
 	/**
 	 * Sostituisce la carte presenti nella mano con qualle passate ogni turno (aggiornando quindi la mano)
 	 * In quesot modo mi sto limitando a prendere ciò chee c'è a livello logico e non sto creando uno nuova logica di gioco
 	 * @param gCarte
 	 */
 	
-	public void aggiornaMano(Giocatore g){
+	public void aggiornaMano(){
 		
 		ArrayList <GCarta> carteInMano = new ArrayList <GCarta>();
 		
 		for(int i=0;i<3;i++){
 			try {
-				GCarta cartaInMano = new GCarta(g.getMano().getCartaIndice(i));
+				GCarta cartaInMano = new GCarta(giocatore.getMano().getCartaIndice(i));
 				carteInMano.add(cartaInMano);
 			}catch(IndexOutOfBoundsException e ) {
 				
 			}
 		}
 		
-		mano.aggiornaMano(carteInMano);
+		mano.aggiornaMano(carteInMano, giocatore);
 		
 	}
+	
+	
+	
 	
 	/**
 	 * Fa giocare una carta sul campo al giocatore
 	 * @param g
 	 */
 	
-	public void giocaCarta(Giocatore g){
+	public void giocaCarta(){
 		
 		
 		boolean cartaPiazzata = false;
@@ -346,7 +351,7 @@ public class GVisualeGioco extends JPanel{
 			
 			Carta cartaLogicaSotto = cartaSelezionata.getCarta();
 			
-			if(!g.getCampoGioco().piazzaCarta(cartaLogicaSotto, angolo, cartaGiocata.getCarta()))
+			if(!giocatore.getCampoGioco().piazzaCarta(cartaLogicaSotto, angolo, cartaGiocata.getCarta()))
 				System.out.println("Non è stato scelto un angolo consono al piazzamento");
 			else{
 				
@@ -379,8 +384,8 @@ public class GVisualeGioco extends JPanel{
 				
 				//Se il piazzamento va a buon fine aggiorno la parte logica del gioco
 				
-				g.addPunti(cartaGiocata.getCarta().getPunti(g.getCampoGioco()));
-				g.getMano().giocaCartaId(idCartaGiocataOriginale);
+				giocatore.addPunti(cartaGiocata.getCarta().getPunti(giocatore.getCampoGioco()));
+				giocatore.getMano().giocaCartaId(idCartaGiocataOriginale);
 				
 				campo.piazzaCarta(cartaGiocata, new Dimension(x,y));
 				
@@ -392,15 +397,17 @@ public class GVisualeGioco extends JPanel{
 		
 	}
 	
+	
+	
 	/**
 	 * Pesca una carta dal centrocampo 
 	 * @param g
 	 * @param c
 	 */
 	
-	public void pescaCarta(Giocatore g, CentroCampo c) {
+	public void pescaCarta() {
 		
-		
+		this.barra.azionePescaCarta();
 		
 	}
 	

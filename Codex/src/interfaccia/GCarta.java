@@ -99,10 +99,6 @@ public class GCarta extends JPanel{
 		immagine.setIcon(icon);
 	}
 	
-	private void setJLabelImmagineCarta(JLabel immagine) {
-
-		this.immagine = immagine;
-	}
 	
 	/**
 	 * Imposta l'immagine della carta grafica sul fronte
@@ -184,7 +180,6 @@ public class GCarta extends JPanel{
 	public GCarta clona(){
 		
 		GCarta cartaClonata =  new GCarta(cartaLogica.clona());
-		cartaClonata.setJLabelImmagineCarta(immagine);
 		return cartaClonata;
 		
 	}

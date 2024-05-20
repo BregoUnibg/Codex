@@ -16,9 +16,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import campo.CentroCampo;
+
 public class GCentroCampo extends JPanel{
 	
 	private Gui gui;
+	private CentroCampo centroCampoLogico;
 	
 	private	JPanel cella1;
 	private	JPanel cella2;
@@ -97,14 +100,14 @@ public class GCentroCampo extends JPanel{
 		cella7.add(new GCarta());
 		cella8.add(new GCarta());
 		
-		addActionListenerCella(cella1);
-		addActionListenerCella(cella2);
-		addActionListenerCella(cella3);
-		addActionListenerCella(cella4);
-		addActionListenerCella(cella5);
-		addActionListenerCella(cella6);
-		addActionListenerCella(cella7);
-		addActionListenerCella(cella8);
+		addActionListenerCella(cella1, "m1");
+		addActionListenerCella(cella2, "r1");
+		addActionListenerCella(cella3, "r2");
+		addActionListenerCella(cella4, "");
+		addActionListenerCella(cella5, "m2");
+		addActionListenerCella(cella6, "o1");
+		addActionListenerCella(cella7, "o2");
+		addActionListenerCella(cella8, "");
 
 		
 		//Tasto esci in basso 
@@ -162,18 +165,60 @@ public class GCentroCampo extends JPanel{
 	 * @param cella
 	 */
 	
-	private void addActionListenerCella(JPanel cella) {
+	private void addActionListenerCella(JPanel cella, String tipoCella) {
 		
 		cella.addMouseListener(new MouseAdapter() {
 			
 			public void mouseClicked(MouseEvent e) {
 				
 				cartaSelezionata = ((GCarta) cella.getComponent(0));
+				boolean cartaPescata = false;
+				
+				switch(tipoCella) {
+				
+				case "m1":
+					
+					cartaSelezionata = new GCarta(centroCampoLogico.pescaDalMazzoRisorsa());
+					cartaPescata = true;
+					break;
+				
+				case "m2":
+					cartaSelezionata = new GCarta(centroCampoLogico.pescaDalMazzoOro());
+					cartaPescata = true;
+					break;
+				
+				case "r1":
+					centroCampoLogico.prendiCartaRisorsa1();
+					cartaPescata = true;
+					break;
+				
+				case "r2":
+					centroCampoLogico.prendiCartaRisorsa2();
+					cartaPescata = true;
+					break;
+				
+				case "o1":
+					centroCampoLogico.prendiCartaOro1();
+					cartaPescata = true;
+					break;
+				
+				case "o2":
+					centroCampoLogico.prendiCartaOro2();
+					cartaPescata = true;
+					break;
+				
+				default:
+					break;
+				}
+				
+				
 				System.out.println("Ho selezionato la carta");
 				
 				try {
-				//Abbasso il latch per notificare il thread che la carta è stata scelta
-				latch.countDown();
+					//Abbasso il latch per notificare il thread che la carta è stata scelta
+					if(cartaPescata)
+						latch.countDown();
+				
 				}catch(NullPointerException e1) {
 					System.out.println("Non devo scegliere una carta");
 				}
@@ -184,7 +229,13 @@ public class GCentroCampo extends JPanel{
 		
 	}
 	
-	public GCarta pescaCarta() {
+	public GCarta pescaCarta(CentroCampo centroCampoLogico) {
+		
+		this.revalidate(); 
+		this.repaint();
+		
+		
+		this.centroCampoLogico = centroCampoLogico;
 		
 		this.sceltaCartaAttiva = true;
 		latch = new CountDownLatch(1);
