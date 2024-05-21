@@ -50,7 +50,10 @@ public class CentroCampo {
 	
 	//Attributi per inserimento da file 
 	private String carteRisorsa="CarteRisorsa.txt";
-	private String carta;
+	private String carta="";
+	
+	private String carteOro="CarteOro.txt";
+	private String cartaO="";
 	
 	//private ArrayList <Carta> carteSelezionabili;
 	
@@ -249,6 +252,23 @@ public class CentroCampo {
 		
 	}
 	
+	/**
+	 * Crea un angolo in base alla stringa inserita nel costruttore
+	 * Interpreta che costruttore usare in base al contenuto della stringa
+	 * @param s
+	 * @return
+	 */
+	private Angolo leggiAngolo(String s) {
+		 
+		 if(s.equals("true") || s.equals("false"))
+			 return new Angolo(Boolean.valueOf(s));
+		 if(s.equals(" "))
+			 return new Angolo();
+		 
+		 return new Angolo(Figura.valueOf(s));
+		 
+	 }
+
 	public void creaMazzoRisorsa() {
 		
 		//40 CARTE RISORSA 
@@ -304,8 +324,11 @@ public class CentroCampo {
 		        
 		       // Leggo ogni riga del file fino alla fine
 		       while ((carta = reader.readLine()) != null) {
-		           // Aggiunge ogni riga nell'ArrayList
-		    	   mazzoCartaRisorsa.add(new CartaRisorsa(carta));
+		           
+		    	   String parametroCarta[] = carta.split(",");
+		    	   
+		    	   // Aggiunge ogni riga nell'ArrayList
+		    	   mazzoCartaRisorsa.add(new CartaRisorsa(Colore.valueOf(parametroCarta[0]), Integer.valueOf(parametroCarta[1]), leggiAngolo(parametroCarta[2]), leggiAngolo(parametroCarta[3]), leggiAngolo(parametroCarta[4]), leggiAngolo(parametroCarta[5]), parametroCarta[6]));
 		       }
 		        
 		       // Chiude il BufferedReader dopo aver finito di leggere i dati da file
@@ -314,14 +337,26 @@ public class CentroCampo {
 		   } catch (IOException e) {
 		       // Gestisce eventuali eccezioni di IO, ad esempio se il file non esiste o non può essere letto
 		       System.err.println("Errore durante la lettura del file: ");
-		   } */
+		   } 
+		  */
+	}
+	
+	
+	private ReqFiguraSingola leggiRequisitoSingolo(String s1, Integer n1) {
+		//new ReqFiguraSingola(Figura.CIOTOLA, 1)
+		return new ReqFiguraSingola(Figura.valueOf(s1), n1);
+	}
+	
+	private ReqFiguraDoppia leggiRequisitoDoppio(String s2, Integer n2) {
+		//new ReqFiguraSingola(Figura.CIOTOLA, 1)
+		return new ReqFiguraDoppia(Figura.valueOf(s2), n2, Figura.valueOf(s2), n2);
 	}
 	
 	public void creaMazzoOro() {
 		
 		//40 CARTE ORO
-
-		mazzoCartaOro.add(new CartaOro(Colore.ROSSO, 1, new ReqFiguraDoppia(Figura.FUNGO,2,Figura.LUPO,1), new ReqFiguraSingola(Figura.PIUMA, 1), new Angolo(false), new Angolo(), new Angolo(), new Angolo(Figura.PIUMA), "Piazzamento:\t 2 figure fungo e 1 figura lupo\nObiettivo:\t 1 punto per ogni figura piuma nel campo nel momento in cui viene piazzata la carta", "Immagini/Carte/xcarta041.png"));
+		
+		mazzoCartaOro.add(new CartaOro(Colore.valueOf("ROSSO"), 1, new ReqFiguraDoppia(Figura.FUNGO,2,Figura.LUPO,1), new ReqFiguraSingola(Figura.PIUMA, 1), new Angolo(false), new Angolo(), new Angolo(), new Angolo(Figura.PIUMA), "Piazzamento:\t 2 figure fungo e 1 figura lupo\nObiettivo:\t 1 punto per ogni figura piuma nel campo nel momento in cui viene piazzata la carta", "Immagini/Carte/xcarta041.png"));
 		mazzoCartaOro.add(new CartaOro(Colore.ROSSO, 1, new ReqFiguraDoppia(Figura.FUNGO,2,Figura.FOGLIA,1), new ReqFiguraSingola(Figura.CIOTOLA, 1), new Angolo(), new Angolo(Figura.CIOTOLA), new Angolo(false), new Angolo(), "Piazzamento:\t 2 figure fungo e 1 figura foglia\nObiettivo:\t 1 punto per ogni figura ciotola nel campo nel momento in cui viene piazzata la carta ", "Immagini/Carte/xcarta042.png"));
 		mazzoCartaOro.add(new CartaOro(Colore.ROSSO, 1, new ReqFiguraDoppia(Figura.FUNGO,2,Figura.FARFALLA,1), new ReqFiguraSingola(Figura.PERGAMENA, 1), new Angolo(Figura.PERGAMENA), new Angolo(), new Angolo(), new Angolo(false), "Piazzamento:\t 2 figure fungo e 1 figura farfalla\nObiettivo:\t 1 punto per ogni figura pergamena nel campo nel momento in cui viene piazzata la carta ", "Immagini/Carte/xcarta043.png"));
 		mazzoCartaOro.add(new CartaOro(Colore.ROSSO, 2, new ReqFiguraDoppia(Figura.FUNGO,3,Figura.LUPO,1), new ReqAngoliCoperti(), new Angolo(), new Angolo(), new Angolo(false), new Angolo(), "Piazzamento:\t 3 figure fungo e 1 figura lupo\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata ", "Immagini/Carte/xcarta044.png"));
@@ -365,6 +400,28 @@ public class CentroCampo {
 		mazzoCartaOro.add(new CartaOro(Colore.VIOLA, 3, new ReqFiguraSingola(Figura.FARFALLA,3), new Angolo(false), new Angolo(false), new Angolo(Figura.PIUMA), new Angolo(), "Piazzamento:\t 3 figure farfalla\nObiettivo:\t 3 punti immediati ", "Immagini/Carte/xcarta079.png"));
 		mazzoCartaOro.add(new CartaOro(Colore.VIOLA, 5, new ReqFiguraSingola(Figura.FARFALLA,5), new Angolo(), new Angolo(), new Angolo(false), new Angolo(false), "Piazzamento:\t 5 figure farfalla\nObiettivo:\t 5 punti immediati ", "Immagini/Carte/xcarta080.png"));
 		
+		/*
+		try {
+		       // Apre il file
+		       BufferedReader reader = new BufferedReader(new FileReader(carteOro));
+		        
+		       // Leggo ogni riga del file fino alla fine
+		       while ((cartaO = reader.readLine()) != null) {
+		           
+		    	   String parametroCartaO[] = cartaO.split(",");
+		    	   
+		    	   // Aggiunge ogni riga nell'ArrayList
+		    	   mazzoCartaOro.add(new CartaOro(Colore.valueOf(parametroCartaO[0]), Integer.valueOf(parametroCartaO[1]),leggiRequisitoSingolo(parametroCartaO[2], Integer.valueOf(parametroCartaO[3])), leggiAngolo(parametroCartaO[4]), leggiAngolo(parametroCartaO[5]), leggiAngolo(parametroCartaO[6]), leggiAngolo(parametroCartaO[7]), parametroCartaO[8], parametroCartaO[9]));
+		       }
+		        
+		       // Chiude il BufferedReader dopo aver finito di leggere i dati da file
+		       reader.close();
+
+		   } catch (IOException e) {
+		       // Gestisce eventuali eccezioni di IO, ad esempio se il file non esiste o non può essere letto
+		       System.err.println("Errore durante la lettura del file: ");
+		   } 
+		   */
 	}
 	
 	public void creaMazzoObiettivo() {
