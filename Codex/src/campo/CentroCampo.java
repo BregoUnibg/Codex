@@ -49,7 +49,7 @@ public class CentroCampo {
 	private Carta cartaObiettivo2;
 	
 	//Attributi per inserimento da file 
-	private String carteRisorsa="CarteRisorsa.txt";
+	private String carteRisorsa="ParametriCarte/CarteRisorsa.txt";
 	private String carta="";
 	
 	private String carteOro="CarteOro.txt";
@@ -272,7 +272,7 @@ public class CentroCampo {
 	public void creaMazzoRisorsa() {
 		
 		//40 CARTE RISORSA 
-		
+		/*
 		 mazzoCartaRisorsa.add(new CartaRisorsa(Colore.ROSSO, new Angolo(Figura.FUNGO), new Angolo(), new Angolo(Figura.FUNGO), new Angolo(false), "Immagini/Carte/xcarta001.png"));
 		 mazzoCartaRisorsa.add(new CartaRisorsa(Colore.ROSSO, new Angolo(Figura.FUNGO), new Angolo(Figura.FUNGO), new Angolo(false),  new Angolo(), "Immagini/Carte/xcarta002.png"));
 		 mazzoCartaRisorsa.add(new CartaRisorsa(Colore.ROSSO, new Angolo(), new Angolo(false), new Angolo(Figura.FUNGO), new Angolo(Figura.FUNGO), "Immagini/Carte/xcarta003.png"));
@@ -316,8 +316,8 @@ public class CentroCampo {
 		 mazzoCartaRisorsa.add(new CartaRisorsa(Colore.VIOLA, 1, new Angolo(Figura.FARFALLA), new Angolo(false), new Angolo(), new Angolo(), "Immagini/Carte/xcarta038.png"));
 		 mazzoCartaRisorsa.add(new CartaRisorsa(Colore.VIOLA, 1, new Angolo(), new Angolo(), new Angolo(false), new Angolo(Figura.FARFALLA), "Immagini/Carte/xcarta039.png"));
 		 mazzoCartaRisorsa.add(new CartaRisorsa(Colore.VIOLA, 1, new Angolo(false), new Angolo(Figura.FARFALLA), new Angolo(), new Angolo(), "Immagini/Carte/xcarta040.png"));
-		 
-		 /*
+		 */
+		
 		 try {
 		       // Apre il file
 		       BufferedReader reader = new BufferedReader(new FileReader(carteRisorsa));
@@ -338,9 +338,8 @@ public class CentroCampo {
 		       // Gestisce eventuali eccezioni di IO, ad esempio se il file non esiste o non può essere letto
 		       System.err.println("Errore durante la lettura del file: ");
 		   } 
-		  */
+		  
 	}
-	
 	
 	private ReqFiguraSingola leggiRequisitoSingolo(String s1, Integer n1) {
 		//new ReqFiguraSingola(Figura.CIOTOLA, 1)
@@ -400,7 +399,7 @@ public class CentroCampo {
 		mazzoCartaOro.add(new CartaOro(Colore.VIOLA, 3, new ReqFiguraSingola(Figura.FARFALLA,3), new Angolo(false), new Angolo(false), new Angolo(Figura.PIUMA), new Angolo(), "Piazzamento:\t 3 figure farfalla\nObiettivo:\t 3 punti immediati ", "Immagini/Carte/xcarta079.png"));
 		mazzoCartaOro.add(new CartaOro(Colore.VIOLA, 5, new ReqFiguraSingola(Figura.FARFALLA,5), new Angolo(), new Angolo(), new Angolo(false), new Angolo(false), "Piazzamento:\t 5 figure farfalla\nObiettivo:\t 5 punti immediati ", "Immagini/Carte/xcarta080.png"));
 		
-		/*
+		
 		try {
 		       // Apre il file
 		       BufferedReader reader = new BufferedReader(new FileReader(carteOro));
@@ -409,9 +408,9 @@ public class CentroCampo {
 		       while ((cartaO = reader.readLine()) != null) {
 		           
 		    	   String parametroCartaO[] = cartaO.split(",");
-		    	   
+		    	   //Colore - requisito per piazzamento - requisito obiettivo - angolo1 - angolo2 - angolo3 - angolo4 - descrizione - url 
 		    	   // Aggiunge ogni riga nell'ArrayList
-		    	   mazzoCartaOro.add(new CartaOro(Colore.valueOf(parametroCartaO[0]), Integer.valueOf(parametroCartaO[1]),leggiRequisitoSingolo(parametroCartaO[2], Integer.valueOf(parametroCartaO[3])), leggiAngolo(parametroCartaO[4]), leggiAngolo(parametroCartaO[5]), leggiAngolo(parametroCartaO[6]), leggiAngolo(parametroCartaO[7]), parametroCartaO[8], parametroCartaO[9]));
+		    	   mazzoCartaOro.add(new CartaOro(Colore.valueOf(parametroCartaO[0]), Integer.valueOf(parametroCartaO[1]), leggiRequisitoDoppio(parametroCartaO[2], Integer.valueOf(parametroCartaO[3])), leggiRequisitoSingolo(parametroCartaO[2], Integer.valueOf(parametroCartaO[3])), leggiAngolo(parametroCartaO[4]), leggiAngolo(parametroCartaO[5]), leggiAngolo(parametroCartaO[6]), leggiAngolo(parametroCartaO[7]), parametroCartaO[8], parametroCartaO[9]));
 		       }
 		        
 		       // Chiude il BufferedReader dopo aver finito di leggere i dati da file
@@ -421,7 +420,7 @@ public class CentroCampo {
 		       // Gestisce eventuali eccezioni di IO, ad esempio se il file non esiste o non può essere letto
 		       System.err.println("Errore durante la lettura del file: ");
 		   } 
-		   */
+		   
 	}
 	
 	public void creaMazzoObiettivo() {
