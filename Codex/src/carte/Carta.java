@@ -16,7 +16,7 @@ public abstract class Carta {
 	private int punti;
 	private static int id_iniziale = 1;		//inizializzazione id;
 	private int id;							//identificativo univoco della carta
-	
+	private int num;
 	
 	public Carta(Colore colore, int punti, String urlImmagine){
 		
@@ -37,7 +37,7 @@ public abstract class Carta {
 	}
 	
 	public Carta(Colore colore, Angolo top_left_angle, Angolo top_right_angle, Angolo bottom_left_angle, Angolo bottom_right_angle, String urlImmagine){
-		
+
 		this.colore = colore;		
 		this.top_left_angle = top_left_angle;
 		this.top_right_angle = top_right_angle;

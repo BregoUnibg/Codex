@@ -1,0 +1,40 @@
+ROSSO,0,FUNGO, ,FUNGO,false,Immagini/Carte/xcarta001.png
+ROSSO,0,FUNGO,FUNGO,false, ,Immagini/Carte/xcarta002.png
+ROSSO,0, ,false,FUNGO,FUNGO,Immagini/Carte/xcarta003.png
+ROSSO,0,false,FUNGO, ,FUNGO,Immagini/Carte/xcarta004.png
+ROSSO,0,false,PIUMA,FOGLIA,FUNGO,Immagini/Carte/xcarta005.png
+ROSSO,0,CIOTOLA,FUNGO,false,LUPO,Immagini/Carte/xcarta006.png	
+ROSSO,0,FUNGO,FARFALLA,PERGAMENA, ,Immagini/Carte/xcarta007.png
+ROSSO,1, ,FUNGO, ,false,Immagini/Carte/xcarta008.png
+ROSSO,1,FUNGO,false, , ,Immagini/Carte/xcarta009.png
+ROSSO,1,false, ,FUNGO, ,Immagini/Carte/xcarta010.png		
+VERDE,0,FOGLIA, ,FOGLIA,false,Immagini/Carte/xcarta011.png
+VERDE,0,FOGLIA,FOGLIA,false, ,Immagini/Carte/xcarta012.png
+VERDE,0, ,false,FOGLIA,FOGLIA,Immagini/Carte/xcarta013.png
+VERDE,0,false,FOGLIA, ,FOGLIA,Immagini/Carte/xcarta014.png
+VERDE,0,false,FARFALLA,PIUMA,FOGLIA,Immagini/Carte/xcarta015.png
+VERDE,0,FUNGO,FOGLIA,false,CIOTOLA,Immagini/Carte/xcarta016.png
+VERDE,0,PERGAMENA,false,FOGLIA,LUPO,Immagini/Carte/xcarta017.png
+VERDE,1, , ,FOGLIA,false,Immagini/Carte/xcarta018.png
+VERDE,1, , ,false,FOGLIA,Immagini/Carte/xcarta019.png
+VERDE,1,false,FOGLIA, , ,Immagini/Carte/xcarta020.png	
+BLU,0,LUPO,LUPO, ,false,Immagini/Carte/xcarta021.png
+BLU,0,false, ,LUPO,LUPO,Immagini/Carte/xcarta022.png
+BLU,0,LUPO,false,LUPO, ,Immagini/Carte/xcarta023.png
+BLU,0, ,LUPO,false,LUPO,Immagini/Carte/xcarta024.png
+BLU,0,false,FARFALLA,CIOTOLA,LUPO,Immagini/Carte/xcarta025.png
+BLU,0,FOGLIA,LUPO,false,PERGAMENA,Immagini/Carte/xcarta026.png
+BLU,0,PIUMA,false,LUPO,FUNGO,Immagini/Carte/xcarta027.png
+BLU,1,false, ,LUPO, ,Immagini/Carte/xcarta028.png
+BLU,1, ,false, ,LUPO,Immagini/Carte/xcarta029.png
+BLU,1, ,LUPO, ,false,Immagini/Carte/xcarta030.png
+VIOLA,0,FARFALLA,FARFALLA, ,false,Immagini/Carte/xcarta031.png
+VIOLA,0,false, ,FARFALLA,FARFALLA,Immagini/Carte/xcarta032.png
+VIOLA,0,FARFALLA,false,FARFALLA, ,Immagini/Carte/xcarta033.png
+VIOLA,0, ,FARFALLA,false,FARFALLA,Immagini/Carte/xcarta034.png
+VIOLA,0,false,PIUMA,LUPO,FARFALLA,Immagini/Carte/xcarta035.png
+VIOLA,0,PERGAMENA,FARFALLA,false,FUNGO,Immagini/Carte/xcarta036.png
+VIOLA,0,FARFALLA,FOGLIA,CIOTOLA,false,Immagini/Carte/xcarta037.png
+VIOLA,1,FARFALLA,false, , ,Immagini/Carte/xcarta038.png
+VIOLA,1, , ,false,FARFALLA,Immagini/Carte/xcarta039.png
+VIOLA,1,false,FARFALLA, , ,Immagini/Carte/xcarta040.png	

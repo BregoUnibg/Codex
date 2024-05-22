@@ -52,7 +52,7 @@ public class CentroCampo {
 	private String carteRisorsa="ParametriCarte/CarteRisorsa.txt";
 	private String carta="";
 	
-	private String carteOro="CarteOro.txt";
+	private String carteOro="ParametriCarte/CarteOro.txt";
 	private String cartaO="";
 	
 	//private ArrayList <Carta> carteSelezionabili;
@@ -272,7 +272,7 @@ public class CentroCampo {
 	public void creaMazzoRisorsa() {
 		
 		//40 CARTE RISORSA 
-		/*
+		
 		 mazzoCartaRisorsa.add(new CartaRisorsa(Colore.ROSSO, new Angolo(Figura.FUNGO), new Angolo(), new Angolo(Figura.FUNGO), new Angolo(false), "Immagini/Carte/xcarta001.png"));
 		 mazzoCartaRisorsa.add(new CartaRisorsa(Colore.ROSSO, new Angolo(Figura.FUNGO), new Angolo(Figura.FUNGO), new Angolo(false),  new Angolo(), "Immagini/Carte/xcarta002.png"));
 		 mazzoCartaRisorsa.add(new CartaRisorsa(Colore.ROSSO, new Angolo(), new Angolo(false), new Angolo(Figura.FUNGO), new Angolo(Figura.FUNGO), "Immagini/Carte/xcarta003.png"));
@@ -316,8 +316,8 @@ public class CentroCampo {
 		 mazzoCartaRisorsa.add(new CartaRisorsa(Colore.VIOLA, 1, new Angolo(Figura.FARFALLA), new Angolo(false), new Angolo(), new Angolo(), "Immagini/Carte/xcarta038.png"));
 		 mazzoCartaRisorsa.add(new CartaRisorsa(Colore.VIOLA, 1, new Angolo(), new Angolo(), new Angolo(false), new Angolo(Figura.FARFALLA), "Immagini/Carte/xcarta039.png"));
 		 mazzoCartaRisorsa.add(new CartaRisorsa(Colore.VIOLA, 1, new Angolo(false), new Angolo(Figura.FARFALLA), new Angolo(), new Angolo(), "Immagini/Carte/xcarta040.png"));
-		 */
-		
+		 
+		 /*
 		 try {
 		       // Apre il file
 		       BufferedReader reader = new BufferedReader(new FileReader(carteRisorsa));
@@ -338,7 +338,7 @@ public class CentroCampo {
 		       // Gestisce eventuali eccezioni di IO, ad esempio se il file non esiste o non può essere letto
 		       System.err.println("Errore durante la lettura del file: ");
 		   } 
-		  
+		  */
 	}
 	
 	private ReqFiguraSingola leggiRequisitoSingolo(String s1, Integer n1) {
@@ -346,60 +346,65 @@ public class CentroCampo {
 		return new ReqFiguraSingola(Figura.valueOf(s1), n1);
 	}
 	
-	private ReqFiguraDoppia leggiRequisitoDoppio(String s2, Integer n2) {
+	private ReqFiguraDoppia leggiRequisitoDoppio(String s2, Integer n2, String s3, Integer n3) {
 		//new ReqFiguraSingola(Figura.CIOTOLA, 1)
-		return new ReqFiguraDoppia(Figura.valueOf(s2), n2, Figura.valueOf(s2), n2);
+		return new ReqFiguraDoppia(Figura.valueOf(s2), n2, Figura.valueOf(s3), n3);
 	}
 	
+	private ReqAngoliCoperti leggiAngoloCoperto() {
+
+		 return new ReqAngoliCoperti();
+		 
+	 }
 	public void creaMazzoOro() {
 		
 		//40 CARTE ORO
 		
-		mazzoCartaOro.add(new CartaOro(Colore.valueOf("ROSSO"), 1, new ReqFiguraDoppia(Figura.FUNGO,2,Figura.LUPO,1), new ReqFiguraSingola(Figura.PIUMA, 1), new Angolo(false), new Angolo(), new Angolo(), new Angolo(Figura.PIUMA), "Piazzamento:\t 2 figure fungo e 1 figura lupo\nObiettivo:\t 1 punto per ogni figura piuma nel campo nel momento in cui viene piazzata la carta", "Immagini/Carte/xcarta041.png"));
-		mazzoCartaOro.add(new CartaOro(Colore.ROSSO, 1, new ReqFiguraDoppia(Figura.FUNGO,2,Figura.FOGLIA,1), new ReqFiguraSingola(Figura.CIOTOLA, 1), new Angolo(), new Angolo(Figura.CIOTOLA), new Angolo(false), new Angolo(), "Piazzamento:\t 2 figure fungo e 1 figura foglia\nObiettivo:\t 1 punto per ogni figura ciotola nel campo nel momento in cui viene piazzata la carta ", "Immagini/Carte/xcarta042.png"));
-		mazzoCartaOro.add(new CartaOro(Colore.ROSSO, 1, new ReqFiguraDoppia(Figura.FUNGO,2,Figura.FARFALLA,1), new ReqFiguraSingola(Figura.PERGAMENA, 1), new Angolo(Figura.PERGAMENA), new Angolo(), new Angolo(), new Angolo(false), "Piazzamento:\t 2 figure fungo e 1 figura farfalla\nObiettivo:\t 1 punto per ogni figura pergamena nel campo nel momento in cui viene piazzata la carta ", "Immagini/Carte/xcarta043.png"));
-		mazzoCartaOro.add(new CartaOro(Colore.ROSSO, 2, new ReqFiguraDoppia(Figura.FUNGO,3,Figura.LUPO,1), new ReqAngoliCoperti(), new Angolo(), new Angolo(), new Angolo(false), new Angolo(), "Piazzamento:\t 3 figure fungo e 1 figura lupo\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata ", "Immagini/Carte/xcarta044.png"));
-		mazzoCartaOro.add(new CartaOro(Colore.ROSSO, 2, new ReqFiguraDoppia(Figura.FUNGO,3,Figura.FOGLIA,1), new ReqAngoliCoperti(), new Angolo(), new Angolo(), new Angolo(), new Angolo(false), "Piazzamento:\t 3 figure fungo e 1 figura foglia\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata ", "Immagini/Carte/xcarta045.png"));
-		mazzoCartaOro.add(new CartaOro(Colore.ROSSO, 2, new ReqFiguraDoppia(Figura.FUNGO,3,Figura.FARFALLA,1), new ReqAngoliCoperti(), new Angolo(), new Angolo(false), new Angolo(), new Angolo(), "Piazzamento:\t 3 figure fungo e 1 figura farfalla\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata ", "Immagini/Carte/xcarta046.png"));
-		mazzoCartaOro.add(new CartaOro(Colore.ROSSO, 3, new ReqFiguraSingola(Figura.FUNGO,3), new Angolo(), new Angolo(false), new Angolo(Figura.CIOTOLA), new Angolo(false), "Piazzamento:\t 3 figure fungo\nObiettivo:\t 3 punti immediati ", "Immagini/Carte/xcarta047.png"));
-		mazzoCartaOro.add(new CartaOro(Colore.ROSSO, 3, new ReqFiguraSingola(Figura.FUNGO,3), new Angolo(Figura.PIUMA), new Angolo(), new Angolo(false), new Angolo(false), "Piazzamento:\t 3 figure fungo\nObiettivo:\t 3 punti immediati ", "Immagini/Carte/xcarta048.png"));
-		mazzoCartaOro.add(new CartaOro(Colore.ROSSO, 3, new ReqFiguraSingola(Figura.FUNGO,3), new Angolo(false), new Angolo(Figura.PERGAMENA), new Angolo(false), new Angolo(), "Piazzamento:\t 3 figure fungo\nObiettivo:\t 3 punti immediati ", "Immagini/Carte/xcarta049.png"));
-		mazzoCartaOro.add(new CartaOro(Colore.ROSSO, 5, new ReqFiguraSingola(Figura.FUNGO,5), new Angolo(), new Angolo(false), new Angolo(), new Angolo(false), "Piazzamento:\t 5 figure fungo\nObiettivo:\t 5 punti immediati ", "Immagini/Carte/xcarta050.png"));		
+		mazzoCartaOro.add(new CartaOro(1, Colore.valueOf("ROSSO"), 1, new ReqFiguraDoppia(Figura.FUNGO,2,Figura.LUPO,1), new ReqFiguraSingola(Figura.PIUMA, 1), new Angolo(false), new Angolo(), new Angolo(), new Angolo(Figura.PIUMA), "Piazzamento:\t 2 figure fungo e 1 figura lupo\nObiettivo:\t 1 punto per ogni figura piuma nel campo nel momento in cui viene piazzata la carta", "Immagini/Carte/xcarta041.png"));
+		mazzoCartaOro.add(new CartaOro(1, Colore.ROSSO, 1, new ReqFiguraDoppia(Figura.FUNGO,2,Figura.FOGLIA,1), new ReqFiguraSingola(Figura.CIOTOLA, 1), new Angolo(), new Angolo(Figura.CIOTOLA), new Angolo(false), new Angolo(), "Piazzamento:\t 2 figure fungo e 1 figura foglia\nObiettivo:\t 1 punto per ogni figura ciotola nel campo nel momento in cui viene piazzata la carta ", "Immagini/Carte/xcarta042.png"));
+		mazzoCartaOro.add(new CartaOro(1, Colore.ROSSO, 1, new ReqFiguraDoppia(Figura.FUNGO,2,Figura.FARFALLA,1), new ReqFiguraSingola(Figura.PERGAMENA, 1), new Angolo(Figura.PERGAMENA), new Angolo(), new Angolo(), new Angolo(false), "Piazzamento:\t 2 figure fungo e 1 figura farfalla\nObiettivo:\t 1 punto per ogni figura pergamena nel campo nel momento in cui viene piazzata la carta ", "Immagini/Carte/xcarta043.png"));
+		mazzoCartaOro.add(new CartaOro(2, Colore.ROSSO, 2, new ReqFiguraDoppia(Figura.FUNGO,3,Figura.LUPO,1), new ReqAngoliCoperti(), new Angolo(), new Angolo(), new Angolo(false), new Angolo(), "Piazzamento:\t 3 figure fungo e 1 figura lupo\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata ", "Immagini/Carte/xcarta044.png"));
+		mazzoCartaOro.add(new CartaOro(2, Colore.ROSSO, 2, new ReqFiguraDoppia(Figura.FUNGO,3,Figura.FOGLIA,1), new ReqAngoliCoperti(), new Angolo(), new Angolo(), new Angolo(), new Angolo(false), "Piazzamento:\t 3 figure fungo e 1 figura foglia\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata ", "Immagini/Carte/xcarta045.png"));
+		mazzoCartaOro.add(new CartaOro(2, Colore.ROSSO, 2, new ReqFiguraDoppia(Figura.FUNGO,3,Figura.FARFALLA,1), new ReqAngoliCoperti(), new Angolo(), new Angolo(false), new Angolo(), new Angolo(), "Piazzamento:\t 3 figure fungo e 1 figura farfalla\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata ", "Immagini/Carte/xcarta046.png"));
+		mazzoCartaOro.add(new CartaOro(3, Colore.ROSSO, 3, new ReqFiguraSingola(Figura.FUNGO,3), new Angolo(), new Angolo(false), new Angolo(Figura.CIOTOLA), new Angolo(false), "Piazzamento:\t 3 figure fungo\nObiettivo:\t 3 punti immediati ", "Immagini/Carte/xcarta047.png"));
+		mazzoCartaOro.add(new CartaOro(3, Colore.ROSSO, 3, new ReqFiguraSingola(Figura.FUNGO,3), new Angolo(Figura.PIUMA), new Angolo(), new Angolo(false), new Angolo(false), "Piazzamento:\t 3 figure fungo\nObiettivo:\t 3 punti immediati ", "Immagini/Carte/xcarta048.png"));
+		mazzoCartaOro.add(new CartaOro(3, Colore.ROSSO, 3, new ReqFiguraSingola(Figura.FUNGO,3), new Angolo(false), new Angolo(Figura.PERGAMENA), new Angolo(false), new Angolo(), "Piazzamento:\t 3 figure fungo\nObiettivo:\t 3 punti immediati ", "Immagini/Carte/xcarta049.png"));
+		mazzoCartaOro.add(new CartaOro(3, Colore.ROSSO, 5, new ReqFiguraSingola(Figura.FUNGO,5), new Angolo(), new Angolo(false), new Angolo(), new Angolo(false), "Piazzamento:\t 5 figure fungo\nObiettivo:\t 5 punti immediati ", "Immagini/Carte/xcarta050.png"));		
 
-		mazzoCartaOro.add(new CartaOro(Colore.VERDE, 1, new ReqFiguraDoppia(Figura.FOGLIA,2,Figura.FARFALLA,1), new ReqFiguraSingola(Figura.PIUMA, 1), new Angolo(Figura.PIUMA), new Angolo(), new Angolo(), new Angolo(false), "Piazzamento:\t 2 figure foglia e 1 figura farfalla\nObiettivo:\t 1 punto per ogni figura piuma nel campo nel momento in cui viene piazzata la carta ", "Immagini/Carte/xcarta051.png"));
-		mazzoCartaOro.add(new CartaOro(Colore.VERDE, 1, new ReqFiguraDoppia(Figura.FOGLIA,2,Figura.FUNGO,1), new ReqFiguraSingola(Figura.PERGAMENA, 1), new Angolo(), new Angolo(Figura.PERGAMENA), new Angolo(false), new Angolo(), "Piazzamento:\t 2 figure foglia e 1 fungo\nObiettivo:\t 1 punto per ogni figura pergamena nel campo nel momento in cui viene piazzata la carta ", "Immagini/Carte/xcarta052.png"));
-		mazzoCartaOro.add(new CartaOro(Colore.VERDE, 1, new ReqFiguraDoppia(Figura.FOGLIA,2,Figura.LUPO,1), new ReqFiguraSingola(Figura.CIOTOLA, 1), new Angolo(), new Angolo(false), new Angolo(Figura.CIOTOLA), new Angolo(), "Piazzamento:\t 2 figure foglia e 1 figura lupo\nObiettivo:\t 1 punto per ogni figura ciotola nel campo nel momento in cui viene piazzata la carta ", "Immagini/Carte/xcarta053.png"));
-		mazzoCartaOro.add(new CartaOro(Colore.VERDE, 2, new ReqFiguraDoppia(Figura.FOGLIA,3,Figura.FARFALLA,1), new ReqAngoliCoperti(), new Angolo(false), new Angolo(), new Angolo(), new Angolo(), "Piazzamento:\t 3 figure foglia e 1 figura farfalla\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata ", "Immagini/Carte/xcarta054.png"));
-		mazzoCartaOro.add(new CartaOro(Colore.VERDE, 2, new ReqFiguraDoppia(Figura.FOGLIA,3,Figura.LUPO,1), new ReqAngoliCoperti(), new Angolo(), new Angolo(), new Angolo(), new Angolo(false), "Piazzamento:\t 3 figure foglia e 1 figura lupo\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata ", "Immagini/Carte/xcarta055.png"));
-		mazzoCartaOro.add(new CartaOro(Colore.VERDE, 2, new ReqFiguraDoppia(Figura.FOGLIA,3,Figura.FUNGO,1), new ReqAngoliCoperti(), new Angolo(), new Angolo(false), new Angolo(), new Angolo(), "Piazzamento:\t 3 figure foglia e 1 figura fungo\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata ", "Immagini/Carte/xcarta056.png"));
-		mazzoCartaOro.add(new CartaOro(Colore.VERDE, 3, new ReqFiguraSingola(Figura.FOGLIA,3), new Angolo(), new Angolo(false), new Angolo(Figura.PIUMA), new Angolo(false), "Piazzamento:\t 3 figure foglia\nObiettivo:\t 3 punti immediati ", "Immagini/Carte/xcarta057.png"));
-		mazzoCartaOro.add(new CartaOro(Colore.VERDE, 3, new ReqFiguraSingola(Figura.FOGLIA,3), new Angolo(Figura.PERGAMENA), new Angolo(), new Angolo(false), new Angolo(false), "Piazzamento:\t 3 figure foglia\nObiettivo:\t 3 punti immediati ", "Immagini/Carte/xcarta058.png"));
-		mazzoCartaOro.add(new CartaOro(Colore.VERDE, 3, new ReqFiguraSingola(Figura.FOGLIA,3), new Angolo(false), new Angolo(Figura.CIOTOLA), new Angolo(false), new Angolo(), "Piazzamento:\t 3 figure foglia\nObiettivo:\t 3 punti immediati ", "Immagini/Carte/xcarta059.png"));
-		mazzoCartaOro.add(new CartaOro(Colore.VERDE, 5, new ReqFiguraSingola(Figura.FOGLIA,5), new Angolo(), new Angolo(), new Angolo(false), new Angolo(false), "Piazzamento:\t 5 figure foglia\nObiettivo:\t 5 punti immediati ", "Immagini/Carte/xcarta060.png"));	
+		mazzoCartaOro.add(new CartaOro(1, Colore.VERDE, 1, new ReqFiguraDoppia(Figura.FOGLIA,2,Figura.FARFALLA,1), new ReqFiguraSingola(Figura.PIUMA, 1), new Angolo(Figura.PIUMA), new Angolo(), new Angolo(), new Angolo(false), "Piazzamento:\t 2 figure foglia e 1 figura farfalla\nObiettivo:\t 1 punto per ogni figura piuma nel campo nel momento in cui viene piazzata la carta ", "Immagini/Carte/xcarta051.png"));
+		mazzoCartaOro.add(new CartaOro(1, Colore.VERDE, 1, new ReqFiguraDoppia(Figura.FOGLIA,2,Figura.FUNGO,1), new ReqFiguraSingola(Figura.PERGAMENA, 1), new Angolo(), new Angolo(Figura.PERGAMENA), new Angolo(false), new Angolo(), "Piazzamento:\t 2 figure foglia e 1 fungo\nObiettivo:\t 1 punto per ogni figura pergamena nel campo nel momento in cui viene piazzata la carta ", "Immagini/Carte/xcarta052.png"));
+		mazzoCartaOro.add(new CartaOro(1, Colore.VERDE, 1, new ReqFiguraDoppia(Figura.FOGLIA,2,Figura.LUPO,1), new ReqFiguraSingola(Figura.CIOTOLA, 1), new Angolo(), new Angolo(false), new Angolo(Figura.CIOTOLA), new Angolo(), "Piazzamento:\t 2 figure foglia e 1 figura lupo\nObiettivo:\t 1 punto per ogni figura ciotola nel campo nel momento in cui viene piazzata la carta ", "Immagini/Carte/xcarta053.png"));
+		mazzoCartaOro.add(new CartaOro(2, Colore.VERDE, 2, new ReqFiguraDoppia(Figura.FOGLIA,3,Figura.FARFALLA,1), new ReqAngoliCoperti(), new Angolo(false), new Angolo(), new Angolo(), new Angolo(), "Piazzamento:\t 3 figure foglia e 1 figura farfalla\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata ", "Immagini/Carte/xcarta054.png"));
+		mazzoCartaOro.add(new CartaOro(2, Colore.VERDE, 2, new ReqFiguraDoppia(Figura.FOGLIA,3,Figura.LUPO,1), new ReqAngoliCoperti(), new Angolo(), new Angolo(), new Angolo(), new Angolo(false), "Piazzamento:\t 3 figure foglia e 1 figura lupo\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata ", "Immagini/Carte/xcarta055.png"));
+		mazzoCartaOro.add(new CartaOro(2, Colore.VERDE, 2, new ReqFiguraDoppia(Figura.FOGLIA,3,Figura.FUNGO,1), new ReqAngoliCoperti(), new Angolo(), new Angolo(false), new Angolo(), new Angolo(), "Piazzamento:\t 3 figure foglia e 1 figura fungo\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata ", "Immagini/Carte/xcarta056.png"));
+		mazzoCartaOro.add(new CartaOro(3, Colore.VERDE, 3, new ReqFiguraSingola(Figura.FOGLIA,3), new Angolo(), new Angolo(false), new Angolo(Figura.PIUMA), new Angolo(false), "Piazzamento:\t 3 figure foglia\nObiettivo:\t 3 punti immediati ", "Immagini/Carte/xcarta057.png"));
+		mazzoCartaOro.add(new CartaOro(3, Colore.VERDE, 3, new ReqFiguraSingola(Figura.FOGLIA,3), new Angolo(Figura.PERGAMENA), new Angolo(), new Angolo(false), new Angolo(false), "Piazzamento:\t 3 figure foglia\nObiettivo:\t 3 punti immediati ", "Immagini/Carte/xcarta058.png"));
+		mazzoCartaOro.add(new CartaOro(3, Colore.VERDE, 3, new ReqFiguraSingola(Figura.FOGLIA,3), new Angolo(false), new Angolo(Figura.CIOTOLA), new Angolo(false), new Angolo(), "Piazzamento:\t 3 figure foglia\nObiettivo:\t 3 punti immediati ", "Immagini/Carte/xcarta059.png"));
+		mazzoCartaOro.add(new CartaOro(3, Colore.VERDE, 5, new ReqFiguraSingola(Figura.FOGLIA,5), new Angolo(), new Angolo(), new Angolo(false), new Angolo(false), "Piazzamento:\t 5 figure foglia\nObiettivo:\t 5 punti immediati ", "Immagini/Carte/xcarta060.png"));	
 
-		mazzoCartaOro.add(new CartaOro(Colore.BLU, 1, new ReqFiguraDoppia(Figura.LUPO,2,Figura.FARFALLA,1), new ReqFiguraSingola(Figura.CIOTOLA, 1), new Angolo(Figura.CIOTOLA), new Angolo(), new Angolo(), new Angolo(false), "Piazzamento:\t 2 figure lupo e 1 figura farfalla\nObiettivo:\t 1 punto per ogni figura ciotola nel campo nel momento in cui viene piazzata la carta ", "Immagini/Carte/xcarta061.png"));
-		mazzoCartaOro.add(new CartaOro(Colore.BLU, 1, new ReqFiguraDoppia(Figura.LUPO,2,Figura.FOGLIA,1), new ReqFiguraSingola(Figura.PERGAMENA, 1), new Angolo(false), new Angolo(), new Angolo(), new Angolo(Figura.PERGAMENA), "Piazzamento:\t 2 figure lupo e 1 figura foglia\nObiettivo:\t 1 punto per ogni figura pergamena nel campo nel momento in cui viene piazzata la carta ", "Immagini/Carte/xcarta062.png"));
-		mazzoCartaOro.add(new CartaOro(Colore.BLU, 1, new ReqFiguraDoppia(Figura.LUPO,2,Figura.FUNGO,1), new ReqFiguraSingola(Figura.PIUMA, 1), new Angolo(), new Angolo(false), new Angolo(Figura.PIUMA), new Angolo(), "Piazzamento:\t 2 figure lupo e 1 figura fungo\nObiettivo:\t 1 punto per ogni figura piuma nel campo nel momento in cui viene piazzata la carta ", "Immagini/Carte/xcarta063.png"));
-		mazzoCartaOro.add(new CartaOro(Colore.BLU, 2, new ReqFiguraDoppia(Figura.LUPO,3,Figura.FARFALLA,1), new ReqAngoliCoperti(), new Angolo(), new Angolo(), new Angolo(false), new Angolo(), "Piazzamento:\t 3 figure lupo e 1 figura farfalla\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata ", "Immagini/Carte/xcarta064.png"));
-		mazzoCartaOro.add(new CartaOro(Colore.BLU, 2, new ReqFiguraDoppia(Figura.LUPO,3,Figura.FUNGO,1), new ReqAngoliCoperti(), new Angolo(), new Angolo(false), new Angolo(), new Angolo(), "Piazzamento:\t 3 figure lupo e 1 figura fungo\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata ", "Immagini/Carte/xcarta065.png"));
-		mazzoCartaOro.add(new CartaOro(Colore.BLU, 2, new ReqFiguraDoppia(Figura.LUPO,3,Figura.FOGLIA,1), new ReqAngoliCoperti(), new Angolo(false), new Angolo(), new Angolo(), new Angolo(), "Piazzamento:\t 3 figure lupo e 1 figura foglia\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata ", "Immagini/Carte/xcarta066.png"));
-		mazzoCartaOro.add(new CartaOro(Colore.BLU, 3, new ReqFiguraSingola(Figura.LUPO,3), new Angolo(), new Angolo(false), new Angolo(Figura.PERGAMENA), new Angolo(false), "Piazzamento:\t 3 figure lupo\nObiettivo:\t 3 punti immediati ", "Immagini/Carte/xcarta067.png"));
-		mazzoCartaOro.add(new CartaOro(Colore.BLU, 3, new ReqFiguraSingola(Figura.LUPO,3), new Angolo(), new Angolo(Figura.CIOTOLA), new Angolo(false), new Angolo(false), "Piazzamento:\t 3 figure lupo\nObiettivo:\t 3 punti immediati ", "Immagini/Carte/xcarta068.png"));
-		mazzoCartaOro.add(new CartaOro(Colore.BLU, 3, new ReqFiguraSingola(Figura.LUPO,3), new Angolo(false), new Angolo(), new Angolo(false), new Angolo(Figura.PIUMA), "Piazzamento:\t 3 figure lupo\nObiettivo:\t 3 punti immediati ", "Immagini/Carte/xcarta069.png"));
-		mazzoCartaOro.add(new CartaOro(Colore.BLU, 5, new ReqFiguraSingola(Figura.LUPO,5), new Angolo(false), new Angolo(), new Angolo(false), new Angolo(), "Piazzamento:\t 5 figure lupo\nObiettivo:\t 5 punti immediati ", "Immagini/Carte/xcarta070.png"));
+		mazzoCartaOro.add(new CartaOro(1, Colore.BLU, 1, new ReqFiguraDoppia(Figura.LUPO,2,Figura.FARFALLA,1), new ReqFiguraSingola(Figura.CIOTOLA, 1), new Angolo(Figura.CIOTOLA), new Angolo(), new Angolo(), new Angolo(false), "Piazzamento:\t 2 figure lupo e 1 figura farfalla\nObiettivo:\t 1 punto per ogni figura ciotola nel campo nel momento in cui viene piazzata la carta ", "Immagini/Carte/xcarta061.png"));
+		mazzoCartaOro.add(new CartaOro(1, Colore.BLU, 1, new ReqFiguraDoppia(Figura.LUPO,2,Figura.FOGLIA,1), new ReqFiguraSingola(Figura.PERGAMENA, 1), new Angolo(false), new Angolo(), new Angolo(), new Angolo(Figura.PERGAMENA), "Piazzamento:\t 2 figure lupo e 1 figura foglia\nObiettivo:\t 1 punto per ogni figura pergamena nel campo nel momento in cui viene piazzata la carta ", "Immagini/Carte/xcarta062.png"));
+		mazzoCartaOro.add(new CartaOro(1, Colore.BLU, 1, new ReqFiguraDoppia(Figura.LUPO,2,Figura.FUNGO,1), new ReqFiguraSingola(Figura.PIUMA, 1), new Angolo(), new Angolo(false), new Angolo(Figura.PIUMA), new Angolo(), "Piazzamento:\t 2 figure lupo e 1 figura fungo\nObiettivo:\t 1 punto per ogni figura piuma nel campo nel momento in cui viene piazzata la carta ", "Immagini/Carte/xcarta063.png"));
+		mazzoCartaOro.add(new CartaOro(2, Colore.BLU, 2, new ReqFiguraDoppia(Figura.LUPO,3,Figura.FARFALLA,1), new ReqAngoliCoperti(), new Angolo(), new Angolo(), new Angolo(false), new Angolo(), "Piazzamento:\t 3 figure lupo e 1 figura farfalla\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata ", "Immagini/Carte/xcarta064.png"));
+		mazzoCartaOro.add(new CartaOro(2, Colore.BLU, 2, new ReqFiguraDoppia(Figura.LUPO,3,Figura.FUNGO,1), new ReqAngoliCoperti(), new Angolo(), new Angolo(false), new Angolo(), new Angolo(), "Piazzamento:\t 3 figure lupo e 1 figura fungo\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata ", "Immagini/Carte/xcarta065.png"));
+		mazzoCartaOro.add(new CartaOro(2, Colore.BLU, 2, new ReqFiguraDoppia(Figura.LUPO,3,Figura.FOGLIA,1), new ReqAngoliCoperti(), new Angolo(false), new Angolo(), new Angolo(), new Angolo(), "Piazzamento:\t 3 figure lupo e 1 figura foglia\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata ", "Immagini/Carte/xcarta066.png"));
+		mazzoCartaOro.add(new CartaOro(3, Colore.BLU, 3, new ReqFiguraSingola(Figura.LUPO,3), new Angolo(), new Angolo(false), new Angolo(Figura.PERGAMENA), new Angolo(false), "Piazzamento:\t 3 figure lupo\nObiettivo:\t 3 punti immediati ", "Immagini/Carte/xcarta067.png"));
+		mazzoCartaOro.add(new CartaOro(3, Colore.BLU, 3, new ReqFiguraSingola(Figura.LUPO,3), new Angolo(), new Angolo(Figura.CIOTOLA), new Angolo(false), new Angolo(false), "Piazzamento:\t 3 figure lupo\nObiettivo:\t 3 punti immediati ", "Immagini/Carte/xcarta068.png"));
+		mazzoCartaOro.add(new CartaOro(3, Colore.BLU, 3, new ReqFiguraSingola(Figura.LUPO,3), new Angolo(false), new Angolo(), new Angolo(false), new Angolo(Figura.PIUMA), "Piazzamento:\t 3 figure lupo\nObiettivo:\t 3 punti immediati ", "Immagini/Carte/xcarta069.png"));
+		mazzoCartaOro.add(new CartaOro(3, Colore.BLU, 5, new ReqFiguraSingola(Figura.LUPO,5), new Angolo(false), new Angolo(), new Angolo(false), new Angolo(), "Piazzamento:\t 5 figure lupo\nObiettivo:\t 5 punti immediati ", "Immagini/Carte/xcarta070.png"));
 
-		mazzoCartaOro.add(new CartaOro(Colore.VIOLA, 1, new ReqFiguraDoppia(Figura.FARFALLA,2,Figura.FOGLIA,1), new ReqFiguraSingola(Figura.PIUMA, 1), new Angolo(), new Angolo(Figura.PIUMA), new Angolo(false), new Angolo(), "Piazzamento:\t 2 figure farfalla e 1 figura foglia\nObiettivo:\t 1 punto per ogni figura piuma nel campo nel momento in cui viene piazzata la carta ", "Immagini/Carte/xcarta071.png"));
-		mazzoCartaOro.add(new CartaOro(Colore.VIOLA, 1, new ReqFiguraDoppia(Figura.FARFALLA,2,Figura.LUPO,1), new ReqFiguraSingola(Figura.PERGAMENA, 1), new Angolo(), new Angolo(false), new Angolo(Figura.PERGAMENA), new Angolo(), "Piazzamento:\t 2 figure farfalla e 1 figura lupo\nObiettivo:\t 1 punto per ogni figura pergamena nel campo nel momento in cui viene piazzata la carta  ", "Immagini/Carte/xcarta072.png"));
-		mazzoCartaOro.add(new CartaOro(Colore.VIOLA, 1, new ReqFiguraDoppia(Figura.FARFALLA,2,Figura.FUNGO,1), new ReqFiguraSingola(Figura.CIOTOLA, 1), new Angolo(false), new Angolo(), new Angolo(), new Angolo(Figura.CIOTOLA), "Piazzamento:\t 2 figure farfalla e 1 figura fungo\nObiettivo:\\t 1 punto per ogni figura ciotola nel campo nel momento in cui viene piazzata la carta  ", "Immagini/Carte/xcarta073.png"));
-		mazzoCartaOro.add(new CartaOro(Colore.VIOLA, 2, new ReqFiguraDoppia(Figura.FARFALLA,3,Figura.LUPO,1), new ReqAngoliCoperti(), new Angolo(), new Angolo(), new Angolo(false), new Angolo(), "Piazzamento:\t 3 figure farfalla e 1 figura lupo\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata ", "Immagini/Carte/xcarta074.png"));
-		mazzoCartaOro.add(new CartaOro(Colore.VIOLA, 2, new ReqFiguraDoppia(Figura.FARFALLA,3,Figura.FOGLIA,1), new ReqAngoliCoperti(), new Angolo(), new Angolo(), new Angolo(), new Angolo(false), "Piazzamento:\t 3 figure farfalla e 1 figura foglia\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata ", "Immagini/Carte/xcarta075.png"));
-		mazzoCartaOro.add(new CartaOro(Colore.VIOLA, 2, new ReqFiguraDoppia(Figura.FARFALLA,3,Figura.FUNGO,1), new ReqAngoliCoperti(), new Angolo(), new Angolo(false), new Angolo(), new Angolo(), "Piazzamento:\t 3 figure farfalla e 1 figura fungo\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata ", "Immagini/Carte/xcarta076.png"));
-		mazzoCartaOro.add(new CartaOro(Colore.VIOLA, 3, new ReqFiguraSingola(Figura.FARFALLA,3), new Angolo(Figura.CIOTOLA), new Angolo(false), new Angolo(), new Angolo(false), "Piazzamento:\t 3 figure farfalla\nObiettivo:\t 3 punti immediati ", "Immagini/Carte/xcarta077.png"));
-		mazzoCartaOro.add(new CartaOro(Colore.VIOLA, 3, new ReqFiguraSingola(Figura.FARFALLA,3), new Angolo(), new Angolo(Figura.PERGAMENA), new Angolo(false), new Angolo(false), "Piazzamento:\t 3 figure farfalla\nObiettivo:\t 3 punti immediati ", "Immagini/Carte/xcarta078.png"));
-		mazzoCartaOro.add(new CartaOro(Colore.VIOLA, 3, new ReqFiguraSingola(Figura.FARFALLA,3), new Angolo(false), new Angolo(false), new Angolo(Figura.PIUMA), new Angolo(), "Piazzamento:\t 3 figure farfalla\nObiettivo:\t 3 punti immediati ", "Immagini/Carte/xcarta079.png"));
-		mazzoCartaOro.add(new CartaOro(Colore.VIOLA, 5, new ReqFiguraSingola(Figura.FARFALLA,5), new Angolo(), new Angolo(), new Angolo(false), new Angolo(false), "Piazzamento:\t 5 figure farfalla\nObiettivo:\t 5 punti immediati ", "Immagini/Carte/xcarta080.png"));
+		mazzoCartaOro.add(new CartaOro(1, Colore.VIOLA, 1, new ReqFiguraDoppia(Figura.FARFALLA,2,Figura.FOGLIA,1), new ReqFiguraSingola(Figura.PIUMA, 1), new Angolo(), new Angolo(Figura.PIUMA), new Angolo(false), new Angolo(), "Piazzamento:\t 2 figure farfalla e 1 figura foglia\nObiettivo:\t 1 punto per ogni figura piuma nel campo nel momento in cui viene piazzata la carta ", "Immagini/Carte/xcarta071.png"));
+		mazzoCartaOro.add(new CartaOro(1, Colore.VIOLA, 1, new ReqFiguraDoppia(Figura.FARFALLA,2,Figura.LUPO,1), new ReqFiguraSingola(Figura.PERGAMENA, 1), new Angolo(), new Angolo(false), new Angolo(Figura.PERGAMENA), new Angolo(), "Piazzamento:\t 2 figure farfalla e 1 figura lupo\nObiettivo:\t 1 punto per ogni figura pergamena nel campo nel momento in cui viene piazzata la carta  ", "Immagini/Carte/xcarta072.png"));
+		mazzoCartaOro.add(new CartaOro(1, Colore.VIOLA, 1, new ReqFiguraDoppia(Figura.FARFALLA,2,Figura.FUNGO,1), new ReqFiguraSingola(Figura.CIOTOLA, 1), new Angolo(false), new Angolo(), new Angolo(), new Angolo(Figura.CIOTOLA), "Piazzamento:\t 2 figure farfalla e 1 figura fungo\nObiettivo:\\t 1 punto per ogni figura ciotola nel campo nel momento in cui viene piazzata la carta  ", "Immagini/Carte/xcarta073.png"));
+		mazzoCartaOro.add(new CartaOro(2, Colore.VIOLA, 2, new ReqFiguraDoppia(Figura.FARFALLA,3,Figura.LUPO,1), new ReqAngoliCoperti(), new Angolo(), new Angolo(), new Angolo(false), new Angolo(), "Piazzamento:\t 3 figure farfalla e 1 figura lupo\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata ", "Immagini/Carte/xcarta074.png"));
+		mazzoCartaOro.add(new CartaOro(2, Colore.VIOLA, 2, new ReqFiguraDoppia(Figura.FARFALLA,3,Figura.FOGLIA,1), new ReqAngoliCoperti(), new Angolo(), new Angolo(), new Angolo(), new Angolo(false), "Piazzamento:\t 3 figure farfalla e 1 figura foglia\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata ", "Immagini/Carte/xcarta075.png"));
+		mazzoCartaOro.add(new CartaOro(2, Colore.VIOLA, 2, new ReqFiguraDoppia(Figura.FARFALLA,3,Figura.FUNGO,1), new ReqAngoliCoperti(), new Angolo(), new Angolo(false), new Angolo(), new Angolo(), "Piazzamento:\t 3 figure farfalla e 1 figura fungo\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata ", "Immagini/Carte/xcarta076.png"));
+		mazzoCartaOro.add(new CartaOro(3, Colore.VIOLA, 3, new ReqFiguraSingola(Figura.FARFALLA,3), new Angolo(Figura.CIOTOLA), new Angolo(false), new Angolo(), new Angolo(false), "Piazzamento:\t 3 figure farfalla\nObiettivo:\t 3 punti immediati ", "Immagini/Carte/xcarta077.png"));
+		mazzoCartaOro.add(new CartaOro(3, Colore.VIOLA, 3, new ReqFiguraSingola(Figura.FARFALLA,3), new Angolo(), new Angolo(Figura.PERGAMENA), new Angolo(false), new Angolo(false), "Piazzamento:\t 3 figure farfalla\nObiettivo:\t 3 punti immediati ", "Immagini/Carte/xcarta078.png"));
+		mazzoCartaOro.add(new CartaOro(3, Colore.VIOLA, 3, new ReqFiguraSingola(Figura.FARFALLA,3), new Angolo(false), new Angolo(false), new Angolo(Figura.PIUMA), new Angolo(), "Piazzamento:\t 3 figure farfalla\nObiettivo:\t 3 punti immediati ", "Immagini/Carte/xcarta079.png"));
+		mazzoCartaOro.add(new CartaOro(3, Colore.VIOLA, 5, new ReqFiguraSingola(Figura.FARFALLA,5), new Angolo(), new Angolo(), new Angolo(false), new Angolo(false), "Piazzamento:\t 5 figure farfalla\nObiettivo:\t 5 punti immediati ", "Immagini/Carte/xcarta080.png"));
 		
-		
+		/*
 		try {
 		       // Apre il file
 		       BufferedReader reader = new BufferedReader(new FileReader(carteOro));
@@ -410,7 +415,24 @@ public class CentroCampo {
 		    	   String parametroCartaO[] = cartaO.split(",");
 		    	   //Colore - requisito per piazzamento - requisito obiettivo - angolo1 - angolo2 - angolo3 - angolo4 - descrizione - url 
 		    	   // Aggiunge ogni riga nell'ArrayList
-		    	   mazzoCartaOro.add(new CartaOro(Colore.valueOf(parametroCartaO[0]), Integer.valueOf(parametroCartaO[1]), leggiRequisitoDoppio(parametroCartaO[2], Integer.valueOf(parametroCartaO[3])), leggiRequisitoSingolo(parametroCartaO[2], Integer.valueOf(parametroCartaO[3])), leggiAngolo(parametroCartaO[4]), leggiAngolo(parametroCartaO[5]), leggiAngolo(parametroCartaO[6]), leggiAngolo(parametroCartaO[7]), parametroCartaO[8], parametroCartaO[9]));
+		    	   switch(Integer.valueOf(parametroCartaO[0])) {
+		    	   
+		    	   		case 1:
+		    	   			mazzoCartaOro.add(new CartaOro(Integer.valueOf(parametroCartaO[0]), Colore.valueOf(parametroCartaO[1]), Integer.valueOf(parametroCartaO[2]), leggiRequisitoDoppio(parametroCartaO[3], Integer.valueOf(parametroCartaO[4]), parametroCartaO[5], Integer.valueOf(parametroCartaO[6])), leggiRequisitoSingolo(parametroCartaO[7], Integer.valueOf(parametroCartaO[8])), leggiAngolo(parametroCartaO[9]), leggiAngolo(parametroCartaO[10]), leggiAngolo(parametroCartaO[11]), leggiAngolo(parametroCartaO[12]), parametroCartaO[13], parametroCartaO[14]));
+		    	   			break;
+		    	   			
+		    	   		case 2:
+		    	   			mazzoCartaOro.add(new CartaOro(Integer.valueOf(parametroCartaO[0]), Colore.valueOf(parametroCartaO[1]), Integer.valueOf(parametroCartaO[2]), leggiRequisitoDoppio(parametroCartaO[3], Integer.valueOf(parametroCartaO[4]), parametroCartaO[5], Integer.valueOf(parametroCartaO[6])), leggiAngoloCoperto(), leggiAngolo(parametroCartaO[7]), leggiAngolo(parametroCartaO[8]), leggiAngolo(parametroCartaO[9]), leggiAngolo(parametroCartaO[10]), parametroCartaO[11], parametroCartaO[12]));
+		    	   			break;
+		    	   			
+		    	   		case 3:
+		    	   			mazzoCartaOro.add(new CartaOro(Integer.valueOf(parametroCartaO[0]), Colore.valueOf(parametroCartaO[1]), Integer.valueOf(parametroCartaO[2]), leggiRequisitoSingolo(parametroCartaO[3], Integer.valueOf(parametroCartaO[4])), leggiAngolo(parametroCartaO[5]), leggiAngolo(parametroCartaO[6]), leggiAngolo(parametroCartaO[7]), leggiAngolo(parametroCartaO[8]), parametroCartaO[9], parametroCartaO[10]));
+		    	   			break;
+		    		
+		    	   		default: 
+		    	   			System.out.println("Errore durante la lettura del file: ");
+		    	   			break;
+		    	   }
 		       }
 		        
 		       // Chiude il BufferedReader dopo aver finito di leggere i dati da file
@@ -420,7 +442,7 @@ public class CentroCampo {
 		       // Gestisce eventuali eccezioni di IO, ad esempio se il file non esiste o non può essere letto
 		       System.err.println("Errore durante la lettura del file: ");
 		   } 
-		   
+		   */
 	}
 	
 	public void creaMazzoObiettivo() {
