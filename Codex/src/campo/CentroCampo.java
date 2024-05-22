@@ -24,6 +24,7 @@ import requisiti.ReqLBluRossa;
 import requisiti.ReqLRossaVerde;
 import requisiti.ReqLVerdeViola;
 import requisiti.ReqLViolaBlu;
+import requisiti.Requisito;
 
 public class CentroCampo {
 	
@@ -54,6 +55,12 @@ public class CentroCampo {
 	
 	private String carteOro="ParametriCarte/CarteOro.txt";
 	private String cartaO="";
+	
+	private String carteObiettivo="ParametriCarte/CarteObiettivo.txt";
+	private String cartaOb="";
+	
+	private String carteIniziali="ParametriCarte/CarteIniziali.txt";
+	private String cartaI="";
 	
 	//private ArrayList <Carta> carteSelezionabili;
 	
@@ -266,8 +273,54 @@ public class CentroCampo {
 			 return new Angolo();
 		 
 		 return new Angolo(Figura.valueOf(s));
-		 
 	 }
+	
+	private ReqFiguraSingola leggiRequisitoSingolo(String s1, Integer n1) {
+		return new ReqFiguraSingola(Figura.valueOf(s1), n1);
+	}
+	
+	private ReqFiguraDoppia leggiRequisitoDoppio(String s2, Integer n2, String s3, Integer n3) {
+		return new ReqFiguraDoppia(Figura.valueOf(s2), n2, Figura.valueOf(s3), n3);
+	}
+	
+	private ReqAngoliCoperti angoloCoperto() {
+
+		 return new ReqAngoliCoperti(); 
+	 }
+	
+	private ReqCarteObliqueCrescenti reqCarteOblique(String s4, String s5) {
+
+		return new ReqCarteObliqueCrescenti(Colore.valueOf(s4), Boolean.valueOf(s5)); 
+	 }
+	
+	/*
+	private Requisito leggiRequisito(String s6) {
+
+		switch(Integer.valueOf(s6)){
+			
+			case 1:
+				 return new ReqLRossaVerde(); 
+				break;
+				
+			case 2:
+				 return new ReqLVerdeViola(); 
+				break;
+				
+			case 3:
+				 return new ReqLBluRossa(); 
+				break;
+				
+			case 4:
+				 return new ReqLViolaBlu(); 
+				break;
+				
+			default: 
+	   			System.out.println("Errore durante la lettura del file: ");
+	   			break;
+		}
+		
+	 }
+	 */
 
 	public void creaMazzoRisorsa() {
 		
@@ -341,21 +394,7 @@ public class CentroCampo {
 		  */
 	}
 	
-	private ReqFiguraSingola leggiRequisitoSingolo(String s1, Integer n1) {
-		//new ReqFiguraSingola(Figura.CIOTOLA, 1)
-		return new ReqFiguraSingola(Figura.valueOf(s1), n1);
-	}
 	
-	private ReqFiguraDoppia leggiRequisitoDoppio(String s2, Integer n2, String s3, Integer n3) {
-		//new ReqFiguraSingola(Figura.CIOTOLA, 1)
-		return new ReqFiguraDoppia(Figura.valueOf(s2), n2, Figura.valueOf(s3), n3);
-	}
-	
-	private ReqAngoliCoperti leggiAngoloCoperto() {
-
-		 return new ReqAngoliCoperti();
-		 
-	 }
 	public void creaMazzoOro() {
 		
 		//40 CARTE ORO
@@ -422,7 +461,7 @@ public class CentroCampo {
 		    	   			break;
 		    	   			
 		    	   		case 2:
-		    	   			mazzoCartaOro.add(new CartaOro(Integer.valueOf(parametroCartaO[0]), Colore.valueOf(parametroCartaO[1]), Integer.valueOf(parametroCartaO[2]), leggiRequisitoDoppio(parametroCartaO[3], Integer.valueOf(parametroCartaO[4]), parametroCartaO[5], Integer.valueOf(parametroCartaO[6])), leggiAngoloCoperto(), leggiAngolo(parametroCartaO[7]), leggiAngolo(parametroCartaO[8]), leggiAngolo(parametroCartaO[9]), leggiAngolo(parametroCartaO[10]), parametroCartaO[11], parametroCartaO[12]));
+		    	   			mazzoCartaOro.add(new CartaOro(Integer.valueOf(parametroCartaO[0]), Colore.valueOf(parametroCartaO[1]), Integer.valueOf(parametroCartaO[2]), leggiRequisitoDoppio(parametroCartaO[3], Integer.valueOf(parametroCartaO[4]), parametroCartaO[5], Integer.valueOf(parametroCartaO[6])), angoloCoperto(), leggiAngolo(parametroCartaO[7]), leggiAngolo(parametroCartaO[8]), leggiAngolo(parametroCartaO[9]), leggiAngolo(parametroCartaO[10]), parametroCartaO[11], parametroCartaO[12]));
 		    	   			break;
 		    	   			
 		    	   		case 3:
@@ -442,7 +481,7 @@ public class CentroCampo {
 		       // Gestisce eventuali eccezioni di IO, ad esempio se il file non esiste o non può essere letto
 		       System.err.println("Errore durante la lettura del file: ");
 		   } 
-		   */
+		 */  
 	}
 	
 	public void creaMazzoObiettivo() {
@@ -476,6 +515,28 @@ public class CentroCampo {
 		mazzoCartaIniziale.add(new CartaIniziale(Figura.LUPO, Figura.FARFALLA, Figura.FOGLIA, new Angolo(), new Angolo(), new Angolo(false), new Angolo(false), new Angolo(Figura.FARFALLA), new Angolo(Figura.FUNGO), new Angolo(Figura.FOGLIA), new Angolo(Figura.LUPO), "Immagini/Carte/xcarta085.png", "Immagini/Carte/xcarta085retro.png"));
 		mazzoCartaIniziale.add(new CartaIniziale(Figura.FOGLIA, Figura.LUPO, Figura.FUNGO, new Angolo(), new Angolo(), new Angolo(false), new Angolo(false), new Angolo(Figura.FUNGO), new Angolo(Figura.LUPO), new Angolo(Figura.FOGLIA), new Angolo(Figura.FARFALLA), "Immagini/Carte/xcarta086.png", "Immagini/Carte/xcarta086retro.png"));
 		
+		/*
+		try {
+		       // Apre il file
+		       BufferedReader reader = new BufferedReader(new FileReader(carteIniziali));
+		        
+		       // Leggo ogni riga del file fino alla fine
+		       while ((cartaI = reader.readLine()) != null) {
+		           
+		    	   String parametroCartaI[] = cartaI.split(",");
+		    	   
+		    	   // Aggiunge ogni riga nell'ArrayList
+		    	   mazzoCartaIniziale.add(new CartaIniziale(Figura.valueOf(parametroCartaI[0]), Figura.valueOf(parametroCartaI[1]), Figura.valueOf(parametroCartaI[2]), leggiAngolo(parametroCartaI[3]),  leggiAngolo(parametroCartaI[4]), leggiAngolo(parametroCartaI[5]), leggiAngolo(parametroCartaI[6]), leggiAngolo(parametroCartaI[7]), leggiAngolo(parametroCartaI[8]), leggiAngolo(parametroCartaI[9]), leggiAngolo(parametroCartaI[10]), parametroCartaI[11], parametroCartaI[12]));
+		       }
+		        
+		       // Chiude il BufferedReader dopo aver finito di leggere i dati da file
+		       reader.close();
+
+		   } catch (IOException e) {
+		       // Gestisce eventuali eccezioni di IO, ad esempio se il file non esiste o non può essere letto
+		       System.err.println("Errore durante la lettura del file: ");
+		   } 
+		   */
 	}
 	
 }
