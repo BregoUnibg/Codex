@@ -289,9 +289,12 @@ public class CentroCampo {
 	 }
 	
 	private ReqCarteObliqueCrescenti reqCarteOblique(String s4, String s5) {
-
 		return new ReqCarteObliqueCrescenti(Colore.valueOf(s4), Boolean.valueOf(s5)); 
 	 }
+	
+	private ReqFiguraTripla leggiRequisitoTripla(String s8, Integer n8, String s9, Integer n9, String s10, Integer n10) {
+		return new ReqFiguraTripla(Figura.valueOf(s8), n8, Figura.valueOf(s9), n9, Figura.valueOf(s10), n10);
+	}
 	
 	
 	private Requisito leggiRequisito(String s6) {
@@ -501,6 +504,7 @@ public class CentroCampo {
 	public void creaMazzoObiettivo() {
 		
 		//16 CARTE OBIETTIVO 
+		/*
 		mazzoCartaObiettivo.add(new CartaObiettivo(Colore.GRIGIO, 2, new ReqCarteObliqueCrescenti(Colore.ROSSO, true), "2 punti se nel campo ci sono 3 carte rosse in diagonale (da sinistra a destra e dal basso verso l'alto), la carta centrale deve avere l'angolo in basso a sinistra e in alto a destra occupati dalle altre 2 carte rosse", "Immagini/Carte/xcarta087.png" ));
 		mazzoCartaObiettivo.add(new CartaObiettivo(Colore.GRIGIO, 2, new ReqCarteObliqueCrescenti(Colore.VERDE, false), "2 punti se nel campo ci sono 3 carte verdi in diagonale (da sinistra a destra e dall'alto verso il basso), la carta centrale deve avere l'angolo in alto a sinistra e in basso a destra occupati dalle altre 2 carte verdi", "Immagini/Carte/xcarta088.png"));
 		mazzoCartaObiettivo.add(new CartaObiettivo(Colore.GRIGIO, 2, new ReqCarteObliqueCrescenti(Colore.BLU, true), "2 punti se nel campo ci sono 3 carte blu in diagonale (da sinistra a destra e dal basso verso l'alto), la carta centrale deve avere l'angolo in basso a sinistra e in alto a destra occupati dalle altre 2 carte blu ", "Immagini/Carte/xcarta089.png"));
@@ -517,7 +521,47 @@ public class CentroCampo {
 		mazzoCartaObiettivo.add(new CartaObiettivo(Colore.GRIGIO, 2, new ReqFiguraSingola(Figura.PERGAMENA,2), "2 punti se nel campo ci sono 2 figura pergamena ", "Immagini/Carte/xcarta100.png"));
 		mazzoCartaObiettivo.add(new CartaObiettivo(Colore.GRIGIO, 2, new ReqFiguraSingola(Figura.CIOTOLA,2), "2 punti se nel campo ci sono 2 figura ciotola ", "Immagini/Carte/xcarta101.png"));
 		mazzoCartaObiettivo.add(new CartaObiettivo(Colore.GRIGIO, 2, new ReqFiguraSingola(Figura.PIUMA,2), "2 punti se nel campo ci sono 2 figura piuma ", "Immagini/Carte/xcarta102.png"));
-		
+		*/
+		try {
+		       // Apre il file
+		       BufferedReader reader = new BufferedReader(new FileReader(carteObiettivo));
+		        
+		       // Leggo ogni riga del file fino alla fine
+		       while ((cartaOb = reader.readLine()) != null) {
+		           
+		    	   String parametroCartaOb[] = cartaOb.split(",");
+		    	   
+		    	   switch(Integer.valueOf(parametroCartaOb[0])) {
+		    	   
+	    	   		case 1:
+	    	   			mazzoCartaObiettivo.add(new CartaObiettivo(Colore.valueOf(parametroCartaOb[1]), Integer.valueOf(parametroCartaOb[2]), reqCarteOblique(parametroCartaOb[3], parametroCartaOb[4]), parametroCartaOb[5], parametroCartaOb[6]));
+	    	   			break;
+	    	   			
+	    	   		case 2:
+	    	   			mazzoCartaObiettivo.add(new CartaObiettivo(Colore.valueOf(parametroCartaOb[1]), Integer.valueOf(parametroCartaOb[2]), leggiRequisito(parametroCartaOb[3]), parametroCartaOb[4], parametroCartaOb[5]));
+	    	   			break;
+	    	   			
+	    	   		case 3:
+	    	   			mazzoCartaObiettivo.add(new CartaObiettivo(Colore.valueOf(parametroCartaOb[1]), Integer.valueOf(parametroCartaOb[2]), leggiRequisitoSingolo(parametroCartaOb[3], Integer.valueOf(parametroCartaOb[4])), parametroCartaOb[5], parametroCartaOb[6]));
+	    	   			break;
+	    		
+	    	   		case 4:
+	    	   			mazzoCartaObiettivo.add(new CartaObiettivo(Colore.valueOf(parametroCartaOb[1]), Integer.valueOf(parametroCartaOb[2]), leggiRequisitoTripla(parametroCartaOb[3], Integer.valueOf(parametroCartaOb[4]), parametroCartaOb[5], Integer.valueOf(parametroCartaOb[6]), parametroCartaOb[7], Integer.valueOf(parametroCartaOb[8])), parametroCartaOb[9], parametroCartaOb[10]));
+	    	   			break;
+	    	   			
+	    	   		default: 
+	    	   			System.out.println("Errore durante la lettura del file: ");
+	    	   			break;
+	    	   }
+		    	   }
+		        
+		       // Chiude il BufferedReader dopo aver finito di leggere i dati da file
+		       reader.close();
+
+		   } catch (IOException e) {
+		       // Gestisce eventuali eccezioni di IO, ad esempio se il file non esiste o non può essere letto
+		       System.err.println("Errore durante la lettura del file: ");
+		   } 
 	}
 	
 	public void creaMazzoIniziale() {
