@@ -1,0 +1,6 @@
+FARFALLA,FOGLIA,FOGLIA, ,FOGLIA,FARFALLA, ,FUNGO,FOGLIA,FARFALLA,LUPO,Immagini/Carte/xcarta081.png,Immagini/Carte/xcarta081retro.png
+FUNGO,FOGLIA,FOGLIA,LUPO, , ,FUNGO,FOGLIA,LUPO,FUNGO,FARFALLA,Immagini/Carte/xcarta082.png,Immagini/Carte/xcarta082retro.png
+FOGLIA,FUNGO,FOGLIA, , , , ,FARFALLA,LUPO,FUNGO,FOGLIA,Immagini/Carte/xcarta083.png,Immagini/Carte/xcarta083retro.png
+LUPO,FARFALLA,FOGLIA, , , , ,FOGLIA,FARFALLA,LUPO,FUNGO,Immagini/Carte/xcarta084.png,Immagini/Carte/xcarta084retro.png
+LUPO,FARFALLA,FOGLIA, , ,false,false,FARFALLA,FUNGO,FOGLIA,LUPO,Immagini/Carte/xcarta085.png,Immagini/Carte/xcarta085retro.png
+FOGLIA,LUPO,FUNGO, , ,false,false,FUNGO,LUPO,FOGLIA,FARFALLA,Immagini/Carte/xcarta086.png,Immagini/Carte/xcarta086retro.png

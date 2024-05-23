@@ -317,12 +317,22 @@ public class CentroCampo {
 		return null;
 		
 	 }
+	
+	private Figura controlloFigura(String s7) {
+		if(s7.equals(null)) 
+		{
+			return null;
+		}else 
+		{
+			return Figura.valueOf(s7);
+		}
+	}
 	 
 
 	public void creaMazzoRisorsa() {
 		
 		//40 CARTE RISORSA 
-		
+		/*
 		 mazzoCartaRisorsa.add(new CartaRisorsa(Colore.ROSSO, new Angolo(Figura.FUNGO), new Angolo(), new Angolo(Figura.FUNGO), new Angolo(false), "Immagini/Carte/xcarta001.png"));
 		 mazzoCartaRisorsa.add(new CartaRisorsa(Colore.ROSSO, new Angolo(Figura.FUNGO), new Angolo(Figura.FUNGO), new Angolo(false),  new Angolo(), "Immagini/Carte/xcarta002.png"));
 		 mazzoCartaRisorsa.add(new CartaRisorsa(Colore.ROSSO, new Angolo(), new Angolo(false), new Angolo(Figura.FUNGO), new Angolo(Figura.FUNGO), "Immagini/Carte/xcarta003.png"));
@@ -367,7 +377,7 @@ public class CentroCampo {
 		 mazzoCartaRisorsa.add(new CartaRisorsa(Colore.VIOLA, 1, new Angolo(), new Angolo(), new Angolo(false), new Angolo(Figura.FARFALLA), "Immagini/Carte/xcarta039.png"));
 		 mazzoCartaRisorsa.add(new CartaRisorsa(Colore.VIOLA, 1, new Angolo(false), new Angolo(Figura.FARFALLA), new Angolo(), new Angolo(), "Immagini/Carte/xcarta040.png"));
 		 
-		 /*
+		 */
 		 try {
 		       // Apre il file
 		       BufferedReader reader = new BufferedReader(new FileReader(carteRisorsa));
@@ -388,7 +398,7 @@ public class CentroCampo {
 		       // Gestisce eventuali eccezioni di IO, ad esempio se il file non esiste o non può essere letto
 		       System.err.println("Errore durante la lettura del file: ");
 		   } 
-		  */
+		  
 	}
 	
 	
@@ -519,6 +529,17 @@ public class CentroCampo {
 		mazzoCartaIniziale.add(new CartaIniziale(Figura.LUPO, Figura.FARFALLA, Figura.FOGLIA, new Angolo(), new Angolo(), new Angolo(false), new Angolo(false), new Angolo(Figura.FARFALLA), new Angolo(Figura.FUNGO), new Angolo(Figura.FOGLIA), new Angolo(Figura.LUPO), "Immagini/Carte/xcarta085.png", "Immagini/Carte/xcarta085retro.png"));
 		mazzoCartaIniziale.add(new CartaIniziale(Figura.FOGLIA, Figura.LUPO, Figura.FUNGO, new Angolo(), new Angolo(), new Angolo(false), new Angolo(false), new Angolo(Figura.FUNGO), new Angolo(Figura.LUPO), new Angolo(Figura.FOGLIA), new Angolo(Figura.FARFALLA), "Immagini/Carte/xcarta086.png", "Immagini/Carte/xcarta086retro.png"));
 		
+		
+		//GESTIONE NEL CASO DI NULL
+		//PER ORA SOSTITUITO NULL CON FUNGO - carte originali sotto 
+		/*
+		FARFALLA,null,null, ,FOGLIA,FARFALLA, ,FUNGO,FOGLIA,FARFALLA,LUPO,Immagini/Carte/xcarta081.png,Immagini/Carte/xcarta081retro.png
+		FUNGO,null, null,LUPO, , ,FUNGO,FOGLIA,LUPO,FUNGO,FARFALLA,Immagini/Carte/xcarta082.png,Immagini/Carte/xcarta082retro.png
+		FOGLIA,FUNGO,null, , , , ,FARFALLA,LUPO,FUNGO,FOGLIA,Immagini/Carte/xcarta083.png,Immagini/Carte/xcarta083retro.png
+		LUPO,FARFALLA,null, , , , ,FOGLIA,FARFALLA,LUPO,FUNGO,Immagini/Carte/xcarta084.png,Immagini/Carte/xcarta084retro.png
+		LUPO,FARFALLA,FOGLIA, , ,false,false,FARFALLA,FUNGO,FOGLIA,LUPO,Immagini/Carte/xcarta085.png,Immagini/Carte/xcarta085retro.png
+		FOGLIA,LUPO,FUNGO, , ,false,false,FUNGO,LUPO,FOGLIA,FARFALLA,Immagini/Carte/xcarta086.png,Immagini/Carte/xcarta086retro.png
+		 */
 		/*
 		try {
 		       // Apre il file
@@ -530,7 +551,7 @@ public class CentroCampo {
 		    	   String parametroCartaI[] = cartaI.split(",");
 		    	   
 		    	   // Aggiunge ogni riga nell'ArrayList
-		    	   mazzoCartaIniziale.add(new CartaIniziale(Figura.valueOf(parametroCartaI[0]), Figura.valueOf(parametroCartaI[1]), Figura.valueOf(parametroCartaI[2]), leggiAngolo(parametroCartaI[3]),  leggiAngolo(parametroCartaI[4]), leggiAngolo(parametroCartaI[5]), leggiAngolo(parametroCartaI[6]), leggiAngolo(parametroCartaI[7]), leggiAngolo(parametroCartaI[8]), leggiAngolo(parametroCartaI[9]), leggiAngolo(parametroCartaI[10]), parametroCartaI[11], parametroCartaI[12]));
+		    	   mazzoCartaIniziale.add(new CartaIniziale(controlloFigura(parametroCartaI[0]), controlloFigura(parametroCartaI[1]), controlloFigura(parametroCartaI[2]), leggiAngolo(parametroCartaI[3]),  leggiAngolo(parametroCartaI[4]), leggiAngolo(parametroCartaI[5]), leggiAngolo(parametroCartaI[6]), leggiAngolo(parametroCartaI[7]), leggiAngolo(parametroCartaI[8]), leggiAngolo(parametroCartaI[9]), leggiAngolo(parametroCartaI[10]), parametroCartaI[11], parametroCartaI[12]));
 		       }
 		        
 		       // Chiude il BufferedReader dopo aver finito di leggere i dati da file
