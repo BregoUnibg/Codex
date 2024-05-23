@@ -10,7 +10,6 @@ public class CartaOro extends Carta{
 	private Requisito obiettivo;	//Posso risquotere i punti?
 	private Requisito piazzamento;	//Posso piazzare la carta?
 	private String descrizione;
-	private int num;
 	
 	/*
 	 * teoricamento Questi costruttori sono inutili
@@ -29,15 +28,14 @@ public class CartaOro extends Carta{
 	//requisito piazzamento: 3 figure farfalla
 	//requisito obiettivo: 1 punto per ciotola
 	
-	public CartaOro(int num, Colore colore, int punti, Requisito piazzamento,Angolo top_left_angle, Angolo top_right_angle, Angolo bottom_left_angle, Angolo bottom_right_angle, String descrizione, String urlImamgine){
+	public CartaOro(Colore colore, int punti, Requisito piazzamento,Angolo top_left_angle, Angolo top_right_angle, Angolo bottom_left_angle, Angolo bottom_right_angle, String descrizione, String urlImamgine){
 		super(colore, punti, top_left_angle, top_right_angle, bottom_left_angle, bottom_right_angle, urlImamgine);
 		this.piazzamento = piazzamento;
 		this.obiettivo = new ReqCartaTrue();
 		this.descrizione=descrizione;
-		this.num=num;
 	}
 	
-	public CartaOro(int num, Colore colore, int punti, Requisito piazzamento, Requisito obiettivo,Angolo top_left_angle, Angolo top_right_angle, Angolo bottom_left_angle, Angolo bottom_right_angle, String descrizione, String urlImmagine){
+	public CartaOro(Colore colore, int punti, Requisito piazzamento, Requisito obiettivo,Angolo top_left_angle, Angolo top_right_angle, Angolo bottom_left_angle, Angolo bottom_right_angle, String descrizione, String urlImmagine){
 		super(colore, punti, top_left_angle, top_right_angle, bottom_left_angle, bottom_right_angle, urlImmagine);
 		this.piazzamento = piazzamento;
 		
@@ -47,7 +45,7 @@ public class CartaOro extends Carta{
 			this.obiettivo = obiettivo;
 		
 		this.descrizione=descrizione;
-		this.num=num;
+
 	}
 	
 	public boolean getPiazzamento(CampoGioco c) {
@@ -92,6 +90,6 @@ public class CartaOro extends Carta{
 	 * @return
 	 */
 	public Carta clona() {		
-		return new CartaOro(this.num, super.getColore(), super.getPunti(null), this.piazzamento,this.obiettivo,super.getTop_left_angle(), super.getTop_right_angle(), super.getBottom_left_angle(), super.getBottom_right_angle(), this.descrizione, this.getUrlImamgine());
+		return new CartaOro(super.getColore(), super.getPunti(null), this.piazzamento,this.obiettivo,super.getTop_left_angle(), super.getTop_right_angle(), super.getBottom_left_angle(), super.getBottom_right_angle(), this.descrizione, this.getUrlImamgine());
 	}
 }

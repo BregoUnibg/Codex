@@ -293,34 +293,31 @@ public class CentroCampo {
 		return new ReqCarteObliqueCrescenti(Colore.valueOf(s4), Boolean.valueOf(s5)); 
 	 }
 	
-	/*
+	
 	private Requisito leggiRequisito(String s6) {
 
 		switch(Integer.valueOf(s6)){
 			
 			case 1:
 				 return new ReqLRossaVerde(); 
-				break;
 				
 			case 2:
 				 return new ReqLVerdeViola(); 
-				break;
 				
 			case 3:
 				 return new ReqLBluRossa(); 
-				break;
 				
 			case 4:
 				 return new ReqLViolaBlu(); 
-				break;
 				
 			default: 
 	   			System.out.println("Errore durante la lettura del file: ");
 	   			break;
 		}
+		return null;
 		
 	 }
-	 */
+	 
 
 	public void creaMazzoRisorsa() {
 		
@@ -398,7 +395,7 @@ public class CentroCampo {
 	public void creaMazzoOro() {
 		
 		//40 CARTE ORO
-		
+		/*
 		mazzoCartaOro.add(new CartaOro(1, Colore.valueOf("ROSSO"), 1, new ReqFiguraDoppia(Figura.FUNGO,2,Figura.LUPO,1), new ReqFiguraSingola(Figura.PIUMA, 1), new Angolo(false), new Angolo(), new Angolo(), new Angolo(Figura.PIUMA), "Piazzamento:\t 2 figure fungo e 1 figura lupo\nObiettivo:\t 1 punto per ogni figura piuma nel campo nel momento in cui viene piazzata la carta", "Immagini/Carte/xcarta041.png"));
 		mazzoCartaOro.add(new CartaOro(1, Colore.ROSSO, 1, new ReqFiguraDoppia(Figura.FUNGO,2,Figura.FOGLIA,1), new ReqFiguraSingola(Figura.CIOTOLA, 1), new Angolo(), new Angolo(Figura.CIOTOLA), new Angolo(false), new Angolo(), "Piazzamento:\t 2 figure fungo e 1 figura foglia\nObiettivo:\t 1 punto per ogni figura ciotola nel campo nel momento in cui viene piazzata la carta ", "Immagini/Carte/xcarta042.png"));
 		mazzoCartaOro.add(new CartaOro(1, Colore.ROSSO, 1, new ReqFiguraDoppia(Figura.FUNGO,2,Figura.FARFALLA,1), new ReqFiguraSingola(Figura.PERGAMENA, 1), new Angolo(Figura.PERGAMENA), new Angolo(), new Angolo(), new Angolo(false), "Piazzamento:\t 2 figure fungo e 1 figura farfalla\nObiettivo:\t 1 punto per ogni figura pergamena nel campo nel momento in cui viene piazzata la carta ", "Immagini/Carte/xcarta043.png"));
@@ -442,8 +439,8 @@ public class CentroCampo {
 		mazzoCartaOro.add(new CartaOro(3, Colore.VIOLA, 3, new ReqFiguraSingola(Figura.FARFALLA,3), new Angolo(), new Angolo(Figura.PERGAMENA), new Angolo(false), new Angolo(false), "Piazzamento:\t 3 figure farfalla\nObiettivo:\t 3 punti immediati ", "Immagini/Carte/xcarta078.png"));
 		mazzoCartaOro.add(new CartaOro(3, Colore.VIOLA, 3, new ReqFiguraSingola(Figura.FARFALLA,3), new Angolo(false), new Angolo(false), new Angolo(Figura.PIUMA), new Angolo(), "Piazzamento:\t 3 figure farfalla\nObiettivo:\t 3 punti immediati ", "Immagini/Carte/xcarta079.png"));
 		mazzoCartaOro.add(new CartaOro(3, Colore.VIOLA, 5, new ReqFiguraSingola(Figura.FARFALLA,5), new Angolo(), new Angolo(), new Angolo(false), new Angolo(false), "Piazzamento:\t 5 figure farfalla\nObiettivo:\t 5 punti immediati ", "Immagini/Carte/xcarta080.png"));
+		*/
 		
-		/*
 		try {
 		       // Apre il file
 		       BufferedReader reader = new BufferedReader(new FileReader(carteOro));
@@ -454,18 +451,25 @@ public class CentroCampo {
 		    	   String parametroCartaO[] = cartaO.split(",");
 		    	   //Colore - requisito per piazzamento - requisito obiettivo - angolo1 - angolo2 - angolo3 - angolo4 - descrizione - url 
 		    	   // Aggiunge ogni riga nell'ArrayList
+		    	   /*System.out.println((parametroCartaO[1])+ (parametroCartaO[2])+ (parametroCartaO[3]+ (parametroCartaO[4])+ (parametroCartaO[5])+ (parametroCartaO[6])+ (parametroCartaO[7])+ (parametroCartaO[8])));
+		    	  
+		    	   try {
+		    	   		System.out.println( (parametroCartaO[9])+ (parametroCartaO[10])+ (parametroCartaO[11])+ (parametroCartaO[12])+ parametroCartaO[13]+ parametroCartaO[14]);
+		    	   			}catch(IndexOutOfBoundsException e ){}
+		    	   	*/	
+		    	   
 		    	   switch(Integer.valueOf(parametroCartaO[0])) {
 		    	   
 		    	   		case 1:
-		    	   			mazzoCartaOro.add(new CartaOro(Integer.valueOf(parametroCartaO[0]), Colore.valueOf(parametroCartaO[1]), Integer.valueOf(parametroCartaO[2]), leggiRequisitoDoppio(parametroCartaO[3], Integer.valueOf(parametroCartaO[4]), parametroCartaO[5], Integer.valueOf(parametroCartaO[6])), leggiRequisitoSingolo(parametroCartaO[7], Integer.valueOf(parametroCartaO[8])), leggiAngolo(parametroCartaO[9]), leggiAngolo(parametroCartaO[10]), leggiAngolo(parametroCartaO[11]), leggiAngolo(parametroCartaO[12]), parametroCartaO[13], parametroCartaO[14]));
+		    	   			mazzoCartaOro.add(new CartaOro(Colore.valueOf(parametroCartaO[1]), Integer.valueOf(parametroCartaO[2]), leggiRequisitoDoppio(parametroCartaO[3], Integer.valueOf(parametroCartaO[4]), parametroCartaO[5], Integer.valueOf(parametroCartaO[6])), leggiRequisitoSingolo(parametroCartaO[7], Integer.valueOf(parametroCartaO[8])), leggiAngolo(parametroCartaO[9]), leggiAngolo(parametroCartaO[10]), leggiAngolo(parametroCartaO[11]), leggiAngolo(parametroCartaO[12]), parametroCartaO[13], parametroCartaO[14]));
 		    	   			break;
 		    	   			
 		    	   		case 2:
-		    	   			mazzoCartaOro.add(new CartaOro(Integer.valueOf(parametroCartaO[0]), Colore.valueOf(parametroCartaO[1]), Integer.valueOf(parametroCartaO[2]), leggiRequisitoDoppio(parametroCartaO[3], Integer.valueOf(parametroCartaO[4]), parametroCartaO[5], Integer.valueOf(parametroCartaO[6])), angoloCoperto(), leggiAngolo(parametroCartaO[7]), leggiAngolo(parametroCartaO[8]), leggiAngolo(parametroCartaO[9]), leggiAngolo(parametroCartaO[10]), parametroCartaO[11], parametroCartaO[12]));
+		    	   			mazzoCartaOro.add(new CartaOro(Colore.valueOf(parametroCartaO[1]), Integer.valueOf(parametroCartaO[2]), leggiRequisitoDoppio(parametroCartaO[3], Integer.valueOf(parametroCartaO[4]), parametroCartaO[5], Integer.valueOf(parametroCartaO[6])), angoloCoperto(), leggiAngolo(parametroCartaO[7]), leggiAngolo(parametroCartaO[8]), leggiAngolo(parametroCartaO[9]), leggiAngolo(parametroCartaO[10]), parametroCartaO[11], parametroCartaO[12]));
 		    	   			break;
 		    	   			
 		    	   		case 3:
-		    	   			mazzoCartaOro.add(new CartaOro(Integer.valueOf(parametroCartaO[0]), Colore.valueOf(parametroCartaO[1]), Integer.valueOf(parametroCartaO[2]), leggiRequisitoSingolo(parametroCartaO[3], Integer.valueOf(parametroCartaO[4])), leggiAngolo(parametroCartaO[5]), leggiAngolo(parametroCartaO[6]), leggiAngolo(parametroCartaO[7]), leggiAngolo(parametroCartaO[8]), parametroCartaO[9], parametroCartaO[10]));
+		    	   			mazzoCartaOro.add(new CartaOro(Colore.valueOf(parametroCartaO[1]), Integer.valueOf(parametroCartaO[2]), leggiRequisitoSingolo(parametroCartaO[3], Integer.valueOf(parametroCartaO[4])), leggiAngolo(parametroCartaO[5]), leggiAngolo(parametroCartaO[6]), leggiAngolo(parametroCartaO[7]), leggiAngolo(parametroCartaO[8]), parametroCartaO[9], parametroCartaO[10]));
 		    	   			break;
 		    		
 		    	   		default: 
@@ -481,7 +485,7 @@ public class CentroCampo {
 		       // Gestisce eventuali eccezioni di IO, ad esempio se il file non esiste o non può essere letto
 		       System.err.println("Errore durante la lettura del file: ");
 		   } 
-		 */  
+		 
 	}
 	
 	public void creaMazzoObiettivo() {
