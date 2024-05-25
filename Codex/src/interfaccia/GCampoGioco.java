@@ -102,7 +102,7 @@ public class GCampoGioco extends JScrollPane{
 		
 		g.getbTopLeft().addMouseListener(new MouseAdapter() {
 			
-			public void mouseClicked(MouseEvent e) {
+			public void mousePressed(MouseEvent e) {
 				
 				System.out.println("Bottone in alto a sinistra premuto");
 				
@@ -117,7 +117,7 @@ public class GCampoGioco extends JScrollPane{
 		
 		g.getbTopRight().addMouseListener(new MouseAdapter() {
 			
-			public void mouseClicked(MouseEvent e) {
+			public void mousePressed(MouseEvent e) {
 				
 				System.out.println("Bottone in alto a destra premuto");
 				
@@ -132,7 +132,7 @@ public class GCampoGioco extends JScrollPane{
 		
 		g.getbBottomLeft().addMouseListener(new MouseAdapter() {
 			
-			public void mouseClicked(MouseEvent e) {
+			public void mousePressed(MouseEvent e) {
 				
 				System.out.println("Bottone in basso a sinistra premuto");
 				
@@ -147,7 +147,7 @@ public class GCampoGioco extends JScrollPane{
 		
 		g.getbBottomRight().addMouseListener(new MouseAdapter() {
 			
-			public void mouseClicked(MouseEvent e) {
+			public void mousePressed(MouseEvent e) {
 				
 				System.out.println("Bottone in basso a destra premuto");
 				

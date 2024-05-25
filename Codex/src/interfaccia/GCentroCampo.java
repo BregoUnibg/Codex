@@ -134,7 +134,7 @@ public class GCentroCampo extends JPanel{
 		
 		croce.addMouseListener(new MouseAdapter() {
 			
-			public void mouseClicked(MouseEvent e) {
+			public void mousePressed(MouseEvent e) {
 					System.out.println("Stai chiudendo il cantrocampo");
 					gui.apriVisualeGiocatore(); 
 			}
@@ -168,7 +168,7 @@ public class GCentroCampo extends JPanel{
 		
 		cella.addMouseListener(new MouseAdapter() {
 			
-			public void mouseClicked(MouseEvent e) {
+			public void mousePressed(MouseEvent e) {
 				
 				cartaSelezionata = ((GCarta) cella.getComponent(0));
 				boolean cartaPescata = false;

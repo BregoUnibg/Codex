@@ -73,7 +73,7 @@ public class GMano extends JPanel{
 		
 		apriCentro.addMouseListener(new MouseAdapter() {
 			
-			public void mouseClicked(MouseEvent e){
+			public void mousePressed(MouseEvent e){
 				
 				gui.apriCentroCampo();
 				
@@ -138,7 +138,7 @@ public class GMano extends JPanel{
 		g.addMouseListener(new MouseAdapter() {
 
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void mousePressed(MouseEvent e) {
 				
 				System.out.println("Hai scelto la carta da giocare");
 				cartaScelta = g;

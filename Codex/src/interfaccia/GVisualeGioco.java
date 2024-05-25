@@ -135,7 +135,7 @@ public class GVisualeGioco extends JPanel{
 		bFronte.addMouseListener(new MouseAdapter() {
 
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void mousePressed(MouseEvent e) {
 				piazzaFronte = true;
 				c.visualizzaFronteCarta();
 				
@@ -146,7 +146,7 @@ public class GVisualeGioco extends JPanel{
 		bRetro.addMouseListener(new MouseAdapter() {
 
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void mousePressed(MouseEvent e) {
 				piazzaFronte = false;
 				c.visualizzaRetroCarta();
 				
@@ -160,7 +160,7 @@ public class GVisualeGioco extends JPanel{
 		JButton gioca = new JButton("Gioca");
 		gioca.addMouseListener(new MouseAdapter() {
 			
-			public void mouseClicked(MouseEvent e) {
+			public void mousePressed(MouseEvent e) {
 				
 				latch.countDown();
 				
@@ -247,7 +247,7 @@ public class GVisualeGioco extends JPanel{
 		
 		po1.addMouseListener(new MouseAdapter() {
 			
-			public void mouseClicked(MouseEvent e) {
+			public void mousePressed(MouseEvent e) {
 				
 				cartaSelezionata = obiettivo1;
 				latch.countDown();
@@ -258,7 +258,7 @@ public class GVisualeGioco extends JPanel{
 		
 		po2.addMouseListener(new MouseAdapter() {
 			
-			public void mouseClicked(MouseEvent e) {
+			public void mousePressed(MouseEvent e) {
 				
 				cartaSelezionata = obiettivo2;
 				latch.countDown();
