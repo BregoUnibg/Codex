@@ -3,11 +3,11 @@ ROSSO,0,FUNGO,FUNGO,false, ,Immagini/Carte/xcarta002.png
 ROSSO,0, ,false,FUNGO,FUNGO,Immagini/Carte/xcarta003.png
 ROSSO,0,false,FUNGO, ,FUNGO,Immagini/Carte/xcarta004.png
 ROSSO,0,false,PIUMA,FOGLIA,FUNGO,Immagini/Carte/xcarta005.png
-ROSSO,0,CIOTOLA,FUNGO,false,LUPO,Immagini/Carte/xcarta006.png	
+ROSSO,0,CIOTOLA,FUNGO,false,LUPO,Immagini/Carte/xcarta006.png
 ROSSO,0,FUNGO,FARFALLA,PERGAMENA, ,Immagini/Carte/xcarta007.png
 ROSSO,1, ,FUNGO, ,false,Immagini/Carte/xcarta008.png
 ROSSO,1,FUNGO,false, , ,Immagini/Carte/xcarta009.png
-ROSSO,1,false, ,FUNGO, ,Immagini/Carte/xcarta010.png		
+ROSSO,1,false, ,FUNGO, ,Immagini/Carte/xcarta010.png
 VERDE,0,FOGLIA, ,FOGLIA,false,Immagini/Carte/xcarta011.png
 VERDE,0,FOGLIA,FOGLIA,false, ,Immagini/Carte/xcarta012.png
 VERDE,0, ,false,FOGLIA,FOGLIA,Immagini/Carte/xcarta013.png
@@ -37,4 +37,4 @@ VIOLA,0,PERGAMENA,FARFALLA,false,FUNGO,Immagini/Carte/xcarta036.png
 VIOLA,0,FARFALLA,FOGLIA,CIOTOLA,false,Immagini/Carte/xcarta037.png
 VIOLA,1,FARFALLA,false, , ,Immagini/Carte/xcarta038.png
 VIOLA,1, , ,false,FARFALLA,Immagini/Carte/xcarta039.png
-VIOLA,1,false,FARFALLA, , ,Immagini/Carte/xcarta040.png	
+VIOLA,1,false,FARFALLA, , ,Immagini/Carte/xcarta040.png
