@@ -125,5 +125,11 @@ public class GBarraStatistiche extends JPanel{
 	
 	}
 	
+	public void azioneGiocoTerminato(){
+		
+		descrizioneAzione.setText("Il vinvitore è stato estratto e il gioco è concluso");
+	
+	}
+	
 
 }

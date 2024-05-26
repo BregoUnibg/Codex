@@ -459,5 +459,9 @@ public class GVisualeGioco extends JPanel{
 	public void setCartaSelezionata(GCarta cartaSelezionata) {
 		this.cartaSelezionata = cartaSelezionata;
 	}
+	
+	public GBarraStatistiche getBarra() {
+		return barra;
+	}
 
 }
