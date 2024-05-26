@@ -17,7 +17,7 @@ VERDE,0,FUNGO,FOGLIA,false,CIOTOLA,Immagini/Carte/xcarta016.png
 VERDE,0,PERGAMENA,false,FOGLIA,LUPO,Immagini/Carte/xcarta017.png
 VERDE,1, , ,FOGLIA,false,Immagini/Carte/xcarta018.png
 VERDE,1, , ,false,FOGLIA,Immagini/Carte/xcarta019.png
-VERDE,1,false,FOGLIA, , ,Immagini/Carte/xcarta020.png	
+VERDE,1,false,FOGLIA, , ,Immagini/Carte/xcarta020.png
 BLU,0,LUPO,LUPO, ,false,Immagini/Carte/xcarta021.png
 BLU,0,false, ,LUPO,LUPO,Immagini/Carte/xcarta022.png
 BLU,0,LUPO,false,LUPO, ,Immagini/Carte/xcarta023.png

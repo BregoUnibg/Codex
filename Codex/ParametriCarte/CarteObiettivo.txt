@@ -13,4 +13,4 @@
 4,GRIGIO,3,CIOTOLA,1,PERGAMENA,1,PIUMA,1,3 punti se nel campo c'è 1 figura piuma e 1 figura ciotola e 1 figura pergamena,Immagini/Carte/xcarta099.png
 3,GRIGIO,2,PERGAMENA,2,2 punti se nel campo ci sono 2 figura pergamena,Immagini/Carte/xcarta100.png
 3,GRIGIO,2,CIOTOLA,2,2 punti se nel campo ci sono 2 figura ciotola,Immagini/Carte/xcarta101.png
-3,GRIGIO,2,PIUMA,2,2 punti se nel campo ci sono 2 figura piuma,Immagini/Carte/xcarta102.png		
+3,GRIGIO,2,PIUMA,2,2 punti se nel campo ci sono 2 figura piuma,Immagini/Carte/xcarta102.png
