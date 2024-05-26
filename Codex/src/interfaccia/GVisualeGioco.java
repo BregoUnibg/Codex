@@ -17,6 +17,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
@@ -40,6 +41,7 @@ public class GVisualeGioco extends JPanel{
 	
 	//Variabili per actionlisteners
 	private boolean piazzaFronte;
+	private boolean chiudiFinestra;
 	private GCarta cartaSelezionata;
 	
 	public  GVisualeGioco(Giocatore giocatore, Gui gui) {
@@ -80,8 +82,12 @@ public class GVisualeGioco extends JPanel{
 	public GCarta selezioneCartaIniziale(GCarta c) {
 		
 		this.barra.azioneCartaIniziale();
+		GCarta cartaIniziale;
 		
-		GCarta cartaIniziale = scegliFronteRetro(c);
+		do {
+			cartaIniziale = scegliFronteRetro(c);
+		}while(cartaIniziale == null);
+		
 		campo.piazzaGCartaIniziale(cartaIniziale);
 		return cartaIniziale;
 	}
@@ -104,12 +110,18 @@ public class GVisualeGioco extends JPanel{
 		scegliFaccia.setLocationRelativeTo(null);
 		//scegliFaccia.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+		
+		//Implementa con il windowslistener qualcosa che annulli il piazzamento quando chiudo il scegli fronte retro
+		
+		
 		scegliFaccia.setLayout(new BorderLayout());
+		chiudiFinestra = false;
 		
 		//La chiusura del frame e il premere il bottone danno lo stesso risultato
 		scegliFaccia.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
+            	chiudiFinestra = true;
                 latch.countDown();
             }
         });
@@ -184,6 +196,12 @@ public class GVisualeGioco extends JPanel{
 		
 		}catch(InterruptedException e) {
 			e.printStackTrace();
+		}
+		
+		if(chiudiFinestra) {
+			System.out.println("Ritorno null");
+			return null;
+		
 		}
 		
 		if(!piazzaFronte)
@@ -339,62 +357,67 @@ public class GVisualeGioco extends JPanel{
 			
 			//Scegli se giocare la carta sul fronte o sul retro
 			
-			scegliFronteRetro(cartaGiocata);
+			cartaGiocata = scegliFronteRetro(cartaGiocata);
 			
-			
-			this.barra.azionePosizionaCartaInCampo();
-			
-			
-			//Riceve la carta e il realativo angolo sul quale si vuole piazzare la carta
-			campo.getPiazzamento(this);
-			
-			
-			Carta cartaLogicaSotto = cartaSelezionata.getCarta();
-			
-			if(!giocatore.getCampoGioco().piazzaCarta(cartaLogicaSotto, angolo, cartaGiocata.getCarta()))
-				System.out.println("Non è stato scelto un angolo consono al piazzamento");
-			else{
+			if(cartaGiocata != null) {
 				
-				int x = (int) posizione.getWidth();
-				int y = (int) posizione.getHeight();
+				this.barra.azionePosizionaCartaInCampo();
 				
-				switch(angolo) {
 				
-				case "tl":
-					x-=155;
-					y-=85;
-					break;
+				//Riceve la carta e il realativo angolo sul quale si vuole piazzare la carta
+				campo.getPiazzamento(this);
 				
-				case "tr":
-					x+=155;
-					y-=85;
-					break;
 				
-				case "bl":
-					x-=155;
-					y+=85;
-					break;
+				Carta cartaLogicaSotto = cartaSelezionata.getCarta();
 				
-				case "br":
-					x+=155;
-					y+=85;
-					break;
-				
+				if(!giocatore.getCampoGioco().piazzaCarta(cartaLogicaSotto, angolo, cartaGiocata.getCarta()))
+					JOptionPane.showConfirmDialog(null, "Piazzamento non consentito", "Attenzione", JOptionPane.WARNING_MESSAGE);
+				else{
+					
+					int x = (int) posizione.getWidth();
+					int y = (int) posizione.getHeight();
+					
+					switch(angolo) {
+					
+					case "tl":
+						x-=155;
+						y-=85;
+						break;
+					
+					case "tr":
+						x+=155;
+						y-=85;
+						break;
+					
+					case "bl":
+						x-=155;
+						y+=85;
+						break;
+					
+					case "br":
+						x+=155;
+						y+=85;
+						break;
+					
+					}
+					
+					//Se il piazzamento va a buon fine aggiorno la parte logica del gioco
+					
+					giocatore.addPunti(cartaGiocata.getCarta().getPunti(giocatore.getCampoGioco()));
+					giocatore.getMano().giocaCartaId(idCartaGiocataOriginale);
+					
+					campo.piazzaCarta(cartaGiocata, new Dimension(x,y));
+					
+					cartaPiazzata = true;
+					
 				}
-				
-				//Se il piazzamento va a buon fine aggiorno la parte logica del gioco
-				
-				giocatore.addPunti(cartaGiocata.getCarta().getPunti(giocatore.getCampoGioco()));
-				giocatore.getMano().giocaCartaId(idCartaGiocataOriginale);
-				
-				campo.piazzaCarta(cartaGiocata, new Dimension(x,y));
-				
-				cartaPiazzata = true;
 				
 			}
 			
 		}while(!cartaPiazzata);
 		
+		revalidate();
+		repaint();
 	}
 	
 	

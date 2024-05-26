@@ -2,9 +2,12 @@ package interfaccia;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
@@ -12,6 +15,8 @@ import java.awt.event.MouseEvent;
 import java.util.concurrent.CountDownLatch;
 
 import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -41,14 +46,14 @@ public class GCentroCampo extends JPanel{
 	
 	public GCentroCampo(Gui gui) {
 		
-		this.setBackground(Color.WHITE);
-		
 		this.gui = gui;
 		
 		this.setPreferredSize(gui.getPreferredSize());
-		this.setLayout(new BorderLayout());
-		
+		this.setLayout(new GridBagLayout());
+       
 		JPanel selettoreCarta = new JPanel();
+		
+		/*
 		
 		//Distanziamento dall'alto e da sinistra
 		JPanel spazioTop = new JPanel();
@@ -64,9 +69,14 @@ public class GCentroCampo extends JPanel{
 		spazioBottom.setPreferredSize(new Dimension(100, (int) gui.getHeight()/6));
 		spazioRight.setPreferredSize(new Dimension((int) (gui.getWidth()/5),100));
 		
+		*/
 		
 		//selettoreCarta.setPreferredSize(new Dimension(500,400));		Ababstanza inutile dati che è il Layout che gestisce la dimensione
 		selettoreCarta.setLayout(new BorderLayout());
+		Dimension sizeSelettore =new Dimension(1050,600);
+		selettoreCarta.setPreferredSize(sizeSelettore);
+		selettoreCarta.setMinimumSize(sizeSelettore);
+		selettoreCarta.setMaximumSize(sizeSelettore);
 		
 		//Carte disponibili
 		
@@ -146,12 +156,25 @@ public class GCentroCampo extends JPanel{
 		selettoreCarta.add(carte, BorderLayout.CENTER);
 		selettoreCarta.add(esci, BorderLayout.SOUTH);
 		
-		this.add(selettoreCarta, BorderLayout.CENTER);
+		
+		   GridBagConstraints gbc = new GridBagConstraints();
+	        gbc.gridx = 0;
+	        gbc.gridy = 0;
+	        gbc.weightx = 1.0;
+	        gbc.weighty = 1.0;
+	        gbc.anchor = GridBagConstraints.CENTER;
+
+	        // Aggiunta del JPanel al JFrame
+	        this.add(selettoreCarta, gbc);
+		
+		
+		
+		/*
 		this.add(spazioTop, BorderLayout.NORTH);
 		this.add(spazioBottom, BorderLayout.SOUTH);
 		this.add(spazioLeft, BorderLayout.WEST);		
 		this.add(spazioRight, BorderLayout.EAST);
-		
+		*/
 		
 		this.setVisible(true);
 	}
