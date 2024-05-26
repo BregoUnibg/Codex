@@ -288,7 +288,7 @@ public class CentroCampo {
 		 return new ReqAngoliCoperti(); 
 	 }
 	
-	private ReqCarteObliqueCrescenti reqCarteOblique(String s4, String s5) {
+	private ReqCarteObliqueCrescenti reqCarteOblique(String s4, Boolean s5) {
 		return new ReqCarteObliqueCrescenti(Colore.valueOf(s4), Boolean.valueOf(s5)); 
 	 }
 	
@@ -409,7 +409,7 @@ public class CentroCampo {
 		    	   switch(Integer.valueOf(parametroCartaOb[0])) {
 		    	   
 	    	   		case 1:
-	    	   			mazzoCartaObiettivo.add(new CartaObiettivo(Colore.valueOf(parametroCartaOb[1]), Integer.valueOf(parametroCartaOb[2]), reqCarteOblique(parametroCartaOb[3], parametroCartaOb[4]), parametroCartaOb[5], parametroCartaOb[6]));
+	    	   			mazzoCartaObiettivo.add(new CartaObiettivo(Colore.valueOf(parametroCartaOb[1]), Integer.valueOf(parametroCartaOb[2]), reqCarteOblique(parametroCartaOb[3], Boolean.valueOf( parametroCartaOb[4])), parametroCartaOb[5], parametroCartaOb[6]));
 	    	   			break;
 	    	   			
 	    	   		case 2:
