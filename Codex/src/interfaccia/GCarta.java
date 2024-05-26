@@ -136,7 +136,7 @@ public class GCarta extends JPanel{
 				if(cartaLogica instanceof CartaRisorsa) {
 					setImmagineCarta("Immagini/Carte/xRetroVerdeRisorsa.png");
 				}else
-					setImmagineCarta("Immagini/Carte/xRetroVerdeOro.png");
+					setImmagineCarta("Immagini/Carte/xRetroiVerdeOro.png");
 				
 				break;
 
