@@ -139,12 +139,6 @@ public class Gui extends JFrame implements Interfaccia{
 		
 	}
 
-	@Override
-	public void visualizzaVincitore(Giocatore g) {
-		
-		JOptionPane.showConfirmDialog(null, "Il giocatore: "+g.getNome()+" ha vinto totalizzando "+String.valueOf(g.getPunti())+" punti!", "Vincitore", JOptionPane.INFORMATION_MESSAGE);
-		
-	}
 
 	@Override
 	public void giocaCartaIniziale(Giocatore g, Carta cartaIniziale) {
@@ -256,4 +250,13 @@ public class Gui extends JFrame implements Interfaccia{
 		
 	}
 
+	@Override
+	public void visualizzaVincitore(Giocatore g) {
+		
+		for(GVisualeGioco visGioco: visualiGioco) {
+			visGioco.getBarra().azioneGiocoTerminato();
+		}
+		JOptionPane.showConfirmDialog(null, "Il giocatore: "+g.getNome()+" ha vinto totalizzando "+String.valueOf(g.getPunti())+" punti!", "Vincitore", JOptionPane.INFORMATION_MESSAGE);
+		
+	}
 }
