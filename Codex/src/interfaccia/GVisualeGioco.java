@@ -89,6 +89,7 @@ public class GVisualeGioco extends JPanel{
 		}while(cartaIniziale == null);
 		
 		campo.piazzaGCartaIniziale(cartaIniziale);
+		
 		return cartaIniziale;
 	}
 	
@@ -340,6 +341,7 @@ public class GVisualeGioco extends JPanel{
 	
 	public void giocaCarta(){
 		
+		barra.aggiornaContatori(giocatore.getCampoGioco());
 		
 		boolean cartaPiazzata = false;
 		
@@ -369,6 +371,15 @@ public class GVisualeGioco extends JPanel{
 				
 				
 				Carta cartaLogicaSotto = cartaSelezionata.getCarta();
+				
+				//Visualizzo graficamente per controllare corrispondenza grafica logica
+				System.out.println("Carta Giocata: ");
+				Cli.visualizzaCarta(cartaGiocata.getCarta());
+				System.out.println("Carta Sottostante: ");
+				Cli.visualizzaCarta(cartaLogicaSotto);
+				
+				
+				System.out.println();
 				
 				if(!giocatore.getCampoGioco().piazzaCarta(cartaLogicaSotto, angolo, cartaGiocata.getCarta()))
 					JOptionPane.showConfirmDialog(null, "Piazzamento non consentito", "Attenzione", JOptionPane.WARNING_MESSAGE);
@@ -415,6 +426,8 @@ public class GVisualeGioco extends JPanel{
 			}
 			
 		}while(!cartaPiazzata);
+		
+		barra.aggiornaContatori(giocatore.getCampoGioco());
 		
 		revalidate();
 		repaint();

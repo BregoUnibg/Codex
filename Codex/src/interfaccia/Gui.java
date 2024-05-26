@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import campo.CentroCampo;
@@ -140,7 +141,8 @@ public class Gui extends JFrame implements Interfaccia{
 
 	@Override
 	public void visualizzaVincitore(Giocatore g) {
-		// TODO Auto-generated method stub
+		
+		JOptionPane.showConfirmDialog(null, "Il giocatore: "+g.getNome()+" ha vinto totalizzando "+String.valueOf(g.getPunti())+" punti!", "Vincitore", JOptionPane.INFORMATION_MESSAGE);
 		
 	}
 

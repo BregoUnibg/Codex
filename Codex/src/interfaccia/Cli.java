@@ -393,7 +393,9 @@ public class Cli implements Interfaccia{
 	
 	//Dato che a parte per il piazzamento delle carta iniziale in pratica verrà sempre chiamato questo obiettivo, possiamo ritenerci soddisfatti (per ora)
 	
-	private void visualizzaCarta(Carta carta) {
+	//A FINI DI TESTING PER LA GUI HO DOVUTO RENDERE QUESTO METODO PUBBLICO E STATICO
+	
+	public static void visualizzaCarta(Carta carta) {
 		
 		int stdp = 10; //Padding standard delle stringhe
 		
@@ -685,7 +687,7 @@ public class Cli implements Interfaccia{
 	 * Conferisce un certo padding a uni stringa
 	 */
 	
-	private String paddingStringa(String s, int len){
+	private static String paddingStringa(String s, int len){
 		
 		String modificata = new String(s);
 		
