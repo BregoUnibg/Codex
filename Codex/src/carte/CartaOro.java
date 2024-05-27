@@ -7,6 +7,7 @@ import requisiti.Requisito;
 
 public class CartaOro extends Carta{
 	
+	//Attributi
 	private Requisito obiettivo;	//Posso risquotere i punti?
 	private Requisito piazzamento;	//Posso piazzare la carta?
 	private String descrizione;
@@ -28,6 +29,7 @@ public class CartaOro extends Carta{
 	//requisito piazzamento: 3 figure farfalla
 	//requisito obiettivo: 1 punto per ciotola
 	
+	//Costruttore per carte con punti immediati
 	public CartaOro(Colore colore, int punti, Requisito piazzamento,Angolo top_left_angle, Angolo top_right_angle, Angolo bottom_left_angle, Angolo bottom_right_angle, String descrizione, String urlImamgine){
 		super(colore, punti, top_left_angle, top_right_angle, bottom_left_angle, bottom_right_angle, urlImamgine);
 		this.piazzamento = piazzamento;
@@ -35,6 +37,7 @@ public class CartaOro extends Carta{
 		this.descrizione=descrizione;
 	}
 	
+	//Costruttore per le carte con il requisito obiettivo 
 	public CartaOro(Colore colore, int punti, Requisito piazzamento, Requisito obiettivo,Angolo top_left_angle, Angolo top_right_angle, Angolo bottom_left_angle, Angolo bottom_right_angle, String descrizione, String urlImmagine){
 		super(colore, punti, top_left_angle, top_right_angle, bottom_left_angle, bottom_right_angle, urlImmagine);
 		this.piazzamento = piazzamento;

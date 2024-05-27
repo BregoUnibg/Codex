@@ -5,6 +5,7 @@ import requisiti.Requisito;
 
 public class CartaObiettivo extends Carta{
 	
+	//Attributi
 	private Requisito obiettivo;
 	private String descrizione;
 	
@@ -12,6 +13,7 @@ public class CartaObiettivo extends Carta{
 	//requisito obiettivo: 1 punto per ciotola
 	//\n a capo \t tab
 	
+	//Costruttore
 	public CartaObiettivo(Colore colore, int punti, Requisito obiettivo, String descrizione, String urlImmagine){
 		super(colore, punti, urlImmagine);		//La carta obiettivo non ha angoli
 		this.obiettivo = obiettivo;
