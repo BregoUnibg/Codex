@@ -66,6 +66,7 @@ public class GCampoGioco extends JScrollPane{
 	}
 	
 	
+	
 	/**
 	 * Piazza Graficamente una carta sul campo da gioco in dimensioni date
 	 * @param gCarta
