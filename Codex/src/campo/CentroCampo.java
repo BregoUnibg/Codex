@@ -187,7 +187,6 @@ public class CentroCampo {
 		cartaRisorsa2 = mazzoCartaRisorsa.pesca();
 		//carteSelezionabili.add(cartaRisorsa2);
 		return cartapresa;
-		
 	}
 	
 	/**
