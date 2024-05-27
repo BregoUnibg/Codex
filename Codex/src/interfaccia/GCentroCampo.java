@@ -138,7 +138,7 @@ public class GCentroCampo extends JPanel{
 		croce.setIcon(icon);
 		croce.setText("Esci");
 		croce.setForeground(Color.LIGHT_GRAY);
-		croce.setFont(new Font("", Font.BOLD, 20));
+		croce.setFont(new Font("Segoe UI Black", Font.PLAIN, 30));
 		
 		croce.setBorder(BorderFactory.createEmptyBorder(24, 0, 0, 0));
 		

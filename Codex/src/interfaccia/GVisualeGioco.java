@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -137,10 +138,15 @@ public class GVisualeGioco extends JPanel{
 		
 		carta.add(c);
 		
-		selettore.add(new JLabel("Scegli il lato da giocare"));
+		JLabel labelSelettore = new JLabel("Scegli il lato da giocare");
+		labelSelettore.setFont(new Font("Segoe UI Black", Font.PLAIN, 12));
+		
+		selettore.add(labelSelettore);
 		
 		JRadioButton bFronte = new JRadioButton("Fronte");
+		bFronte.setFont(new Font("Segoe UI Black", Font.PLAIN, 12));
 		JRadioButton bRetro = new JRadioButton("Retro");
+		bRetro.setFont(new Font("Segoe UI Black", Font.PLAIN, 12));
 		
 		bFronte.setSelected(true);
 		piazzaFronte = true;
@@ -171,6 +177,7 @@ public class GVisualeGioco extends JPanel{
 		ButtonGroup scelta = new ButtonGroup();
 		
 		JButton gioca = new JButton("Gioca");
+		gioca.setFont(new Font("Segoe UI Black", Font.PLAIN, 12));
 		gioca.addMouseListener(new MouseAdapter() {
 			
 			public void mousePressed(MouseEvent e) {
@@ -232,6 +239,8 @@ public class GVisualeGioco extends JPanel{
 		scegliObiettivo.setLocationRelativeTo(null);
 		
 		JLabel descrizione = new JLabel("Scegli la tua carta obiettivo coperta");
+		descrizione.setFont(new Font("Segoe UI Black", Font.PLAIN, 12));
+		
 		descrizione.setHorizontalAlignment(SwingConstants.CENTER);
 		descrizione.setPreferredSize(new Dimension(450, 40));
 		
@@ -382,7 +391,7 @@ public class GVisualeGioco extends JPanel{
 				System.out.println();
 				
 				if(!giocatore.getCampoGioco().piazzaCarta(cartaLogicaSotto, angolo, cartaGiocata.getCarta()))
-					JOptionPane.showConfirmDialog(null, "Piazzamento non consentito", "Attenzione", JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Piazzamento non consentito", "Attenzione", JOptionPane.WARNING_MESSAGE);
 				else{
 					
 					int x = (int) posizione.getWidth();

@@ -256,7 +256,8 @@ public class Gui extends JFrame implements Interfaccia{
 		for(GVisualeGioco visGioco: visualiGioco) {
 			visGioco.getBarra().azioneGiocoTerminato();
 		}
-		JOptionPane.showConfirmDialog(null, "Il giocatore: "+g.getNome()+" ha vinto totalizzando "+String.valueOf(g.getPunti())+" punti!", "Vincitore", JOptionPane.INFORMATION_MESSAGE);
+		
+		JOptionPane.showMessageDialog(null, "Il giocatore: "+g.getNome()+" ha vinto totalizzando "+String.valueOf(g.getPunti())+" punti!", "Vincitore", JOptionPane.INFORMATION_MESSAGE);
 		
 	}
 }
