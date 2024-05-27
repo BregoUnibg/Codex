@@ -4,6 +4,7 @@ import campo.CampoGioco;
 
 public abstract class Carta {
 	
+	//Attributi
 	private Angolo top_left_angle;
 	private Angolo top_right_angle;
 	private Angolo bottom_left_angle;
@@ -18,6 +19,7 @@ public abstract class Carta {
 	private int id;							//identificativo univoco della carta
 	private int num;
 	
+	//Costrutti
 	public Carta(Colore colore, int punti, String urlImmagine){
 		
 		this.top_left_angle = null;
@@ -73,6 +75,9 @@ public abstract class Carta {
 		
 	}
 	
+	/**
+	 * Associa al colore la regaltiva figura
+	 */
 	private void selezione_figura(){
 	
 		switch (this.colore) {
