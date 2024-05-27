@@ -2,7 +2,7 @@ package carte;
 import java.util.ArrayList;
 
 public class CartaIniziale extends Carta{
-	
+	//attributi
 	private Angolo back_top_left_angle;
 	private Angolo back_top_right_angle;
 	private Angolo back_bottom_left_angle;
