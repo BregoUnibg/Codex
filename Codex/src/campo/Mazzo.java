@@ -22,6 +22,9 @@ public class Mazzo {
 		mazzo.add(c);
 	}
 	
+	/**
+	 * Mischia in maniera casuale le carte del mazzo  
+	 */
 	public void mischia(){
 		Collections.shuffle(mazzo);
 	}

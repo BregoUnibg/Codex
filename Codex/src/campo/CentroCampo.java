@@ -64,6 +64,11 @@ public class CentroCampo {
 	
 	//private ArrayList <Carta> carteSelezionabili;
 	
+	/**
+	 * Creazione dei 4 mazzi di carte
+	 * Pescate carte che sono visibili nel centro campo 
+	 * (2 carte oro, 2 risorsa e 2 obiettivo)
+	 */
 	public CentroCampo() {
 		
 		mazzoCartaOro = new Mazzo();
@@ -125,7 +130,11 @@ public class CentroCampo {
 	}
 	
 	*/
-	
+	/**
+	 * Il Giocatore pesca la prima carta oro scoperta nel campo e 
+	 * si pesca una carta nuova dal mazzo oro da mettere al centro campo 
+	 * @return
+	 */
 	public Carta prendiCartaOro1() {
 		
 		Carta cartapresa = cartaOro1;
@@ -136,6 +145,11 @@ public class CentroCampo {
 		
 	}
 	
+	/**
+	 * Il Giocatore pesca la seconda carta oro scoperta nel campo e 
+	 * si pesca una carta nuova dal mazzo oro da mettere al centro campo 
+	 * @return
+	 */
 	public Carta prendiCartaOro2() {
 		
 		Carta cartapresa = cartaOro2;
@@ -146,7 +160,11 @@ public class CentroCampo {
 		
 	}
 	
-	
+	/**
+	 * Il Giocatore pesca la prima carta risorsa scoperta nel campo e 
+	 * si pesca una carta nuova dal mazzo risorsa da mettere al centro campo 
+	 * @return
+	 */
 	public Carta prendiCartaRisorsa1() {
 		
 		Carta cartapresa = cartaRisorsa1;
@@ -157,6 +175,11 @@ public class CentroCampo {
 		
 	}
 	
+	/**
+	 * Il Giocatore pesca la seconda carta risorsa scoperta nel campo e 
+	 * si pesca una carta nuova dal mazzo risorsa da mettere al centro campo 
+	 * @return
+	 */
 	public Carta prendiCartaRisorsa2() {
 		
 		Carta cartapresa = cartaRisorsa2;
@@ -167,30 +190,50 @@ public class CentroCampo {
 		
 	}
 	
+	/**
+	 * Pesca una nuova carta dal mazzo oro 
+	 * @return
+	 */
 	public Carta pescaDalMazzoOro() {
 		
 		return mazzoCartaOro.pesca();
 		
 	}
 	
+	/**
+	 * Pesca una nuova carta dal mazzo risorsa 
+	 * @return
+	 */
 	public Carta pescaDalMazzoRisorsa() {
 		
 		return mazzoCartaRisorsa.pesca();
 		
 	}
 	
+	/**
+	 * Pesca una carta dal mazzo obiettivo 
+	 * @return
+	 */
 	public Carta pescaDalMazzoObiettivo() {
 		
 		return mazzoCartaObiettivo.pesca();
 		
 	}
 	
+	/**
+	 * Pesca una carta dal mazzo iniziale 
+	 * @return
+	 */
 	public Carta pescaDalMazzoIniziale() {
 		
 		return mazzoCartaIniziale.pesca();
 		
 	}
 	
+	/**
+	 * Controlla che le carte nei mazzi oro e risorsa non siano finiti  
+	 * @return
+	 */
 	public boolean mazziVuoti(){
 		
 		return (this.mazzoCartaOro.vuoto() && this.mazzoCartaRisorsa.vuoto());
@@ -198,36 +241,25 @@ public class CentroCampo {
 	}
 	
 	//Getter carte nel campo
-	
 	public Carta getCartaOro1() {
 		return cartaOro1;
 	}
-	
-	
 	
 	public Carta getCartaOro2() {
 		return cartaOro2;
 	}
 	
-	
-	
 	public Carta getCartaRisorsa1() {
 		return cartaRisorsa1;
 	}
-	
-	
 	
 	public Carta getCartaRisorsa2() {
 		return cartaRisorsa2;
 	}
 	
-	
-	
 	public Carta getCartaObiettivo1() {
 		return cartaObiettivo1;
 	}
-	
-	
 	
 	public Carta getCartaObiettivo2() {
 		return cartaObiettivo2;
@@ -250,7 +282,6 @@ public class CentroCampo {
 		creaMazzoIniziale();
 		
 		//Per mescolare le carte
-		
 		mazzoCartaRisorsa.mischia();
 		mazzoCartaOro.mischia();
 		mazzoCartaObiettivo.mischia();
@@ -275,28 +306,76 @@ public class CentroCampo {
 		 return new Angolo(Figura.valueOf(s));
 	 }
 	
+	/**
+	 * Crea un requisito singolo in base alle stringhe inserite nel costruttore
+	 * i parametri contengono rispettivamente la tipologia di figura e il numero di volte che la figura
+	 * deve essere presente nell'area di gioco 
+	 * @param s1
+	 * @param n1
+	 * @return
+	 */
 	private ReqFiguraSingola leggiRequisitoSingolo(String s1, Integer n1) {
 		return new ReqFiguraSingola(Figura.valueOf(s1), n1);
 	}
 	
+	/**
+	 * Crea un requisito doppio in base alle stringhe inserite nel costruttore
+	 * i parametri contengono rispettivamente la tipologia di figure e il numero di volte che le figure
+	 * devono essere presenti nell'area di gioco 
+	 * @param s2
+	 * @param n2
+	 * @param s3
+	 * @param n3
+	 * @return
+	 */
 	private ReqFiguraDoppia leggiRequisitoDoppio(String s2, Integer n2, String s3, Integer n3) {
 		return new ReqFiguraDoppia(Figura.valueOf(s2), n2, Figura.valueOf(s3), n3);
 	}
 	
+	/**
+	 * Crea un nuovo requisito degli angoli coperti
+	 * @return
+	 */
 	private ReqAngoliCoperti angoloCoperto() {
 
 		 return new ReqAngoliCoperti(); 
 	 }
 	
+	/**
+	 * Crea un nuovo requisito per le carte posizionate in maniera obliqua
+	 * I parametri contengono il colore delle carte e un valore buleano per 
+	 * capire se il posizionamento obliquo è crescente oppure decrescente
+	 * (true = crescente, false = decrescente)
+	 * @param s4
+	 * @param s5
+	 * @return
+	 */
 	private ReqCarteObliqueCrescenti reqCarteOblique(String s4, Boolean s5) {
 		return new ReqCarteObliqueCrescenti(Colore.valueOf(s4), Boolean.valueOf(s5)); 
 	 }
 	
+	/**
+	 * Crea un requisito triplo in base alle stringhe inserite nel costruttore
+	 * i parametri contengono rispettivamente la tipologia di figure e il numero di volte che le figure
+	 * devono essere presenti nell'area di gioco 
+	 * @param s8
+	 * @param n8
+	 * @param s9
+	 * @param n9
+	 * @param s10
+	 * @param n10
+	 * @return
+	 */
 	private ReqFiguraTripla leggiRequisitoTripla(String s8, Integer n8, String s9, Integer n9, String s10, Integer n10) {
 		return new ReqFiguraTripla(Figura.valueOf(s8), n8, Figura.valueOf(s9), n9, Figura.valueOf(s10), n10);
 	}
 	
-	
+	/**
+	 * Crea un nuovo requisito in base alla stringa inserita nel costruttore e trasformata in intero
+	 * Interpreta che requisito creare in base al contenuto della stringa
+	 * @param s6
+	 * @return
+	 */
 	private Requisito leggiRequisito(String s6) {
 
 		switch(Integer.valueOf(s6)){
@@ -321,11 +400,20 @@ public class CentroCampo {
 		
 	 }
 	
+	/**
+	 * In base al contenuto della stringa restituisce la tipologia di figura
+	 * @param s7
+	 * @return
+	 */
 	private Figura controlloFigura(String s7) {
 		return Figura.valueOf(s7);
 	}
 	 
 
+	/**
+	 * Crea il mazzo delle carte risorse (inserimento da file)
+	 * @return
+	 */
 	public void creaMazzoRisorsa() {
 		
 		//40 CARTE RISORSA 
@@ -336,23 +424,27 @@ public class CentroCampo {
 		       // Leggo ogni riga del file fino alla fine
 		       while ((carta = reader.readLine()) != null) {
 		           
+		    	   //Array che prende ogni stringa nel file fino alla virgola, poi passa all'elemento successivo dell'array
 		    	   String parametroCarta[] = carta.split(",");
 		    	   
-		    	   // Aggiunge ogni riga nell'ArrayList
+		    	   //Aggiunge ogni riga nell'ArrayList, ogni riga corrisponde ad una carta
 		    	   mazzoCartaRisorsa.add(new CartaRisorsa(Colore.valueOf(parametroCarta[0]), Integer.valueOf(parametroCarta[1]), leggiAngolo(parametroCarta[2]), leggiAngolo(parametroCarta[3]), leggiAngolo(parametroCarta[4]), leggiAngolo(parametroCarta[5]), parametroCarta[6]));
 		       }
 		        
-		       // Chiude il BufferedReader dopo aver finito di leggere i dati da file
+		       //Chiude il BufferedReader dopo aver finito di leggere i dati da file
 		       reader.close();
 
 		   } catch (IOException e) {
-		       // Gestisce eventuali eccezioni di IO, ad esempio se il file non esiste o non può essere letto
+		       // Gestisce eventuali eccezioni, ad esempio se il file non esiste o non può essere letto
 		       System.err.println("Errore durante la lettura del file: ");
 		   } 
 		  
 	}
 	
-	
+	/**
+	 * Crea il mazzo delle carte oro (inserimento da file)
+	 * @return
+	 */
 	public void creaMazzoOro() {
 		
 		//40 CARTE ORO
@@ -365,6 +457,12 @@ public class CentroCampo {
 		           
 		    	   String parametroCartaO[] = cartaO.split(",");
 		    	   
+		    		/**
+		    		 * Aggiunge la creazione della carta oro nel mazzo (inserimento da file)
+		    		 * a seconda del primo valore della riga ci sono tre diverse creazioni della carta oro con diverse caratteristiche  
+		    		 * @param parametroCartaO[0]
+		    		 * @return
+		    		 */
 		    	   switch(Integer.valueOf(parametroCartaO[0])) {
 		    	   
 		    	   		case 1:
@@ -379,6 +477,7 @@ public class CentroCampo {
 		    	   			mazzoCartaOro.add(new CartaOro(Colore.valueOf(parametroCartaO[1]), Integer.valueOf(parametroCartaO[2]), leggiRequisitoSingolo(parametroCartaO[3], Integer.valueOf(parametroCartaO[4])), leggiAngolo(parametroCartaO[5]), leggiAngolo(parametroCartaO[6]), leggiAngolo(parametroCartaO[7]), leggiAngolo(parametroCartaO[8]), parametroCartaO[9], parametroCartaO[10]));
 		    	   			break;
 		    		
+		    	   		//Caso di default
 		    	   		default: 
 		    	   			System.out.println("Errore durante la lettura del file: ");
 		    	   			break;
@@ -389,12 +488,16 @@ public class CentroCampo {
 		       reader.close();
 
 		   } catch (IOException e) {
-		       // Gestisce eventuali eccezioni di IO, ad esempio se il file non esiste o non può essere letto
+		       // Gestisce eventuali eccezioni, ad esempio se il file non esiste o non può essere letto
 		       System.err.println("Errore durante la lettura del file: ");
 		   } 
 		 
 	}
 	
+	/**
+	 * Crea il mazzo delle carte obiettivo (inserimento da file)
+	 * @return
+	 */
 	public void creaMazzoObiettivo() {
 	
 		try {
@@ -406,6 +509,12 @@ public class CentroCampo {
 		           
 		    	   String parametroCartaOb[] = cartaOb.split(",");
 		    	   
+		    	   /**
+		    		 * Aggiunge la creazione della carta obiettivo nel mazzo (inserimento da file)
+		    		 * a seconda del primo valore della riga ci sono quattro diverse creazioni della carta obiettivo con diverse caratteristiche 
+		    		 * @param parametroCartaOb[0]
+		    		 * @return
+		    		 */
 		    	   switch(Integer.valueOf(parametroCartaOb[0])) {
 		    	   
 	    	   		case 1:
@@ -424,6 +533,7 @@ public class CentroCampo {
 	    	   			mazzoCartaObiettivo.add(new CartaObiettivo(Colore.valueOf(parametroCartaOb[1]), Integer.valueOf(parametroCartaOb[2]), leggiRequisitoTripla(parametroCartaOb[3], Integer.valueOf(parametroCartaOb[4]), parametroCartaOb[5], Integer.valueOf(parametroCartaOb[6]), parametroCartaOb[7], Integer.valueOf(parametroCartaOb[8])), parametroCartaOb[9], parametroCartaOb[10]));
 	    	   			break;
 	    	   			
+	    	   		//Caso di default
 	    	   		default: 
 	    	   			System.out.println("Errore durante la lettura del file: ");
 	    	   			break;
@@ -434,11 +544,15 @@ public class CentroCampo {
 		       reader.close();
 
 		   } catch (IOException e) {
-		       // Gestisce eventuali eccezioni di IO, ad esempio se il file non esiste o non può essere letto
+		       // Gestisce eventuali eccezioni, ad esempio se il file non esiste o non può essere letto
 		       System.err.println("Errore durante la lettura del file: ");
 		   } 
 	}
 	
+	/**
+	 * Crea il mazzo delle carte iniziali (inserimento da file)
+	 * @return
+	 */
 	public void creaMazzoIniziale() {
 	
 		try {
@@ -450,6 +564,12 @@ public class CentroCampo {
 		           
 		    	   String parametroCartaI[] = cartaI.split(",");
 		    	   
+		    	   /**
+		    		 * Aggiunge la creazione della carta iniziali nel mazzo (inserimento da file)
+		    		 * a seconda del primo valore della riga ci sono tre diverse creazioni della carta iniziali con diverse caratteristiche 
+		    		 * @param parametroCartaI[0]
+		    		 * @return
+		    		 */
 		    	   switch(Integer.valueOf(parametroCartaI[0])) {
 		    	   
 		    	   		case 1:
@@ -464,6 +584,7 @@ public class CentroCampo {
 		    	   			mazzoCartaIniziale.add(new CartaIniziale(controlloFigura(parametroCartaI[1]), controlloFigura(parametroCartaI[2]), controlloFigura(parametroCartaI[3]), leggiAngolo(parametroCartaI[4]),  leggiAngolo(parametroCartaI[5]), leggiAngolo(parametroCartaI[6]), leggiAngolo(parametroCartaI[7]), leggiAngolo(parametroCartaI[8]), leggiAngolo(parametroCartaI[9]), leggiAngolo(parametroCartaI[10]), leggiAngolo(parametroCartaI[11]), parametroCartaI[12], parametroCartaI[13]));
 		    	   			break;
 		    		
+		    	   		//Caso di default
 		    	   		default: 
 		    	   			System.out.println("Errore durante la lettura del file: ");
 		    	   			break;
@@ -475,7 +596,7 @@ public class CentroCampo {
 		       reader.close();
 
 		   } catch (IOException e) {
-		       // Gestisce eventuali eccezioni di IO, ad esempio se il file non esiste o non può essere letto
+		       // Gestisce eventuali eccezioni, ad esempio se il file non esiste o non può essere letto
 		       System.err.println("Errore durante la lettura del file: ");
 		   } 
 		   

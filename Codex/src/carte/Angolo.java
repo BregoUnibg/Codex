@@ -2,11 +2,13 @@ package carte;
 
 public class Angolo {
 	
+	//Attributi
 	private final Figura figura;		//Una volta istanziata la carta essa rimane permanente;
-	private Angolo associato;		//Si rifersice all'angolo della carta attaccata sopra
+	private Angolo associato;			//Si rifersice all'angolo della carta attaccata sopra
 	private boolean scoperto;
 	private boolean assente;
 
+	//Costruttori
 	public Angolo(){
 		this.figura = null;
 		this.associato= null;
@@ -28,6 +30,7 @@ public class Angolo {
 		this.assente= assente;
 	}
 	
+	//Getter
 	public Angolo getAngolo_associato() {
 		return this.associato;
 	}
@@ -40,6 +43,11 @@ public class Angolo {
 			this.associato = associato;
 	}
 	
+	/**
+	 * Verifica se è possibile piazzare la carta, in caso affermativo la piazza
+	 * @param angolo_sopra
+	 * @return
+	 */
 	public boolean piazzaAngolo(Angolo angolo_sopra){
 		
 		if(piazzabile()){
@@ -51,11 +59,18 @@ public class Angolo {
 		
 		return false;
 	}
-	
+	/**
+	 * Verifica se una carta è piazzabile in quell'angolo
+	 * @return
+	 */
 	public boolean piazzabile(){
 		return (!assente)&&scoperto&&(associato==null);
 	}
 	
+	/**
+	 * controlla le figure degli angoli in caso di piazzamento di una carta
+	 * @return
+	 */
 	public Figura getFigura() {
 		if(scoperto)
 			return this.figura;

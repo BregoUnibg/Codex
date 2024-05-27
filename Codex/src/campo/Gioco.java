@@ -15,7 +15,6 @@ public class Gioco {
 	
 	private ArrayList <Giocatore> giocatori;
 	private CentroCampo centro;
-	private Tabellone tabella;
 	private Interfaccia interfaccia;
 	private ArrayList <Pedina> pedine; //Avrei voluto farlo con un set ma il mio IDE non lo importa per quallche ragione (Forse è obsoleto?)
 	
@@ -26,7 +25,6 @@ public class Gioco {
 		
 		giocatori = new ArrayList <Giocatore>();
 		centro  = new CentroCampo();
-		tabella = new Tabellone();
 		pedine = new ArrayList <Pedina>();
 		 	pedine.add(Pedina.VERDE);
 	        pedine.add(Pedina.ROSSA);

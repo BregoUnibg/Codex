@@ -21,7 +21,7 @@ public class Giocatore {
 			this.mano = new Mano();
 		}
 		
-		
+		//Getter
 		public Mano getMano() {
 			return mano;
 		}
@@ -37,11 +37,11 @@ public class Giocatore {
 		/**
 		 * Dopo aver soddisfatto un obiettivo si aggiungono dati al "saldo punti" del giocatore
 		 */
-		
 		public void addPunti(int punti) {
 			this.punti += punti;
 		}
 		
+		//Getter
 		public int getPunti() {
 			return punti;	
 		}

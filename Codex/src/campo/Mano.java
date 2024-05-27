@@ -14,6 +14,7 @@ public class Mano {
 	//Per ora verrà geestito prorio così
 	//Piazzamento della carta inizalie non viene gestito nella mano
 	
+	//costruttore
 	public Mano(CartaOro cartaoro, CartaRisorsa cartarisorsa1, CartaRisorsa cartarisorsa2) {
 		
 		carteMano = new ArrayList <Carta>();
