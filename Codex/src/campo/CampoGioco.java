@@ -93,26 +93,15 @@ public class CampoGioco {
 	
 	/**
 	 * 
-	 * Piazza una carta nella matrice: se il piazzamento è valido restituisce true in caso si successo
+	 * Piazza una carta nella matrice: se il piazzamento è valido restituisce true
 	 * Se non è possibile piazzare la carte restituisce false
 	 * L'angolo da passare è quello della carta sottostante
 	 * 
 	 * @param cartaSotto
 	 * @param angoloSotto
 	 * @param cartaSopra
-	 * @param angoloSopra
 	 * @return
 	 */
-	
-	//Dato che le che danno punti prima di raggiungere i 20, li danno in maniera immediata quando vengono piazzate
-	
-	//OBSOLETO
-	//Sarebbe idale se la funzione restituisse direttamente i punti generati dalle carte
-	//-1 se la carta non è paizzabile, 0 se viene piazzata e non restituisce punti, altrimenti i punti che restituisce
-	
-	//ESISTENDO L'OBIETTIVO CHE DA PUNTI PER OGNI ANGOLO DA CALCOLARE POST CARTA PIAZZATA NON E' POSSIBILE CALCOLARI 
-	//I PUNTI DELLE CARTE ORO CON QUESTO METODO, ANCHE PERCHE' LE FIGURE SULLA CARTA NON VERREBBERO CONTEGGIATE
-	//RITORNA BOOLEAN
 	
 	public boolean piazzaCarta(Carta cartaSotto, String angoloSotto, Carta cartaSopra) {
 		
@@ -120,7 +109,7 @@ public class CampoGioco {
 		
 		//tr: TopRight, tl: TopLeft, br, BottomRight, bl, BottomLeft
 		
-		//Gli angolo possono essere attaccati solo ad angoli opposti di un'altra carta, esempii: topRight->bottomLeft, topLeft->bottomRight
+		//Gli angoli possono essere attaccati solo ad angoli opposti di un'altra carta, esempii: topRight->bottomLeft, topLeft->bottomRight
 		
 		
 		//Prima di tutto controllo se si tratta di una carta Oro e in tal caso controllo che il requisito di paizzamento sia soddisfatto
@@ -128,9 +117,6 @@ public class CampoGioco {
 			if(((CartaOro) cartaSopra).getPiazzamento(this)==false)	//Faccio un cast sulla Carta che deve essere della sottoclasse CartaOro
 				return false;
 		}
-		
-		//Controllo quindi che siano angoli opposti
-		
 		
 		//Dato che l'angolo di piazzamento della carta superiore viene calcolato dal metodo non è necessario passarlo e fare controlli inutili
 		
@@ -180,8 +166,9 @@ public class CampoGioco {
 				
 				
 				//Copro i possibili angoli coivolti nelle vicinanze
-				//In teoria, per come funziona il meccanismo di disposizione non dovreebbero esserci anomalie
-				//Il nome delle 4 variabili seguenti (Tr, Br, ecc..) si riferiscono all'angolo rispetto alla carta da piazzare, in contenuto è l'angolo della carta coinvolta
+				//In teoria, per come funziona il meccanismo di disposizione non dovrebbero esserci anomalie
+				//Il nome delle 4 variabili seguenti (Tr, Br, ecc..) si riferiscono all'angolo rispetto alla carta da piazzare,
+				//il contenuto è l'angolo della carta coinvolta (ossia della possibile carta nelle vicinanze i cui angoli potrebbero essere collaterlamente coperti)
 				
 				
 				//Per ogni ipotetica carta devo controllare la sua esistenza efettiva, 
@@ -239,22 +226,22 @@ public class CampoGioco {
 						){
 					
 							if(esisteCartaCoinvoltaTr){
-								angoloCoinvoltoTr.piazzaAngolo(cartaSopra.getTop_right_angle());
 								decrementaFigura(angoloCoinvoltoTr.getFigura());
+								angoloCoinvoltoTr.piazzaAngolo(cartaSopra.getTop_right_angle());
 							}
 							
 							if(esisteCartaCoinvoltaBr){
-								angoloCoinvoltoBr.piazzaAngolo(cartaSopra.getBottom_right_angle());
 								decrementaFigura(angoloCoinvoltoBr.getFigura());
+								angoloCoinvoltoBr.piazzaAngolo(cartaSopra.getBottom_right_angle());
 							}
 							if(esisteCartaCoinvoltaBl){
-								angoloCoinvoltoBl.piazzaAngolo(cartaSopra.getBottom_left_angle());
 								decrementaFigura(angoloCoinvoltoBl.getFigura());
+								angoloCoinvoltoBl.piazzaAngolo(cartaSopra.getBottom_left_angle());
 							}
 			
 							if(esisteCartaCoinvoltaTl){
-								angoloCoinvoltoTl.piazzaAngolo(cartaSopra.getTop_left_angle());
 								decrementaFigura(angoloCoinvoltoTl.getFigura());
+								angoloCoinvoltoTl.piazzaAngolo(cartaSopra.getTop_left_angle());
 							}
 							
 							//incrementaColore(cartaSopra.getColore());
@@ -411,9 +398,9 @@ public class CampoGioco {
 
 	/**
 	 * Ritorna l'angolo in basee alla posizione: tl, tr, bl, br
-	 * @param c
-	 * @param pos
-	 * @return
+	 * @param 	Carta 
+	 * @param 	Posizione dell'angolo desiderato
+	 * @return	Angolo desiderato
 	 */
 	
 	private Angolo getAngoloPosizione(Carta c, String pos) {
@@ -438,6 +425,14 @@ public class CampoGioco {
 		}
 		
 	}
+	
+	/**
+	 * Restituisce in una stringa di fomrato (x,y) le coordinate di una carta nella matrice
+	 * Se la carta non è reperibile nella matrice, restituisce null
+	 * 
+	 * @param 	Carta di cui voglio le coordinate
+	 * @return	Stringa contente le coordinate (x,y)
+	 */
 	
 	private  String getCoordinate(Carta c){
 		

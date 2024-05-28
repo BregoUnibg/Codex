@@ -44,7 +44,8 @@ public class Angolo {
 	}
 	
 	/**
-	 * Verifica se è possibile piazzare la carta, in caso affermativo la piazza
+	 * Verifica se è possibile associare a questo angolo l'angolo passato, 
+	 * in caso affermativo gli angoli vengono associati quindi la carta "piazzata"
 	 * @param angolo_sopra
 	 * @return
 	 */
