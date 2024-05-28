@@ -13,6 +13,17 @@ public class ReqFiguraDoppia implements Requisito{
 	private int numFigure2;
 	
 	//Costruttore
+	
+	/**
+	 *Controlla se tot figure del tipo e quantità desiderate sono presenti sul campo per due tipi
+	 * di figure diverse con relative quantità
+	 * 
+	 * @param figura1
+	 * @param numFigure1 (qta relativa a figura1)
+	 * @param figura2
+	 * @param numFigure2 (qta relativa a figura2)
+	 */
+	
 	public ReqFiguraDoppia(Figura figura1, int numFigure1, Figura figura2, int numFigure2){
 		
 		this.figura1 = figura1;
@@ -24,7 +35,15 @@ public class ReqFiguraDoppia implements Requisito{
 	}
 	
 	/**
+	 * Controlla se tot figure del tipo e quantità desiderate sono presenti sul campo per due tipi
+	 * di figure diverse con relative quantità
 	 * 
+	 * l'obiettivo è verificato per ogni minumo comune multiplo delle quantità 
+	 *  <p>
+	 * 
+	 * Doc metodo ereditato:<p>
+	 * {@inheritDoc}
+	 
 	 * @param c
 	 * @param carta
 	 * @return

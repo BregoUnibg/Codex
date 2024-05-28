@@ -6,6 +6,12 @@ import carte.Carta;
 public class ReqCartaFalse implements Requisito{
 
 	/**
+	 * 	 
+	 * Requisito logico tecnico che risulterà sempre insoddisfatto
+	 * <p>
+	 * 
+	 * Doc metodo ereditato:<p>
+	 * {@inheritDoc}
 	 * 
 	 * @param campo
 	 * @param carta

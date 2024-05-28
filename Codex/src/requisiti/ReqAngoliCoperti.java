@@ -6,11 +6,22 @@ import carte.Carta;
 public class ReqAngoliCoperti implements Requisito{
 
 	//Costruttore
+	
+	/**
+	 * Controlla quanti angoli coopre la carta
+	 */
+	
 	public ReqAngoliCoperti(){
 		
 	}
 	
 	/**
+	 * Restituisce il numeri di angoli coperti dalla carta
+	 * 
+	 * <p>
+	 * 
+	 * Doc metodo ereditato:<p>
+	 * {@inheritDoc}
 	 * 
 	 * @param c
 	 * @param carta

@@ -14,8 +14,6 @@ import carte.CartaRisorsa;
 import carte.Colore;
 import carte.Figura;
 import requisiti.ReqAngoliCoperti;
-import requisiti.ReqCartaDoppia;
-import requisiti.ReqCartaSingola;
 import requisiti.ReqCarteObliqueCrescenti;
 import requisiti.ReqFiguraDoppia;
 import requisiti.ReqFiguraSingola;

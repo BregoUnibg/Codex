@@ -13,6 +13,14 @@ public class ReqFiguraSingola implements Requisito{
 	private int numFigure;
 	
 	//Costruttore
+	
+	/**
+	 * Controlla se tot figure del tipo e quantità desiderate siano presenti sul campo
+	 * 
+	 * @param figura
+	 * @param numFigure
+	 */
+	
 	public ReqFiguraSingola(Figura figura, int numFigure) {
 		
 		this.figura = figura;
@@ -21,10 +29,16 @@ public class ReqFiguraSingola implements Requisito{
 	}
 	
 	/**
+	 * Controlla se tot figure del tipo e quantità desiderate siano presenti sul campo
+	 * 
+	 * <p>
+	 * 
+	 * Doc metodo ereditato:<p>
+	 * {@inheritDoc}
 	 * 
 	 * @param c
 	 * @param carta
-	 * @return
+	 * @return quante vole le tot figure appaiono singolarmente
 	 */
 	@Override
 	public int soddisfatto(CampoGioco c, Carta carta) {

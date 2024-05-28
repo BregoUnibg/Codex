@@ -10,17 +10,25 @@ public class ReqLRossaVerde implements Requisito{
 	
 	private ArrayList <Carta> carteContate; //Carte che sono già state contate per una singola L
 	
+	/**
+	 * Conta il numero di L sul campo uniche, formate da due carte rosse parallele una sotto l'altra e 
+	 * Una carta verde collegata con l'angolo in alto a sinistra alla carta rossa inferiore
+	 */
+	
 	public ReqLRossaVerde(){
 		
 		this.carteContate = new ArrayList <Carta>();
 		
 	}
 	
-	@Override
 	/**
 	 * Conta il numero di L sul campo uniche, formate da due carte rosse parallele una sotto l'altra e 
 	 * Una carta verde collegata con l'angolo in alto a sinistra alla carta rossa inferiore
+	 * 
+	 * <p>Doc metodo ereditato:<p>
+	 * {@inheritDoc}
 	 */
+	@Override
 	public int soddisfatto(CampoGioco c, Carta carta) {
 		
 		int conta = 0;
