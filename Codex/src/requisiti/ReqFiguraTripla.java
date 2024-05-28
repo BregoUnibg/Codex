@@ -6,6 +6,7 @@ import carte.Figura;
 
 public class ReqFiguraTripla implements Requisito{
 
+	//Attributi
 	private Figura figura1;
 	private int numFigure1;
 	private Figura figura2;
@@ -13,6 +14,7 @@ public class ReqFiguraTripla implements Requisito{
 	private Figura figura3;
 	private int numFigure3;
 	
+	//Costrutto
 	public ReqFiguraTripla(Figura figura1, int numFigure1, Figura figura2, int numFigure2, Figura figura3, int numFigure3){
 		
 		this.figura1 = figura1;
@@ -24,6 +26,12 @@ public class ReqFiguraTripla implements Requisito{
 		
 	}
 
+	/**
+	 * 
+	 * @param c
+	 * @param carta
+	 * @return
+	 */
 	@Override
 	public int soddisfatto(CampoGioco c, Carta carta) {
 		
