@@ -6,12 +6,13 @@ import carte.Figura;
 
 public class ReqFiguraDoppia implements Requisito{
 
-
+	//Attributi
 	private Figura figura1;
 	private int numFigure1;
 	private Figura figura2;
 	private int numFigure2;
 	
+	//Costruttore
 	public ReqFiguraDoppia(Figura figura1, int numFigure1, Figura figura2, int numFigure2){
 		
 		this.figura1 = figura1;
@@ -22,6 +23,12 @@ public class ReqFiguraDoppia implements Requisito{
 		
 	}
 	
+	/**
+	 * 
+	 * @param c
+	 * @param carta
+	 * @return
+	 */
 	@Override
 	public int soddisfatto(CampoGioco c, Carta carta) {
 		

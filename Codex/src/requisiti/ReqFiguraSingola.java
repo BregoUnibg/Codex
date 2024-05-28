@@ -8,9 +8,11 @@ import carte.Figura;
 
 public class ReqFiguraSingola implements Requisito{
 
+	//Attributi
 	private Figura figura;
 	private int numFigure;
 	
+	//Costruttore
 	public ReqFiguraSingola(Figura figura, int numFigure) {
 		
 		this.figura = figura;
@@ -18,6 +20,12 @@ public class ReqFiguraSingola implements Requisito{
 		
 	}
 	
+	/**
+	 * 
+	 * @param c
+	 * @param carta
+	 * @return
+	 */
 	@Override
 	public int soddisfatto(CampoGioco c, Carta carta) {
 		
@@ -27,6 +35,12 @@ public class ReqFiguraSingola implements Requisito{
 		
 	}
 	
+	/**
+	 * Contatore delle figure presenti nel campo di gioco del giocatore 
+	 * @param figura
+	 * @param c
+	 * @return
+	 */
 	protected static int getContatoreFigura(Figura figura, CampoGioco c) {
 		
 		switch(figura){

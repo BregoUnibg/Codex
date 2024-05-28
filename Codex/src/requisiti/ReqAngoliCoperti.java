@@ -5,10 +5,17 @@ import carte.Carta;
 
 public class ReqAngoliCoperti implements Requisito{
 
+	//Costruttore
 	public ReqAngoliCoperti(){
 		
 	}
 	
+	/**
+	 * 
+	 * @param c
+	 * @param carta
+	 * @return
+	 */
 	@Override
 	public int soddisfatto(CampoGioco c, Carta carta) {
 		
