@@ -13,6 +13,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import campo.CampoGioco;
+import campo.Pedina;
 
 public class GBarraStatistiche extends JPanel{
 	
@@ -27,7 +28,7 @@ public class GBarraStatistiche extends JPanel{
 	private JLabel contaCiotola;
 	private JLabel contaPergamena;
 	
-	public GBarraStatistiche(String nomeGiocatore) {
+	public GBarraStatistiche(String nomeGiocatore, Pedina pedinaGiocatore) {
 		
 		this.setPreferredSize(new Dimension(100,100));
 		this.setBackground(new Color(221, 214, 173));
@@ -37,6 +38,7 @@ public class GBarraStatistiche extends JPanel{
 		this.nomeGiocatore.setFont(new Font("Segoe UI Black", Font.BOLD, 24));
 		this.nomeGiocatore.setBorder(new EmptyBorder(10, 20, 10, 20)); //Metto un po di bordo per non fare stare il nome attaccato alla parte sinistra della finestra
 		this.nomeGiocatore.setPreferredSize(new Dimension(400,300));
+		coloraGiocatore(pedinaGiocatore);
 		
 		this.descrizioneAzione = new JLabel();
 		this.descrizioneAzione.setFont(new Font("Segoe UI Black", Font.BOLD, 16));
@@ -92,6 +94,36 @@ public class GBarraStatistiche extends JPanel{
         contatore.setVerticalTextPosition(SwingConstants.CENTER);
         contatore.setPreferredSize(new Dimension(70, 50));
         contatori.add(contatore);
+		
+	}
+	
+	/**
+	 * Assegna al Giocatore il colore della pedina
+	 */
+	
+	private void coloraGiocatore(Pedina p){
+		
+		switch(p) {
+		
+		case ROSSA:
+			this.nomeGiocatore.setForeground(new Color(139, 0, 0));
+			break;
+		
+		case AZZURRA:
+			this.nomeGiocatore.setForeground(new Color(70, 130, 180));
+			break;
+			
+		case VERDE:
+			this.nomeGiocatore.setForeground(new Color(0, 100, 0));
+			break;
+		
+		case GIALLA:
+			this.nomeGiocatore.setForeground(new Color(204, 153, 0));
+			break;
+			
+		default:
+			break;
+		}
 		
 	}
 	

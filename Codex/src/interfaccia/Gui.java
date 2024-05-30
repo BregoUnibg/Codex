@@ -2,7 +2,9 @@ package interfaccia;
 
 import java.awt.BorderLayout;
 import java.util.ArrayList;
+import java.util.Set;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -19,28 +21,25 @@ public class Gui extends JFrame implements Interfaccia{
 	
 	
 	private JPanel visualeGiocatore;
-	private JPanel selettoreLato;
-	private JPanel tabellone;
 	private GCentroCampo gCentroCampo;
 	private JPanel livelloVisualizzato;
 	private ArrayList <GVisualeGioco> visualiGioco;
 	
-	private final int nGiocatori;
 	
 	//private Dimension dimensioniSchermo;
 
 	
 	public Gui() {
 		
-		
+		GMenu.finestraGioca();
 		
 		this.setSize(1920,1080);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null); //Mi apre la finsetra in centro
 		this.setTitle("Codex");
 		
-		nGiocatori = 2; //Ovviamente è temporanea come cosa
-		
+		ImageIcon imageIcon = new ImageIcon("Immagini/Icon.png"); // Carica l'immagine del logo
+	    this.setIconImage(imageIcon.getImage()); // Definisce l'icona della finestra
 		
 		//NIENTE LAYEREDPANE
 		//Per gestire il gioco non uso in layered in quanto non mi consentono di ridimensionare la fienstra
@@ -60,8 +59,6 @@ public class Gui extends JFrame implements Interfaccia{
 		//Sarà quindi possibile gestire i turni in un semplice ciclo che appunto cicla l'arraylist)
 		
 		visualiGioco = new ArrayList <GVisualeGioco>();
-		selettoreLato = new GSelettoreLato();
-		tabellone = new JPanel();
 		gCentroCampo = new GCentroCampo(this);
 		
 		//JPANEL PRINCIPALE  : ciò che metto in questo JPanel è ciò che viene visualizzato
@@ -70,7 +67,9 @@ public class Gui extends JFrame implements Interfaccia{
 		livelloVisualizzato.setLayout(new BorderLayout());
 		
 		this.add(livelloVisualizzato);
-		this.setVisible(true);
+	
+		//Il Frame verrà reso visibile una volta chiamata la funzione benvenuto
+		//Quindi successivamente all'inserimento dei giocatori
 		
 	}
 	
@@ -116,24 +115,21 @@ public class Gui extends JFrame implements Interfaccia{
 	@Override
 	public int numeroGiocatori() {
 
-		//PROVVISIORIO
+		return GMenu.slezionaNumGiocatori();
 		
-		return nGiocatori;
 	}
 
 	@Override
 	public void benvenuto() {
 		
-		//PROVVISIORIO
+		this.setVisible(true);
 		
 	}
 
 	@Override
-	public Giocatore creaGiocatore(ArrayList<Pedina> pedine) {
+	public Giocatore creaGiocatore(Set<Pedina> pedine) {
 		
-		//PROVVISIORIO
-		
-		Giocatore giocatore = new Giocatore("Marco", pedine.get(0));
+		Giocatore giocatore = GMenu.creaGiocatoriConDettagli(pedine);
 		visualiGioco.add(new GVisualeGioco(giocatore, this));
 		return giocatore;
 		

@@ -1,5 +1,6 @@
 package interfaccia;
 import java.util.ArrayList;
+import java.util.Set;
 
 import campo.CentroCampo;
 import campo.Giocatore;
@@ -34,7 +35,7 @@ public interface Interfaccia {
 	 * @return
 	 */
 	
-	public Giocatore creaGiocatore(ArrayList <Pedina> pedine);
+	public Giocatore creaGiocatore(Set <Pedina> pedine);
 	
 	/**
 	 * Mostra a schermo quale giocatore ha vinto la partita

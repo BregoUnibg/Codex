@@ -8,7 +8,7 @@ public class Giocatore {
 		private String nome;
 		private Mano mano;
 		private CampoGioco campoGioco;
-		private Pedina pedina;
+		private final Pedina pedina;
 		private CartaObiettivo cartaObiettivoNascosta;
 		private int punti;
 
@@ -58,6 +58,10 @@ public class Giocatore {
 		
 		public void setCartaObiettivoNascosto(CartaObiettivo cartaObiettivoNascosta) {
 			this.cartaObiettivoNascosta = cartaObiettivoNascosta;
+		}
+
+		public Pedina getPedina() {
+			return pedina;
 		}
 		
 		

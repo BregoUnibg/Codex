@@ -1,7 +1,10 @@
 package campo;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
+
 import interfaccia.Cli;
 import interfaccia.Gui;
 import interfaccia.Interfaccia;
@@ -16,7 +19,7 @@ public class Gioco {
 	private ArrayList <Giocatore> giocatori;
 	private CentroCampo centro;
 	private Interfaccia interfaccia;
-	private ArrayList <Pedina> pedine; //Avrei voluto farlo con un set ma il mio IDE non lo importa per quallche ragione (Forse è obsoleto?)
+	private Set <Pedina> pedine; //Avrei voluto farlo con un set ma il mio IDE non lo importa per quallche ragione (Forse è obsoleto?)
 	
 	//Costrutto
 	public Gioco() {
@@ -25,7 +28,7 @@ public class Gioco {
 		
 		giocatori = new ArrayList <Giocatore>();
 		centro  = new CentroCampo();
-		pedine = new ArrayList <Pedina>();
+		pedine = new HashSet <Pedina>();
 		 	pedine.add(Pedina.VERDE);
 	        pedine.add(Pedina.ROSSA);
 	        pedine.add(Pedina.NERA);

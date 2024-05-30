@@ -2,6 +2,7 @@ package interfaccia;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Set;
 
 import campo.CentroCampo;
 import campo.Giocatore;
@@ -41,7 +42,7 @@ public class Cli implements Interfaccia{
 	 * Crea un nuovo giocatore, viene passato un array con le pedine rimanente,
 	 */
 	@Override
-	public Giocatore creaGiocatore(ArrayList <Pedina> pedine) {
+	public Giocatore creaGiocatore(Set <Pedina> pedine) {
 		
 		System.out.println();
 
@@ -69,8 +70,9 @@ public class Cli implements Interfaccia{
 			}
 			}while(scelta<0 || scelta >= (pedine.size()));
 		
-		Pedina pedScelta = pedine.get(scelta);
-		pedine.remove(scelta);
+		ArrayList<Pedina> listaPedine = new ArrayList<>(pedine);
+		Pedina pedScelta = listaPedine.get(scelta);
+		pedine.remove(pedScelta);
 		
 		return new Giocatore(nome, pedScelta);
 		

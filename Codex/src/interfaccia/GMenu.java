@@ -2,30 +2,41 @@ package interfaccia;	//penso che ho spiegatto tutto bene pero se ce alcun dubbio
 
 import javax.swing.*;
 import javax.swing.border.Border;
+
+import campo.Giocatore;
+import campo.Pedina;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.concurrent.CountDownLatch;
 // 
-public class Menu {
-    public static void main(String[] args) {
-        // Esegue il metodo per creare e mostrare la finestra principale
-        SwingUtilities.invokeLater(Menu::createAndShowFullScreenFrame);
-    }
+public class GMenu {
 
-    // Metodo per creare e mostrare la finestra principale a schermo intero
-    private static void createAndShowFullScreenFrame() {
-        JFrame frame = new JFrame("Codex Naturalis Game"); // Crea il JFrame principale
+	private static CountDownLatch latch;
+	private static int nGiocatori;
+	private static Giocatore giocatoreRestituito;
+	private static Set<String> selectedColors = new HashSet<>();
+    /**
+     * Mostra su schermo una finestra di benvenuto per poter giocare
+     */
+	
+    public static void finestraGioca() {
+        
+    	latch = new CountDownLatch(1);
+    	
+    	JFrame frame = new JFrame("Codex Naturalis"); // Crea il JFrame principale
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Definisce l'operazione di chiusura della finestra
         frame.setSize(780, 700); // Definisce la dimensione della finestra
         frame.setLocationRelativeTo(null); // Centralizza la finestra sullo schermo
         frame.setVisible(true); // Rende visibile la finestra
 
-        ImageIcon imageIcon = new ImageIcon("Icon2.png"); // Carica l'immagine del logo
+        ImageIcon imageIcon = new ImageIcon("Immagini/Icon.png"); // Carica l'immagine del logo
         frame.setIconImage(imageIcon.getImage()); // Definisce l'icona della finestra
 
-        ImageIcon backgroundImageIcon = new ImageIcon("GiocoCodex.png"); // Carica l'immagine di sfondo
+        ImageIcon backgroundImageIcon = new ImageIcon("Immagini/GiocoCodex.png"); // Carica l'immagine di sfondo
 
         // Crea un pannello di contenuto con un'immagine di sfondo
         JPanel contentPane = new JPanel() {
@@ -41,8 +52,8 @@ public class Menu {
         contentPane.setLayout(new GridBagLayout()); // Definisce il layout del pannello
 
         // Crea il bottone "Giocare" arrotondato
-        JButton giocareButton = createRoundButton("Giocare");
-        giocareButton.setFont(new Font("Serif", Font.BOLD, 28)); // Definisce il font del bottone
+        JButton giocareButton = createRoundButton("Gioca");
+        giocareButton.setFont(new Font("Segoe UI Black", Font.PLAIN, 28)); // Definisce il font del bottone
         giocareButton.setForeground(Color.BLACK); // Definisce il colore del testo del bottone
         giocareButton.setBackground(new Color(255, 165, 0)); // Definisce il colore di sfondo del bottone
         giocareButton.setOpaque(false); // Definisce il bottone come opaco
@@ -51,7 +62,7 @@ public class Menu {
         giocareButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                createPlayerSelectionFrame(); // Chiama il metodo per creare la schermata di selezione dei giocatori
+                latch.countDown(); //Imposto a 0 il countdownlatch terminando il metodo succesivamente
             }
         });
 
@@ -68,17 +79,34 @@ public class Menu {
 
         frame.setContentPane(contentPane); // Definisce il pannello come contenuto della finestra
         frame.setVisible(true); // Rende visibile la finestra
+    
+        try {
+			latch.await();
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
+        
+        frame.dispose();
+        
     }
 
-    // Metodo per creare la finestra di selezione dei giocatori
-    private static void createPlayerSelectionFrame() {
+    
+    /**
+     * Fa selezionare su schermo il numero di giocatori e lo restituisce in intero
+     * @return numero di giocatori scelti
+     */
+    
+    public static int slezionaNumGiocatori() {
+    	
+    	latch = new CountDownLatch(1);
+    	
         JFrame playerFrame = new JFrame("Seleziona il numero di giocatori"); // Crea il JFrame per selezione dei giocatori
         playerFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Definisce l'operazione di chiusura della finestra
         playerFrame.setSize(400, 300); // Definisce la dimensione della finestra
         playerFrame.setLocationRelativeTo(null); // Centralizza la finestra sullo schermo
         playerFrame.setVisible(true); // Rende visibile la finestra
 
-        ImageIcon imageIcon = new ImageIcon("Icon2.png"); // Carica l'immagine del logo
+        ImageIcon imageIcon = new ImageIcon("Immagini/Icon.png"); // Carica l'immagine del logo
         playerFrame.setIconImage(imageIcon.getImage()); // Definisce l'icona della finestra
 
         // Crea un pannello con layout a griglia
@@ -87,16 +115,19 @@ public class Menu {
         Border border = BorderFactory.createLineBorder(Color.ORANGE, 3); // Crea un bordo arancione
         panel.setBorder(border); // Definisce il bordo del pannello
         playerFrame.add(panel); // Aggiunge il pannello alla finestra
-
+       
+        
         // Crea il bottone per selezionare 2 giocatori
         JButton twoPlayersButton = createRoundButton("2 Giocatori");
         twoPlayersButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                nGiocatori = 2;
+                latch.countDown();
                 playerFrame.dispose(); // Chiude la finestra di selezione dei giocatori
-                createPlayerDetailFrame(2); // Chiama il metodo per creare la schermata di selezione dei dettagli dei giocatori con 2 giocatori
             }
         });
+        
         panel.add(twoPlayersButton); // Aggiunge il bottone al pannello
 
         // Crea il bottone per selezionare 3 giocatori
@@ -104,10 +135,12 @@ public class Menu {
         threePlayersButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+            	nGiocatori = 3;
+                latch.countDown();
                 playerFrame.dispose(); // Chiude la finestra di selezione dei giocatori
-                createPlayerDetailFrame(3); // Chiama il metodo per creare la schermata di selezione dei dettagli dei giocatori con 3 giocatori
-            }
+           }
         });
+        
         panel.add(threePlayersButton); // Aggiunge il bottone al pannello
 
         // Crea il bottone per selezionare 4 giocatori
@@ -115,23 +148,40 @@ public class Menu {
         fourPlayersButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+            	nGiocatori = 4;
+                latch.countDown();
                 playerFrame.dispose(); // Chiude la finestra di selezione dei giocatori
-                createPlayerDetailFrame(4); // Chiama il metodo per creare la schermata di selezione dei dettagli dei giocatori con 4 giocatori
             }
         });
         panel.add(fourPlayersButton); // Aggiunge il bottone al pannello
+        
+        try {
+			latch.await();
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
+        
+        return nGiocatori;
+        
     }
 
-    // Metodo per creare la finestra di inserimento dei dettagli dei giocatori (nome e colore)
-    private static void createPlayerDetailFrame(int numPlayers) {
+    /**
+     * Crea un giocatore basandosi sulle infomrazini raccolte a schermo (nome e pedina)
+     * @param pedine (lista di pedine disponibili)
+     */
+    public static Giocatore creaGiocatoriConDettagli(Set<Pedina> pedine) {
+    	
+    	latch = new CountDownLatch(1);
+    	
         JFrame detailFrame = new JFrame("Inserisci i dettagli dei giocatori"); // Crea il JFrame per inserimento dei dettagli dei giocatori
         detailFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Definisce l'operazione di chiusura della finestra
         detailFrame.setSize(400, 300); // Definisce la dimensione della finestra
         detailFrame.setLocationRelativeTo(null); // Centralizza la finestra sullo schermo
         detailFrame.setVisible(true); // Rende visibile la finestra
-
-        ImageIcon imageIcon = new ImageIcon("Icon2.png"); // Carica l'immagine del logo
+        
+        ImageIcon imageIcon = new ImageIcon("Immagini/Icon.png"); // Carica l'immagine del logo
         detailFrame.setIconImage(imageIcon.getImage()); // Definisce l'icona della finestra
+
 
         // Crea un pannello con layout a griglia
         JPanel panel = new JPanel(new GridLayout(4, 1, 0, 20));
@@ -140,23 +190,36 @@ public class Menu {
         panel.setBorder(border); // Definisce il bordo del pannello
         detailFrame.add(panel); // Aggiunge il pannello alla finestra
 
-        JLabel playerLabel = new JLabel("Giocatore 1, inserisci il tuo nome:");
+        JLabel playerLabel = new JLabel("inserisci il tuo nome, seleziona la pedina:");
+        playerLabel.setFont(new Font("Segoe UI Black", Font.PLAIN, 14));
+        
         JTextField nameField = new JTextField(); // Campo di testo per il nome del giocatore
-        JComboBox<String> colorComboBox = new JComboBox<>(new String[]{"VERDE", "ROSSO", "NERO", "GIALLO", "AZZURRO"}); // Combo box per selezione del colore
+        nameField.setFont(new Font("Segoe UI Black", Font.PLAIN, 14));
+        
+        
+        //String sPedine[] = (String[]) pedine.toArray();
+        
+        String[] sPedine = new String[pedine.size()];
+        
+        int i=0;
+        for(Pedina p: pedine) {
+        	sPedine[i] = String.valueOf(p);
+        	i++;
+        }
+        
+        JComboBox<String> colorComboBox = new JComboBox<>(sPedine); // Combo box per selezione del colore
+        colorComboBox.setFont(new Font("Segoe UI Black", Font.PLAIN, 14));
         JButton nextButton = createRoundButton("Prossimo"); // Bottone per avanzare al giocatore successivo
-
+        nextButton.setFont(new Font("Segoe UI Black", Font.PLAIN, 16));
+        
+        
         panel.add(playerLabel);
         panel.add(nameField);
         panel.add(colorComboBox);
         panel.add(nextButton);
-
-        // Variabili per memorizzare i dettagli dei giocatori
-        String[] playerNames = new String[numPlayers];
-        String[] playerColors = new String[numPlayers];
-        Set<String> selectedColors = new HashSet<>();
-
-        final int[] currentIndex = {0};
-
+        
+        detailFrame.setVisible(true);
+        
         // Azione del bottone "Prossimo"
         nextButton.addActionListener(new ActionListener() {
             @Override
@@ -179,25 +242,25 @@ public class Menu {
                     return;
                 }
 
-                playerNames[currentIndex[0]] = playerName;
-                playerColors[currentIndex[0]] = playerColor;
                 selectedColors.add(playerColor);
-
-                currentIndex[0]++;
-
-                if (currentIndex[0] < numPlayers) {
-                    // Aggiorna l'indice e i campi per il prossimo giocatore
-                    nameField.setText("");
-                    colorComboBox.setSelectedIndex(-1);
-                    playerLabel.setText("Giocatore " + (currentIndex[0] + 1) + ", inserisci il tuo nome:");
-                } else {
-                    // Tutti i giocatori hanno inserito i dettagli, chiude la finestra
-                    detailFrame.dispose();
-                    // Da qui, si può procedere con il prossimo passo del gioco, utilizzando playerNames e playerColors
-                    // ad esempio, createGameBoard(playerNames, playerColors);
-                }
+                
+                pedine.remove(Pedina.valueOf(playerColor));
+                
+                giocatoreRestituito = new Giocatore(playerName, Pedina.valueOf(playerColor));
+                
+                latch.countDown();
+                
             }
         });
+        
+        try {
+			latch.await();
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
+        
+        detailFrame.dispose();
+        return giocatoreRestituito;
     }
 
     // Metodo per creare bottoni arrotondati
@@ -223,7 +286,7 @@ public class Menu {
         button.setOpaque(false); // Definisce il bottone come non opaco
         button.setBorderPainted(false); // Rimuove la pittura del bordo
         button.setFocusPainted(false); // Rimuove la pittura del focus
-        button.setFont(new Font("Serif", Font.BOLD, 16)); // Definisce il font del bottone
+        button.setFont(new Font("Segoe UI Black", Font.PLAIN, 14)); // Definisce il font del bottone
         return button; // Ritorna il bottone creato
     }
 }
