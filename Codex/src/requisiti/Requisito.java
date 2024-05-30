@@ -9,10 +9,11 @@ public abstract interface Requisito {
 	
 	
 	/**
-	 * Restituisce il numero di volte per qui è soddisfatto singolaremnte il requisito
-	 * utile gestirlo in quesot modo in quanto gliobiettivi sono influenzati da moltiplicatori
+	 * Restituisce il numero di volte per qui è soddisfatto singolaremnte il requisito, 
+	 * utile gestirlo in questo modo in quanto gli obiettivi sono influenzati da moltiplicatori
 	 * Nel caso sia un requisito di pizzamento può anche semplicemente restituire un valore diverso da 0
-	 * @param c campo da gioco 
+	 * @param campo (campo da gioco) 
+	 * @param carta (carta) 
 	 * @return n di volte per cui l'obiettivo è stato soddisfatto
 	 */
 	
@@ -23,6 +24,14 @@ public abstract interface Requisito {
 	//Devo calcolare quante volete individualmente (quindi non sovrapponendo gli stessi elementi che soddisfano l'obiettivo una singola volta) 
 	//Quante volte l'obiettivo è soddisfatto
 	
+	
+	/**
+	 * Controlla se una carta è presente in un arraylist di carte 
+	 * (si ho reinventato la ruota)
+	 * @param cartaCercata
+	 * @param carteContate
+	 * @return
+	 */
 	
 	public static boolean presente(Carta cartaCercata, ArrayList <Carta> carteContate){
 		for(Carta c: carteContate) {

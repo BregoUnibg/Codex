@@ -6,12 +6,26 @@ import carte.Figura;
 
 public class ReqFiguraTripla implements Requisito{
 
+	//Attributi
 	private Figura figura1;
 	private int numFigure1;
 	private Figura figura2;
 	private int numFigure2;
 	private Figura figura3;
 	private int numFigure3;
+	
+	//Costruttore
+	
+	/**
+	 * Controlla se tot figure del tipo e quantità desiderate sono presenti sul campo per tre tipi
+	 * di figure diverse con relative quantità
+	 * @param figura1
+	 * @param numFigure1 (qta relativa a figura1)
+	 * @param figura2
+	 * @param numFigure2 (qta relativa a figura2)
+	 * @param figura3
+	 * @param numFigure3 (qta relativa a figura3)
+	 */
 	
 	public ReqFiguraTripla(Figura figura1, int numFigure1, Figura figura2, int numFigure2, Figura figura3, int numFigure3){
 		
@@ -24,6 +38,22 @@ public class ReqFiguraTripla implements Requisito{
 		
 	}
 
+	/**
+	 * 
+	 * Controlla se tot figure del tipo e quantità desiderate sono presenti sul campo per tre tipi
+	 * di figure diverse con relative quantità
+	 * 
+	 * l'obiettivo è verificato per ogni minumo comune multiplo delle quantità 
+	 * 
+	 * <p>
+	 * 
+	 * Doc metodo ereditato:<p>
+	 * {@inheritDoc}
+	 * 
+	 * @param c
+	 * @param carta
+	 * @return
+	 */
 	@Override
 	public int soddisfatto(CampoGioco c, Carta carta) {
 		
@@ -32,8 +62,8 @@ public class ReqFiguraTripla implements Requisito{
 		int conta3 = ReqFiguraSingola.getContatoreFigura(figura3, c);
 		
 		conta1 = (int) conta1/numFigure1;
-		conta2 = (int) conta2/numFigure1;
-		conta3 = (int) conta3/numFigure1;
+		conta2 = (int) conta2/numFigure2;
+		conta3 = (int) conta3/numFigure3;
 		
 		return Math.min(Math.min(conta1, conta2), conta3);
 	}

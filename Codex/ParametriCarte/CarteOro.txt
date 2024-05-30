@@ -1,40 +1,40 @@
-1,ROSSO,1,FUNGO,2,LUPO,1,PIUMA,1,false, , ,PIUMA,Piazzamento:\t 2 figure fungo e 1 figura lupo\nObiettivo:\t 1 punto per ogni figura piuma nel campo nel momento in cui viene piazzata la carta,Immagini/Carte/xcarta041.png
-1,ROSSO,1,FUNGO,2,FOGLIA,1,CIOTOLA,1, ,CIOTOLA,false, ,Piazzamento:\t 2 figure fungo e 1 figura foglia\nObiettivo:\t 1 punto per ogni figura ciotola nel campo nel momento in cui viene piazzata la carta,Immagini/Carte/xcarta042.png
-1,ROSSO,1,FUNGO,2,FARFALLA,1,PERGAMENA,1,PERGAMENA, , ,false,Piazzamento:\t 2 figure fungo e 1 figura farfalla\nObiettivo:\t 1 punto per ogni figura pergamena nel campo nel momento in cui viene piazzata la carta,Immagini/Carte/xcarta043.png
-2,ROSSO,2,FUNGO,3,LUPO,1, , ,false, ,Piazzamento:\t 3 figure fungo e 1 figura lupo\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata,Immagini/Carte/xcarta044.png
-2,ROSSO,2,FUNGO,3,FOGLIA,1, , , ,false,Piazzamento:\t 3 figure fungo e 1 figura foglia\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata,Immagini/Carte/xcarta045.png
-2,ROSSO,2,FUNGO,3,FARFALLA,1, ,false, , ,Piazzamento:\t 3 figure fungo e 1 figura farfalla\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata,Immagini/Carte/xcarta046.png
-3,ROSSO,3,FUNGO,3, ,false,CIOTOLA,false,Piazzamento:\t 3 figure fungo\nObiettivo:\t 3 punti immediati,Immagini/Carte/xcarta047.png
-3,ROSSO,3,FUNGO,3,PIUMA, ,false,false,Piazzamento:\t 3 figure fungo\nObiettivo:\t 3 punti immediati,Immagini/Carte/xcarta048.png
-3,ROSSO,3,FUNGO,3,false,PERGAMENA,false, ,Piazzamento:\t 3 figure fungo\nObiettivo:\t 3 punti immediati,Immagini/Carte/xcarta049.png
-3,ROSSO,5,FUNGO,5, ,false, ,false,Piazzamento:\t 5 figure fungo\nObiettivo:\t 5 punti immediati,Immagini/Carte/xcarta050.png
-1,VERDE,1,FOGLIA,2,FARFALLA,1,PIUMA,1,PIUMA, , ,false,Piazzamento:\t 2 figure foglia e 1 figura farfalla\nObiettivo:\t 1 punto per ogni figura piuma nel campo nel momento in cui viene piazzata la carta,Immagini/Carte/xcarta051.png
-1,VERDE,1,FOGLIA,2,FUNGO,1,PERGAMENA,1, ,PERGAMENA,false, ,Piazzamento:\t 2 figure foglia e 1 fungo\nObiettivo:\t 1 punto per ogni figura pergamena nel campo nel momento in cui viene piazzata la carta,Immagini/Carte/xcarta052.png
-1,VERDE,1,FOGLIA,2,LUPO,1,CIOTOLA,1, ,false,CIOTOLA, ,Piazzamento:\t 2 figure foglia e 1 figura lupo\nObiettivo:\t 1 punto per ogni figura ciotola nel campo nel momento in cui viene piazzata la carta,Immagini/Carte/xcarta053.png
-2,VERDE,2,FOGLIA,3,FARFALLA,1,false, , , ,Piazzamento:\t 3 figure foglia e 1 figura farfalla\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata,Immagini/Carte/xcarta054.png
-2,VERDE,2,FOGLIA,3,LUPO,1, , , ,false,Piazzamento:\t 3 figure foglia e 1 figura lupo\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata,Immagini/Carte/xcarta055.png
-2,VERDE,2,FOGLIA,3,FUNGO,1, ,false, , ,Piazzamento:\t 3 figure foglia e 1 figura fungo\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata,Immagini/Carte/xcarta056.png
-3,VERDE,3,FOGLIA,3, ,false,PIUMA,false,Piazzamento:\t 3 figure foglia\nObiettivo:\t 3 punti immediati,Immagini/Carte/xcarta057.png
-3,VERDE,3,FOGLIA,3,PERGAMENA, ,false,false,Piazzamento:\t 3 figure foglia\nObiettivo:\t 3 punti immediati,Immagini/Carte/xcarta058.png
-3,VERDE,3,FOGLIA,3,false,CIOTOLA,false, ,Piazzamento:\t 3 figure foglia\nObiettivo:\t 3 punti immediati,Immagini/Carte/xcarta059.png
-3,VERDE,5,FOGLIA,5, , ,false,false,Piazzamento:\t 5 figure foglia\nObiettivo:\t 5 punti immediati,Immagini/Carte/xcarta060.png
-1,BLU,1,LUPO,2,FARFALLA,1,CIOTOLA,1,CIOTOLA, , ,false,Piazzamento:\t 2 figure lupo e 1 figura farfalla\nObiettivo:\t 1 punto per ogni figura ciotola nel campo nel momento in cui viene piazzata la carta,Immagini/Carte/xcarta061.png
-1,BLU,1,LUPO,2,FOGLIA,1,PERGAMENA,1,false, , ,PERGAMENA,Piazzamento:\t 2 figure lupo e 1 figura foglia\nObiettivo:\t 1 punto per ogni figura pergamena nel campo nel momento in cui viene piazzata la carta,Immagini/Carte/xcarta062.png
-1,BLU,1,LUPO,2,FUNGO,1,PIUMA,1, ,false,PIUMA, ,Piazzamento:\t 2 figure lupo e 1 figura fungo\nObiettivo:\t 1 punto per ogni figura piuma nel campo nel momento in cui viene piazzata la carta,Immagini/Carte/xcarta063.png
-2,BLU,2,LUPO,3,FARFALLA,1, , ,false, ,Piazzamento:\t 3 figure lupo e 1 figura farfalla\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata,Immagini/Carte/xcarta064.png
-2,BLU,2,LUPO,3,FUNGO,1, ,false, , ,Piazzamento:\t 3 figure lupo e 1 figura fungo\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata,Immagini/Carte/xcarta065.png
-2,BLU,2,LUPO,3,FOGLIA,1,false, , , ,Piazzamento:\t 3 figure lupo e 1 figura foglia\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata,Immagini/Carte/xcarta066.png
-3,BLU,3,LUPO,3, ,false,PERGAMENA,false,Piazzamento:\t 3 figure lupo\nObiettivo:\t 3 punti immediati,Immagini/Carte/xcarta067.png
-3,BLU,3,LUPO,3, ,CIOTOLA,false,false,Piazzamento:\t 3 figure lupo\nObiettivo:\t 3 punti immediati,Immagini/Carte/xcarta068.png
-3,BLU,3,LUPO,3,false, ,false,PIUMA,Piazzamento:\t 3 figure lupo\nObiettivo:\t 3 punti immediati,Immagini/Carte/xcarta069.png
-3,BLU,5,LUPO,5,false, ,false, ,Piazzamento:\t 5 figure lupo\nObiettivo:\t 5 punti immediati,Immagini/Carte/xcarta070.png
-1,VIOLA,1,FARFALLA,2,FOGLIA,1,PIUMA,1, ,PIUMA,false, ,Piazzamento:\t 2 figure farfalla e 1 figura foglia\nObiettivo:\t 1 punto per ogni figura piuma nel campo nel momento in cui viene piazzata la carta,Immagini/Carte/xcarta071.png
-1,VIOLA,1,FARFALLA,2,LUPO,1,PERGAMENA,1, ,false,PERGAMENA, ,Piazzamento:\t 2 figure farfalla e 1 figura lupo\nObiettivo:\t 1 punto per ogni figura pergamena nel campo nel momento in cui viene piazzata la carta,Immagini/Carte/xcarta072.png
-1,VIOLA,1,FARFALLA,2,FUNGO,1,CIOTOLA,1,false, , ,CIOTOLA,Piazzamento:\t 2 figure farfalla e 1 figura fungo\nObiettivo:\\t 1 punto per ogni figura ciotola nel campo nel momento in cui viene piazzata la carta,Immagini/Carte/xcarta073.png
-2,VIOLA,2,FARFALLA,3,LUPO,1, , ,false, ,Piazzamento:\t 3 figure farfalla e 1 figura lupo\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata,Immagini/Carte/xcarta074.png
-2,VIOLA,2,FARFALLA,3,FOGLIA,1, , , ,false,Piazzamento:\t 3 figure farfalla e 1 figura foglia\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata,Immagini/Carte/xcarta075.png
-2,VIOLA,2,FARFALLA,3,FUNGO,1, ,false, , ,Piazzamento:\t 3 figure farfalla e 1 figura fungo\nObiettivo:\t 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata,Immagini/Carte/xcarta076.png
-3,VIOLA,3,FARFALLA,3,CIOTOLA,false, ,false,Piazzamento:\t 3 figure farfalla\nObiettivo:\t 3 punti immediati,Immagini/Carte/xcarta077.png
-3,VIOLA,3,FARFALLA,3, ,PERGAMENA,false,false,Piazzamento:\t 3 figure farfalla\nObiettivo:\t 3 punti immediati,Immagini/Carte/xcarta078.png
-3,VIOLA,3,FARFALLA,3,false,false,PIUMA, ,Piazzamento:\t 3 figure farfalla\nObiettivo:\t 3 punti immediati,Immagini/Carte/xcarta079.png
-3,VIOLA,5,FARFALLA,5, , ,false,false,Piazzamento:\t 5 figure farfalla\nObiettivo:\t 5 punti immediati,Immagini/Carte/xcarta080.png
+1,ROSSO,1,FUNGO,2,LUPO,1,PIUMA,1,false, , ,PIUMA,Piazzamento: 2 figure fungo e 1 figura lupo		Obiettivo: 1 punto per ogni figura piuma nel campo nel momento in cui viene piazzata la carta,Immagini/Carte/xcarta041.png
+1,ROSSO,1,FUNGO,2,FOGLIA,1,CIOTOLA,1, ,CIOTOLA,false, ,Piazzamento: 2 figure fungo e 1 figura foglia		Obiettivo: 1 punto per ogni figura ciotola nel campo nel momento in cui viene piazzata la carta,Immagini/Carte/xcarta042.png
+1,ROSSO,1,FUNGO,2,FARFALLA,1,PERGAMENA,1,PERGAMENA, , ,false,Piazzamento: 2 figure fungo e 1 figura farfalla		Obiettivo: 1 punto per ogni figura pergamena nel campo nel momento in cui viene piazzata la carta,Immagini/Carte/xcarta043.png
+2,ROSSO,2,FUNGO,3,LUPO,1, , ,false, ,Piazzamento: 3 figure fungo e 1 figura lupo		Obiettivo: 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata,Immagini/Carte/xcarta044.png
+2,ROSSO,2,FUNGO,3,FOGLIA,1, , , ,false,Piazzamento: 3 figure fungo e 1 figura foglia		Obiettivo: 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata,Immagini/Carte/xcarta045.png
+2,ROSSO,2,FUNGO,3,FARFALLA,1, ,false, , ,Piazzamento: 3 figure fungo e 1 figura farfalla		Obiettivo: 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata,Immagini/Carte/xcarta046.png
+3,ROSSO,3,FUNGO,3, ,false,CIOTOLA,false,Piazzamento: 3 figure fungo		Obiettivo: 3 punti immediati,Immagini/Carte/xcarta047.png
+3,ROSSO,3,FUNGO,3,PIUMA, ,false,false,Piazzamento: 3 figure fungo		Obiettivo: 3 punti immediati,Immagini/Carte/xcarta048.png
+3,ROSSO,3,FUNGO,3,false,PERGAMENA,false, ,Piazzamento: 3 figure fungo		Obiettivo: 3 punti immediati,Immagini/Carte/xcarta049.png
+3,ROSSO,5,FUNGO,5, ,false, ,false,Piazzamento: 5 figure fungo		Obiettivo: 5 punti immediati,Immagini/Carte/xcarta050.png
+1,VERDE,1,FOGLIA,2,FARFALLA,1,PIUMA,1,PIUMA, , ,false,Piazzamento: 2 figure foglia e 1 figura farfalla		Obiettivo: 1 punto per ogni figura piuma nel campo nel momento in cui viene piazzata la carta,Immagini/Carte/xcarta051.png
+1,VERDE,1,FOGLIA,2,FUNGO,1,PERGAMENA,1, ,PERGAMENA,false, ,Piazzamento: 2 figure foglia e 1 fungo		Obiettivo: 1 punto per ogni figura pergamena nel campo nel momento in cui viene piazzata la carta,Immagini/Carte/xcarta052.png
+1,VERDE,1,FOGLIA,2,LUPO,1,CIOTOLA,1, ,false,CIOTOLA, ,Piazzamento: 2 figure foglia e 1 figura lupo		Obiettivo: 1 punto per ogni figura ciotola nel campo nel momento in cui viene piazzata la carta,Immagini/Carte/xcarta053.png
+2,VERDE,2,FOGLIA,3,FARFALLA,1,false, , , ,Piazzamento: 3 figure foglia e 1 figura farfalla		Obiettivo: 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata,Immagini/Carte/xcarta054.png
+2,VERDE,2,FOGLIA,3,LUPO,1, , , ,false,Piazzamento: 3 figure foglia e 1 figura lupo		Obiettivo: 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata,Immagini/Carte/xcarta055.png
+2,VERDE,2,FOGLIA,3,FUNGO,1, ,false, , ,Piazzamento: 3 figure foglia e 1 figura fungo		Obiettivo: 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata,Immagini/Carte/xcarta056.png
+3,VERDE,3,FOGLIA,3, ,false,PIUMA,false,Piazzamento: 3 figure foglia			Obiettivo: 3 punti immediati,Immagini/Carte/xcarta057.png
+3,VERDE,3,FOGLIA,3,PERGAMENA, ,false,false,Piazzamento: 3 figure foglia		Obiettivo: 3 punti immediati,Immagini/Carte/xcarta058.png
+3,VERDE,3,FOGLIA,3,false,CIOTOLA,false, ,Piazzamento: 3 figure foglia		Obiettivo: 3 punti immediati,Immagini/Carte/xcarta059.png
+3,VERDE,5,FOGLIA,5, , ,false,false,Piazzamento: 5 figure foglia		Obiettivo: 5 punti immediati,Immagini/Carte/xcarta060.png
+1,BLU,1,LUPO,2,FARFALLA,1,CIOTOLA,1,CIOTOLA, , ,false,Piazzamento: 2 figure lupo e 1 figura farfalla		Obiettivo: 1 punto per ogni figura ciotola nel campo nel momento in cui viene piazzata la carta,Immagini/Carte/xcarta061.png
+1,BLU,1,LUPO,2,FOGLIA,1,PERGAMENA,1,false, , ,PERGAMENA,Piazzamento: 2 figure lupo e 1 figura foglia		Obiettivo: 1 punto per ogni figura pergamena nel campo nel momento in cui viene piazzata la carta,Immagini/Carte/xcarta062.png
+1,BLU,1,LUPO,2,FUNGO,1,PIUMA,1, ,false,PIUMA, ,Piazzamento: 2 figure lupo e 1 figura fungo		Obiettivo: 1 punto per ogni figura piuma nel campo nel momento in cui viene piazzata la carta,Immagini/Carte/xcarta063.png
+2,BLU,2,LUPO,3,FARFALLA,1, , ,false, ,Piazzamento: 3 figure lupo e 1 figura farfalla		Obiettivo: 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata,Immagini/Carte/xcarta064.png
+2,BLU,2,LUPO,3,FUNGO,1, ,false, , ,Piazzamento: 3 figure lupo e 1 figura fungo		Obiettivo: 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata,Immagini/Carte/xcarta065.png
+2,BLU,2,LUPO,3,FOGLIA,1,false, , , ,Piazzamento: 3 figure lupo e 1 figura foglia		Obiettivo: 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata,Immagini/Carte/xcarta066.png
+3,BLU,3,LUPO,3, ,false,PERGAMENA,false,Piazzamento: 3 figure lupo		Obiettivo: 3 punti immediati,Immagini/Carte/xcarta067.png
+3,BLU,3,LUPO,3, ,CIOTOLA,false,false,Piazzamento: 3 figure lupo		Obiettivo: 3 punti immediati,Immagini/Carte/xcarta068.png
+3,BLU,3,LUPO,3,false, ,false,PIUMA,Piazzamento: 3 figure lupo		Obiettivo: 3 punti immediati,Immagini/Carte/xcarta069.png
+3,BLU,5,LUPO,5,false, ,false, ,Piazzamento: 5 figure lupo		Obiettivo: 5 punti immediati,Immagini/Carte/xcarta070.png
+1,VIOLA,1,FARFALLA,2,FOGLIA,1,PIUMA,1, ,PIUMA,false, ,Piazzamento: 2 figure farfalla e 1 figura foglia		Obiettivo: 1 punto per ogni figura piuma nel campo nel momento in cui viene piazzata la carta,Immagini/Carte/xcarta071.png
+1,VIOLA,1,FARFALLA,2,LUPO,1,PERGAMENA,1, ,false,PERGAMENA, ,Piazzamento: 2 figure farfalla e 1 figura lupo		Obiettivo: 1 punto per ogni figura pergamena nel campo nel momento in cui viene piazzata la carta,Immagini/Carte/xcarta072.png
+1,VIOLA,1,FARFALLA,2,FUNGO,1,CIOTOLA,1,false, , ,CIOTOLA,Piazzamento: 2 figure farfalla e 1 figura fungo		Obiettivo: 1 punto per ogni figura ciotola nel campo nel momento in cui viene piazzata la carta,Immagini/Carte/xcarta073.png
+2,VIOLA,2,FARFALLA,3,LUPO,1, , ,false, ,Piazzamento: 3 figure farfalla e 1 figura lupo		Obiettivo: 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata,Immagini/Carte/xcarta074.png
+2,VIOLA,2,FARFALLA,3,FOGLIA,1, , , ,false,Piazzamento: 3 figure farfalla e 1 figura foglia		Obiettivo: 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata,Immagini/Carte/xcarta075.png
+2,VIOLA,2,FARFALLA,3,FUNGO,1, ,false, , ,Piazzamento: 3 figure farfalla e 1 figura fungo		Obiettivo: 2 punti per ogni angolo che la carta occupato nel momento in cui viene piazzata,Immagini/Carte/xcarta076.png
+3,VIOLA,3,FARFALLA,3,CIOTOLA,false, ,false,Piazzamento: 3 figure farfalla		Obiettivo: 3 punti immediati,Immagini/Carte/xcarta077.png
+3,VIOLA,3,FARFALLA,3, ,PERGAMENA,false,false,Piazzamento: 3 figure farfalla		Obiettivo: 3 punti immediati,Immagini/Carte/xcarta078.png
+3,VIOLA,3,FARFALLA,3,false,false,PIUMA, ,Piazzamento: 3 figure farfalla		Obiettivo: 3 punti immediati,Immagini/Carte/xcarta079.png
+3,VIOLA,5,FARFALLA,5, , ,false,false,Piazzamento: 5 figure farfalla		Obiettivo: 5 punti immediati,Immagini/Carte/xcarta080.png

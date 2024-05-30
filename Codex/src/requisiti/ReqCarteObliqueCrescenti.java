@@ -34,6 +34,16 @@ public class ReqCarteObliqueCrescenti implements Requisito{
 			this.crescente = -1;
 	}
 	
+	
+	/**
+	 * Controlla se nel campo di gioco ci sono tre carte oblique in ordine crescente dello stesso colore
+	 * <p>
+	 * 
+	 * Doc metodo ereditato:<p>
+	 * {@inheritDoc}
+	 * 
+	 */
+	
 	@Override
 	public int soddisfatto(CampoGioco c, Carta carta) {
 		

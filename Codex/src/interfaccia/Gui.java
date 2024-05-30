@@ -140,8 +140,7 @@ public class Gui extends JFrame implements Interfaccia{
 	}
 
 
-	@Override
-	public void giocaCartaIniziale(Giocatore g, Carta cartaIniziale) {
+	private GVisualeGioco getVisuale(Giocatore g) throws GiocatoreNotFoundException {
 		
 		GVisualeGioco visualeGiocatore = null;
 		
@@ -150,7 +149,27 @@ public class Gui extends JFrame implements Interfaccia{
 				visualeGiocatore = v;
 			}
 		}
-		//QUI POTREI METTERE UN ECCEZZIONE CONTROLLATA (se un giocatore non è stato traovato lancio giocaotrenotfuondexception)
+		
+		if(visualeGiocatore == null)
+			throw new GiocatoreNotFoundException();
+		
+		return visualeGiocatore;
+	}
+	
+	
+	@Override
+	public void giocaCartaIniziale(Giocatore g, Carta cartaIniziale) {
+		
+		GVisualeGioco visualeGiocatore = null;
+		
+		try {
+			visualeGiocatore = getVisuale(g);
+		}catch(GiocatoreNotFoundException ge) {
+			
+			System.out.println("Fatal Error: giocatore non trovato");
+			
+		}
+		//QUI POTREI METTERE UN ECCEZIONE CONTROLLATA (se un giocatore non è stato traovato lancio giocaotrenotfuondexception)
 		
 		selezionaVisualeGiocatore(visualeGiocatore);
 		apriVisualeGiocatore();
@@ -170,10 +189,12 @@ public class Gui extends JFrame implements Interfaccia{
 		
 		GVisualeGioco visualeGiocatore = null;
 		
-		for(GVisualeGioco v: visualiGioco) {
-			if(v.getGiocatore() == g){
-				visualeGiocatore = v;
-			}
+		try {
+			visualeGiocatore = getVisuale(g);
+		}catch(GiocatoreNotFoundException ge) {
+			
+			System.out.println("Fatal Error: giocatore non trovato");
+			
 		}
 		
 		//QUI POTREI METTERE UN ECCEZZIONE CONTROLLATA (se un giocatore non è stato traovato lancio giocaotrenotfuondexception)
@@ -199,10 +220,12 @@ public class Gui extends JFrame implements Interfaccia{
 		
 		GVisualeGioco visualeGiocatore = null;
 		
-		for(GVisualeGioco v: visualiGioco) {
-			if(v.getGiocatore() == g){
-				visualeGiocatore = v;
-			}
+		try {
+			visualeGiocatore = getVisuale(g);
+		}catch(GiocatoreNotFoundException ge) {
+			
+			System.out.println("Fatal Error: giocatore non trovato");
+			
 		}
 		
 		//QUI POTREI METTERE UN ECCEZZIONE CONTROLLATA (se un giocatore non è stato traovato lancio giocatoreNotFuondException)
