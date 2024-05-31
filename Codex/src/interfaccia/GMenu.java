@@ -31,7 +31,6 @@ public class GMenu {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Definisce l'operazione di chiusura della finestra
         frame.setSize(780, 700); // Definisce la dimensione della finestra
         frame.setLocationRelativeTo(null); // Centralizza la finestra sullo schermo
-        frame.setVisible(true); // Rende visibile la finestra
 
         ImageIcon imageIcon = new ImageIcon("Immagini/Icon.png"); // Carica l'immagine del logo
         frame.setIconImage(imageIcon.getImage()); // Definisce l'icona della finestra
@@ -104,7 +103,6 @@ public class GMenu {
         playerFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Definisce l'operazione di chiusura della finestra
         playerFrame.setSize(400, 300); // Definisce la dimensione della finestra
         playerFrame.setLocationRelativeTo(null); // Centralizza la finestra sullo schermo
-        playerFrame.setVisible(true); // Rende visibile la finestra
 
         ImageIcon imageIcon = new ImageIcon("Immagini/Icon.png"); // Carica l'immagine del logo
         playerFrame.setIconImage(imageIcon.getImage()); // Definisce l'icona della finestra
@@ -154,6 +152,7 @@ public class GMenu {
             }
         });
         panel.add(fourPlayersButton); // Aggiunge il bottone al pannello
+        playerFrame.setVisible(true); // Rende visibile la finestra
         
         try {
 			latch.await();
