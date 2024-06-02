@@ -1,6 +1,7 @@
 package campo;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
@@ -137,21 +138,79 @@ public class Gioco {
 		
 		int puntiGiocatoreVincente=0;
 		
+		ArrayList <Integer> obbFattiGiocatore = new ArrayList <Integer>(); 
 		
 		for(Giocatore g: giocatori) {
 			
-			g.addPunti(g.getCartaObiettivoNascosta().getPunti(g.getCampoGioco()));
-			g.addPunti(centro.getCartaObiettivo1().getPunti(g.getCampoGioco()));
-			g.addPunti(centro.getCartaObiettivo2().getPunti(g.getCampoGioco()));
-		
-			if(g.getPunti()>puntiGiocatoreVincente) {
+			int obbFatti = 0;
+			
+			int puntiObbCoperto = g.getCartaObiettivoNascosta().getPunti(g.getCampoGioco());
+			if(puntiObbCoperto > 0){
+				obbFatti++;
+			}
+			g.addPunti(puntiObbCoperto);
+			
+			
+			int puntiCartaObb1 = centro.getCartaObiettivo1().getPunti(g.getCampoGioco());
+			if( puntiCartaObb1 > 0){
+				obbFatti++;
+			}
+			g.addPunti(puntiCartaObb1);
+			
+			int puntiCartaObb2 = centro.getCartaObiettivo2().getPunti(g.getCampoGioco());
+			if(puntiCartaObb2 > 0){
+				obbFatti++;
+			}
+			g.addPunti(puntiCartaObb2);
+			
+			obbFattiGiocatore.add(obbFatti);
+			
+			if(g.getPunti()>=puntiGiocatoreVincente) {
 				puntiGiocatoreVincente = g.getPunti();
 				vincitore = g;
 			}
 			
 		}
 		
-		interfaccia.visualizzaVincitore(vincitore);
+		//Devo controllare se due giocatori hanno raggiunto lo stesso punteggio
+		
+		int maxPuntiRaggiunti = maxPunti();
+		int giocatoriMaxPunti = 0; //Conta quanti giocatori hanno raggiunto il punteggio massimo
+		
+		for(Giocatore g: giocatori) {
+			if(maxPuntiRaggiunti == g.getPunti())
+				giocatoriMaxPunti++;
+		}
+		
+		//se più di un giocatore hanno raggiunto i punti massimi controllo chi ha completato più carte obiettivo
+		
+		ArrayList <Giocatore> vincitori = new ArrayList <Giocatore>();
+		
+		if(giocatoriMaxPunti > 1) {
+			
+			int maxObb = Collections.max(obbFattiGiocatore);
+			
+			for(int i = 0;i<giocatori.size();i++) {
+				
+				//Aggiungo ai vincitori tutti quelli che hanno totalizzato il numero massimo di punti e di carte obiettivo soddisfatte
+				
+				if((obbFattiGiocatore.get(i) == maxObb) && (giocatori.get(i).getPunti() == maxPuntiRaggiunti)) {
+					
+					vincitori.add(giocatori.get(i));
+					
+				}
+				
+				
+			}
+			
+		}
+		else{
+			vincitori.add(vincitore);
+		}
+		
+		
+		
+		interfaccia.visualizzaVincitore(vincitori);
 		
 		//Ora i punteggi sono aggiornati 
 		
@@ -170,6 +229,11 @@ public class Gioco {
 				return ((maxPunti()>=20) || centro.mazziVuoti());
 				
 	}
+	
+	/**
+	 * Stabilisce qual'è il maggior punteggio totalizzato dai giocatori
+	 * @return (punti massimi totalizzati)
+	 */
 	
 	private int maxPunti(){
 		

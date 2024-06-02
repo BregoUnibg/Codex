@@ -358,12 +358,25 @@ public class Cli implements Interfaccia{
 		
 	}
 	
-	public void visualizzaVincitore(Giocatore g) {
+	public void visualizzaVincitore(ArrayList <Giocatore> g) {
 		
-		System.out.println("ABBIAMO UN VINCITORE!!!");
-		System.out.println();
-		System.out.println(g.getNome()+" ha vinto totalizzando: "+g.getPunti()+" punti");
-		
+		if(g.size()==1) {
+			
+			System.out.println("ABBIAMO UN VINCITORE!!!");
+			System.out.println();
+			System.out.println(g.get(0).getNome()+" ha vinto totalizzando: "+g.get(0).getPunti()+" punti");
+			
+		}
+		else {
+			
+			System.out.println("SI E' VERIRICATO UN PAREGGIO, ECCO I VINCITORI (con "+String.valueOf(g.get(0).getPunti())+" punti totalizzati): ");
+			System.out.println();
+			
+			for(Giocatore giocatore: g){
+				System.out.println(giocatore.getNome());
+			}
+			
+		}
 	}
 	
 	private void visualizzaCampoGioco(Giocatore g) {

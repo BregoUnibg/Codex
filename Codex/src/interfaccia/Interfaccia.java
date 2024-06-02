@@ -1,4 +1,5 @@
 package interfaccia;
+import java.util.ArrayList;
 import java.util.Set;
 
 import campo.CentroCampo;
@@ -47,10 +48,11 @@ public interface Interfaccia {
 	
 	/**
 	 * Mostra a schermo quale giocatore ha vinto la partita
-	 * @param g: giocatore vincente
+	 * Nel caso di pareggio i giocatori mostrati sono molteplici
+	 * @param g (giocatori vincenti (solo 1 in posizione 0 nel caso più comune di un singolo vincitore))
 	 */
 	
-	public void visualizzaVincitore(Giocatore g);
+	public void visualizzaVincitore(ArrayList <Giocatore> g);
 	
 	/**
 	 * Fa scegliere al giocatore su quale lato (fronte/retro) vuole giocare la carta inizale nel prorio campo di gioco

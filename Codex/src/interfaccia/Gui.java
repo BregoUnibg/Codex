@@ -286,13 +286,27 @@ public class Gui extends JFrame implements Interfaccia{
 	}
 
 	@Override
-	public void visualizzaVincitore(Giocatore g) {
+	public void visualizzaVincitore(ArrayList <Giocatore> g) {
 		
 		for(GVisualeGioco visGioco: visualiGioco) {
 			visGioco.getBarra().azioneGiocoTerminato();
 		}
 		
-		JOptionPane.showMessageDialog(null, "Il giocatore: "+g.getNome()+" ha vinto totalizzando "+String.valueOf(g.getPunti())+" punti!", "Vincitore", JOptionPane.INFORMATION_MESSAGE);
+		
+		if(g.size()==1) {
+			JOptionPane.showMessageDialog(null, "Il giocatore: "+g.get(0).getNome()+" ha vinto totalizzando "+String.valueOf(g.get(0).getPunti())+" punti!", "Vincitore", JOptionPane.INFORMATION_MESSAGE);
+		}
+		else {
+			
+			String vincitori = "Pareggio i vincitori (con "+String.valueOf(g.get(0).getPunti())+" punti totalizzati) sono : ";
+			
+			for(Giocatore giocatore: g) {
+				vincitori += String.valueOf(giocatore.getNome())+", ";
+			}
+			
+			JOptionPane.showMessageDialog(null, vincitori , "Vincitore", JOptionPane.INFORMATION_MESSAGE);
+			
+		}
 		
 	}
 }
