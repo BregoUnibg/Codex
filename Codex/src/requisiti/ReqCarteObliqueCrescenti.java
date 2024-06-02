@@ -6,6 +6,13 @@ import campo.CampoGioco;
 import carte.Carta;
 import carte.Colore;
 
+/**
+ * Uno dei requisiti delle carte obiettivo che gestisce il caso in cui l'obiettivo da soddisfare è posizionare in obliquo, sia crescente che decrescente,
+ * tre carte di uno stesso colore, visibili sul campo di gioco
+ * @author Gabriele Bregolin
+ * @author Matteo Megna 
+ */
+
 public class ReqCarteObliqueCrescenti implements Requisito{
 	
 	

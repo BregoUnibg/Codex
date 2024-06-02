@@ -3,6 +3,12 @@ package carte;
 import campo.CampoGioco;
 import requisiti.Requisito;
 
+/**
+ * Rappresenta le caratteristiche della carta obiettivo, in questo caso non è importante la gestione degli angoli di questa carta bensì gli eventuali requisiti 
+ * @author Gabriele Bregolin
+ * @author Matteo Megna 
+ */
+
 public class CartaObiettivo extends Carta{
 	
 	//Attributi

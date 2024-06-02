@@ -2,6 +2,12 @@ package carte;
 
 import campo.CampoGioco;
 
+/**
+ * Contiene le caratteristiche di ogni tipologia di cara, i relativi costruttori con la distinzione dei quattrto angoli di una carta e i relativi getter e setter
+ * @author Gabriele Bregolin
+ * @author Matteo Megna 
+ */
+
 public abstract class Carta {
 	
 	//Attributi

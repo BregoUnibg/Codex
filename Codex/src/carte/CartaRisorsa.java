@@ -1,5 +1,11 @@
 package carte;
 
+/**
+ * Rappresenta le caratteristiche dala carte risorsa, gestisce sia gli angoli delle carte e, in alcuni casi, fornisce anche punti immediati
+ * @author Gabriele Bregolin
+ * @author Matteo Megna 
+ */
+
 public class CartaRisorsa extends Carta {
 	
 	public CartaRisorsa(Colore colore, int punti, String urlImmagine){

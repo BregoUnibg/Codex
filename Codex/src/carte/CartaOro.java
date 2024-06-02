@@ -5,6 +5,13 @@ import requisiti.ReqCartaFalse;
 import requisiti.ReqCartaTrue;
 import requisiti.Requisito; 
 
+/**
+ * Rappresenta le caratteristiche delle carte oro, sia per uqanto riguarda la gestione degli angoli che quella degli obiettivi.
+ * In alcune carte, in particolare, c'è la presenza di due obiettivi sia relativi al piazzamento della carte sia relativi all'obiettivo soddisfatto per ottenere i punti (altre carte invece danno punti immediati)
+ * @author Gabriele Bregolin
+ * @author Matteo Megna 
+ */
+
 public class CartaOro extends Carta{
 	
 	//Attributi

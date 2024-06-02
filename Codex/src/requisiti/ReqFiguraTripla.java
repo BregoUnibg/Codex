@@ -4,6 +4,12 @@ import campo.CampoGioco;
 import carte.Carta;
 import carte.Figura;
 
+/**
+ * Contiene il requisito di un obiettivo in caso di figura tripla visibili sul campo di gioco (ad esempio: 1 ciotola, 1 pergamena, 1 piuma)
+ * @author Gabriele Bregolin
+ * @author Matteo Megna 
+ */
+
 public class ReqFiguraTripla implements Requisito{
 
 	//Attributi

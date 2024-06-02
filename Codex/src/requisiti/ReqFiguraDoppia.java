@@ -4,6 +4,12 @@ import campo.CampoGioco;
 import carte.Carta;
 import carte.Figura;
 
+/**
+ * Contiene il requisito del piazzamento in caso di figura doppia visibili sul campo di gioco (ad esempio: 2 funghi e 1 foglia)
+ * @author Gabriele Bregolin
+ * @author Matteo Megna 
+ */
+
 public class ReqFiguraDoppia implements Requisito{
 
 	//Attributi

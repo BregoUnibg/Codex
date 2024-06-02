@@ -4,7 +4,12 @@ import campo.CampoGioco;
 import carte.Carta;
 import carte.Figura;
 
-//Requisito relativo al controllare che ci siano tot figure di un certo tipo visibili sul campo di gioco
+/**
+ * Requisito relativo al controllare che ci siano tot figure di un certo tipo visibili sul campo di gioco
+ * (esempio: 3 funghi)
+ * @author Gabriele Bregolin
+ * @author Matteo Megna 
+ */
 
 public class ReqFiguraSingola implements Requisito{
 

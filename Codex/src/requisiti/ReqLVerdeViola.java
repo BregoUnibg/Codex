@@ -6,6 +6,13 @@ import campo.CampoGioco;
 import carte.Carta;
 import carte.Colore;
 
+/**
+ * contiene il requisito di un obiettivo che si verifica quando nel campo di un giocatore sono visibili due carte verdi parallele una sotto l'altra e 
+ * una carta viola collegata con l'angolo in alto a destra alla carta verde inferiore
+ * @author Gabriele Bregolin
+ * @author Matteo Megna 
+ */
+
 public class ReqLVerdeViola implements Requisito{
 	
 	private ArrayList <Carta> carteContate; //Carte che sono già state contate per una singola L

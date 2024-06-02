@@ -1,5 +1,11 @@
 package carte;
 
+/**
+ * Contiene tutte le caratteristiche e gli opportuni controlli da svolgere sugli angoli delle carte 
+ * @author Gabriele Bregolin
+ * @author Matteo Megna 
+ */
+
 public class Angolo {
 	
 	//Attributi

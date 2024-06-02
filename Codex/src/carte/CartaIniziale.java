@@ -1,6 +1,13 @@
 package carte;
 import java.util.ArrayList;
 
+/**
+ * Rappresenta le caratteristiche delle carte iniziali, sia della parte frontale che quella posteriore della carta
+ * estende la classe Carta
+ * @author Gabriele Bregolin
+ * @author Matteo Megna  
+ */
+
 public class CartaIniziale extends Carta{
 	//attributi
 	private Angolo back_top_left_angle;
