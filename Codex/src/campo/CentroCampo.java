@@ -55,16 +55,16 @@ public class CentroCampo {
 	private Carta cartaObiettivo2;
 	
 	//Attributi per inserimento da file 
-	private String carteRisorsa="ParametriCarte/CarteRisorsa.txt";
+	private String carteRisorsa="ParametriCarte/CarteRisorsa.csv";
 	private String carta="";
 	
-	private String carteOro="ParametriCarte/CarteOro.txt";
+	private String carteOro="ParametriCarte/CarteOro.csv";
 	private String cartaO="";
 	
-	private String carteObiettivo="ParametriCarte/CarteObiettivo.txt";
+	private String carteObiettivo="ParametriCarte/CarteObiettivo.csv";
 	private String cartaOb="";
 	
-	private String carteIniziali="ParametriCarte/CarteIniziali.txt";
+	private String carteIniziali="ParametriCarte/CarteIniziali.csv";
 	private String cartaI="";
 	
 	//private ArrayList <Carta> carteSelezionabili;
