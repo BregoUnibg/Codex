@@ -1,12 +1,20 @@
 package interfaccia;
-import java.util.ArrayList;
 import java.util.Set;
 
 import campo.CentroCampo;
 import campo.Giocatore;
 import campo.Pedina;
 import carte.Carta;
-import carte.CartaIniziale;
+
+/**
+ * Permette di interagire con la logica di gioco. 
+ * Le classi che la implementano sono dei tipi di interfaccia di gioco: (Grafica/Testuale/Uditiva/Ecc...)
+ * 
+ * Implementata dalle classi che interagiscono con ed implementano la logica di gioco in relazione al tipo di interfaccia che offorno all'utente
+ * 
+ * @author Gabriele
+ *
+ */
 
 public interface Interfaccia {
 	

@@ -16,8 +16,14 @@ import carte.Carta;
 import carte.CartaIniziale;
 import carte.CartaObiettivo;
 
-public class Gui extends JFrame implements Interfaccia{
+/**
+ * Classe che si interfaccia alla logica di gioco tramite finestre grafiche
+ * In essa vi è l'applicazione delle logica di gioco atraverso un interfaccia grafica interattiva da utilizzare tramite input da mouse
+ * @author Gabriele
+ *
+ */
 
+public class Gui extends JFrame implements Interfaccia{
 	
 	
 	private JPanel visualeGiocatore;

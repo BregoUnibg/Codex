@@ -26,6 +26,12 @@ import carte.Carta;
 import carte.CartaRisorsa;
 import carte.Colore;
 
+/**
+ * Rappresenta il centro campo ove vi sono mazzi e le quattro carte centrali e le sue carte obiettivo condivise
+ * @author Gabriele
+ *
+ */
+
 public class GCentroCampo extends JPanel{
 	
 	private Gui gui;

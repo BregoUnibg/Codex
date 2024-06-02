@@ -13,6 +13,13 @@ import carte.CartaObiettivo;
 import carte.CartaOro;
 import carte.CartaRisorsa;
 
+/**
+ * Classe che si interfaccia alla logica di gioco tramite la console 
+ * In essa vi è l'applicazione delle alogica di gioco atraverso input da tastiera e output su console
+ * @author Gabriele
+ *
+ */
+
 public class Cli implements Interfaccia{
 	
 	//Scanner tastiera

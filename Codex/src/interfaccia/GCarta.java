@@ -15,6 +15,13 @@ import carte.Carta;
 import carte.CartaIniziale;
 import carte.CartaRisorsa;
 
+/**
+ * Rappresenta la carta grafica
+ * E' un pannello a cui veine associata l'immagine della carta logica relativa e la carta logica stessa per puter effettuare controlli
+ * @author Gabriele
+ *
+ */
+
 public class GCarta extends JPanel{
 	
 	private JLabel immagine;

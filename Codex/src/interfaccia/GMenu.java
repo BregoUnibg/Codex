@@ -13,6 +13,15 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.CountDownLatch;
 // 
+
+/**
+ * Menu iniziale per stabilire numero i credenziali dei giocatori
+ * 
+ * @author Gabriele Bregolin
+ * @author Joao Pedro Moretti
+ *
+ */
+
 public class GMenu {
 
 	private static CountDownLatch latch;

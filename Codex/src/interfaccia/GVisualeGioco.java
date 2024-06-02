@@ -27,6 +27,14 @@ import campo.CentroCampo;
 import campo.Giocatore;
 import carte.Carta;
 
+/**
+ * Rappresenta l'insieme di elementi visualizzti pecugliarmente dal singolo giocatore
+ * Quindi la sua mano, il campo da gioco personale e la sua barra delle statistiche
+ * 
+ * @author Gabriele
+ *
+ */
+
 public class GVisualeGioco extends JPanel{
 	
 	private GMano mano;

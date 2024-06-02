@@ -10,6 +10,14 @@ import java.util.concurrent.CountDownLatch;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+/**
+ * E' la sezione dove vengono piazzate le carte grafiche
+ * Gestisce le coordinate delle carte nel pannello a scorrimento (ovvero la classe stessa)
+ * 
+ * @author Gabriele
+ *
+ */
+
 public class GCampoGioco extends JScrollPane{
 
 	private JPanel campogioco;

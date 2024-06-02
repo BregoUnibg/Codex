@@ -15,6 +15,13 @@ import javax.swing.border.EmptyBorder;
 import campo.CampoGioco;
 import campo.Pedina;
 
+/**
+ * Rappresenta la barra delle statistiche in alto nella visuale di gioco, 
+ * Contiene i contatori delle figure, il nome del giocatore e l'azione da eseguire
+ * @author Gabriele
+ *
+ */
+
 public class GBarraStatistiche extends JPanel{
 	
 	private JLabel nomeGiocatore;

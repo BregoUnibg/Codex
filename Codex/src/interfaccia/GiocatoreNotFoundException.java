@@ -1,5 +1,11 @@
 package interfaccia;
 
+/**
+ * Giocatore non trovato in una collection
+ * @author Gabriele
+ *
+ */
+
 public class GiocatoreNotFoundException extends Exception{
 	
 	/**
