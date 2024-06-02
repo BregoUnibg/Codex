@@ -4,15 +4,21 @@ import java.util.ArrayList;
 
 import carte.*;
 
+/**
+ * Rappresenta il campo da gioco personale relativo ad ogni giocatore, dove vengono effetivamente piazzate le carte
+ * Questa classe gestisce la logica di piazzamento delle carte e memorizza la loro posizione e raccoglie dati utili per gli obiettivi
+ * @author Gabriele Bregolin
+ */
+
 public class CampoGioco {
 	
 	/*
-	 * Necessità di utilizzare una matrice di profondità 2 e larghezza e amieppza grande al fine di tracciare non solo gli obiettivi ma le possibili sovrapposizioni tra carte
+	 * Necessità di utilizzare una matrice di larghezza e ampiezza grande 81*81 fine di tracciare non solo gli obiettivi ma le possibili sovrapposizioni tra carte
 	 * 
-	 * La matrice conterrà le carte, partendo dalle centrale che occuperà esattamente il centro di essa, questo servirà a capire i vincoli di piazzamento nel caso bidogni piazzare più di una carta alla volta.
-	 * Essa servità anche per calcolare gli obiettivi relativi alla disosizioni delle carte su campo da gioco volendo.
+	 * La matrice conterrà le carte, partendo dalle centrale che occuperà esattamente il centro di essa, questo servirà a capire i vincoli di piazzamento nel caso bisogni asscociare più di un angolo alla volta.
+	 * Essa servità anche per calcolare gli obiettivi relativi alla disposizione delle carte su campo da gioco.
 	 *
-	 * Per quanto riguarda Glli obiettivi riguardanti le figure, risulta più comodo gestire tramite dei vettori che vengono incrementati e decrementate ogni volta che viene piazzata una nuova carta,
+	 * Per quanto concerne gli obiettivi riguardanti le figure, risulta più comodo gestirli tramite dei vettori che vengono incrementati e decrementate (proxy) ogni volta che viene piazzata una nuova carta,
 	 * in modo tale da non onerare la cpu con troppe scansioni evitabili.
 	 * 
 	 */
@@ -31,17 +37,6 @@ public class CampoGioco {
 	private int contaPiuma;
 	private int contaCiotola;
 	
-	/*
-	//Contatori colore delle carte
-	private int contaRosse;
-	private int contaBlu;
-	private int contaVerdi;
-	private int contaViola;
-
-
-	//private int ContaBianco; Non ci sono obiettivi riguardo queste carte
-	//private int ContaGrigio;
-	*/
 	
 	public CampoGioco() {
 		
@@ -55,14 +50,6 @@ public class CampoGioco {
 		contaPergamena = 0;
 		contaPiuma = 0;
 		contaCiotola = 0;
-		
-		/*
-		contaRosse = 0;
-		contaBlu = 0;
-		contaVerdi = 0;
-		contaViola = 0;
-		*/
-		
 		
 	}
 	
@@ -266,6 +253,10 @@ public class CampoGioco {
 		
 	}
 	
+	/**
+	 * Incrementa il contatore associato alla figura passata
+	 * @param f (Figura da incrementare)
+	 */
 	
 	private void incrementaFigura(Figura f) {
 		
@@ -306,6 +297,11 @@ public class CampoGioco {
 		
 	}
 	
+	/**
+	 * Decrementa il contatore associato alla figura passata
+	 * @param f (Figura da decrementare)
+	 */
+	
 	private void decrementaFigura(Figura f) {
 		
 		if(f == null)
@@ -344,57 +340,6 @@ public class CampoGioco {
 		}
 		
 	}
-	
-	/*
-	//Incrementa il contatore del rispettivo colore
-	private void incrementaColore(Colore c) {
-		switch(c) {
-		
-		case ROSSO:
-			this.contaRosse++;
-			break;
-		case BLU:
-			this.contaBlu++;
-			break;
-		case VERDE:
-			this.contaVerdi++;
-			break;
-		case VIOLA:
-			this.contaViola++;
-			break;
-		default:
-			break;
-			
-		}
-	}
-	*/
-	/**
-	 * 
-	 * Restituisce la posizione nella matrice di una carta
-	 * Se non è inserita nella matrice restiruisce null
-	 * @param c
-	 * @return
-	 */
-	
-	/*
-	
-	public int getContaRosse() {
-		return contaRosse;
-	}
-
-	public int getContaBlu() {
-		return contaBlu;
-	}
-
-	public int getContaVerdi() {
-		return contaVerdi;
-	}
-
-	public int getContaViola() {
-		return contaViola;
-	}
-	
-	*/
 
 	/**
 	 * Ritorna l'angolo in basee alla posizione: tl, tr, bl, br
@@ -453,6 +398,12 @@ public class CampoGioco {
 	public ArrayList <Carta> getCarteSulCampo(){
 		return carteSulCampo;
 	}
+	
+	/**
+	 * Restituisce una carta piazzata (presente) sul campo da gioco passando il suo id
+	 * @param id (id della carta)
+	 * @return carta
+	 */
 	
 	public Carta getCartaPiazzataById(int id){
 		for(Carta c: carteSulCampo) {

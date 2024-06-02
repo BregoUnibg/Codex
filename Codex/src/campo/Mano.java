@@ -6,6 +6,13 @@ import carte.Carta;
 import carte.CartaOro;
 import carte.CartaRisorsa;
 
+/**
+ * Rappresenta la mano del giocatore, quindi le (soletimante 3) carte che pesca e gioca
+ * @author Gabriele Bregolin
+ * @author Matteo Megna
+ *
+ */
+
 public class Mano {
 	
 	private ArrayList <Carta> carteMano; //Carte tenute in mano

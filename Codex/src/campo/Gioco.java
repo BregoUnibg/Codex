@@ -9,6 +9,11 @@ import interfaccia.Cli;
 import interfaccia.Gui;
 import interfaccia.Interfaccia;
 
+/**
+ * Rappresenta l'intero gioco
+ * In essa è contenuta l'intera logica di gioco e invocando il metodo gioca, il gioco stesso viene lanciato
+ * @author Gabriele
+ */
 
 public class Gioco {
 	
@@ -38,8 +43,7 @@ public class Gioco {
 	
 	
 	/**
-	 * Scescli l'interfaccia da utilizzare
-	 * Di dedfault cli
+	 * Scescli tramite console quali interfacia vuoi utilizzare
 	 */
 	
 	private void sceltaInterfaccia() {
@@ -65,9 +69,14 @@ public class Gioco {
 	//CARTE ORO: REQUISITO PER FAR GUADAGNARE PUNTICALCOLATO IMMEDIATAMENTE DOPO CHE LA CARTA E' STATA PIAZZATA (poi non viene più considerato)
 	//TUTTI GLI OBIETTIVI SONO INFUENZATI DA MOLTIPLICATORE
 	//GLI OBIETTIVI DELLE CARTE OBIETTIVO NON INFLUISONO NEI PRIMI 20 PUNTI MA VENGONO CALCOLATI ALLA FINE COME EXTRA;
-	//PER FARE PUNTI PUNTI PER ARRIVARE AI 20 SI SFRUTTANO SOLO CARTE RISORSA ORO E I LORO OBIETTIVI
+	//PER FARE PUNTI PER ARRIVARE AI 20 SI SFRUTTANO SOLO CARTE RISORSA ORO E I LORO OBIETTIVI
 	
 	//Questa in liena di massima sarà il metodo principale
+	
+	/**
+	 * Avvia Codex
+	 */
+	
 	public void gioca(){
 		
 		int ngiocatori = interfaccia.numeroGiocatori(); 
@@ -151,9 +160,9 @@ public class Gioco {
 	}
 	
 	/**
-	 * Rileva quando i venti punti sono stati raggiunti o si sino svuotati i mazzi, ed è quindi giunta la fase 
+	 * Rileva quando i venti punti sono stati raggiunti o si sono svuotati i mazzi, ed è quindi giunta la fase 
 	 * del calcolo del punteggio definitivo
-	 * @return
+	 * @return (true se la partita è giunta al termine)
 	 */
 	
 	private boolean fineGioco(){
