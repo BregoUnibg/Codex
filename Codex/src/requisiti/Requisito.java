@@ -7,7 +7,6 @@ import carte.Carta;
 
 public abstract interface Requisito {
 	
-	
 	/**
 	 * Restituisce il numero di volte per qui è soddisfatto singolaremnte il requisito, 
 	 * utile gestirlo in questo modo in quanto gli obiettivi sono influenzati da moltiplicatori
