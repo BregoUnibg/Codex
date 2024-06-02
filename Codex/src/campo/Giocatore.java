@@ -2,6 +2,15 @@ package campo;
 
 import carte.CartaObiettivo;
 
+/**
+ * Rapprestna un giocatore
+ * 
+ * @author Gabriele Bregolin
+ * @author Matteo Megna
+ * @author Joao Pedro Moretti
+ *
+ */
+
 public class Giocatore {
 	
 		//Attributi
@@ -35,13 +44,15 @@ public class Giocatore {
 		}
 		
 		/**
-		 * Dopo aver soddisfatto un obiettivo si aggiungono dati al "saldo punti" del giocatore
+		 * Aggiunge tot punti alla conta dei punti relativa al giocatore 
+		 * @param punti (punti appena ricevuti)
 		 */
+		
 		public void addPunti(int punti) {
 			this.punti += punti;
 		}
 		
-		//Getter
+		
 		public int getPunti() {
 			return punti;	
 		}

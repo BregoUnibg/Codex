@@ -135,7 +135,16 @@ public class Gui extends JFrame implements Interfaccia{
 		
 	}
 
-
+	
+	/**
+	 * Restituiscec la visuale di gioco relativa al giocatore passato
+	 * Nel caso il giocatore non sia presente tra quelli in partita viene lanciata una GiocatoreNotFoundException
+	 * 
+	 * @param g (Giocatore)
+	 * @return	(VisualeGioco relativa all giocatore)
+	 * @throws GiocatoreNotFoundException
+	 */
+	
 	private GVisualeGioco getVisuale(Giocatore g) throws GiocatoreNotFoundException {
 		
 		GVisualeGioco visualeGiocatore = null;
@@ -163,6 +172,7 @@ public class Gui extends JFrame implements Interfaccia{
 		}catch(GiocatoreNotFoundException ge) {
 			
 			System.out.println("Fatal Error: giocatore non trovato");
+			
 			
 		}
 		//QUI POTREI METTERE UN ECCEZIONE CONTROLLATA (se un giocatore non è stato traovato lancio giocaotrenotfuondexception)

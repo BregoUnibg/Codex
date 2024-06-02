@@ -4,6 +4,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import carte.Carta;
 
+/**
+ * Rappresenta un mazzo di carte
+ * @author Gabriele Bregolin
+ * @author Matteo Megna
+ * @author Joao Pedro Moretti
+ *
+ */
+
 public class Mazzo {
 	
 	private ArrayList <Carta> mazzo;
@@ -45,6 +53,11 @@ public class Mazzo {
 		return cartaPescata;
 		
 	}
+	
+	/**
+	 * Controlla se le carte nel mazzo sono state esaurite
+	 * @return (true se non ci sono più carte nel mazzo)
+	 */
 	
 	public boolean vuoto() {
 		return mazzo.isEmpty();

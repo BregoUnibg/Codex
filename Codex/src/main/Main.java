@@ -1,8 +1,5 @@
 package main;
 
-import carte.*;
-import requisiti.*;
-import requisiti.Requisito;
 import campo.*;
 
 public class Main {

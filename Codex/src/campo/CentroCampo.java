@@ -24,6 +24,13 @@ import requisiti.ReqLVerdeViola;
 import requisiti.ReqLViolaBlu;
 import requisiti.Requisito;
 
+/**
+ * Rappresenta lo spazio condiviso da tutti da dove vengono pescate le carte
+ * Questa classe gestisce la creazione di tutti gli oggetti carta prendedndo da file gli attributi di ciascuna
+ * @author Gabriele Bregolin
+ * @author Matteo Megna
+ */
+
 public class CentroCampo {
 	
 	//Il centro campo contiene I mazzi e le 2 carte risorsa, oro e obiettivo scoperte
@@ -96,38 +103,7 @@ public class CentroCampo {
 		*/
 	}
 	
-	/**
-	 * Prende la carta di un certo id dal centrocampo
-	 * @param id
-	 * @return
-	 */
 	
-	/*
-	public Carta prendiCartaid(int id) {
-		
-		
-		if(id == cartaOro1.getId()) {
-		
-			return prendiCartaOro1();
-		
-		}else if(id == cartaOro2.getId()) {
-			
-			return prendiCartaOro2();
-		
-		}else if(id == cartaRisorsa1.getId()) {
-			
-			return prendiCartaRisorsa1();
-		}
-		else if(id == cartaRisorsa2.getId()){
-			return prendiCartaRisorsa2();
-		}
-		else
-			return null;
-		
-		
-	}
-	
-	*/
 	/**
 	 * Il Giocatore pesca la prima carta oro scoperta nel campo e 
 	 * si pesca una carta nuova dal mazzo oro da mettere al centro campo 
